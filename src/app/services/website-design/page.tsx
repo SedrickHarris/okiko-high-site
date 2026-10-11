@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { IconCardHeading } from "@/components/cards/IconCardHeading";
 import { CapabilityGrid } from "@/components/sections/CapabilityGrid";
 import { FaqSection } from "@/components/sections/FaqSection";
 import { PageSection } from "@/components/sections/PageSection";
@@ -241,8 +242,8 @@ export default function Page() {
           <div className="mt-8 grid gap-6 md:grid-cols-3">
             {scopeColumns.map((column) => (
               <div key={column.heading} className="rounded-lg border border-neutral-200 bg-white p-5">
-                <h3 className="text-lg font-semibold">{column.heading}</h3>
-                <p className="mt-1 text-sm text-neutral-600">{column.note}</p>
+                <IconCardHeading icon={column.icon} tone={column.tone} title={column.heading} />
+                <p className="mt-3 text-sm text-neutral-600">{column.note}</p>
                 <ul className="mt-4 list-disc space-y-2 pl-5 text-neutral-800">
                   {column.items.map((item) => (
                     <li key={item}>{item}</li>
@@ -278,8 +279,8 @@ export default function Page() {
           <div className="grid gap-6 md:grid-cols-3">
             {approachGuide.map((item) => (
               <div key={item.heading} className="rounded-lg border border-neutral-200 p-5">
-                <h3 className="text-lg font-semibold">{item.heading}</h3>
-                <p className="mt-2 text-neutral-700">{item.body}</p>
+                <IconCardHeading icon={item.icon} title={item.heading} />
+                <p className="mt-3 text-neutral-700">{item.body}</p>
               </div>
             ))}
           </div>
@@ -396,8 +397,8 @@ export default function Page() {
           <div className="grid gap-6 md:grid-cols-2">
             {qualityChecks.map((check) => (
               <div key={check.heading} className="rounded-lg border border-neutral-200 p-5">
-                <h3 className="text-lg font-semibold">{check.heading}</h3>
-                <p className="mt-2 text-neutral-700">{check.body}</p>
+                <IconCardHeading icon={check.icon} title={check.heading} />
+                <p className="mt-3 text-neutral-700">{check.body}</p>
               </div>
             ))}
           </div>
@@ -554,11 +555,10 @@ export default function Page() {
           }
         >
           <ol className="grid gap-4 md:grid-cols-5">
-            {customerJourney.map((item, index) => (
+            {customerJourney.map((item) => (
               <li key={item.stage} className="rounded-lg border border-neutral-200 p-4">
-                <p className="text-sm font-semibold text-neutral-600">{index + 1}</p>
-                <h3 className="mt-1 font-semibold">{item.stage}</h3>
-                <p className="mt-2 text-sm text-neutral-700">{item.body}</p>
+                <IconCardHeading icon={item.icon} title={item.stage} />
+                <p className="mt-3 text-sm text-neutral-700">{item.body}</p>
               </li>
             ))}
           </ol>

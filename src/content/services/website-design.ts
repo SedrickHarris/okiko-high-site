@@ -109,6 +109,8 @@ export const inquiryFlow = [
 
 export const scopeColumns = [
   {
+    icon: "check",
+    tone: "included",
     heading: "Scoped into your project",
     note: "Named in your written scope.",
     items: [
@@ -123,6 +125,8 @@ export const scopeColumns = [
     ],
   },
   {
+    icon: "plus",
+    tone: "optional",
     heading: "Optional and scoped separately",
     note: "Added only if you want them.",
     items: [
@@ -134,6 +138,8 @@ export const scopeColumns = [
     ],
   },
   {
+    icon: "minus",
+    tone: "muted",
     heading: "Not assumed",
     note: "Included only if your scope says so.",
     items: [
@@ -149,14 +155,17 @@ export const scopeColumns = [
 
 export const approachGuide = [
   {
+    icon: "improve",
     heading: "Improve",
     body: "The site works, but contact paths, messaging, or speed hold it back. Targeted fixes may be enough.",
   },
   {
+    icon: "redesign",
     heading: "Redesign",
     body: "The current platform can support what you need, but the layout, content, or structure needs rework.",
   },
   {
+    icon: "rebuild",
     heading: "Rebuild",
     body: "Structural, integration, performance, or portability limits make incremental fixes uneconomical.",
   },
@@ -206,18 +215,22 @@ export const architectureLevels = [
 
 export const qualityChecks = [
   {
+    icon: "phone",
     heading: "Mobile testing",
     body: "Navigation, tap-to-call, forms, and booking are tested on phones, not only in a desktop preview.",
   },
   {
+    icon: "gauge",
     heading: "Performance targets",
     body: "Targets follow Google's Core Web Vitals thresholds: LCP of 2.5 seconds or less, INP of 200 milliseconds or less, and CLS of 0.1 or less, assessed at the 75th percentile of real-user data on mobile and desktop.",
   },
   {
+    icon: "accessibility",
     heading: "Accessibility scope",
     body: "Testing is defined against WCAG 2.2 AA: keyboard operation, visible focus, forms, contrast, zoom, and target size. Automated scans are paired with manual checks.",
   },
   {
+    icon: "plug",
     heading: "Third-party widgets",
     body: "Chat, booking, and form widgets are checked for speed, accessibility, and privacy alongside the main site.",
   },
@@ -327,22 +340,27 @@ export const ownershipRows = [
 
 export const customerJourney = [
   {
+    icon: "pin",
     stage: "Discovery",
     body: "Google Business Profile optimization helps customers find and verify your business.",
   },
   {
+    icon: "website",
     stage: "Website",
     body: "Your site explains the offer and makes contact easy.",
   },
   {
+    icon: "message",
     stage: "Inquiry",
     body: "A website chatbot can answer scoped pre-inquiry questions.",
   },
   {
+    icon: "headset",
     stage: "Reception",
     body: "An AI receptionist can handle calls after a visitor taps to call.",
   },
   {
+    icon: "mail",
     stage: "Follow-up",
     body: "Text and email workflows follow up under appropriate consent and communication rules.",
   },
