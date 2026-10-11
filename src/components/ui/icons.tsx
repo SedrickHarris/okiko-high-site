@@ -214,6 +214,30 @@ export const CalendarIcon = (p: P) => (
   </Icon>
 );
 
+/** Bell (monitoring and notifications) */
+export const BellIcon = (p: P) => (
+  <Icon {...p}>
+    <path d="M6 16.5V11a6 6 0 0 1 12 0v5.5l1.5 2h-15z" />
+    <path d="M10 21h4" />
+  </Icon>
+);
+
+/** Flag (reporting a policy violation) */
+export const FlagIcon = (p: P) => (
+  <Icon {...p}>
+    <path d="M5 21V4" />
+    <path d="M5 4.5h12l-2 4 2 4H5" />
+  </Icon>
+);
+
+/** Shield with a check (platform-policy commitments) */
+export const ShieldCheckIcon = (p: P) => (
+  <Icon {...p}>
+    <path d="M12 3l7.5 3v5.5c0 4.5-3.1 8-7.5 9.5-4.4-1.5-7.5-5-7.5-9.5V6z" />
+    <path d="M8.8 12l2.2 2.2 4.2-4.4" />
+  </Icon>
+);
+
 export const iconRegistry = {
   check: CheckCircleIcon,
   plus: PlusCircleIcon,
@@ -233,6 +257,9 @@ export const iconRegistry = {
   lead: LeadCaptureIcon,
   integrations: IntegrationsIcon,
   calendar: CalendarIcon,
+  bell: BellIcon,
+  flag: FlagIcon,
+  shield: ShieldCheckIcon,
 } as const;
 
 export type IconName = keyof typeof iconRegistry;

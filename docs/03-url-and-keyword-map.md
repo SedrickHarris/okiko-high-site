@@ -41,7 +41,7 @@ These pages are candidates until the owner confirms current service availability
 | Website Design and Development | `/services/website-design/` | website design for local businesses |
 | AI Chatbots | `/services/ai-chatbots/` | AI chatbot for small business website (page built; noindex and not in sitemap until the owner confirms availability) |
 | AI Voice Agents and Receptionists | `/services/ai-voice-agents/` | TBD |
-| Reputation Management | `/services/reputation-management/` | TBD |
+| Reputation Management | `/services/reputation-management/` | review management services (page built; noindex and not in sitemap until the owner confirms availability) |
 | Google Business Profile Optimization | `/services/google-business-profile-optimization/` | TBD |
 | Google Business Profile Automation | `/services/google-business-profile-automation/` | TBD |
 | SMS and Email Automation | `/services/sms-email-automation/` | TBD |
@@ -65,6 +65,21 @@ Confirm whether GBP optimization and GBP automation are distinct offers with dis
 | Internal links | Links out to `/services/`, `/privacy-policy/`, `/contact/`. Add links to GBP optimization, reputation management, AI chatbot, AI receptionist, SMS and email automation, and audience pages when those pages are published and substantive. |
 | Status | Built |
 | Notes | Keywords are intent-based recommendations, not validated search-volume findings. Agency pricing, delivery range, ownership terms, platform stack, review offer, and proof are unconfirmed, so the page makes no claims about them. `docs/01` still lists website design availability as TBD. |
+
+#### Reputation Management
+
+| Field | Entry |
+|---|---|
+| Page name | Reputation Management (review management) |
+| URL | `/services/reputation-management/` |
+| Page type | Service |
+| Target keyword | review management services |
+| Search intent | Commercial investigation: a local or service-based business owner deciding how to request reviews, keep track of them, and reply, and whether to do it themselves or use a managed service |
+| Supporting keyword clusters | online review management; reputation management for small business; Google review management services; review generation services; automated review requests; Google review monitoring; review response service; SMS review requests; customer review management; reputation management for contractors. Question clusters: how to get more Google reviews; whether review gating is allowed; whether a discount for a review is allowed; whether a bad Google review can be removed; how many reviews a business needs; what to say to an angry reviewer; whether Google reviews help local rankings; SMS versus email review requests; review management cost |
+| Parent page | `/services/` |
+| Internal links | Links out to `/services/`, `/services/website-design/`, `/privacy-policy/`, `/contact/`. Add links to GBP optimization, SMS and email automation, AI chatbot, and AI voice agent pages when those pages are published and substantive. Add a link from the website design page once this page is published. |
+| Status | Built (noindex, not in sitemap) |
+| Notes | Keywords are intent-based recommendations, not validated search-volume findings. `docs/01` still lists reputation management availability as TBD, so the page is noindex, left out of `src/app/sitemap.ts`, and emits no `Service` schema. To publish: confirm availability and scope, approve the "what we will not do" list, confirm the contact path, then remove `robots` from the page metadata and add the route to the sitemap. Agency pricing, response-time targets, supported platforms, results, testimonials, ratings, and vendor partnership are unconfirmed, so the page makes no claims about them. Primary keyword is distinct from the Google Business Profile pages: this page covers reviews, not listing setup. No `Review` or `AggregateRating` markup. |
 
 ## Proposed audience URLs
 
