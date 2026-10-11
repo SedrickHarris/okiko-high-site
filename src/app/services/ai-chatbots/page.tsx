@@ -79,6 +79,9 @@ const rowTiles = [
   "bg-brand-green text-brand-ink",
 ] as const;
 
+const contactButton =
+  "font-heading inline-flex min-h-11 items-center justify-center gap-2 rounded-md border-2 border-brand-blue-strong bg-white px-5 py-2.5 text-base font-semibold text-brand-blue-strong hover:bg-surface-muted hover:shadow-md motion-safe:transition-[transform,box-shadow,background-color,color] motion-safe:duration-150 motion-safe:hover:-translate-y-px motion-safe:active:translate-y-0";
+
 const telHref = `tel:+1${siteConfig.phone.replace(/\D/g, "")}`;
 
 function Cta({ className = "" }: { className?: string }) {
@@ -524,17 +527,17 @@ export default function Page() {
               for details.
             </p>
             <Cta />
-            <p className="mt-6 text-neutral-700">
-              Prefer to reach out directly? Email{" "}
-              <a href={`mailto:${siteConfig.email}`} className="font-semibold text-brand-blue-strong underline underline-offset-2">
+            <p className="mt-6 text-neutral-700">Prefer to reach out directly?</p>
+            <div className="mt-3 flex flex-wrap gap-3">
+              <a href={`mailto:${siteConfig.email}`} className={contactButton}>
+                <NamedIcon name="mail" className="h-5 w-5" />
                 {siteConfig.email}
-              </a>{" "}
-              or call{" "}
-              <a href={telHref} className="whitespace-nowrap font-semibold text-brand-blue-strong underline underline-offset-2">
+              </a>
+              <a href={telHref} className={contactButton}>
+                <NamedIcon name="phone" className="h-5 w-5" />
                 {siteConfig.phone}
               </a>
-              .
-            </p>
+            </div>
             </div>
             <figure className="flex flex-col items-center md:items-end">
               <ChatHandoffIllustration />
