@@ -196,13 +196,7 @@ export default function Page() {
               <h4 className="mt-6 text-lg font-semibold">What to notice in this chat</h4>
               <ol className="mt-3 space-y-3">
                 {noticePoints.map((point, index) => (
-                  <li key={point.title} className="flex items-start gap-3 rounded-lg border border-neutral-200 bg-white p-4">
-                    <span
-                      aria-hidden="true"
-                      className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-brand-blue-strong text-xs font-bold text-white"
-                    >
-                      {index + 1}
-                    </span>
+                  <li key={point.title} className="rounded-lg border border-neutral-200 bg-white p-4">
                     <div className="min-w-0">
                       <IconCardHeading icon={point.icon} tone={tones[index % tones.length]} title={point.title} as="h4" />
                       <p className="mt-2 text-sm text-neutral-700">{point.body}</p>
