@@ -427,6 +427,7 @@ export const iconRegistry = {
   package: PackageIcon,
   exit: ExitIcon,
   key: KeyIcon,
+  launch: LaunchIcon,
 } as const;
 
 export type IconName = keyof typeof iconRegistry;
