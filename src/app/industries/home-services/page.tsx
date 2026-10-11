@@ -111,10 +111,10 @@ export default function Page() {
 
       <div className="mt-8 space-y-16">
         {/* A. Hero */}
-        <header className="grid gap-10 lg:grid-cols-[22rem_1fr] lg:items-center">
-          {/* Text stays first in the DOM so the heading leads on mobile and for
-              screen readers; on large screens the illustration sits to its left. */}
-          <div className="lg:order-2">
+        <header className="grid gap-10 lg:grid-cols-[1fr_22rem] lg:items-center">
+          {/* Text comes first so the heading leads on mobile and for screen
+              readers; on large screens the illustration sits to its right. */}
+          <div>
             <h1 className="hero-in-h1 max-w-4xl text-4xl font-extrabold tracking-tight sm:text-5xl">
               {page.h1}
             </h1>
@@ -128,13 +128,13 @@ export default function Page() {
               <ButtonLink href={page.primaryCta.href}>{page.primaryCta.label}</ButtonLink>
             </div>
           </div>
-          <figure className="hero-in hero-delay-2 mx-auto w-full max-w-sm lg:order-1 lg:mx-0 lg:max-w-none">
+          <figure className="hero-in hero-delay-2 mx-auto w-full max-w-sm lg:mx-0 lg:max-w-none">
             <HomeServicesHeroIllustration />
             <figcaption className="mt-2 text-center text-xs text-neutral-600">
               Illustrative handoff, not a client project.
             </figcaption>
           </figure>
-          <figure className="hero-in hero-delay-3 lg:order-3 lg:col-span-2">
+          <figure className="hero-in hero-delay-3 lg:col-span-2">
             <ol className="grid gap-3 sm:grid-cols-5">
               {workflowStrip.map((step, i) => (
                 <li
