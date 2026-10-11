@@ -238,31 +238,37 @@ export const qualityChecks = [
 
 export const processSteps = [
   {
+    icon: "search",
     title: "Audit",
     body: "Review your goals, existing traffic, rankings, lead quality, platform, and ownership.",
     clientInput: "Your goals and access to the current site and analytics, if any.",
   },
   {
+    icon: "clipboard",
     title: "Plan",
     body: "Map services, legitimate service areas, navigation, conversion paths, and migration requirements.",
     clientInput: "Your approval of the plan before design begins.",
   },
   {
+    icon: "pen",
     title: "Write and design",
     body: "Develop customer-focused copy, mobile-first layouts, and verified trust signals.",
     clientInput: "Facts, credentials, and proof to verify, plus your approval of copy and layouts.",
   },
   {
+    icon: "code",
     title: "Build",
     body: "Implement pages, forms, click-to-call, the CMS, analytics, metadata, and applicable structured data.",
     clientInput: "Timely feedback on builds and answers to open questions.",
   },
   {
+    icon: "shield",
     title: "Test",
     body: "Check forms, devices, accessibility, performance, redirects, and indexability.",
     clientInput: "Your review and sign-off before launch.",
   },
   {
+    icon: "rocket",
     title: "Launch and hand over",
     body: "Connect the domain, monitor agreed launch issues, document access, and walk you through your site.",
     clientInput: "Domain and account access.",
@@ -270,16 +276,18 @@ export const processSteps = [
 ] as const;
 
 export const costDrivers = [
-  "The number and type of pages",
-  "Who writes the copy, and how much exists already",
-  "Integrations such as forms, booking, CRM, and chat",
-  "Migration from an existing site and its URLs",
-  "Accessibility and performance testing scope",
-  "Platform choice and the licenses it requires",
+  { icon: "file", label: "The number and type of pages" },
+  { icon: "pen", label: "Who writes the copy, and how much exists already" },
+  { icon: "plug", label: "Integrations such as forms, booking, CRM, and chat" },
+  { icon: "swap", label: "Migration from an existing site and its URLs" },
+  { icon: "gauge", label: "Accessibility and performance testing scope" },
+  { icon: "server", label: "Platform choice and the licenses it requires" },
 ] as const;
 
 export const costRows = [
   {
+    icon: "tag",
+    tone: "included",
     heading: "Build fee (project)",
     items: [
       "Pages, copy, and design in the agreed scope",
@@ -289,6 +297,8 @@ export const costRows = [
     ],
   },
   {
+    icon: "repeat",
+    tone: "optional",
     heading: "Recurring or optional (listed separately)",
     items: [
       "Hosting",
@@ -302,36 +312,43 @@ export const costRows = [
 
 export const ownershipRows = [
   {
+    icon: "globe",
     asset: "Domain name",
     confirm: "Who is the registered owner, and who controls the registrar account.",
     exit: "Domain transfer and website portability are separate questions.",
   },
   {
+    icon: "server",
     asset: "Hosting and platform accounts",
     confirm: "Who holds administrator access.",
     exit: "What happens to the site if a subscription stops.",
   },
   {
+    icon: "image",
     asset: "Your text, images, and brand assets",
     confirm: "Rights to the material you supplied.",
     exit: "How you get copies of it.",
   },
   {
+    icon: "pen",
     asset: "New copy and design work",
     confirm: "Which rights transfer to you, and when.",
     exit: "Whether anything remains licensed rather than owned.",
   },
   {
+    icon: "code",
     asset: "Custom code",
     confirm: "Whether it transfers to you or is licensed.",
     exit: "Whether the site can move to another host.",
   },
   {
+    icon: "package",
     asset: "Themes, plugins, fonts, and stock media",
     confirm: "Which components are third-party licenses.",
     exit: "Who pays renewals, and what happens if they lapse.",
   },
   {
+    icon: "exit",
     asset: "Cancellation and handover",
     confirm: "Notice terms and which services stop.",
     exit: "Account access and migration assistance.",

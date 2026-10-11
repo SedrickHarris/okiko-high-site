@@ -16,6 +16,7 @@ import {
   IntegrationsIcon,
   LeadCaptureIcon,
   MessageIcon,
+  NamedIcon,
 } from "@/components/ui/icons";
 import { SourceLinks } from "@/components/ui/SourceLinks";
 import {
@@ -296,7 +297,7 @@ export default function Page() {
                 When each website platform option tends to fit, and what to watch for
               </caption>
               <thead>
-                <tr className="border-b border-neutral-300">
+                <tr className="border-b-2 border-brand-blue">
                   <th scope="col" className="py-3 pr-4 font-semibold">Option</th>
                   <th scope="col" className="py-3 pr-4 font-semibold">Can fit when</th>
                   <th scope="col" className="py-3 font-semibold">Watch for</th>
@@ -433,9 +434,11 @@ export default function Page() {
         >
           <ol className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {processSteps.map((step, index) => (
-              <li key={step.title} className="rounded-lg border border-neutral-200 bg-white p-5">
-                <p className="text-sm font-semibold text-brand-blue-strong">Step {index + 1}</p>
-                <h3 className="mt-1 text-lg font-semibold">{step.title}</h3>
+              <li key={step.title} className="rounded-lg border border-neutral-200 border-t-4 border-t-brand-blue bg-white p-5">
+                <p className="mb-3 inline-block rounded-full bg-brand-yellow px-2.5 py-0.5 font-heading text-xs font-bold text-brand-ink">
+                  Step {index + 1}
+                </p>
+                <IconCardHeading icon={step.icon} title={step.title} />
                 <p className="mt-2 text-neutral-800">{step.body}</p>
                 <p className="mt-3 text-sm text-neutral-600">
                   <span className="font-semibold">From you:</span> {step.clientInput}
@@ -466,17 +469,25 @@ export default function Page() {
           <div className="grid gap-8 md:grid-cols-2">
             <div>
               <h3 className="text-lg font-semibold">What changes the quote</h3>
-              <ul className="mt-3 list-disc space-y-2 pl-5 text-neutral-800">
+              <ul className="mt-4 space-y-3 text-neutral-800">
                 {costDrivers.map((driver) => (
-                  <li key={driver}>{driver}</li>
+                  <li key={driver.label} className="flex items-center gap-3">
+                    <span
+                      aria-hidden="true"
+                      className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-surface-muted text-brand-blue-strong"
+                    >
+                      <NamedIcon name={driver.icon} className="h-5 w-5" />
+                    </span>
+                    {driver.label}
+                  </li>
                 ))}
               </ul>
             </div>
             <div className="space-y-5">
               {costRows.map((row) => (
                 <div key={row.heading} className="rounded-lg border border-neutral-200 p-5">
-                  <h3 className="text-lg font-semibold">{row.heading}</h3>
-                  <ul className="mt-3 list-disc space-y-1 pl-5 text-neutral-800">
+                  <IconCardHeading icon={row.icon} tone={row.tone} title={row.heading} />
+                  <ul className="mt-3 list-disc space-y-1 pl-5 text-neutral-800 marker:text-brand-blue-strong">
                     {row.items.map((item) => (
                       <li key={item}>{item}</li>
                     ))}
@@ -517,7 +528,7 @@ export default function Page() {
                 Website assets, what to confirm about each, and what to consider at exit
               </caption>
               <thead>
-                <tr className="border-b border-neutral-300">
+                <tr className="border-b-2 border-brand-blue">
                   <th scope="col" className="py-3 pr-4 font-semibold">Asset</th>
                   <th scope="col" className="py-3 pr-4 font-semibold">Confirm in writing</th>
                   <th scope="col" className="py-3 font-semibold">At exit</th>
@@ -526,7 +537,17 @@ export default function Page() {
               <tbody>
                 {ownershipRows.map((row) => (
                   <tr key={row.asset} className="border-b border-neutral-200 align-top">
-                    <th scope="row" className="py-3 pr-4 font-semibold">{row.asset}</th>
+                    <th scope="row" className="py-3 pr-4 font-semibold">
+                      <span className="flex items-center gap-3">
+                        <span
+                          aria-hidden="true"
+                          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-white text-brand-blue-strong"
+                        >
+                          <NamedIcon name={row.icon} className="h-5 w-5" />
+                        </span>
+                        {row.asset}
+                      </span>
+                    </th>
                     <td className="py-3 pr-4 text-neutral-800">{row.confirm}</td>
                     <td className="py-3 text-neutral-800">{row.exit}</td>
                   </tr>

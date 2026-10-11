@@ -278,6 +278,113 @@ export const ClipboardIcon = (p: P) => (
   </Icon>
 );
 
+/** Magnifier (audit) */
+export const SearchIcon = (p: P) => (
+  <Icon {...p}>
+    <circle cx="11" cy="11" r="7" />
+    <path d="M16 16l5 5" />
+  </Icon>
+);
+
+/** Pen (copy and design) */
+export const PenIcon = (p: P) => (
+  <Icon {...p}>
+    <path d="M4 20l1-4L16 5l3 3L8 19zM14 7l3 3" />
+  </Icon>
+);
+
+/** Code brackets (build, custom code) */
+export const CodeIcon = (p: P) => (
+  <Icon {...p}>
+    <path d="M8 8l-4 4 4 4M16 8l4 4-4 4M13.5 6l-3 12" />
+  </Icon>
+);
+
+/** Rocket (launch) */
+export const RocketIcon = (p: P) => (
+  <Icon {...p}>
+    <path d="M5 19c0-3 1-4 3-4l1 1c0 2-1 3-4 3zM9 15l-1-1c0-5 4-10 12-10 0 8-5 12-10 12l-1-1z" />
+    <circle cx="15" cy="9" r="1.5" />
+  </Icon>
+);
+
+/** Page with lines (pages) */
+export const FileIcon = (p: P) => (
+  <Icon {...p}>
+    <path d="M6 3h8l4 4v14H6zM14 3v4h4M9 12h6M9 16h6" />
+  </Icon>
+);
+
+/** Two opposing arrows (migration) */
+export const SwapIcon = (p: P) => (
+  <Icon {...p}>
+    <path d="M4 8h14l-3-3M20 16H6l3 3" />
+  </Icon>
+);
+
+/** Server stack (platform, hosting) */
+export const ServerIcon = (p: P) => (
+  <Icon {...p}>
+    <rect x="3" y="4" width="18" height="7" rx="2" />
+    <rect x="3" y="13" width="18" height="7" rx="2" />
+    <path d="M7 7.5h.01M7 16.5h.01" />
+  </Icon>
+);
+
+/** Price tag (build fee) */
+export const TagIcon = (p: P) => (
+  <Icon {...p}>
+    <path d="M3 12V4h8l10 10-8 8z" />
+    <circle cx="7.5" cy="8.5" r="1.2" />
+  </Icon>
+);
+
+/** Loop arrows (recurring) */
+export const RepeatIcon = (p: P) => (
+  <Icon {...p}>
+    <path d="M17 3l3 3-3 3M4 11V9a3 3 0 0 1 3-3h13M7 21l-3-3 3-3M20 13v2a3 3 0 0 1-3 3H4" />
+  </Icon>
+);
+
+/** Globe (domain) */
+export const GlobeIcon = (p: P) => (
+  <Icon {...p}>
+    <circle cx="12" cy="12" r="9" />
+    <path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18" />
+  </Icon>
+);
+
+/** Picture (text, images, brand assets) */
+export const ImageIcon = (p: P) => (
+  <Icon {...p}>
+    <rect x="3" y="4" width="18" height="16" rx="2" />
+    <circle cx="9" cy="10" r="1.5" />
+    <path d="M21 16l-5-5-9 9" />
+  </Icon>
+);
+
+/** Box (themes, plugins, licenses) */
+export const PackageIcon = (p: P) => (
+  <Icon {...p}>
+    <path d="M12 3l8 4v10l-8 4-8-4V7zM4 7l8 4 8-4M12 11v10" />
+  </Icon>
+);
+
+/** Door arrow (cancellation and handover) */
+export const ExitIcon = (p: P) => (
+  <Icon {...p}>
+    <path d="M10 4H5v16h5M14 8l4 4-4 4M18 12H9" />
+  </Icon>
+);
+
+/** Key (access and ownership) */
+export const KeyIcon = (p: P) => (
+  <Icon {...p}>
+    <circle cx="8" cy="15" r="4" />
+    <path d="M11 12l9-9M16 7l3 3M14 9l2 2" />
+  </Icon>
+);
+
 export const iconRegistry = {
   call: CallIcon,
   transfer: TransferIcon,
@@ -306,6 +413,20 @@ export const iconRegistry = {
   star: StarOutlineIcon,
   clock: ClockIcon,
   analytics: AnalyticsIcon,
+  search: SearchIcon,
+  pen: PenIcon,
+  code: CodeIcon,
+  rocket: RocketIcon,
+  file: FileIcon,
+  swap: SwapIcon,
+  server: ServerIcon,
+  tag: TagIcon,
+  repeat: RepeatIcon,
+  globe: GlobeIcon,
+  image: ImageIcon,
+  package: PackageIcon,
+  exit: ExitIcon,
+  key: KeyIcon,
 } as const;
 
 export type IconName = keyof typeof iconRegistry;
