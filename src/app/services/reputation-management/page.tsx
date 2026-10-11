@@ -809,13 +809,17 @@ export default function Page() {
               Prefer to reach out directly? Email{" "}
               <a href={`mailto:${siteConfig.email}`} className="font-semibold text-brand-blue-strong underline underline-offset-2">
                 {siteConfig.email}
-              </a>{" "}
-              or call{" "}
-              <a href={telHref} className="font-semibold text-brand-blue-strong underline underline-offset-2">
-                {siteConfig.phone}
               </a>
-              .
+              <br />
+              or call
             </p>
+            <a
+              href={telHref}
+              className="font-heading mt-3 inline-flex min-h-11 items-center justify-center gap-2 rounded-md border-2 border-brand-blue-strong bg-white px-5 py-2.5 text-base font-semibold text-brand-blue-strong hover:bg-surface-muted hover:shadow-md motion-safe:transition-[transform,box-shadow,background-color,color] motion-safe:duration-150 motion-safe:hover:-translate-y-px motion-safe:active:translate-y-0"
+            >
+              <NamedIcon name="phone" className="h-5 w-5" />
+              {siteConfig.phone}
+            </a>
             </div>
             <div className="flex justify-center md:justify-end">
               <ReviewGapMapIllustration />
