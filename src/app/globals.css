@@ -12,8 +12,37 @@
   --font-mono: var(--font-geist-mono);
 }
 
+/*
+ * Brand colors. See docs/05-brand-and-design-system.md for provenance.
+ * Sampled values come from the logo image the owner supplied on 2026-10-10.
+ * Derived values are accessible shades computed from the sampled blue.
+ * The sampled colors fail 4.5:1 against white, so use them for fills and
+ * accents with brand-ink text, never as text on white.
+ */
+@theme {
+  /* Sampled from the logo */
+  --color-brand-blue: #0098fd;
+  --color-brand-green: #00d002;
+  --color-brand-yellow: #ffc503;
+  /* Text on brand fills (same as --foreground) */
+  --color-brand-ink: #171717;
+  /* Derived: links, focus rings, small text (5.76:1 on white) */
+  --color-brand-blue-strong: #0068b5;
+  /* Derived: button hover (7.31:1 with brand-ink text) */
+  --color-brand-blue-hover: #33adff;
+  /* Derived: very light blue tint for alternate sections */
+  --color-surface-muted: #f2f9ff;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+
+a:focus-visible,
+summary:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--color-brand-blue-strong);
+  outline-offset: 2px;
 }

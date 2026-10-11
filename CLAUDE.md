@@ -16,7 +16,7 @@ Commands: `npm run dev`, `npm run lint`, `npm run build`.
 
 ## Rules
 
-- Light theme, white foundation; colors come from the approved OKIKO HIGH logo (hex values TBD). No dark mode.
+- Light theme, white foundation; brand colors are recorded in `docs/05` and defined as tokens in `src/app/globals.css`. Use brand fills with `brand-ink` text, never as text on white. No dark mode.
 - Never use GoHighLevel logos or imply an official relationship.
 - Serves clients worldwide. Do not create city, state, country, or regional pages (no Las Vegas).
 - Never publish information belonging to Okiko High Landscaping.

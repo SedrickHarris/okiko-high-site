@@ -1,13 +1,14 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 
-// Neutral styling until the logo colors are confirmed (docs/05).
+// Brand fills use brand-ink text for contrast (docs/05).
 const base =
-  "inline-flex min-h-11 items-center justify-center rounded-md px-5 py-2.5 text-base font-semibold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900";
+  "inline-flex min-h-11 items-center justify-center rounded-md px-5 py-2.5 text-base font-semibold";
 
 const variants = {
-  primary: "bg-neutral-900 text-white hover:bg-neutral-700",
-  secondary: "border border-neutral-900 bg-white text-neutral-900 hover:bg-neutral-100",
+  primary: "bg-brand-blue text-brand-ink hover:bg-brand-blue-hover",
+  secondary:
+    "border-2 border-brand-blue-strong bg-white text-brand-blue-strong hover:bg-surface-muted",
 } as const;
 
 export function ButtonLink({

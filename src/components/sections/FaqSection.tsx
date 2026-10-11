@@ -18,11 +18,11 @@ export function FaqSection({
       <div className="max-w-3xl divide-y divide-neutral-200 rounded-lg border border-neutral-200">
         {faqs.map((faq) => (
           <details key={faq.question} className="group p-5">
-            <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 text-lg font-semibold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900 [&::-webkit-details-marker]:hidden">
+            <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 text-lg font-semibold [&::-webkit-details-marker]:hidden">
               <h3 className="text-lg font-semibold">{faq.question}</h3>
               <span
                 aria-hidden="true"
-                className="text-2xl leading-none transition-transform group-open:rotate-45"
+                className="text-2xl leading-none text-brand-blue-strong transition-transform group-open:rotate-45"
               >
                 +
               </span>

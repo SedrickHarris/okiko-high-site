@@ -11,7 +11,7 @@ export function Breadcrumbs({ items }: { items: ReadonlyArray<Crumb> }) {
           return (
             <li key={item.name} className="flex items-center gap-2">
               {item.href && !isLast ? (
-                <Link href={item.href} className="underline-offset-2 hover:underline">
+                <Link href={item.href} className="text-brand-blue-strong underline-offset-2 hover:underline">
                   {item.name}
                 </Link>
               ) : (

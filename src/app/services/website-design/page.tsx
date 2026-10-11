@@ -142,7 +142,7 @@ export default function Page() {
               <ul className="space-y-3 text-neutral-800">
                 {contactPathPoints.map((point) => (
                   <li key={point} className="flex gap-3">
-                    <span aria-hidden="true" className="mt-2 h-2 w-2 shrink-0 rounded-full bg-neutral-900" />
+                    <span aria-hidden="true" className="mt-2 h-2 w-2 shrink-0 rounded-full bg-brand-green" />
                     <span>{point}</span>
                   </li>
                 ))}
@@ -164,7 +164,7 @@ export default function Page() {
                   <li key={note} className="flex gap-3">
                     <span
                       aria-hidden="true"
-                      className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-neutral-900 text-xs font-bold text-white"
+                      className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-brand-blue-strong text-xs font-bold text-white"
                     >
                       {index + 1}
                     </span>
@@ -308,7 +308,7 @@ export default function Page() {
           <div className="grid gap-8 md:grid-cols-2">
             <div>
               <h3 className="text-lg font-semibold">Site structure</h3>
-              <ol className="mt-3 space-y-2 border-l-2 border-neutral-300 pl-5 text-neutral-800">
+              <ol className="mt-3 space-y-2 border-l-2 border-brand-blue pl-5 text-neutral-800">
                 {architectureLevels.map((level) => (
                   <li key={level}>{level}</li>
                 ))}
@@ -385,7 +385,7 @@ export default function Page() {
           <ol className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {processSteps.map((step, index) => (
               <li key={step.title} className="rounded-lg border border-neutral-200 bg-white p-5">
-                <p className="text-sm font-semibold text-neutral-600">Step {index + 1}</p>
+                <p className="text-sm font-semibold text-brand-blue-strong">Step {index + 1}</p>
                 <h3 className="mt-1 text-lg font-semibold">{step.title}</h3>
                 <p className="mt-2 text-neutral-800">{step.body}</p>
                 <p className="mt-3 text-sm text-neutral-600">
@@ -440,7 +440,7 @@ export default function Page() {
             We list recurring costs and licenses separately from the build fee so you
             can see them before you commit.
           </p>
-          <p className="mt-4 max-w-3xl rounded-lg border border-neutral-200 bg-neutral-50 p-4 text-neutral-700">
+          <p className="mt-4 max-w-3xl rounded-lg border border-brand-blue/30 bg-surface-muted p-4 text-neutral-700">
             For outside context only: one vendor&apos;s 2026-updated guide suggests a
             planning range of about $4,000-$15,000 for a professionally built
             local-service website. That is third-party guidance, not a market
@@ -528,7 +528,7 @@ export default function Page() {
           </p>
           <SourceLinks sources={[sources.fcc, sources.hhs]} />
           <p className="mt-6">
-            <Link href="/services" className="font-semibold underline underline-offset-2 hover:text-neutral-700">
+            <Link href="/services" className="font-semibold text-brand-blue-strong underline underline-offset-2 hover:text-brand-ink">
               See all OKIKO HIGH services
             </Link>
           </p>
@@ -539,7 +539,7 @@ export default function Page() {
 
         <section
           aria-labelledby="final-cta"
-          className="rounded-xl border border-neutral-900 p-6 sm:p-10"
+          className="rounded-xl border-2 border-brand-blue bg-surface-muted p-6 sm:p-10"
         >
           <h2 id="final-cta" className="text-2xl font-bold tracking-tight sm:text-3xl">
             Ready to Scope Your Website?
@@ -548,7 +548,7 @@ export default function Page() {
             Share your business type, your current website if you have one, and the
             calls, quotes, or bookings you want it to produce. We use that to scope
             your project. We use what you send to respond to your inquiry; see our{" "}
-            <Link href="/privacy-policy" className="underline underline-offset-2">
+            <Link href="/privacy-policy" className="text-brand-blue-strong underline underline-offset-2">
               Privacy Policy
             </Link>{" "}
             for details.
@@ -556,11 +556,11 @@ export default function Page() {
           <Cta />
           <p className="mt-6 text-neutral-700">
             Prefer to reach out directly? Email{" "}
-            <a href={`mailto:${siteConfig.email}`} className="font-semibold underline underline-offset-2">
+            <a href={`mailto:${siteConfig.email}`} className="font-semibold text-brand-blue-strong underline underline-offset-2">
               {siteConfig.email}
             </a>{" "}
             or call{" "}
-            <a href={telHref} className="font-semibold underline underline-offset-2">
+            <a href={telHref} className="font-semibold text-brand-blue-strong underline underline-offset-2">
               {siteConfig.phone}
             </a>
             .

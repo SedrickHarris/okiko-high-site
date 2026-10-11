@@ -13,7 +13,7 @@ export function PhoneWireframe() {
           <div className="h-4 w-3/4 rounded bg-neutral-800" />
         </div>
         <div className="relative">
-          <div className="flex h-9 items-center justify-center rounded-md bg-neutral-900 text-xs font-semibold text-white">
+          <div className="flex h-9 items-center justify-center rounded-md bg-brand-blue text-xs font-semibold text-brand-ink">
             Call now
           </div>
           <Marker n={1} />
@@ -22,7 +22,7 @@ export function PhoneWireframe() {
           <div className="h-2 w-16 rounded bg-neutral-300" />
           <div className="h-5 rounded border border-neutral-300" />
           <div className="h-5 rounded border border-neutral-300" />
-          <div className="flex h-6 items-center justify-center rounded bg-neutral-700 text-[10px] font-semibold text-white">
+          <div className="flex h-6 items-center justify-center rounded bg-brand-green text-[10px] font-semibold text-brand-ink">
             Request a quote
           </div>
           <Marker n={2} />
@@ -45,7 +45,7 @@ export function PhoneWireframe() {
 
 function Marker({ n }: { n: number }) {
   return (
-    <span className="absolute -right-8 top-0 flex h-6 w-6 items-center justify-center rounded-full bg-neutral-900 text-xs font-bold text-white">
+    <span className="absolute -right-8 top-0 flex h-6 w-6 items-center justify-center rounded-full bg-brand-blue-strong text-xs font-bold text-white">
       {n}
     </span>
   );

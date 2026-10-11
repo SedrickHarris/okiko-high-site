@@ -12,7 +12,7 @@ Define the visual foundation and reusable interface patterns for the OKIKO HIGH 
 - **Theme:** Light
 - **Primary foundation:** White
 - **Color source:** The approved OKIKO HIGH logo
-- **Exact color values:** TBD; sample the approved logo file and record the selected hex values here.
+- **Exact color values:** Recorded in the token table below. Sampled from the logo image the owner supplied on 2026-10-10 (yellow, blue, and green arrows). That image is not stored in this repository and its marks and wordmark are not used on the site; only the three colors are used.
 - **Logo asset:** Approved flat logo; website-ready file and repository location are TBD.
 - **Descriptor:** “Digital Marketing Agency” may be used with the wordmark where space allows.
 
@@ -24,15 +24,35 @@ Once the logo asset is available, define color tokens for:
 
 | Token | Use | Value |
 |---|---|---|
-| `brand-primary` | Primary CTA, links, selected highlights | TBD |
-| `brand-secondary` | Supporting accents and secondary actions | TBD |
-| `brand-dark` | Main text and high-contrast elements | TBD |
-| `surface` | Main page background | `#FFFFFF` |
-| `surface-muted` | Alternate sections and subtle panels | TBD |
-| `text-primary` | Body copy and headings | TBD |
-| `text-muted` | Supporting copy | TBD |
-| `border` | Card borders, dividers, and form outlines | TBD |
-| `focus` | Keyboard-focus indicator | TBD |
+| Token (in `src/app/globals.css`) | Use | Value | Origin |
+|---|---|---|---|
+| `brand-blue` | Primary CTA fill, accents | `#0098FD` | Sampled from logo |
+| `brand-green` | Supporting accents, secondary highlights | `#00D002` | Sampled from logo |
+| `brand-yellow` | Decorative accents (section bars) | `#FFC503` | Sampled from logo |
+| `brand-ink` | Text on brand fills, main text | `#171717` | Existing foreground |
+| `brand-blue-strong` | Links, focus ring, small colored text, numbered markers | `#0068B5` | Derived: darker shade of `brand-blue` |
+| `brand-blue-hover` | Primary button hover | `#33ADFF` | Derived: lighter shade of `brand-blue` |
+| `surface` | Main page background | `#FFFFFF` | Light theme foundation |
+| `surface-muted` | Alternate sections and subtle panels | `#F2F9FF` | Derived: faint tint of `brand-blue` |
+| `text-muted` | Supporting copy | Tailwind `neutral-600` / `neutral-700` | Neutral |
+| `border` | Card borders, dividers | Tailwind `neutral-200`; `brand-blue` at 30% on muted panels | Neutral / derived |
+
+### Contrast rules for the brand colors
+
+Measured against WCAG contrast ratios:
+
+| Pairing | Ratio | Rule |
+|---|---|---|
+| `brand-blue` on white | 3.04:1 | Passes 3:1 for UI components only. Never use as body or small text. |
+| `brand-green` on white | 2.10:1 | Decorative use only. Never as text or as the only indicator. |
+| `brand-yellow` on white | 1.60:1 | Decorative use only. Never as text. |
+| `brand-ink` on `brand-blue` | 5.90:1 | Use for text on blue fills. White text on blue fails. |
+| `brand-ink` on `brand-green` | 8.56:1 | Use for text on green fills. |
+| `brand-ink` on `brand-yellow` | 11.30:1 | Use for text on yellow fills. |
+| `brand-blue-strong` on white | 5.76:1 | Use for links and small colored text. |
+| `brand-blue-strong` on `surface-muted` | 5.42:1 | Safe on muted panels. |
+
+Keyboard focus uses a 3px `brand-blue-strong` outline with a 2px offset.
 
 Check all text and interactive states for accessible contrast on the light theme. Do not infer exact brand colors from a compressed screenshot if the source logo is available.
 

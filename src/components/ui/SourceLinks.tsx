@@ -15,7 +15,7 @@ export function SourceLinks({
           {index > 0 && "; "}
           <a
             href={source.href}
-            className="underline underline-offset-2 hover:text-neutral-900"
+            className="text-brand-blue-strong underline underline-offset-2 hover:text-brand-ink"
             rel="noopener noreferrer"
           >
             {source.label}

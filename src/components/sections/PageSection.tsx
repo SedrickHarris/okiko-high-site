@@ -18,10 +18,11 @@ export function PageSection({
       aria-labelledby={id}
       className={
         muted
-          ? "rounded-xl border border-neutral-200 bg-neutral-50 p-6 sm:p-10"
+          ? "rounded-xl border border-brand-blue/30 bg-surface-muted p-6 sm:p-10"
           : "py-2"
       }
     >
+      <span aria-hidden="true" className="mb-3 block h-1 w-12 rounded bg-brand-yellow" />
       <h2 id={id} className="text-2xl font-bold tracking-tight sm:text-3xl">
         {heading}
       </h2>
