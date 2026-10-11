@@ -792,34 +792,36 @@ export default function Page() {
         >
           <div className="grid items-center gap-8 md:grid-cols-[minmax(0,1fr)_minmax(0,26rem)]">
             <div>
-            <h2 id="final-cta" className="text-2xl font-bold tracking-tight sm:text-3xl">
-              Ready to Talk Through Your Review Workflow?
-            </h2>
-            <p className="mt-4 max-w-2xl text-lg text-neutral-700">
-              Tell us how you ask for reviews today, which platforms matter to you, and
-              who replies. We use that to look at where a simple process would help. We
-              use what you send to respond to your inquiry; see our{" "}
-              <Link href="/privacy-policy" className="text-brand-blue-strong underline underline-offset-2">
-                Privacy Policy
-              </Link>{" "}
-              for details.
-            </p>
-            <Cta />
-            <p className="mt-6 text-neutral-700">
-              Prefer to reach out directly? Email{" "}
-              <a href={`mailto:${siteConfig.email}`} className="font-semibold text-brand-blue-strong underline underline-offset-2">
-                {siteConfig.email}
-              </a>
-              <br />
-              or call
-            </p>
-            <a
-              href={telHref}
-              className="font-heading mt-3 inline-flex min-h-11 items-center justify-center gap-2 rounded-md border-2 border-brand-blue-strong bg-white px-5 py-2.5 text-base font-semibold text-brand-blue-strong hover:bg-surface-muted hover:shadow-md motion-safe:transition-[transform,box-shadow,background-color,color] motion-safe:duration-150 motion-safe:hover:-translate-y-px motion-safe:active:translate-y-0"
-            >
-              <NamedIcon name="phone" className="h-5 w-5" />
-              {siteConfig.phone}
-            </a>
+              <h2 id="final-cta" className="text-2xl font-bold tracking-tight sm:text-3xl">
+                Ready to Talk Through Your Review Workflow?
+              </h2>
+              <p className="mt-4 max-w-2xl text-lg text-neutral-700">
+                Tell us how you ask for reviews today, which platforms matter to you, and
+                who replies. We use that to look at where a simple process would help. We
+                use what you send to respond to your inquiry; see our{" "}
+                <Link href="/privacy-policy" className="text-brand-blue-strong underline underline-offset-2">
+                  Privacy Policy
+                </Link>{" "}
+                for details.
+              </p>
+              <Cta />
+              <p className="mt-6 text-neutral-700">Prefer to reach out directly?</p>
+              <div className="mt-3 flex flex-wrap gap-3">
+                <a
+                  href={`mailto:${siteConfig.email}`}
+                  className="font-heading inline-flex min-h-11 items-center justify-center gap-2 rounded-md px-5 py-2.5 text-base font-semibold text-brand-ink hover:shadow-md motion-safe:transition-[transform,box-shadow,background-color,color] motion-safe:duration-150 motion-safe:hover:-translate-y-px motion-safe:active:translate-y-0 bg-brand-blue hover:bg-brand-blue-hover"
+                >
+                  <NamedIcon name="mail" className="h-5 w-5" />
+                  {siteConfig.email}
+                </a>
+                <a
+                  href={telHref}
+                  className="font-heading inline-flex min-h-11 items-center justify-center gap-2 rounded-md px-5 py-2.5 text-base font-semibold text-brand-ink hover:shadow-md motion-safe:transition-[transform,box-shadow,background-color,color] motion-safe:duration-150 motion-safe:hover:-translate-y-px motion-safe:active:translate-y-0 bg-brand-green hover:brightness-95"
+                >
+                  <NamedIcon name="phone" className="h-5 w-5" />
+                  {siteConfig.phone}
+                </a>
+              </div>
             </div>
             <div className="flex justify-center md:justify-end">
               <ReviewGapMapIllustration />
