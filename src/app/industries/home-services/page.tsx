@@ -3,6 +3,8 @@ import Link from "next/link";
 import type { CSSProperties } from "react";
 import { IconCardHeading } from "@/components/cards/IconCardHeading";
 import { FaqSection } from "@/components/sections/FaqSection";
+import { HomeServicesHeroIllustration } from "@/components/illustrations/HomeServicesHeroIllustration";
+import { HomeServicesHandoffIllustration } from "@/components/illustrations/HomeServicesHandoffIllustration";
 import { PageSection } from "@/components/sections/PageSection";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
@@ -109,20 +111,30 @@ export default function Page() {
 
       <div className="mt-8 space-y-16">
         {/* A. Hero */}
-        <header>
-          <h1 className="hero-in-h1 max-w-4xl text-4xl font-extrabold tracking-tight sm:text-5xl">
-            {page.h1}
-          </h1>
-          <p className="hero-in hero-delay-1 mt-6 max-w-3xl text-lg leading-relaxed text-neutral-700">
-            This page is for home-service teams. It describes a proposed approach
-            that connects your online presence with what happens after a customer
-            reaches out. Where to start depends on where your own process breaks
-            down, not on a fixed bundle of tools.
-          </p>
-          <div className="hero-in hero-delay-2 mt-8">
-            <ButtonLink href={page.primaryCta.href}>{page.primaryCta.label}</ButtonLink>
+        <header className="grid gap-10 lg:grid-cols-[22rem_1fr] lg:items-center">
+          {/* Text stays first in the DOM so the heading leads on mobile and for
+              screen readers; on large screens the illustration sits to its left. */}
+          <div className="lg:order-2">
+            <h1 className="hero-in-h1 max-w-4xl text-4xl font-extrabold tracking-tight sm:text-5xl">
+              {page.h1}
+            </h1>
+            <p className="hero-in hero-delay-1 mt-6 max-w-3xl text-lg leading-relaxed text-neutral-700">
+              This page is for home-service teams. It describes a proposed approach
+              that connects your online presence with what happens after a customer
+              reaches out. Where to start depends on where your own process breaks
+              down, not on a fixed bundle of tools.
+            </p>
+            <div className="hero-in hero-delay-2 mt-8">
+              <ButtonLink href={page.primaryCta.href}>{page.primaryCta.label}</ButtonLink>
+            </div>
           </div>
-          <figure className="hero-in hero-delay-3 mt-10">
+          <figure className="hero-in hero-delay-2 mx-auto w-full max-w-sm lg:order-1 lg:mx-0 lg:max-w-none">
+            <HomeServicesHeroIllustration />
+            <figcaption className="mt-2 text-center text-xs text-neutral-600">
+              Illustrative handoff, not a client project.
+            </figcaption>
+          </figure>
+          <figure className="hero-in hero-delay-3 lg:order-3 lg:col-span-2">
             <ol className="grid gap-3 sm:grid-cols-5">
               {workflowStrip.map((step, i) => (
                 <li
@@ -473,31 +485,41 @@ export default function Page() {
           aria-labelledby="final-cta"
           className="rounded-xl border-2 border-brand-blue bg-surface-muted p-6 sm:p-10"
         >
-          <h2 id="final-cta" className="text-2xl font-bold tracking-tight sm:text-3xl">
-            Talk Through How Your Team Handles Customers Today
-          </h2>
-          <p className="mt-4 max-w-3xl text-lg text-neutral-700">
-            Not every business needs every service. Tell us how customers reach
-            you and where follow-up slips, and we can look at what, if anything,
-            would help. We use what you send to respond to your inquiry; see our{" "}
-            <Link href="/privacy-policy" className={linkClass}>
-              Privacy Policy
-            </Link>{" "}
-            for details.
-          </p>
-          <div className="mt-8">
-            <ButtonLink href={page.primaryCta.href}>{page.primaryCta.label}</ButtonLink>
-          </div>
-          <p className="mt-6 text-neutral-700">Prefer to reach out directly?</p>
-          <div className="mt-3 flex flex-wrap gap-3">
-            <a href={`mailto:${siteConfig.email}`} className={`${contactButton} bg-brand-yellow`}>
-              <NamedIcon name="mail" className="h-5 w-5" />
-              {siteConfig.email}
-            </a>
-            <a href={telHref} className={`${contactButton} bg-brand-green`}>
-              <NamedIcon name="phone" className="h-5 w-5" />
-              {siteConfig.phone}
-            </a>
+          <div className="grid items-center gap-8 md:grid-cols-[minmax(0,1fr)_minmax(0,24rem)]">
+            <div>
+              <h2 id="final-cta" className="text-2xl font-bold tracking-tight sm:text-3xl">
+                Talk Through How Your Team Handles Customers Today
+              </h2>
+              <p className="mt-4 max-w-3xl text-lg text-neutral-700">
+                Not every business needs every service. Tell us how customers reach
+                you and where follow-up slips, and we can look at what, if anything,
+                would help. We use what you send to respond to your inquiry; see our{" "}
+                <Link href="/privacy-policy" className={linkClass}>
+                  Privacy Policy
+                </Link>{" "}
+                for details.
+              </p>
+              <div className="mt-8">
+                <ButtonLink href={page.primaryCta.href}>{page.primaryCta.label}</ButtonLink>
+              </div>
+              <p className="mt-6 text-neutral-700">Prefer to reach out directly?</p>
+              <div className="mt-3 flex flex-wrap gap-3">
+                <a href={`mailto:${siteConfig.email}`} className={`${contactButton} bg-brand-yellow`}>
+                  <NamedIcon name="mail" className="h-5 w-5" />
+                  {siteConfig.email}
+                </a>
+                <a href={telHref} className={`${contactButton} bg-brand-green`}>
+                  <NamedIcon name="phone" className="h-5 w-5" />
+                  {siteConfig.phone}
+                </a>
+              </div>
+            </div>
+            <figure className="mx-auto w-full max-w-sm md:mx-0 md:max-w-none">
+              <HomeServicesHandoffIllustration />
+              <figcaption className="mt-2 text-center text-xs text-neutral-600">
+                Illustrative handoff, not a client project.
+              </figcaption>
+            </figure>
           </div>
         </section>
       </div>
