@@ -71,7 +71,8 @@ export const problems: ReadonlyArray<{ icon: IconName; title: string; body: stri
 ];
 
 export const problemsStat = {
-  body: "In Jobber's survey of home-service owners, customer communication and quoting were named as major time drains by 40% and 37% of respondents. These are owner-reported figures from a mixed-trade survey, not measured savings from automation.",
+  lead: "In Jobber's survey of home-service owners, customer communication and quoting were named as major time drains by 40% and 37% of respondents.",
+  detail: "These are owner-reported figures from a mixed-trade survey, not measured savings from automation.",
   source: sources.jobberReport,
 };
 
@@ -174,7 +175,8 @@ export const serviceStack: ReadonlyArray<StackLayer> = [
 ];
 
 export const stackNote = {
-  body: "An adequate website should not automatically trigger a rebuild. In the same Jobber survey, 43% of businesses lacked clear service areas on their website and 65% lacked business hours. Those gaps are worth checking, but they are not a promise of more inquiries.",
+  lead: "An adequate website should not automatically trigger a rebuild.",
+  detail: "In the same Jobber survey, 43% of businesses lacked clear service areas on their website and 65% lacked business hours. Those gaps are worth checking, but they are not a promise of more inquiries.",
   source: sources.jobberReport,
   scopeLabel: "Confirm scope",
   scopeNote:
@@ -241,7 +243,9 @@ export const compatibilityChecks: ReadonlyArray<{ title: string; body: string }>
 ];
 
 export const softwareNote = {
-  body: "Replacing your field-service software is not part of this approach. Several platforms document integration or API options, and HighLevel documents a Jobber integration. ServiceTitan uses permissioned API access, Housecall Pro has API eligibility requirements, and FieldEdge provides partner API access. None of that confirms OKIKO HIGH compatibility with your account.",
+  lead: "Replacing your field-service software is not part of this approach.",
+  detail:
+    "Several platforms document integration or API options, and HighLevel documents a Jobber integration. ServiceTitan uses permissioned API access, Housecall Pro has API eligibility requirements, and FieldEdge provides partner API access. None of that confirms OKIKO HIGH compatibility with your account.",
   source: sources.highlevelJobber,
 };
 
@@ -323,7 +327,9 @@ export const responsibilityRows: ReadonlyArray<{
 ];
 
 export const safeguardsNote = {
-  body: "Review requests must stay neutral, with no incentives and no steering only happy customers toward Google. Automated messaging also depends on applicable permission and sending requirements, so marketing-text consent is kept separate from a simple inquiry.",
+  lead: "Review requests must stay neutral, with no incentives and no steering only happy customers toward Google.",
+  detail:
+    "Automated messaging also depends on applicable permission and sending requirements, so marketing-text consent is kept separate from a simple inquiry.",
   source: sources.googleReviewPolicy,
 };
 

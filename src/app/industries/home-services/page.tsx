@@ -10,6 +10,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { NamedIcon } from "@/components/ui/icons";
+import { QuickAnswer } from "@/components/ui/QuickAnswer";
 import { SourceLinks } from "@/components/ui/SourceLinks";
 import {
   compatibilityChecks,
@@ -183,8 +184,7 @@ export default function Page() {
               </li>
             ))}
           </ul>
-          <p className="mt-6 max-w-3xl text-neutral-700">{problemsStat.body}</p>
-          <SourceLinks sources={[problemsStat.source]} />
+          <QuickAnswer lead={problemsStat.lead} detail={problemsStat.detail} source={problemsStat.source} />
         </PageSection>
 
         {/* C. Connected workflow */}
@@ -267,8 +267,7 @@ export default function Page() {
               </li>
             ))}
           </ol>
-          <p className="mt-6 max-w-3xl text-neutral-700">{stackNote.body}</p>
-          <SourceLinks sources={[stackNote.source]} />
+          <QuickAnswer lead={stackNote.lead} detail={stackNote.detail} source={stackNote.source} />
           <div className="mt-8">
             <ButtonLink href={page.primaryCta.href}>{page.primaryCta.label}</ButtonLink>
           </div>
@@ -342,8 +341,7 @@ export default function Page() {
               </li>
             ))}
           </ul>
-          <p className="mt-6 max-w-3xl text-neutral-700">{softwareNote.body}</p>
-          <SourceLinks sources={[softwareNote.source]} />
+          <QuickAnswer lead={softwareNote.lead} detail={softwareNote.detail} source={softwareNote.source} />
         </PageSection>
 
         {/* G. Measurement */}
@@ -464,8 +462,7 @@ export default function Page() {
               </li>
             ))}
           </ul>
-          <p className="mt-6 max-w-3xl text-neutral-700">{safeguardsNote.body}</p>
-          <SourceLinks sources={[safeguardsNote.source]} />
+          <QuickAnswer lead={safeguardsNote.lead} detail={safeguardsNote.detail} source={safeguardsNote.source} />
         </PageSection>
 
         {/* J. FAQ */}
