@@ -45,7 +45,7 @@ These pages are candidates until the owner confirms current service availability
 | Reputation Management | `/services/reputation-management/` | review management services (page built; noindex and not in sitemap until the owner confirms availability) |
 | Google Business Profile Optimization | `/services/google-business-profile-optimization/` | TBD |
 | Google Business Profile Automation | `/services/google-business-profile-automation/` | TBD |
-| SMS and Email Automation | `/services/sms-email-automation/` | TBD |
+| SMS and Email Automation | `/services/sms-email-automation/` | text and email automation for customer follow-up (page built; noindex and not in sitemap until the owner confirms availability) |
 | Lead Follow-Up Automation | `/services/lead-follow-up-automation/` | TBD |
 
 Confirm whether GBP optimization and GBP automation are distinct offers with distinct search intent. If not, consider covering them on one service page to avoid overlap.
