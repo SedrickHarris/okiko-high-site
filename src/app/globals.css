@@ -137,3 +137,31 @@ button:focus-visible {
     box-shadow: 0 8px 20px rgb(23 23 23 / 0.08);
   }
 }
+
+/* Scroll reveal for card grids. Each card fades and rises as it enters the
+   viewport, with a small stagger from --reveal-i (set per card). Runs only
+   without a reduced-motion preference and only where scroll-driven animations
+   exist; everywhere else the cards are simply visible. Fill mode is
+   "backwards" so the animation stops affecting the card once it has played,
+   which keeps the .card-lift hover transform working. */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    @keyframes reveal-up {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+      to {
+        opacity: 1;
+        transform: none;
+      }
+    }
+    .reveal-on-scroll {
+      animation: reveal-up linear backwards;
+      animation-timeline: view();
+      animation-range:
+        entry calc(var(--reveal-i, 0) * 6%)
+        entry calc(35% + var(--reveal-i, 0) * 6%);
+    }
+  }
+}

@@ -22,7 +22,7 @@ Assign each planned page a clear URL, target keyword, and search purpose. Use th
 |---|---|---|
 | Home | `/` | TBD |
 | About | `/about/` | TBD |
-| Services hub | `/services/` | TBD |
+| Services hub | `/services/` | digital marketing services for local businesses (page built; see keyword map entry below) |
 | Industries hub | `/industries/` | TBD |
 | Case Studies | `/case-studies/` | TBD |
 | Resources | `/resources/` | TBD |
@@ -51,6 +51,21 @@ These pages are candidates until the owner confirms current service availability
 Confirm whether GBP optimization and GBP automation are distinct offers with distinct search intent. If not, consider covering them on one service page to avoid overlap.
 
 ### Keyword map entries
+
+#### Services Hub
+
+| Field | Entry |
+|---|---|
+| Page name | Services hub |
+| URL | `/services/` |
+| Page type | Core (hub) |
+| Target keyword | digital marketing services for local businesses |
+| Search intent | Commercial investigation: a local or service-based business owner comparing what OKIKO HIGH offers and deciding which service to look at first |
+| Supporting keyword clusters | marketing automation for local businesses; local business marketing services; website design and Google Business Profile services; AI chatbot and AI receptionist services; text and email follow-up automation; review management services. Question clusters: which service to start with; whether the services work together; whether prices are published; whether rankings or leads are guaranteed |
+| Parent page | `/` |
+| Internal links | Links out to all six service pages (`/services/website-design/`, `/services/google-business-profile-optimization/`, `/services/reputation-management/`, `/services/ai-chatbots/`, `/services/ai-receptionist/`, `/services/sms-email-automation/`), `/contact/`, `/privacy-policy/`. Each service page already links back to `/services/`. |
+| Status | Built (indexable, already in sitemap) |
+| Notes | Keyword is an intent-based recommendation, not a validated search-volume finding; confirm before treating it as final. Card copy and FAQ answers restate the service pages and `docs/01`; no prices, timelines, results, or partnerships are stated. The cards show all six services, but four of those pages are noindex pending owner confirmation of availability (AI chatbots, AI receptionist, reputation management, SMS and email automation). Per `docs/07`, the page's `ItemList` structured data names only the two published services (`published` flag in `src/content/services/hub.ts`); flip the flag as each page is approved. Decide before launch whether the hub should show unconfirmed services publicly. The FAQ "What kinds of businesses are these services for?" relies on Home Services being listed as currently served in `docs/01`. Sections: hero, six service cards, situation-to-service guide, example service combinations (not packages), links to the fictional samples already on five service pages plus the Google Business Profile review checklist (not client proof; the GBP proof section is still placeholders), a short "what to expect" section limited to what the service pages already state, FAQs, and a closing CTA. Deliberately left out until the owner confirms the facts: commercial model (one-time vs recurring, ongoing support), ownership and cancellation terms, software and usage charges, client proof or case studies, and a strategy-call form. |
 
 #### Website Design and Development
 
