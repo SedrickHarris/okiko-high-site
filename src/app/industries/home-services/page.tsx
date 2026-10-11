@@ -41,16 +41,11 @@ import {
   organizationNode,
 } from "@/lib/schema";
 
-// Home Services is a currently served audience (docs/01), but the services this
-// page describes are still candidates and no pricing, ownership terms, tested
-// integrations, demonstration, or client proof exists yet. Keep the page out of
-// search results (and out of the sitemap) until the owner approves it, then remove
-// `robots` here and add the route to src/app/sitemap.ts.
+// Approved by the owner (2026-10-11): indexable and listed in src/app/sitemap.ts.
 export const metadata: Metadata = {
   title: page.title,
   description: page.description,
   alternates: { canonical: page.path },
-  robots: { index: false, follow: true },
 };
 
 const pageUrl = absoluteUrl(page.path);

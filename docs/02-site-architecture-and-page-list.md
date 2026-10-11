@@ -57,7 +57,7 @@ Individual service pages are planned for confirmed offerings:
 - SMS and Email Automation
 - Lead Follow-Up Automation
 
-The availability of each service is TBD. Do not build an active offer page until availability and scope are confirmed. Merge closely related items only if they represent one actual service and one search intent.
+The owner confirmed availability for the six built service pages on 2026-10-11. For any other service, do not build an active offer page until availability and scope are confirmed. Merge closely related items only if they represent one actual service and one search intent.
 
 ## Audience pages
 

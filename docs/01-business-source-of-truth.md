@@ -39,13 +39,13 @@ Individual service pages are planned. Confirm current availability before presen
 
 | Service | Current availability |
 |---|---|
-| Website design and development | TBD |
-| AI chatbots | TBD |
-| AI voice agents and AI receptionists | TBD |
-| Reputation management | TBD |
+| Website design and development | Available (owner confirmed all built service pages, 2026-10-11). Pricing, ownership/exit terms, and tested integrations remain TBD. |
+| AI chatbots | Available (owner confirmed all built service pages, 2026-10-11). Pricing, ownership/exit terms, and tested integrations remain TBD. |
+| AI voice agents and AI receptionists | Available (owner confirmed all built service pages, 2026-10-11). Pricing, ownership/exit terms, and tested integrations remain TBD. |
+| Reputation management | Available (owner confirmed all built service pages, 2026-10-11). Pricing, ownership/exit terms, and tested integrations remain TBD. |
 | Google Business Profile optimization | Available (owner approved publishing the page, 2026-10-11). Pricing, ownership/exit terms, and suspension assistance remain TBD. |
 | Google Business Profile automation | TBD |
-| SMS and email automation | TBD |
+| SMS and email automation | Available (owner confirmed all built service pages, 2026-10-11). Pricing, ownership/exit terms, and tested integrations remain TBD. |
 | Lead follow-up automation | TBD |
 
 **Google Business Profile automation details:** TBD. Document the specific tasks included before describing the service.

@@ -1,8 +1,9 @@
 // Content for /services/ai-receptionist.
 // Source: page brief and research pack for "AI Receptionist for Inbound Calls".
-// Publication gate: this is a candidate service. docs/01 lists availability as TBD,
-// so this page makes no availability, pricing, results, supported-system, or
-// human-backup claims. Open items live in the page brief's "Proof gaps" section.
+// Availability confirmed by the owner (2026-10-11): the page is indexable, listed in the
+// sitemap, and emits Service schema. Intentionally not stated here: pricing, results,
+// supported-system, or human-backup claims. Open items live in the page brief's
+// "Proof gaps" section.
 
 import type { Faq, SourceLink } from "./website-design";
 

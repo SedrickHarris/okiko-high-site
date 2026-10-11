@@ -37,7 +37,7 @@ Create a separate sub-audience page only when it can provide distinct, useful co
 
 ## Service scope
 
-Individual service pages are planned. The owner has not yet confirmed which offerings are currently available. Confirm availability before publishing service claims or building a page as an active offer.
+Individual service pages are planned. On 2026-10-11 the owner confirmed availability for every service page built so far (see `docs/01`). Confirm availability before building a page for any other service, such as Google Business Profile automation or lead follow-up automation.
 
 Candidate offerings include website design and development, AI chatbots, AI voice agents and receptionists, reputation management, Google Business Profile optimization and automation, SMS and email automation, and lead follow-up automation.
 

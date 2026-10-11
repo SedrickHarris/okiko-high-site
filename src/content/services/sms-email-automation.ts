@@ -1,10 +1,10 @@
 // Content for /services/sms-email-automation.
 // Source: page brief and research pack for "Text and Email Automation for Customer Follow-Up".
-// Service availability for SMS and email automation is TBD in docs/01. Until the owner
-// confirms it, the page is noindex and left out of the sitemap, and no Service schema
-// is emitted. Also intentionally not stated here: agency pricing, ownership/export terms,
-// reply coverage, results, testimonials, integrations as confirmed capabilities, and any
-// vendor partnership. Sample messages use a fictional business and are not client results.
+// Availability confirmed by the owner (2026-10-11): the page is indexable, listed in the
+// sitemap, and emits Service schema. Intentionally not stated here: agency pricing,
+// ownership/export terms, reply coverage, results, testimonials, integrations as
+// confirmed capabilities, and any vendor partnership. Sample messages use a fictional
+// business and are not client results.
 
 import type { IconName } from "@/components/ui/icons";
 import type { Faq, SourceLink } from "./website-design";
@@ -15,6 +15,7 @@ export const smsEmailPage = {
   description:
     "Explore text and email automation for inquiries, quotes, and appointments, with stopping rules, opt-out handling, human reply routing, and clear limits.",
   h1: "Text and Email Automation for Customer Follow-Up",
+  serviceType: "SMS and email automation",
   // Primary contact action is TBD in docs/01. Point the CTA at one place so it
   // can change once the owner confirms the contact path.
   primaryCta: { label: "Discuss your follow-up workflow", href: "/contact" },

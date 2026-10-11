@@ -37,24 +37,21 @@ import {
   faqPageNode,
   graph,
   organizationNode,
+  serviceNode,
 } from "@/lib/schema";
 
-// AI receptionist availability is TBD in docs/01. Keep the page out of search
-// results (and out of the sitemap) until the owner confirms the offering, then
-// remove `robots` here, add the Service node back, and add the route to
+// Availability confirmed by the owner (2026-10-11): indexable and listed in
 // src/app/sitemap.ts.
 export const metadata: Metadata = {
   title: page.title,
   description: page.description,
   alternates: { canonical: page.path },
-  robots: { index: false, follow: true },
 };
 
 const pageUrl = absoluteUrl(page.path);
 
-// No Service node until availability and scope are confirmed (docs/07). Verified
-// facts only: no prices, ratings, areaServed, address, or LocalBusiness
-// properties. Every FAQ node below matches the visible FAQ section.
+// Verified facts only (docs/07): no prices, ratings, areaServed, address, or
+// LocalBusiness properties. Every FAQ node matches the visible FAQ section.
 const structuredData = graph([
   organizationNode(),
   {
@@ -64,7 +61,13 @@ const structuredData = graph([
     name: page.h1,
     description: page.description,
     breadcrumb: { "@id": `${pageUrl}#breadcrumb` },
+    mainEntity: { "@id": `${pageUrl}#service` },
   },
+  serviceNode(pageUrl, {
+    name: "AI receptionist for inbound calls",
+    serviceType: page.serviceType,
+    description: page.description,
+  }),
   breadcrumbListNode(pageUrl, [
     { name: "Home", path: "/" },
     { name: "Services", path: "/services" },

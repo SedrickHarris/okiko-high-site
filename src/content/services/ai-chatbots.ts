@@ -1,8 +1,7 @@
 // Content for /services/ai-chatbots.
 // Source: page brief and research pack for "AI Chatbots for Local Business Websites".
-// Service availability for AI chatbots is TBD in docs/01. Until the owner confirms it,
-// the page is noindex and left out of the sitemap, and no Service schema is emitted.
-// Also intentionally not stated here: agency pricing, ownership terms, results,
+// Availability confirmed by the owner (2026-10-11): the page is indexable, listed in the
+// sitemap, and emits Service schema. Intentionally not stated here: agency pricing, ownership terms, results,
 // testimonials, integrations as confirmed capabilities, and any vendor partnership.
 
 import type { Faq, SourceLink } from "./website-design";
@@ -13,6 +12,7 @@ export const aiChatbotsPage = {
   description:
     "Explore website chatbots for FAQs, lead capture, qualification, and booking, with clear limits, human handoff, and practical setup considerations.",
   h1: "AI Chatbots for Small Business Websites",
+  serviceType: "AI chatbots",
   // Primary contact action is TBD in docs/01. Point the CTA at one place so it
   // can change once the owner confirms the contact path.
   primaryCta: { label: "Discuss your website chat workflow", href: "/contact" },

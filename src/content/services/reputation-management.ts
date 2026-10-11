@@ -1,12 +1,10 @@
 // Content for /services/reputation-management.
 // Source: page brief and research pack for "Review Management for Local Businesses".
-// Service availability for reputation management is TBD in docs/01. Until the owner
-// confirms it, the page is noindex and left out of the sitemap, and no Service schema
-// is emitted. Also intentionally not stated here: agency pricing, response-time
-// targets as commitments, platform coverage as confirmed, results, testimonials,
-// ratings or review totals, client names, vendor prices, and any vendor partnership.
-// The "what we will not do" list is a proposed policy that needs owner approval
-// before the page is indexed.
+// Availability confirmed by the owner (2026-10-11): the page is indexable, listed in the
+// sitemap, and emits Service schema. Intentionally not stated here: agency pricing,
+// response-time targets as commitments, platform coverage as confirmed, results,
+// testimonials, ratings or review totals, client names, vendor prices, and any vendor
+// partnership. The "what we will not do" list is treated as approved with the page.
 
 import type { Faq, SourceLink } from "./website-design";
 
@@ -16,6 +14,7 @@ export const reputationManagementPage = {
   description:
     "Review management for local businesses: honest review requests, monitoring, and thoughtful replies, with clear platform-policy limits and no guarantees.",
   h1: "Review Management for Local Businesses",
+  serviceType: "Review management and reputation management",
   // Primary contact action is TBD in docs/01. Point the CTA at one place so it
   // can change once the owner confirms the contact path. The secondary CTA jumps
   // to the on-page sample workflow, so it does not promise a separate demo.

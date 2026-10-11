@@ -59,7 +59,7 @@ export const hubServices: ReadonlyArray<HubService> = [
     description:
       "Honest review requests, monitoring, and consistent replies, built around your completed jobs, your platforms, and a named person who owns the difficult replies. No manipulating what customers say.",
     buttonLabel: "Explore Review Management",
-    published: false,
+    published: true,
   },
   {
     slug: "ai-chatbots",
@@ -69,7 +69,7 @@ export const hubServices: ReadonlyArray<HubService> = [
     description:
       "A website chatbot that answers routine questions, collects inquiry details, and helps visitors request a quote, book, or reach your team, built around your approved information and a real route to a person.",
     buttonLabel: "Explore AI Chatbots",
-    published: false,
+    published: true,
   },
   {
     slug: "ai-receptionist",
@@ -79,7 +79,7 @@ export const hubServices: ReadonlyArray<HubService> = [
     description:
       "Answers inbound calls, collects the details your team needs, and completes approved tasks such as booking an appointment or routing a caller to a person. Fits overflow, after-hours, and routine calls best.",
     buttonLabel: "Explore the AI Receptionist",
-    published: false,
+    published: true,
   },
   {
     slug: "sms-email-automation",
@@ -89,7 +89,7 @@ export const hubServices: ReadonlyArray<HubService> = [
     description:
       "Sends approved messages when a customer takes an action or reaches a stage you define, so follow-up does not depend on remembering every step, and real conversations stay connected to a person.",
     buttonLabel: "Explore Text and Email Automation",
-    published: false,
+    published: true,
   },
 ];
 
