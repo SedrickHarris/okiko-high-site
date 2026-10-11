@@ -40,7 +40,8 @@ These pages are candidates until the owner confirms current service availability
 |---|---|---|
 | Website Design and Development | `/services/website-design/` | website design for local businesses |
 | AI Chatbots | `/services/ai-chatbots/` | AI chatbot for small business website (page built; noindex and not in sitemap until the owner confirms availability) |
-| AI Voice Agents and Receptionists | `/services/ai-voice-agents/` | TBD |
+| AI Receptionist (inbound calls) | `/services/ai-receptionist/` | AI receptionist for small business (page built; noindex and not in sitemap until the owner confirms availability) |
+| AI Voice Agents (broader than inbound reception) | `/services/ai-voice-agents/` | TBD (only if it has a distinct scope and search intent; otherwise fold into the AI Receptionist page) |
 | Reputation Management | `/services/reputation-management/` | review management services (page built; noindex and not in sitemap until the owner confirms availability) |
 | Google Business Profile Optimization | `/services/google-business-profile-optimization/` | TBD |
 | Google Business Profile Automation | `/services/google-business-profile-automation/` | TBD |
@@ -80,6 +81,21 @@ Confirm whether GBP optimization and GBP automation are distinct offers with dis
 | Internal links | Links out to `/services/`, `/services/website-design/`, `/privacy-policy/`, `/contact/`. Add links to GBP optimization, SMS and email automation, AI chatbot, and AI voice agent pages when those pages are published and substantive. Add a link from the website design page once this page is published. |
 | Status | Built (noindex, not in sitemap) |
 | Notes | Keywords are intent-based recommendations, not validated search-volume findings. `docs/01` still lists reputation management availability as TBD, so the page is noindex, left out of `src/app/sitemap.ts`, and emits no `Service` schema. To publish: confirm availability and scope, approve the "what we will not do" list, confirm the contact path, then remove `robots` from the page metadata and add the route to the sitemap. Agency pricing, response-time targets, supported platforms, results, testimonials, ratings, and vendor partnership are unconfirmed, so the page makes no claims about them. Primary keyword is distinct from the Google Business Profile pages: this page covers reviews, not listing setup. No `Review` or `AggregateRating` markup. |
+
+#### AI Receptionist
+
+| Field | Entry |
+|---|---|
+| Page name | AI Receptionist for Inbound Calls |
+| URL | `/services/ai-receptionist/` (replaces the earlier combined `/services/ai-voice-agents/` slug for the receptionist offer, per the page brief) |
+| Page type | Service |
+| Target keyword | AI receptionist for small business |
+| Search intent | Commercial investigation: a small-business owner or operations manager, mainly in home services, weighing a way to handle routine, missed, overflow, or after-hours calls |
+| Supporting keyword clusters | AI answering service; AI phone receptionist; inbound AI voice agent; after-hours answering service; AI call answering service; AI receptionist with human transfer; automated appointment booking by phone |
+| Parent page | `/services/` |
+| Internal links | Links out to `/services/`, `/services/website-design/`, `/contact/`, `/privacy-policy/`. Add links to AI chatbots, SMS and email automation, Google Business Profile, reputation management, the Home Services audience page, and any HVAC or plumbing page when those are published and substantive. |
+| Status | Built (noindex, not in sitemap) |
+| Notes | Keywords are intent-based recommendations, not validated search-volume findings. `docs/01` still lists availability as TBD, so the page is noindex, left out of `src/app/sitemap.ts`, and emits no `Service` schema. To publish: confirm availability and scope, then remove `robots` from the page metadata, add the `Service` node, and add the route to the sitemap. Delivery scope, pricing, supported systems, human-backup arrangement, escalation flow, recording settings, and proof are unconfirmed, so the page makes no claims about them. The page shows an illustrative script, not a recording, and publishes no performance figures. Do not build HVAC, plumbing, cleaning, or landscaping variants unless each shows materially different intake, scheduling, urgency, and escalation workflows. |
 
 ## Proposed audience URLs
 

@@ -253,7 +253,35 @@ export const ClockIcon = (p: P) => (
   </Icon>
 );
 
+/** Telephone handset (inbound calls) */
+export const CallIcon = (p: P) => (
+  <Icon {...p}>
+    <path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A15 15 0 0 1 3 6a2 2 0 0 1 2-2z" />
+  </Icon>
+);
+
+/** Arrows branching to two destinations (transfer and routing) */
+export const TransferIcon = (p: P) => (
+  <Icon {...p}>
+    <path d="M4 12h6" />
+    <path d="M10 12c3 0 3-6 7-6h3M10 12c3 0 3 6 7 6h3" />
+    <path d="M18 3l3 3-3 3M18 15l3 3-3 3" />
+  </Icon>
+);
+
+/** Clipboard with lines (intake) */
+export const ClipboardIcon = (p: P) => (
+  <Icon {...p}>
+    <rect x="5" y="4" width="14" height="17" rx="2" />
+    <path d="M9 4h6v3H9z" />
+    <path d="M9 12h6M9 16h4" />
+  </Icon>
+);
+
 export const iconRegistry = {
+  call: CallIcon,
+  transfer: TransferIcon,
+  clipboard: ClipboardIcon,
   check: CheckCircleIcon,
   plus: PlusCircleIcon,
   minus: MinusCircleIcon,
