@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { IconCardHeading } from "@/components/cards/IconCardHeading";
+import { ReviewGapMapIllustration } from "@/components/illustrations/ReviewGapMapIllustration";
 import { ReviewWorkflowIllustration } from "@/components/illustrations/ReviewWorkflowIllustration";
 import { FaqSection } from "@/components/sections/FaqSection";
 import { PageSection } from "@/components/sections/PageSection";
@@ -789,30 +790,37 @@ export default function Page() {
           aria-labelledby="final-cta"
           className="rounded-xl border-2 border-brand-blue bg-surface-muted p-6 sm:p-10"
         >
-          <h2 id="final-cta" className="text-2xl font-bold tracking-tight sm:text-3xl">
-            Ready to Talk Through Your Review Workflow?
-          </h2>
-          <p className="mt-4 max-w-2xl text-lg text-neutral-700">
-            Tell us how you ask for reviews today, which platforms matter to you, and
-            who replies. We use that to look at where a simple process would help. We
-            use what you send to respond to your inquiry; see our{" "}
-            <Link href="/privacy-policy" className="text-brand-blue-strong underline underline-offset-2">
-              Privacy Policy
-            </Link>{" "}
-            for details.
-          </p>
-          <Cta />
-          <p className="mt-6 text-neutral-700">
-            Prefer to reach out directly? Email{" "}
-            <a href={`mailto:${siteConfig.email}`} className="font-semibold text-brand-blue-strong underline underline-offset-2">
-              {siteConfig.email}
-            </a>{" "}
-            or call{" "}
-            <a href={telHref} className="font-semibold text-brand-blue-strong underline underline-offset-2">
-              {siteConfig.phone}
-            </a>
-            .
-          </p>
+          <div className="grid items-center gap-8 md:grid-cols-[minmax(0,1fr)_minmax(0,26rem)]">
+            <div>
+            <h2 id="final-cta" className="text-2xl font-bold tracking-tight sm:text-3xl">
+              Ready to Talk Through Your Review Workflow?
+            </h2>
+            <p className="mt-4 max-w-2xl text-lg text-neutral-700">
+              Tell us how you ask for reviews today, which platforms matter to you, and
+              who replies. We use that to look at where a simple process would help. We
+              use what you send to respond to your inquiry; see our{" "}
+              <Link href="/privacy-policy" className="text-brand-blue-strong underline underline-offset-2">
+                Privacy Policy
+              </Link>{" "}
+              for details.
+            </p>
+            <Cta />
+            <p className="mt-6 text-neutral-700">
+              Prefer to reach out directly? Email{" "}
+              <a href={`mailto:${siteConfig.email}`} className="font-semibold text-brand-blue-strong underline underline-offset-2">
+                {siteConfig.email}
+              </a>{" "}
+              or call{" "}
+              <a href={telHref} className="font-semibold text-brand-blue-strong underline underline-offset-2">
+                {siteConfig.phone}
+              </a>
+              .
+            </p>
+            </div>
+            <div className="flex justify-center md:justify-end">
+              <ReviewGapMapIllustration />
+            </div>
+          </div>
         </section>
       </div>
     </>
