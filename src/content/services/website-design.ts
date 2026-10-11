@@ -79,6 +79,20 @@ export const contactPathPoints = [
   "Inquiries tested from the form or call through to the person or system responsible for answering.",
 ] as const;
 
+// Overview tiles for the scope section. Wording follows the page brief: analytics
+// is configuration (not ongoing optimization), launch is handover (not ongoing
+// support), and integrations are scoped separately.
+export const capabilities = [
+  { icon: "design", label: "Custom website design" },
+  { icon: "responsive", label: "Mobile-responsive design" },
+  { icon: "conversion", label: "Conversion-focused pages" },
+  { icon: "lead", label: "Lead capture" },
+  { icon: "integrations", label: "Integrations", note: "Scoped separately" },
+  { icon: "seo", label: "SEO-ready foundations" },
+  { icon: "analytics", label: "Analytics setup" },
+  { icon: "launch", label: "Launch and handover" },
+] as const;
+
 export const wireframeAnnotations = [
   "Tap-to-call stays visible without covering content or keyboard focus.",
   "The inquiry form is short, with clear error and success messages.",
