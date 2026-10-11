@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 600 180">
+      
+      <g transform="translate(20 22) scale(.65)"><g transform="translate(0 0) scale(0.65)">
+      <path d="M5 84 C29 79 51 65 67 43 L59 43 L79 20 L98 43 L89 43 C72 72 43 88 5 91 Z" fill="#F2C900"/>
+      <path d="M17 91 C49 84 75 64 96 31 L87 31 L108 8 L127 31 L117 31 C92 71 59 91 17 96 Z" fill="#78C900"/>
+      <path d="M30 96 C70 88 102 63 128 23 L118 23 L141 0 L160 23 L150 23 C121 72 84 95 30 101 Z" fill="#1468FF"/>
+      <path d="M15 108 H37 V94 H55 V108 H77 V87 H95 V108 H117 V76 H135 V108 H157 V57 H175 V108 H195 V108 H15 Z" fill="#1468FF" opacity=".92"/>
+      <path d="M34 108 V100 H50 V108 M74 108 V95 H90 V108 M114 108 V84 H130 V108 M154 108 V65 H170 V108" fill="#78C900"/>
+    </g></g>
+      <text x="180" y="76" font-family="DejaVu Sans,Arial,sans-serif" font-size="44" font-weight="900" letter-spacing="-2" fill="#171A22">OKIKO HIGH</text>
+      <text x="182" y="112" font-family="DejaVu Sans,Arial,sans-serif" font-size="19" font-weight="700" letter-spacing="4" fill="#171A22">DIGITAL MARKETING</text>
+      <text x="182" y="145" font-family="DejaVu Sans,Arial,sans-serif" font-size="11" font-weight="600" letter-spacing="3" fill="#171A22">AUTOMATE  •  SCALE  •  GROW</text>
+    </svg>

@@ -26,6 +26,18 @@ export const metadata: Metadata = {
     template: `%s | ${siteConfig.shortName}`,
   },
   description: siteConfig.description,
+  openGraph: {
+    siteName: siteConfig.name,
+    type: "website",
+    images: [
+      {
+        url: "/images/brand/logos/web/okiko-high-primary-on-white.webp",
+        width: 1600,
+        height: 867,
+        alt: siteConfig.name,
+      },
+    ],
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
