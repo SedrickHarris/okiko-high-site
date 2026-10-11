@@ -76,6 +76,17 @@ const structuredData = graph([
 
 const accents = ["border-t-brand-blue", "border-t-brand-green", "border-t-brand-yellow"] as const;
 
+// IconCardHeading tones that use the logo blue, green, and yellow as fills with
+// brand-ink glyphs (docs/05). "optional" is the logo blue; "included" the green.
+const chipTones = ["optional", "included", "default"] as const;
+
+// Responsibility columns: icon and column label carry the meaning, not color.
+const columns = [
+  { key: "system", label: "System handles", icon: "plug", chip: "bg-brand-blue" },
+  { key: "team", label: "Your team handles", icon: "headset", chip: "bg-brand-green" },
+  { key: "confirm", label: "Needs confirmation", icon: "flag", chip: "bg-brand-yellow" },
+] as const;
+
 const linkClass =
   "font-semibold text-brand-blue-strong underline underline-offset-2 hover:text-brand-ink";
 
@@ -340,14 +351,17 @@ export default function Page() {
             </p>
           }
         >
-          <dl className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {metricDefinitions.map((item) => (
-              <div key={item.metric} className="rounded-lg border border-neutral-200 bg-white p-5">
-                <dt className="font-heading text-lg font-semibold">{item.metric}</dt>
-                <dd className="mt-2 text-neutral-700">{item.meaning}</dd>
-              </div>
+          <ul className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {metricDefinitions.map((item, index) => (
+              <li
+                key={item.metric}
+                className={`rounded-lg border border-neutral-200 border-t-4 bg-white p-5 ${accents[index % accents.length]}`}
+              >
+                <IconCardHeading icon={item.icon} title={item.metric} tone={chipTones[index % chipTones.length]} />
+                <p className="mt-3 text-neutral-700">{item.meaning}</p>
+              </li>
             ))}
-          </dl>
+          </ul>
           <p className="mt-6 max-w-3xl text-neutral-700">{measurementNote.body}</p>
           <SourceLinks sources={[measurementNote.source]} />
         </PageSection>
@@ -366,24 +380,44 @@ export default function Page() {
         >
           {/* Table on wide screens; stacked cards below, so no column is hidden off-screen. */}
           <div className="hidden lg:block">
-            <table className="w-full border-collapse text-left text-sm">
+            <table className="w-full border-collapse text-left">
               <caption className="sr-only">
                 Proposed responsibilities for the system, your team, and items that
                 still need confirmation
               </caption>
               <thead>
                 <tr className="border-b-2 border-brand-blue">
-                  <th scope="col" className="py-3 pr-4 font-semibold">Topic</th>
-                  <th scope="col" className="py-3 pr-4 font-semibold">System handles</th>
-                  <th scope="col" className="py-3 pr-4 font-semibold">Your team handles</th>
-                  <th scope="col" className="py-3 font-semibold">Needs confirmation</th>
+                  <th scope="col" className="py-3 pr-4 font-heading text-base font-semibold">
+                    Topic
+                  </th>
+                  {columns.map((column) => (
+                    <th key={column.key} scope="col" className="py-3 pr-4 align-bottom">
+                      <span className="flex items-center gap-2.5 font-heading text-base font-semibold">
+                        <span
+                          aria-hidden="true"
+                          className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-md text-brand-ink ${column.chip}`}
+                        >
+                          <NamedIcon name={column.icon} className="h-5 w-5" />
+                        </span>
+                        {column.label}
+                      </span>
+                    </th>
+                  ))}
                 </tr>
               </thead>
-              <tbody>
+              <tbody className="text-sm">
                 {responsibilityRows.map((row) => (
                   <tr key={row.topic} className="border-b border-neutral-200 align-top">
                     <th scope="row" className="py-4 pr-4 font-medium text-neutral-900">
-                      {row.topic}
+                      <span className="flex items-center gap-3">
+                        <span
+                          aria-hidden="true"
+                          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-surface-muted text-brand-blue-strong"
+                        >
+                          <NamedIcon name={row.icon} className="h-6 w-6" />
+                        </span>
+                        <span className="text-base font-semibold">{row.topic}</span>
+                      </span>
                     </th>
                     <td className="py-4 pr-4 text-neutral-700">{row.system}</td>
                     <td className="py-4 pr-4 text-neutral-700">{row.team}</td>
@@ -394,22 +428,29 @@ export default function Page() {
             </table>
           </div>
           <ul className="grid gap-4 md:grid-cols-2 lg:hidden">
-            {responsibilityRows.map((row) => (
-              <li key={row.topic} className="rounded-lg border border-neutral-200 bg-white p-4">
-                <h3 className="text-lg font-semibold">{row.topic}</h3>
-                <dl className="mt-3 space-y-3 text-sm">
-                  <div>
-                    <dt className="text-xs font-semibold uppercase tracking-wider text-neutral-600">System handles</dt>
-                    <dd className="mt-1 text-neutral-700">{row.system}</dd>
-                  </div>
-                  <div>
-                    <dt className="text-xs font-semibold uppercase tracking-wider text-neutral-600">Your team handles</dt>
-                    <dd className="mt-1 text-neutral-700">{row.team}</dd>
-                  </div>
-                  <div>
-                    <dt className="text-xs font-semibold uppercase tracking-wider text-neutral-600">Needs confirmation</dt>
-                    <dd className="mt-1 text-neutral-700">{row.confirm}</dd>
-                  </div>
+            {responsibilityRows.map((row, index) => (
+              <li
+                key={row.topic}
+                className={`rounded-lg border border-neutral-200 border-t-4 bg-white p-4 ${accents[index % accents.length]}`}
+              >
+                <IconCardHeading icon={row.icon} title={row.topic} />
+                <dl className="mt-4 space-y-3 text-sm">
+                  {columns.map((column) => (
+                    <div key={column.key} className="flex gap-3">
+                      <span
+                        aria-hidden="true"
+                        className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-md text-brand-ink ${column.chip}`}
+                      >
+                        <NamedIcon name={column.icon} className="h-5 w-5" />
+                      </span>
+                      <div>
+                        <dt className="text-xs font-semibold uppercase tracking-wider text-neutral-600">
+                          {column.label}
+                        </dt>
+                        <dd className="mt-1 text-neutral-700">{row[column.key]}</dd>
+                      </div>
+                    </div>
+                  ))}
                 </dl>
               </li>
             ))}

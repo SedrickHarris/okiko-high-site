@@ -246,28 +246,34 @@ export const softwareNote = {
 };
 
 // Section G: sample metric definitions. No results are shown or implied.
-export const metricDefinitions: ReadonlyArray<{ metric: string; meaning: string }> = [
+export const metricDefinitions: ReadonlyArray<{ icon: IconName; metric: string; meaning: string }> = [
   {
+    icon: "message",
     metric: "Acknowledged",
     meaning: "An automated reply went out. This is not the same as a person responding.",
   },
   {
+    icon: "headset",
     metric: "Human response",
     meaning: "A named person followed up on the inquiry.",
   },
   {
+    icon: "lead",
     metric: "Qualified inquiry",
     meaning: "An inquiry for work you actually do, in an area you serve.",
   },
   {
+    icon: "calendar",
     metric: "Valid booking",
     meaning: "A confirmed appointment that fits your schedule and capacity, not just a request.",
   },
   {
+    icon: "check",
     metric: "Completed job",
     meaning: "Work finished, kept separate from revenue so each can be checked on its own.",
   },
   {
+    icon: "clock",
     metric: "Staff time and correction work",
     meaning: "The hours your team spends managing the system and fixing its mistakes.",
   },
@@ -280,30 +286,35 @@ export const measurementNote = {
 
 // Section H: proposed operating boundaries, not confirmed terms.
 export const responsibilityRows: ReadonlyArray<{
+  icon: IconName;
   topic: string;
   system: string;
   team: string;
   confirm: string;
 }> = [
   {
+    icon: "call",
     topic: "Callbacks and escalations",
     system: "Routes the request and notifies the named person.",
     team: "Names who calls back and who covers after hours.",
     confirm: "Coverage hours and after-hours arrangements.",
   },
   {
+    icon: "message",
     topic: "AI answers and bookings",
     system: "Answers only the questions you approve and collects a request.",
     team: "Approves what the AI may say and which appointment types it may book.",
     confirm: "Booking permissions for each connected system.",
   },
   {
+    icon: "repeat",
     topic: "Automated follow-up",
     system: "Stops after a booking, refusal, opt-out, or agreed limit.",
     team: "Approves message content and how often it is sent.",
     confirm: "Consent and opt-out wording.",
   },
   {
+    icon: "key",
     topic: "Ownership and exit",
     system: "Nothing is assumed.",
     team: "Keeps its own customer records.",
