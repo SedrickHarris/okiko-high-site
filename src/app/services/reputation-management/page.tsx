@@ -124,8 +124,10 @@ export default function Page() {
             </div>
             <p className="hero-in hero-delay-2 mt-4 max-w-2xl text-sm text-neutral-600">
               What is included depends on your scope, your platforms, and your
-              approvals. Tell us how you ask for reviews today and who replies, and we
-              can look at where the gaps are.
+              approvals.
+              <br />
+              Tell us how you ask for reviews today and who replies, and we can look
+              at where the gaps are.
             </p>
           </div>
           <figure className="hero-in hero-delay-3 mx-auto w-full max-w-md lg:mx-0 lg:w-[26rem] lg:max-w-none">
@@ -143,8 +145,10 @@ export default function Page() {
           intro={
             <p>
               Most conversations about review management start with the same three
-              questions. This page answers them plainly, including where the honest
-              answer is that nobody can promise an outcome.
+              questions.
+              <br />
+              This page answers them plainly, including where the honest answer is
+              that nobody can promise an outcome.
             </p>
           }
         >
@@ -165,9 +169,10 @@ export default function Page() {
           muted
           intro={
             <p>
-              Reviews are part of how many customers decide whom to contact. These are
-              the findings that matter most for a local business, taken from one
-              survey.
+              Reviews are part of how many customers decide whom to contact.
+              <br />
+              These are the findings that matter most for a local business, taken
+              from one survey.
             </p>
           }
         >
@@ -202,8 +207,10 @@ export default function Page() {
           heading="From a Completed Job to a Useful Review Process"
           intro={
             <p>
-              The aim is a loop: request, monitor, respond, and improve. Each step
-              has an owner, so reviews do not depend on someone remembering.
+              The aim is a loop: request, monitor, respond, and improve.
+              <br />
+              Each step has an owner, so reviews do not depend on someone
+              remembering.
             </p>
           }
         >
@@ -255,9 +262,12 @@ export default function Page() {
           muted
           intro={
             <p>
-              A review tool sends and collects. A managed setup adds the work around
-              it: setup, testing, accountable monitoring, thoughtful replies, and
-              follow-through. Your written scope says which parts you are getting.
+              A review tool sends and collects.
+              <br />
+              A managed setup adds the work around it: setup, testing, accountable
+              monitoring, thoughtful replies, and follow-through.
+              <br />
+              Your written scope says which parts you are getting.
             </p>
           }
         >
@@ -279,7 +289,10 @@ export default function Page() {
           <div className="mt-4 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {costFactors.map((factor) => (
               <div key={factor.title} className="rounded-lg border border-neutral-200 bg-white p-5">
-                <h4 className="text-base font-semibold">{factor.title}</h4>
+                <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-surface-muted text-brand-blue-strong">
+                  <NamedIcon name={factor.icon} className="h-6 w-6" />
+                </span>
+                <h4 className="mt-3 text-base font-semibold">{factor.title}</h4>
                 <p className="mt-2 text-neutral-800">{factor.body}</p>
               </div>
             ))}

@@ -212,18 +212,22 @@ export const scopeColumns = [
 export const costFactors = [
   {
     title: "Messaging and software usage",
+    icon: "mail",
     body: "Depends on how many requests you send and which tools are involved.",
   },
   {
     title: "Locations and platforms",
+    icon: "pin",
     body: "More locations or review platforms mean more to set up, watch, and answer.",
   },
   {
     title: "Integrations",
+    icon: "integrations",
     body: "Connecting to the system where your completed jobs are recorded.",
   },
   {
     title: "Reply responsibilities",
+    icon: "message",
     body: "Who drafts, approves, and publishes replies, and how quickly.",
   },
 ] as const;
