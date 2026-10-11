@@ -382,7 +382,15 @@ export default function Page() {
             <p>
               The website widget is the core of the service. Each connection beyond
               it is verified individually, because compatibility depends on your
-              platform, plan, and permissions.
+              platform, plan, and permissions. The widget sits on your site, so page
+              structure and calls to action matter too; see{" "}
+              <Link
+                href="/services/website-design"
+                className="font-semibold text-brand-blue-strong underline underline-offset-2 hover:text-brand-ink"
+              >
+                website design for local businesses
+              </Link>
+              .
             </p>
           }
         >

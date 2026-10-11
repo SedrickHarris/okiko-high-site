@@ -578,6 +578,16 @@ export default function Page() {
               <li key={item.stage} className="rounded-lg border border-neutral-200 p-4">
                 <IconCardHeading icon={item.icon} title={item.stage} />
                 <p className="mt-3 text-sm text-neutral-700">{item.body}</p>
+                {"link" in item && (
+                  <p className="mt-3 text-sm">
+                    <Link
+                      href={item.link.href}
+                      className="font-semibold text-brand-blue-strong underline underline-offset-2 hover:text-brand-ink"
+                    >
+                      {item.link.label}
+                    </Link>
+                  </p>
+                )}
               </li>
             ))}
           </ol>

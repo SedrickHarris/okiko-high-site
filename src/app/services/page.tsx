@@ -14,6 +14,22 @@ export default function Page() {
       <ul className="mt-6 list-disc space-y-2 pl-5">
         <li>
           <Link
+            href="/services/website-design"
+            className="text-brand-blue-strong underline underline-offset-2"
+          >
+            Website Design for Local Businesses
+          </Link>
+        </li>
+        <li>
+          <Link
+            href="/services/google-business-profile-optimization"
+            className="text-brand-blue-strong underline underline-offset-2"
+          >
+            Google Business Profile Optimization and Management
+          </Link>
+        </li>
+        <li>
+          <Link
             href="/services/sms-email-automation"
             className="text-brand-blue-strong underline underline-offset-2"
           >

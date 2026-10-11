@@ -360,6 +360,10 @@ export const customerJourney = [
     icon: "pin",
     stage: "Discovery",
     body: "Google Business Profile optimization helps customers find and verify your business.",
+    link: {
+      href: "/services/google-business-profile-optimization",
+      label: "Google Business Profile optimization",
+    },
   },
   {
     icon: "website",

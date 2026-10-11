@@ -341,6 +341,10 @@ export default function Page() {
             <Link href="/services/ai-chatbots" className={linkClass}>
               collect inquiry details through website chat
             </Link>
+            , and the pages and forms that start a workflow are covered in{" "}
+            <Link href="/services/website-design" className={linkClass}>
+              website design for local businesses
+            </Link>
             .
           </p>
           <p className={tbdBox}>
