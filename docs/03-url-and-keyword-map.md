@@ -38,7 +38,7 @@ These pages are candidates until the owner confirms current service availability
 
 | Service | Proposed URL | Target keyword |
 |---|---|---|
-| Website Design and Development | `/services/website-design-development/` | TBD |
+| Website Design and Development | `/services/website-design/` | website design for local businesses |
 | AI Chatbots | `/services/ai-chatbots/` | TBD |
 | AI Voice Agents and Receptionists | `/services/ai-voice-agents/` | TBD |
 | Reputation Management | `/services/reputation-management/` | TBD |
@@ -48,6 +48,23 @@ These pages are candidates until the owner confirms current service availability
 | Lead Follow-Up Automation | `/services/lead-follow-up-automation/` | TBD |
 
 Confirm whether GBP optimization and GBP automation are distinct offers with distinct search intent. If not, consider covering them on one service page to avoid overlap.
+
+### Keyword map entries
+
+#### Website Design and Development
+
+| Field | Entry |
+|---|---|
+| Page name | Website Design and Development |
+| URL | `/services/website-design/` (the earlier proposed slug `/services/website-design-development/` was replaced by the page brief) |
+| Page type | Service |
+| Target keyword | website design for local businesses |
+| Search intent | Commercial investigation: a local or service-based business owner looking for a suitable website provider |
+| Supporting keyword clusters | small business website design; local business web design services; service business website design; custom small business websites; conversion-focused web design; website redesign services; SEO-friendly website design; small business website cost |
+| Parent page | `/services/` |
+| Internal links | Links out to `/services/`, `/privacy-policy/`, `/contact/`. Add links to GBP optimization, reputation management, AI chatbot, AI receptionist, SMS and email automation, and audience pages when those pages are published and substantive. |
+| Status | Built |
+| Notes | Keywords are intent-based recommendations, not validated search-volume findings. Agency pricing, delivery range, ownership terms, platform stack, review offer, and proof are unconfirmed, so the page makes no claims about them. `docs/01` still lists website design availability as TBD. |
 
 ## Proposed audience URLs
 

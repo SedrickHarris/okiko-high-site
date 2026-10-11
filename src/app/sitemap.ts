@@ -1,12 +1,13 @@
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/data/site";
 
-// Core routes only. Add service, industry, resource and case-study pages
-// here once they are built and published.
+// Core routes plus built service pages. Add industry, resource and case-study
+// pages here once they are built and published.
 const routes = [
   "",
   "/about",
   "/services",
+  "/services/website-design",
   "/industries",
   "/case-studies",
   "/resources",
