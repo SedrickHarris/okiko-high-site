@@ -88,6 +88,9 @@ const structuredData = graph([
   faqPageNode(pageUrl, faqs),
 ]);
 
+const contactButton =
+  "font-heading inline-flex min-h-11 items-center justify-center gap-2 rounded-md px-5 py-2.5 text-base font-semibold text-brand-ink hover:brightness-95 hover:shadow-md motion-safe:transition-[transform,box-shadow,filter] motion-safe:duration-150 motion-safe:hover:-translate-y-px motion-safe:active:translate-y-0";
+
 const telHref = `tel:+1${siteConfig.phone.replace(/\D/g, "")}`;
 
 const inquiryIcons = [
@@ -611,7 +614,7 @@ export default function Page() {
           aria-labelledby="final-cta"
           className="rounded-xl border-2 border-brand-blue bg-surface-muted p-6 sm:p-10"
         >
-          <div className="grid items-center gap-8 lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)]">
+          <div className="grid items-center gap-8 md:grid-cols-[minmax(0,1fr)_minmax(0,26rem)]">
             <div>
               <h2 id="final-cta" className="text-2xl font-bold tracking-tight sm:text-3xl">
                 Ready to Scope Your Website?
@@ -626,19 +629,24 @@ export default function Page() {
                 for details.
               </p>
               <Cta />
-              <p className="mt-6 text-neutral-700">
-                Prefer to reach out directly? Email{" "}
-                <a href={`mailto:${siteConfig.email}`} className="font-semibold text-brand-blue-strong underline underline-offset-2">
+              <p className="mt-6 text-neutral-700">Prefer to reach out directly?</p>
+              <div className="mt-3 flex flex-wrap gap-3">
+                <a href={`mailto:${siteConfig.email}`} className={`${contactButton} bg-brand-yellow`}>
+                  <NamedIcon name="mail" className="h-5 w-5" />
                   {siteConfig.email}
-                </a>{" "}
-                or call{" "}
-                <a href={telHref} className="font-semibold text-brand-blue-strong underline underline-offset-2">
+                </a>
+                <a href={telHref} className={`${contactButton} bg-brand-green`}>
+                  <NamedIcon name="phone" className="h-5 w-5" />
                   {siteConfig.phone}
                 </a>
-                .
-              </p>
+              </div>
             </div>
-            <BriefToBlueprint className="mx-auto h-auto w-full max-w-md lg:max-w-none" />
+            <figure className="flex flex-col items-center md:items-end">
+              <BriefToBlueprint className="h-auto w-full max-w-md md:max-w-none" />
+              <figcaption className="mt-3 text-center text-xs text-neutral-600 md:text-right">
+                Illustrative brief-to-page flow, not a client project.
+              </figcaption>
+            </figure>
           </div>
         </section>
       </div>
