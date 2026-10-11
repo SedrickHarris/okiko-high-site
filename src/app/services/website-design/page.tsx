@@ -389,9 +389,6 @@ export default function Page() {
         >
           <figure className="mb-8">
             <ResponsiveDevices />
-            <figcaption className="mt-3 text-sm text-neutral-600">
-              Illustrative: one layout adapting across desktop, tablet, and phone. Not a client project.
-            </figcaption>
           </figure>
           <div className="grid gap-6 md:grid-cols-2">
             {qualityChecks.map((check) => (
@@ -647,9 +644,6 @@ export default function Page() {
             </div>
             <figure className="flex flex-col items-center md:items-end">
               <QuoteToLaunchPath className="h-auto w-full max-w-md md:max-w-none" />
-              <figcaption className="mt-3 text-center text-xs text-neutral-600 md:text-right">
-                Illustrative project path, not a client project or a timeline.
-              </figcaption>
             </figure>
           </div>
         </section>

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { siteConfig } from "@/data/site";
+import { footerLinks, siteConfig } from "@/data/site";
 import { SiteLogo } from "./SiteLogo";
 
 export function SiteFooter() {
@@ -10,13 +10,12 @@ export function SiteFooter() {
           <SiteLogo className="h-16 w-auto" />
           <p>&copy; {siteConfig.name}</p>
         </div>
-        <nav aria-label="Legal" className="flex gap-5">
-          <Link href="/privacy-policy" className="hover:underline">
-            Privacy Policy
-          </Link>
-          <Link href="/terms-of-service" className="hover:underline">
-            Terms of Service
-          </Link>
+        <nav aria-label="Footer" className="flex flex-wrap gap-5">
+          {footerLinks.map((l) => (
+            <Link key={l.href} href={l.href} className="hover:underline">
+              {l.label}
+            </Link>
+          ))}
         </nav>
       </div>
     </footer>

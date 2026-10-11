@@ -121,9 +121,6 @@ export default function Page() {
           </div>
           <figure className="hero-in hero-delay-3 mx-auto w-full max-w-md lg:mx-0 lg:w-[26rem] lg:max-w-none">
             <CallFlowDiagram />
-            <figcaption className="mt-4 text-center text-xs text-neutral-600">
-              Illustrative call path, not a client project.
-            </figcaption>
           </figure>
         </header>
 
@@ -615,9 +612,6 @@ export default function Page() {
             </div>
             <figure className="flex flex-col items-center md:items-end">
               <CallRoutingIllustration />
-              <figcaption className="mt-3 text-center text-xs text-neutral-600 md:text-right">
-                Illustrative call paths, not a client project.
-              </figcaption>
             </figure>
           </div>
         </section>
