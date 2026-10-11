@@ -143,9 +143,6 @@ export default function Page() {
           </div>
           <figure className="hero-in hero-delay-3 mx-auto w-full max-w-md lg:mx-0 lg:w-[26rem] lg:max-w-none">
             <HeroDevices />
-            <figcaption className="mt-4 text-center text-xs text-neutral-600">
-              Illustrative layout, not a client project.
-            </figcaption>
           </figure>
         </header>
 
@@ -185,9 +182,6 @@ export default function Page() {
               <div className="flex flex-col items-center gap-8 sm:flex-row sm:items-start">
                 <figure className="shrink-0 pr-8">
                   <PhoneWireframe />
-                  <figcaption className="mt-3 text-center text-xs text-neutral-600">
-                    Illustrative layout, not a client project.
-                  </figcaption>
                 </figure>
                 <div>
                   <h3 className="text-lg font-semibold">What the numbered areas show</h3>
