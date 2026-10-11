@@ -809,7 +809,7 @@ export default function Page() {
               <div className="mt-3 flex flex-wrap gap-3">
                 <a
                   href={`mailto:${siteConfig.email}`}
-                  className="font-heading inline-flex min-h-11 items-center justify-center gap-2 rounded-md px-5 py-2.5 text-base font-semibold text-brand-ink hover:shadow-md motion-safe:transition-[transform,box-shadow,background-color,color] motion-safe:duration-150 motion-safe:hover:-translate-y-px motion-safe:active:translate-y-0 bg-brand-blue hover:bg-brand-blue-hover"
+                  className="font-heading inline-flex min-h-11 items-center justify-center gap-2 rounded-md px-5 py-2.5 text-base font-semibold text-brand-ink hover:shadow-md motion-safe:transition-[transform,box-shadow,background-color,color] motion-safe:duration-150 motion-safe:hover:-translate-y-px motion-safe:active:translate-y-0 bg-brand-yellow hover:brightness-95"
                 >
                   <NamedIcon name="mail" className="h-5 w-5" />
                   {siteConfig.email}
