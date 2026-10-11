@@ -133,12 +133,29 @@ These pages reflect the identified audience groups. Their launch status should m
 
 | Audience | Proposed URL | Target keyword |
 |---|---|---|
-| Home Services | `/industries/home-services/` | TBD |
+| Home Services | `/industries/home-services/` | home services marketing agency (page built; noindex and not in sitemap until the owner approves it) |
 | Professional Services | `/industries/professional-services/` | TBD |
 | Education | `/industries/education/` | TBD |
 | Healthcare and Wellness | `/industries/healthcare-wellness/` | TBD |
 
 Home Services is currently served. The other audience groups are future opportunities; do not frame them as current clients or expertise unless confirmed.
+
+### Audience keyword map entries
+
+#### Home Services
+
+| Field | Entry |
+|---|---|
+| Page name | Home Services audience page |
+| URL | `/industries/home-services/` |
+| Page type | Audience |
+| Target keyword | home services marketing agency |
+| Search intent | Commercial investigation: an owner-operator or operations manager at a home-service business (about 2-15 employees) comparing marketing providers and deciding where better follow-through would help, without replacing existing job-management software |
+| Supporting keyword clusters | home services digital marketing; marketing automation for home services; contractor website design; AI receptionist for home services; contractor reputation management; Google Business Profile management for contractors; estimate follow up automation. Question clusters: whether all six services are needed; whether existing field-service software is replaced; whether it connects to ServiceTitan, Jobber, Housecall Pro, or FieldEdge; whether an AI receptionist can book jobs; what happens to emergency calls; whether automated follow-up annoys customers; whether rankings or reviews are guaranteed; cost and exit terms |
+| Parent page | `/industries/` |
+| Internal links | Links out to `/services/website-design/`, `/services/google-business-profile-optimization/`, `/services/reputation-management/`, `/services/sms-email-automation/`, `/services/ai-receptionist/`, `/services/ai-chatbots/`, `/contact/`, `/privacy-policy/`, `/industries/` (breadcrumb). Add links to the Home Services + AI Receptionist, + Follow-Up, and + Website combo pages only after they are built and substantive. Link plumbing/HVAC, roofing, or recurring-service audience pages only after separate research and approved scope. |
+| Status | Built (noindex, not in sitemap) |
+| Notes | Keywords are intent-based recommendations, not validated search-volume findings. Home Services is a currently served audience per `docs/01`, but all six services the page describes are TBD or only partly confirmed, so the page presents a proposed approach, not a package, and states no availability, pricing, ownership or exit terms, tested integrations, results, or trade experience. To publish: owner approval of the copy, then remove `robots` from the page metadata and add `/industries/home-services` to `src/app/sitemap.ts`. Schema is `Organization`, `WebPage`, `BreadcrumbList`, and `FAQPage` matching the visible FAQ; no `Service` node, prices, ratings, or `LocalBusiness`. Left out until the facts exist: the sample inquiry-to-booking demonstration and its secondary CTA, any client proof, and the brief's inquiry form (contact path and consent wording are TBD, so the CTAs point to `/contact/`). The Jobber figures (40%, 37%, 43%, 65%, 34%, 20%) are owner-reported survey findings, cited to the source and not presented as OKIKO HIGH results. The combo page `/industries/home-services/marketing-automation/` is a separate brief; it currently shares this page's H1 and much of its outline, so differentiate it before building to avoid cannibalization. |
 
 ## Optional sub-audience URLs
 
