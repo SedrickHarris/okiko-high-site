@@ -553,9 +553,6 @@ export default function Page() {
             </div>
             <figure className="flex flex-col items-center md:items-end">
               <ChatHandoffIllustration />
-              <figcaption className="mt-3 text-center text-xs text-neutral-600 md:text-right">
-                Illustrative chat paths, not a client project.
-              </figcaption>
             </figure>
           </div>
         </section>
