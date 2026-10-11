@@ -2,17 +2,31 @@ import Image from "next/image";
 import Link from "next/link";
 import { siteConfig } from "@/data/site";
 
-export function SiteLogo({ className = "h-20 w-auto" }: { className?: string }) {
+type SiteLogoProps = {
+  imageClassName?: string;
+  taglineClassName?: string;
+};
+
+// The logo file has the tagline cropped off; it is rendered as live text below.
+export function SiteLogo({
+  imageClassName = "h-[4.5rem] w-auto",
+  taglineClassName = "text-[8px]",
+}: SiteLogoProps) {
   return (
-    <Link href="/" className="inline-block">
+    <Link href="/" className="inline-flex flex-col items-center">
       <Image
-        src="/images/brand/logos/source/okiko-high-primary-on-white.svg"
+        src="/images/brand/logos/web/okiko-high-primary-on-white-no-tagline.svg"
         alt={siteConfig.name}
         width={480}
-        height={260}
+        height={224}
         priority
-        className={className}
+        className={imageClassName}
       />
+      <span
+        className={`font-heading mt-0.5 whitespace-nowrap font-extrabold uppercase tracking-[0.15em] text-brand-ink ${taglineClassName}`}
+      >
+        Automate &bull; Scale &bull; Grow
+      </span>
     </Link>
   );
 }
