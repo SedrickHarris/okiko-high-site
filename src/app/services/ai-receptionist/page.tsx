@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { IconCardHeading } from "@/components/cards/IconCardHeading";
 import { CallFlowDiagram } from "@/components/illustrations/CallFlowDiagram";
+import { CallRoutingIllustration } from "@/components/illustrations/CallRoutingIllustration";
 import { FaqSection } from "@/components/sections/FaqSection";
 import { PageSection } from "@/components/sections/PageSection";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -580,31 +581,41 @@ export default function Page() {
           aria-labelledby="final-cta"
           className="rounded-xl border-2 border-brand-blue bg-surface-muted p-6 sm:p-10"
         >
-          <h2 id="final-cta" className="text-2xl font-bold tracking-tight sm:text-3xl">
-            How Do Calls Reach You Today?
-          </h2>
-          <p className="mt-4 max-w-2xl text-lg text-neutral-700">
-            Tell us how you handle calls now, the coverage you want, what the
-            assistant should book or route, the systems you already use, and when a
-            caller must reach a person. We use what you send to respond to your
-            inquiry; see our{" "}
-            <Link href="/privacy-policy" className="text-brand-blue-strong underline underline-offset-2">
-              Privacy Policy
-            </Link>{" "}
-            for details.
-          </p>
-          <Cta />
-          <p className="mt-6 text-neutral-700">
-            Prefer to reach out directly? Email{" "}
-            <a href={`mailto:${siteConfig.email}`} className="font-semibold text-brand-blue-strong underline underline-offset-2">
-              {siteConfig.email}
-            </a>{" "}
-            or call{" "}
-            <a href={telHref} className="font-semibold text-brand-blue-strong underline underline-offset-2">
-              {siteConfig.phone}
-            </a>
-            .
-          </p>
+          <div className="grid items-center gap-8 md:grid-cols-[minmax(0,1fr)_minmax(0,26rem)]">
+            <div>
+              <h2 id="final-cta" className="text-2xl font-bold tracking-tight sm:text-3xl">
+                How Do Calls Reach You Today?
+              </h2>
+              <p className="mt-4 max-w-2xl text-lg text-neutral-700">
+                Tell us how you handle calls now, the coverage you want, what the
+                assistant should book or route, the systems you already use, and when a
+                caller must reach a person. We use what you send to respond to your
+                inquiry; see our{" "}
+                <Link href="/privacy-policy" className="text-brand-blue-strong underline underline-offset-2">
+                  Privacy Policy
+                </Link>{" "}
+                for details.
+              </p>
+              <Cta />
+              <p className="mt-6 text-neutral-700">
+                Prefer to reach out directly? Email{" "}
+                <a href={`mailto:${siteConfig.email}`} className="font-semibold text-brand-blue-strong underline underline-offset-2">
+                  {siteConfig.email}
+                </a>{" "}
+                or call{" "}
+                <a href={telHref} className="whitespace-nowrap font-semibold text-brand-blue-strong underline underline-offset-2">
+                  {siteConfig.phone}
+                </a>
+                .
+              </p>
+            </div>
+            <figure className="flex flex-col items-center md:items-end">
+              <CallRoutingIllustration />
+              <figcaption className="mt-3 text-center text-xs text-neutral-600 md:text-right">
+                Illustrative call paths, not a client project.
+              </figcaption>
+            </figure>
+          </div>
         </section>
       </div>
     </>
