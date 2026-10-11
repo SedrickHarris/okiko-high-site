@@ -1,36 +1,34 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# OKIKO HIGH Website
 
-## Getting Started
+Website for **OKIKO HIGH Digital Marketing Agency** — digital marketing, marketing automation, and SaaS solutions powered by GoHighLevel and its ecosystem. Serves clients worldwide.
 
-First, run the development server:
+## Stack
+
+- Next.js (App Router) + TypeScript
+- Tailwind CSS v4
+- Source control: GitHub
+- Deployment target: Cloudflare (settings TBD, see `docs/06-technical-architecture-and-deployment.md`)
+
+## Getting started
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # http://localhost:3000
+npm run lint
+npm run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Optional: set `NEXT_PUBLIC_SITE_URL` to override the site URL used for canonical URLs, the sitemap, and robots.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project docs
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Planning and business facts live in [`docs/`](docs/). Start with `00-project-overview.md`; `01-business-source-of-truth.md` is the reference for all business facts. Anything marked **TBD** must not be published as a claim.
 
-## Learn More
+## Layout
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `src/app/` — routes (App Router), `robots.ts`, `sitemap.ts`
+- `src/components/` — `layout`, `sections`, `cards`, `forms`, `seo`, `ui`
+- `src/content/` — `services`, `industries`, `resources`, `case-studies`
+- `src/data/` — site-wide data (`site.ts`)
+- `src/lib/schema/` — structured data helpers
+- `public/images/brand/` — logos (`source`, `web`, `social`) and icons
