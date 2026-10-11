@@ -361,36 +361,43 @@ export const sampleEmail =
 export const metricRows = [
   {
     metric: "Request coverage",
+    icon: "mail",
     how: "Eligible customers compared with requests delivered",
     boundary: "No staff review-count quotas. Google prohibits them.",
   },
   {
     metric: "Published reviews",
+    icon: "star",
     how: "New reviews compared with requests delivered, by channel and platform",
     boundary: "No universal conversion rate exists, so none is promised.",
   },
   {
     metric: "Freshness",
+    icon: "calendar",
     how: "Days since the latest review, and reviews added each month",
     boundary: "Buyers value recent reviews. There is no required posting rate.",
   },
   {
     metric: "Reply coverage and speed",
+    icon: "gauge",
     how: "Share of reviews answered, and median time to reply",
     boundary: "Reply targets are agreed in your scope. They are not an industry guarantee.",
   },
   {
     metric: "Complaint themes",
+    icon: "flag",
     how: "Recurring issues, who owns each, and how long they take to resolve",
     boundary: "Public ratings do not replace fixing the cause.",
   },
   {
     metric: "Staff time",
+    icon: "clock",
     how: "Minutes your team spends before and after setup",
     boundary: "Time savings are claimed only after they are measured.",
   },
   {
     metric: "Inquiries and bookings",
+    icon: "analytics",
     how: "Tracked alongside reviews and local visibility",
     boundary: "Other marketing and operations also move these numbers, so attribution is limited.",
   },

@@ -506,6 +506,23 @@ export default function Page() {
             </p>
           }
         >
+          <ol className="mb-8 grid gap-4 sm:grid-cols-3" aria-label="How measurement works, in order">
+            {[
+              ["Baseline", "Record today's request, review, and reply habits before changing anything."],
+              ["Controlled pilot", "Start small so we can see what changed and what did not."],
+              ["Monthly report", "Report each measure separately, with its limits."],
+            ].map(([title, text], i) => (
+              <li key={title} className="flex gap-3 rounded-lg border border-neutral-200 bg-white p-4">
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-blue-strong text-sm font-semibold text-white">
+                  {i + 1}
+                </span>
+                <span>
+                  <span className="block font-heading font-semibold text-brand-ink">{title}</span>
+                  <span className="mt-1 block text-sm text-neutral-700">{text}</span>
+                </span>
+              </li>
+            ))}
+          </ol>
           <div className="overflow-x-auto">
             <table className="w-full min-w-[40rem] border-collapse text-left text-sm">
               <caption className="sr-only">
@@ -521,7 +538,14 @@ export default function Page() {
               <tbody>
                 {metricRows.map((row) => (
                   <tr key={row.metric} className="border-b border-neutral-200 align-top">
-                    <th scope="row" className="py-3 pr-4 font-semibold">{row.metric}</th>
+                    <th scope="row" className="py-3 pr-4 font-semibold">
+                      <span className="flex items-center gap-3">
+                        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-surface-muted text-brand-blue-strong">
+                          <NamedIcon name={row.icon} className="h-5 w-5" />
+                        </span>
+                        {row.metric}
+                      </span>
+                    </th>
                     <td className="py-3 pr-4 text-neutral-800">{row.how}</td>
                     <td className="py-3 text-neutral-800">{row.boundary}</td>
                   </tr>
@@ -530,33 +554,51 @@ export default function Page() {
             </table>
           </div>
 
-          <div className="mt-6 max-w-3xl rounded-lg border border-brand-blue/30 bg-white p-4 text-neutral-700">
-            <p>
-              <strong className="text-brand-ink">Published-review yield</strong> =
-              attributable published reviews &divide; delivered requests.
+          <div className="mt-6 rounded-lg border border-brand-blue/30 bg-white p-5 text-neutral-700">
+            <p className="sr-only">
+              Published-review yield = attributable published reviews divided by delivered requests.
             </p>
-            <p className="mt-2">
-              When individual reviews cannot be tied to a request, we call the result
-              an approximate incremental yield, not an exact conversion rate. A link
-              click is not a completed review, so clicks and published reviews are
-              tracked separately.
+            <div aria-hidden="true" className="flex flex-wrap items-center gap-3 font-heading text-sm font-semibold text-brand-ink">
+              <span className="rounded-full border border-neutral-300 bg-surface-muted px-4 py-2">Attributable published reviews</span>
+              <span className="text-lg">&divide;</span>
+              <span className="rounded-full border border-neutral-300 bg-surface-muted px-4 py-2">Delivered requests</span>
+              <span className="text-lg">=</span>
+              <span className="inline-flex items-center gap-2 rounded-full bg-brand-blue px-4 py-2 text-brand-ink">
+                <NamedIcon name="analytics" className="h-5 w-5" />
+                Published-review yield
+              </span>
+            </div>
+            <p className="mt-4 flex gap-3">
+              <span className="mt-0.5 shrink-0 text-brand-blue-strong"><NamedIcon name="flag" className="h-5 w-5" /></span>
+              <span>
+                When individual reviews cannot be tied to a request, we call the result
+                an approximate incremental yield, not an exact conversion rate. A link
+                click is not a completed review, so clicks and published reviews are
+                tracked separately.
+              </span>
             </p>
           </div>
 
           <div className="mt-6 grid gap-6 md:grid-cols-2">
             <div className="rounded-lg border border-neutral-200 bg-white p-5">
               <IconCardHeading icon="check" tone="included" title="What we aim for" />
-              <ul className="mt-4 list-disc space-y-2 pl-5 text-neutral-800">
+              <ul className="mt-4 space-y-3 text-neutral-800">
                 {realisticAims.map((item) => (
-                  <li key={item}>{item}</li>
+                  <li key={item} className="flex gap-3">
+                    <span className="mt-0.5 shrink-0 text-brand-blue-strong"><NamedIcon name="check" className="h-5 w-5" /></span>
+                    <span>{item}</span>
+                  </li>
                 ))}
               </ul>
             </div>
-            <div className="rounded-lg border border-neutral-200 bg-white p-5">
+            <div className="rounded-lg border border-dashed border-neutral-400 bg-white p-5">
               <IconCardHeading icon="minus" tone="muted" title="What we do not promise" />
-              <ul className="mt-4 list-disc space-y-2 pl-5 text-neutral-800">
+              <ul className="mt-4 space-y-3 text-neutral-800">
                 {notPromised.map((item) => (
-                  <li key={item}>{item}</li>
+                  <li key={item} className="flex gap-3">
+                    <span className="mt-0.5 shrink-0 text-neutral-600"><NamedIcon name="minus" className="h-5 w-5" /></span>
+                    <span>{item}</span>
+                  </li>
                 ))}
               </ul>
             </div>

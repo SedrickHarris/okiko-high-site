@@ -238,6 +238,21 @@ export const ShieldCheckIcon = (p: P) => (
   </Icon>
 );
 
+/** Star outline (published reviews) */
+export const StarOutlineIcon = (p: P) => (
+  <Icon {...p}>
+    <path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8-5.2-2.8-5.2 2.8 1-5.8-4.3-4.1 5.9-.9z" />
+  </Icon>
+);
+
+/** Clock (time spent) */
+export const ClockIcon = (p: P) => (
+  <Icon {...p}>
+    <circle cx="12" cy="12" r="9" />
+    <path d="M12 7v5l3.5 2" />
+  </Icon>
+);
+
 export const iconRegistry = {
   check: CheckCircleIcon,
   plus: PlusCircleIcon,
@@ -260,6 +275,9 @@ export const iconRegistry = {
   bell: BellIcon,
   flag: FlagIcon,
   shield: ShieldCheckIcon,
+  star: StarOutlineIcon,
+  clock: ClockIcon,
+  analytics: AnalyticsIcon,
 } as const;
 
 export type IconName = keyof typeof iconRegistry;
