@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { IconCardHeading } from "@/components/cards/IconCardHeading";
+import { ChatHandoffIllustration } from "@/components/illustrations/ChatHandoffIllustration";
 import { ChatWidgetIllustration } from "@/components/illustrations/ChatWidgetIllustration";
 import { PhoneChat } from "@/components/illustrations/PhoneChat";
 import { FaqSection } from "@/components/sections/FaqSection";
@@ -508,30 +509,40 @@ export default function Page() {
           aria-labelledby="final-cta"
           className="rounded-xl border-2 border-brand-blue bg-surface-muted p-6 sm:p-10"
         >
-          <h2 id="final-cta" className="text-2xl font-bold tracking-tight sm:text-3xl">
-            Ready to Talk Through Your Website Chat Workflow?
-          </h2>
-          <p className="mt-4 max-w-2xl text-lg text-neutral-700">
-            Tell us how inquiries reach you today and what you want visitors to be
-            able to do. We use that to look at whether a chatbot, or something
-            simpler, fits. We use what you send to respond to your inquiry; see our{" "}
-            <Link href="/privacy-policy" className="text-brand-blue-strong underline underline-offset-2">
-              Privacy Policy
-            </Link>{" "}
-            for details.
-          </p>
-          <Cta />
-          <p className="mt-6 text-neutral-700">
-            Prefer to reach out directly? Email{" "}
-            <a href={`mailto:${siteConfig.email}`} className="font-semibold text-brand-blue-strong underline underline-offset-2">
-              {siteConfig.email}
-            </a>{" "}
-            or call{" "}
-            <a href={telHref} className="font-semibold text-brand-blue-strong underline underline-offset-2">
-              {siteConfig.phone}
-            </a>
-            .
-          </p>
+          <div className="grid items-center gap-8 md:grid-cols-[minmax(0,1fr)_minmax(0,26rem)]">
+            <div>
+            <h2 id="final-cta" className="text-2xl font-bold tracking-tight sm:text-3xl">
+              Ready to Talk Through Your Website Chat Workflow?
+            </h2>
+            <p className="mt-4 max-w-2xl text-lg text-neutral-700">
+              Tell us how inquiries reach you today and what you want visitors to be
+              able to do. We use that to look at whether a chatbot, or something
+              simpler, fits. We use what you send to respond to your inquiry; see our{" "}
+              <Link href="/privacy-policy" className="text-brand-blue-strong underline underline-offset-2">
+                Privacy Policy
+              </Link>{" "}
+              for details.
+            </p>
+            <Cta />
+            <p className="mt-6 text-neutral-700">
+              Prefer to reach out directly? Email{" "}
+              <a href={`mailto:${siteConfig.email}`} className="font-semibold text-brand-blue-strong underline underline-offset-2">
+                {siteConfig.email}
+              </a>{" "}
+              or call{" "}
+              <a href={telHref} className="whitespace-nowrap font-semibold text-brand-blue-strong underline underline-offset-2">
+                {siteConfig.phone}
+              </a>
+              .
+            </p>
+            </div>
+            <figure className="flex flex-col items-center md:items-end">
+              <ChatHandoffIllustration />
+              <figcaption className="mt-3 text-center text-xs text-neutral-600 md:text-right">
+                Illustrative chat paths, not a client project.
+              </figcaption>
+            </figure>
+          </div>
         </section>
       </div>
     </>
