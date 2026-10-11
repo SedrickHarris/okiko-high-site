@@ -16,6 +16,9 @@ const routes = [
   "/terms-of-service",
 ];
 
+// Required for `output: "export"` (static build for Cloudflare Pages).
+export const dynamic = "force-static";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   return routes.map((path) => ({ url: `${siteConfig.url}${path}` }));
 }
