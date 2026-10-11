@@ -7,8 +7,8 @@ import { PageSection } from "@/components/sections/PageSection";
 import { PhoneWireframe } from "@/components/sections/PhoneWireframe";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
-import { BriefToBlueprint } from "@/components/illustrations/BriefToBlueprint";
 import { HeroDevices } from "@/components/illustrations/HeroDevices";
+import { QuoteToLaunchPath } from "@/components/illustrations/QuoteToLaunchPath";
 import { ResponsiveDevices } from "@/components/illustrations/ResponsiveDevices";
 import { SiteMapDiagram } from "@/components/illustrations/SiteMapDiagram";
 import { ButtonLink } from "@/components/ui/ButtonLink";
@@ -642,9 +642,9 @@ export default function Page() {
               </div>
             </div>
             <figure className="flex flex-col items-center md:items-end">
-              <BriefToBlueprint className="h-auto w-full max-w-md md:max-w-none" />
+              <QuoteToLaunchPath className="h-auto w-full max-w-md md:max-w-none" />
               <figcaption className="mt-3 text-center text-xs text-neutral-600 md:text-right">
-                Illustrative brief-to-page flow, not a client project.
+                Illustrative project path, not a client project or a timeline.
               </figcaption>
             </figure>
           </div>
