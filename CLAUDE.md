@@ -25,3 +25,4 @@ Commands: `npm run dev`, `npm run lint`, `npm run build`.
 - Structured data must match visible content and verified facts.
 - Keep docs lightweight; page status labels (Proposed/Ready/Built/Published) are informational, not gates.
 - Do not add dependencies unless required.
+- Do not add the caption "Illustrative handoff, not a client project." to any page or illustration, now or in future builds (owner instruction, 2026-10-11).

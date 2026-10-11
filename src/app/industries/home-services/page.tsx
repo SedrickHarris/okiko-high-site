@@ -130,9 +130,6 @@ export default function Page() {
           </div>
           <figure className="hero-in hero-delay-2 mx-auto w-full max-w-sm lg:mx-0 lg:max-w-none">
             <HomeServicesHeroIllustration />
-            <figcaption className="mt-2 text-center text-xs text-neutral-600">
-              Illustrative handoff, not a client project.
-            </figcaption>
           </figure>
           <figure className="hero-in hero-delay-3 lg:col-span-2">
             <ol className="grid gap-3 sm:grid-cols-5">
@@ -516,9 +513,6 @@ export default function Page() {
             </div>
             <figure className="mx-auto w-full max-w-sm md:mx-0 md:max-w-none">
               <HomeServicesHandoffIllustration />
-              <figcaption className="mt-2 text-center text-xs text-neutral-600">
-                Illustrative handoff, not a client project.
-              </figcaption>
             </figure>
           </div>
         </section>
