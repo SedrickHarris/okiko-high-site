@@ -7,6 +7,7 @@ import { PageSection } from "@/components/sections/PageSection";
 import { PhoneWireframe } from "@/components/sections/PhoneWireframe";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
+import { BriefToBlueprint } from "@/components/illustrations/BriefToBlueprint";
 import { HeroDevices } from "@/components/illustrations/HeroDevices";
 import { ResponsiveDevices } from "@/components/illustrations/ResponsiveDevices";
 import { SiteMapDiagram } from "@/components/illustrations/SiteMapDiagram";
@@ -610,30 +611,35 @@ export default function Page() {
           aria-labelledby="final-cta"
           className="rounded-xl border-2 border-brand-blue bg-surface-muted p-6 sm:p-10"
         >
-          <h2 id="final-cta" className="text-2xl font-bold tracking-tight sm:text-3xl">
-            Ready to Scope Your Website?
-          </h2>
-          <p className="mt-4 max-w-2xl text-lg text-neutral-700">
-            Share your business type, your current website if you have one, and the
-            calls, quotes, or bookings you want it to produce. We use that to scope
-            your project. We use what you send to respond to your inquiry; see our{" "}
-            <Link href="/privacy-policy" className="text-brand-blue-strong underline underline-offset-2">
-              Privacy Policy
-            </Link>{" "}
-            for details.
-          </p>
-          <Cta />
-          <p className="mt-6 text-neutral-700">
-            Prefer to reach out directly? Email{" "}
-            <a href={`mailto:${siteConfig.email}`} className="font-semibold text-brand-blue-strong underline underline-offset-2">
-              {siteConfig.email}
-            </a>{" "}
-            or call{" "}
-            <a href={telHref} className="font-semibold text-brand-blue-strong underline underline-offset-2">
-              {siteConfig.phone}
-            </a>
-            .
-          </p>
+          <div className="grid items-center gap-8 lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)]">
+            <div>
+              <h2 id="final-cta" className="text-2xl font-bold tracking-tight sm:text-3xl">
+                Ready to Scope Your Website?
+              </h2>
+              <p className="mt-4 max-w-2xl text-lg text-neutral-700">
+                Share your business type, your current website if you have one, and the
+                calls, quotes, or bookings you want it to produce. We use that to scope
+                your project. We use what you send to respond to your inquiry; see our{" "}
+                <Link href="/privacy-policy" className="text-brand-blue-strong underline underline-offset-2">
+                  Privacy Policy
+                </Link>{" "}
+                for details.
+              </p>
+              <Cta />
+              <p className="mt-6 text-neutral-700">
+                Prefer to reach out directly? Email{" "}
+                <a href={`mailto:${siteConfig.email}`} className="font-semibold text-brand-blue-strong underline underline-offset-2">
+                  {siteConfig.email}
+                </a>{" "}
+                or call{" "}
+                <a href={telHref} className="font-semibold text-brand-blue-strong underline underline-offset-2">
+                  {siteConfig.phone}
+                </a>
+                .
+              </p>
+            </div>
+            <BriefToBlueprint className="mx-auto h-auto w-full max-w-md lg:max-w-none" />
+          </div>
         </section>
       </div>
     </>
