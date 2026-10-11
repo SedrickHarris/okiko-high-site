@@ -39,7 +39,7 @@ These pages are candidates until the owner confirms current service availability
 | Service | Proposed URL | Target keyword |
 |---|---|---|
 | Website Design and Development | `/services/website-design/` | website design for local businesses |
-| AI Chatbots | `/services/ai-chatbots/` | TBD |
+| AI Chatbots | `/services/ai-chatbots/` | AI chatbot for small business website (page built; noindex and not in sitemap until the owner confirms availability) |
 | AI Voice Agents and Receptionists | `/services/ai-voice-agents/` | TBD |
 | Reputation Management | `/services/reputation-management/` | TBD |
 | Google Business Profile Optimization | `/services/google-business-profile-optimization/` | TBD |
