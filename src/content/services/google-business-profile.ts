@@ -1,8 +1,7 @@
 // Content for /services/google-business-profile-optimization.
 // Source: research pack and page brief for "Google Business Profile Optimization and Management".
-// GBP optimization and automation availability is TBD in docs/01. Until the owner
-// confirms it, the page is noindex and left out of the sitemap, and no Service schema
-// is emitted. Also intentionally not stated here: agency pricing, scope as a commitment,
+// The owner approved publishing this page (availability and scope confirmed), so it is
+// indexable, in the sitemap, and carries Service schema. Still intentionally not stated here: agency pricing, scope as a commitment,
 // ownership/exit terms, suspension assistance, results, testimonials, client proof, and
 // any vendor partnership. The HighLevel link documents what that platform describes,
 // not a tested OKIKO HIGH configuration.
@@ -16,6 +15,7 @@ export const gbpPage = {
   description:
     "Understand what Google Business Profile management includes, why a business may miss the map pack, and how profile actions are measured, with clear limits and approvals.",
   h1: "Google Business Profile Optimization and Management",
+  serviceType: "Google Business Profile optimization and management",
   // Primary contact action is TBD in docs/01. Point the CTA at one place so it
   // can change once the owner confirms the contact path.
   primaryCta: { label: "Discuss Your Google Business Profile", href: "/contact" },

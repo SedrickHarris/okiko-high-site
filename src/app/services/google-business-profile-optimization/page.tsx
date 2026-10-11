@@ -38,22 +38,20 @@ import {
   breadcrumbListNode,
   faqPageNode,
   graph,
+  organizationId,
   organizationNode,
 } from "@/lib/schema";
 
-// GBP optimization and automation availability is TBD in docs/01. Keep the page out
-// of search results (and out of the sitemap) until the owner confirms the offering,
-// then remove `robots` here and add the route to src/app/sitemap.ts.
 export const metadata: Metadata = {
   title: page.title,
   description: page.description,
   alternates: { canonical: page.path },
-  robots: { index: false, follow: true },
 };
 
 const pageUrl = absoluteUrl(page.path);
 
-// No Service node until availability and scope are confirmed (docs/07).
+const serviceId = `${pageUrl}#service`;
+
 const structuredData = graph([
   organizationNode(),
   {
@@ -63,6 +61,16 @@ const structuredData = graph([
     name: page.h1,
     description: page.description,
     breadcrumb: { "@id": `${pageUrl}#breadcrumb` },
+    mainEntity: { "@id": serviceId },
+  },
+  {
+    "@type": "Service",
+    "@id": serviceId,
+    name: "Google Business Profile optimization and management",
+    serviceType: page.serviceType,
+    description: page.description,
+    provider: { "@id": organizationId },
+    url: pageUrl,
   },
   breadcrumbListNode(pageUrl, [
     { name: "Home", path: "/" },

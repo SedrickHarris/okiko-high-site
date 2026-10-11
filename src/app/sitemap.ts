@@ -8,6 +8,7 @@ const routes = [
   "/about",
   "/services",
   "/services/website-design",
+  "/services/google-business-profile-optimization",
   "/industries",
   "/case-studies",
   "/resources",

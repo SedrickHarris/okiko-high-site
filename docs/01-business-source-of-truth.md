@@ -43,7 +43,7 @@ Individual service pages are planned. Confirm current availability before presen
 | AI chatbots | TBD |
 | AI voice agents and AI receptionists | TBD |
 | Reputation management | TBD |
-| Google Business Profile optimization | TBD |
+| Google Business Profile optimization | Available (owner approved publishing the page, 2026-10-11). Pricing, ownership/exit terms, and suspension assistance remain TBD. |
 | Google Business Profile automation | TBD |
 | SMS and email automation | TBD |
 | Lead follow-up automation | TBD |
