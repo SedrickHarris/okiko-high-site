@@ -261,14 +261,32 @@ export default function Page() {
           heading="What Is Included, What Is Not, and What Affects Cost"
           muted
           intro={
-            <p>
-              A review tool sends and collects.
-              <br />
-              A managed setup adds the work around it: setup, testing, accountable
-              monitoring, thoughtful replies, and follow-through.
-              <br />
-              Your written scope says which parts you are getting.
-            </p>
+            <div className="space-y-3">
+              <p className="flex items-start gap-3">
+                <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white text-brand-blue-strong">
+                  <NamedIcon name="mail" className="h-5 w-5" />
+                </span>
+                <span className="pt-1">
+                  A review tool sends and collects.
+                </span>
+              </p>
+              <p className="flex items-start gap-3">
+                <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white text-brand-blue-strong">
+                  <NamedIcon name="improve" className="h-5 w-5" />
+                </span>
+                <span className="pt-1">
+                  A managed setup adds the work around it: setup, testing, accountable monitoring, thoughtful replies, and follow-through.
+                </span>
+              </p>
+              <p className="flex items-start gap-3">
+                <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white text-brand-blue-strong">
+                  <NamedIcon name="lead" className="h-5 w-5" />
+                </span>
+                <span className="pt-1">
+                  Your written scope says which parts you are getting.
+                </span>
+              </p>
+            </div>
           }
         >
           <div className="grid gap-6 md:grid-cols-3">
