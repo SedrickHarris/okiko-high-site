@@ -2,12 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { IconCardHeading } from "@/components/cards/IconCardHeading";
 import { ChatWidgetIllustration } from "@/components/illustrations/ChatWidgetIllustration";
+import { PhoneChat } from "@/components/illustrations/PhoneChat";
 import { FaqSection } from "@/components/sections/FaqSection";
 import { PageSection } from "@/components/sections/PageSection";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { ButtonLink } from "@/components/ui/ButtonLink";
-import { MessageIcon } from "@/components/ui/icons";
+import { MessageIcon, NamedIcon } from "@/components/ui/icons";
 import { SourceLinks } from "@/components/ui/SourceLinks";
 import {
   aiChatbotsPage as page,
@@ -67,6 +68,15 @@ const structuredData = graph([
   ]),
   faqPageNode(pageUrl, faqs),
 ]);
+
+// Brand accents cycled across cards: top rule colors, icon tones, and table tiles.
+const accents = ["border-t-brand-blue", "border-t-brand-green", "border-t-brand-yellow"] as const;
+const tones = ["default", "included", "optional"] as const;
+const rowTiles = [
+  "bg-surface-muted text-brand-blue-strong",
+  "bg-brand-blue text-brand-ink",
+  "bg-brand-green text-brand-ink",
+] as const;
 
 const telHref = `tel:+1${siteConfig.phone.replace(/\D/g, "")}`;
 
@@ -158,12 +168,17 @@ export default function Page() {
         >
           <ol className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {journeys.map((journey, index) => (
-              <li key={journey.title} className="rounded-lg border border-neutral-200 bg-white p-5">
+              <li
+                key={journey.title}
+                className={`rounded-lg border border-neutral-200 border-t-4 bg-white p-5 ${accents[index % accents.length]}`}
+              >
                 <p className="text-sm font-semibold text-brand-blue-strong">
                   Journey {index + 1}
                 </p>
-                <h3 className="mt-1 text-lg font-semibold">{journey.title}</h3>
-                <p className="mt-2 text-neutral-800">{journey.body}</p>
+                <div className="mt-2">
+                  <IconCardHeading icon={journey.icon} tone={tones[index % tones.length]} title={journey.title} />
+                </div>
+                <p className="mt-3 text-neutral-800">{journey.body}</p>
               </li>
             ))}
           </ol>
@@ -182,31 +197,11 @@ export default function Page() {
               </p>
               <SourceLinks sources={[sources.highLevelSetup]} label="Source" />
             </div>
-            <figure className="flex flex-col gap-3 rounded-lg border border-neutral-200 bg-white p-5">
-              <figcaption className="text-xs font-semibold uppercase tracking-wider text-neutral-600">
+            <figure>
+              <PhoneChat turns={sampleConversation} />
+              <figcaption className="mt-4 text-center text-xs font-semibold uppercase tracking-wider text-neutral-600">
                 Sample chat - fictional business
               </figcaption>
-              {sampleConversation.map((turn, index) =>
-                turn.from === "ai" ? (
-                  <div
-                    key={index}
-                    className="max-w-[90%] self-start rounded-lg border border-brand-blue/30 bg-surface-muted px-3.5 py-2.5"
-                  >
-                    <span className="mb-0.5 block text-xs font-semibold text-brand-blue-strong">
-                      AI assistant
-                    </span>
-                    {turn.text}
-                  </div>
-                ) : (
-                  <div
-                    key={index}
-                    className="max-w-[85%] self-end rounded-lg bg-neutral-100 px-3.5 py-2.5"
-                  >
-                    <span className="sr-only">Visitor: </span>
-                    {turn.text}
-                  </div>
-                ),
-              )}
             </figure>
           </div>
         </PageSection>
@@ -228,18 +223,28 @@ export default function Page() {
                 How rule-based bots, AI chatbots, and live chat compare
               </caption>
               <thead>
-                <tr className="border-b border-neutral-300">
-                  <th scope="col" className="py-3 pr-4 font-semibold">Approach</th>
-                  <th scope="col" className="py-3 pr-4 font-semibold">How it works</th>
-                  <th scope="col" className="py-3 font-semibold">Main limitation</th>
+                <tr className="border-b-2 border-brand-blue bg-surface-muted">
+                  <th scope="col" className="font-heading px-4 py-3 font-bold">Approach</th>
+                  <th scope="col" className="font-heading px-4 py-3 font-bold">How it works</th>
+                  <th scope="col" className="font-heading px-4 py-3 font-bold">Main limitation</th>
                 </tr>
               </thead>
               <tbody>
-                {comparisonRows.map((row) => (
+                {comparisonRows.map((row, index) => (
                   <tr key={row.approach} className="border-b border-neutral-200 align-top">
-                    <th scope="row" className="py-3 pr-4 font-semibold">{row.approach}</th>
-                    <td className="py-3 pr-4 text-neutral-800">{row.how}</td>
-                    <td className="py-3 text-neutral-800">{row.limit}</td>
+                    <th scope="row" className="px-4 py-4 text-left">
+                      <span className="flex items-center gap-3">
+                        <span
+                          aria-hidden="true"
+                          className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-md ${rowTiles[index % rowTiles.length]}`}
+                        >
+                          <NamedIcon name={row.icon} className="h-6 w-6" />
+                        </span>
+                        <span className="text-base font-semibold">{row.approach}</span>
+                      </span>
+                    </th>
+                    <td className="px-4 py-4 text-neutral-800">{row.how}</td>
+                    <td className="px-4 py-4 text-neutral-800">{row.limit}</td>
                   </tr>
                 ))}
               </tbody>
@@ -331,10 +336,15 @@ export default function Page() {
         >
           <ol className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {setupSteps.map((step, index) => (
-              <li key={step.title} className="rounded-lg border border-neutral-200 bg-white p-5">
+              <li
+                key={step.title}
+                className={`rounded-lg border border-neutral-200 border-t-4 bg-white p-5 ${accents[index % accents.length]}`}
+              >
                 <p className="text-sm font-semibold text-brand-blue-strong">Step {index + 1}</p>
-                <h3 className="mt-1 text-lg font-semibold">{step.title}</h3>
-                <p className="mt-2 text-neutral-800">{step.body}</p>
+                <div className="mt-2">
+                  <IconCardHeading icon={step.icon} tone={tones[index % tones.length]} title={step.title} />
+                </div>
+                <p className="mt-3 text-neutral-800">{step.body}</p>
                 <p className="mt-3 text-sm text-neutral-600">
                   <span className="font-semibold">From you:</span> {step.clientInput}
                 </p>
@@ -425,10 +435,13 @@ export default function Page() {
 
           <h3 className="mt-10 text-xl font-semibold">What affects the cost</h3>
           <div className="mt-4 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {costFactors.map((factor) => (
-              <div key={factor.title} className="rounded-lg border border-neutral-200 p-5">
-                <h4 className="text-base font-semibold">{factor.title}</h4>
-                <p className="mt-2 text-neutral-800">{factor.body}</p>
+            {costFactors.map((factor, index) => (
+              <div
+                key={factor.title}
+                className={`rounded-lg border border-neutral-200 border-t-4 p-5 ${accents[index % accents.length]}`}
+              >
+                <IconCardHeading icon={factor.icon} tone={tones[index % tones.length]} title={factor.title} as="h4" />
+                <p className="mt-3 text-neutral-800">{factor.body}</p>
               </div>
             ))}
           </div>

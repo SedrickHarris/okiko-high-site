@@ -233,6 +233,7 @@ export const iconRegistry = {
   lead: LeadCaptureIcon,
   integrations: IntegrationsIcon,
   calendar: CalendarIcon,
+  launch: LaunchIcon,
 } as const;
 
 export type IconName = keyof typeof iconRegistry;

@@ -82,18 +82,22 @@ export const helpCards = [
 
 export const journeys = [
   {
+    icon: "message",
     title: "After-hours question to captured inquiry",
     body: "A visitor asks something when no one is available. The chatbot answers from approved information and captures contact details for follow-up.",
   },
   {
+    icon: "lead",
     title: "Service question to qualified quote request",
     body: "It collects what a quote needs and passes a complete request to your team, without stating a price it has not been given.",
   },
   {
+    icon: "calendar",
     title: "Appointment request to verified calendar result",
     body: "Times come from the connected calendar, and a booking is confirmed only after that system reports success.",
   },
   {
+    icon: "headset",
     title: "Missing answer to human handoff",
     body: "The chatbot says it cannot confirm the answer and routes the conversation to a person.",
   },
@@ -126,16 +130,19 @@ export const sampleConversation: ReadonlyArray<ChatTurn> = [
 
 export const comparisonRows = [
   {
+    icon: "integrations",
     approach: "Rule-based bot",
     how: "Follows predefined paths. Good for structured qualification, fixed answers, and predictable routing.",
     limit: "Visitors must fit the configured paths, and maintaining branches takes work.",
   },
   {
+    icon: "message",
     approach: "AI (LLM) chatbot",
     how: "Interprets natural-language questions and answers using business information you supply.",
     limit: "Handles varied wording, but can generate plausible and incorrect answers. Needs testing, restrictions, and monitoring.",
   },
   {
+    icon: "headset",
     approach: "Live chat",
     how: "A person replies. Best for judgment, negotiation, sensitive issues, and unusual requests.",
     limit: "Depends on staff availability and response practices.",
@@ -161,31 +168,37 @@ export const disclosureSample =
 
 export const setupSteps = [
   {
+    icon: "check",
     title: "Define the job",
     body: "Set the tasks, the exclusions, and the rules for escalating to a person.",
     clientInput: "The questions it should and should not handle.",
   },
   {
+    icon: "lead",
     title: "Prepare approved information",
     body: "Assemble services, service area, hours, FAQs, and policies as the source the chatbot answers from.",
     clientInput: "Approved content and a named person who keeps it current.",
   },
   {
+    icon: "plug",
     title: "Configure qualification and permissions",
     body: "Set the intake fields, booking actions, and contact permissions the chatbot will use.",
     clientInput: "Which details to collect and how you may contact people.",
   },
   {
+    icon: "integrations",
     title: "Connect your tools",
     body: "Connect the website widget, CRM, calendar, and any messaging channels you have approved.",
     clientInput: "Access to the tools being connected.",
   },
   {
+    icon: "gauge",
     title: "Test before launch",
     body: "Test normal questions, missing information, malicious prompts, invented-price requests, and integration failures.",
     clientInput: "Review of the test results.",
   },
   {
+    icon: "launch",
     title: "Launch, review, and maintain",
     body: "Go live, review transcripts, and keep the approved information up to date.",
     clientInput: "Someone who responds to handoffs.",
@@ -260,18 +273,22 @@ export const scopeColumns = [
 
 export const costFactors = [
   {
+    icon: "gauge",
     title: "Software charges",
     body: "Platforms bill in different units, such as credits, conversations, seats, or outcomes, and plans carry usage limits.",
   },
   {
+    icon: "plug",
     title: "Implementation",
     body: "Discovery, knowledge preparation, configuration, integrations, and testing.",
   },
   {
+    icon: "calendar",
     title: "Ongoing management",
     body: "Monitoring, knowledge updates, and revisions after launch.",
   },
   {
+    icon: "lead",
     title: "Ownership and exit",
     body: "Who owns accounts, numbers, knowledge content, and conversation records, and what can be exported if you cancel.",
   },
