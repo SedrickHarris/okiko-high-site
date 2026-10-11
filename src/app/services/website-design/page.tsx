@@ -76,9 +76,9 @@ const structuredData = graph([
 
 const telHref = `tel:+1${siteConfig.phone.replace(/\D/g, "")}`;
 
-function Cta() {
+function Cta({ className = "" }: { className?: string }) {
   return (
-    <div className="mt-8">
+    <div className={`mt-8 ${className}`}>
       <ButtonLink href={page.primaryCta.href}>{page.primaryCta.label}</ButtonLink>
     </div>
   );
@@ -100,24 +100,24 @@ export default function Page() {
         {/* A. Hero */}
         <header className="grid items-center gap-10 lg:grid-cols-[1fr_auto]">
           <div>
-            <h1 className="max-w-3xl text-4xl font-extrabold tracking-tight sm:text-5xl">
+            <h1 className="hero-in-h1 max-w-3xl text-4xl font-extrabold tracking-tight sm:text-5xl">
               {page.h1}
             </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-neutral-700">
+            <p className="hero-in hero-delay-1 mt-6 max-w-2xl text-lg leading-relaxed text-neutral-700">
               OKIKO HIGH designs and builds websites for local and service-based
               businesses, organized around the actions that matter: calls, quote
               requests, and bookings. Whether you need a first website or a
               redesign, we define the scope first, so any build recommendation fits
               your business.
             </p>
-            <Cta />
-            <p className="mt-4 max-w-2xl text-sm text-neutral-600">
+            <Cta className="hero-in hero-delay-2" />
+            <p className="hero-in hero-delay-2 mt-4 max-w-2xl text-sm text-neutral-600">
               Tell us about your business, your current website if you have one, and
               the actions you want visitors to take. We use that to scope your
               project.
             </p>
           </div>
-          <figure className="mx-auto lg:mx-0 lg:pr-8">
+          <figure className="hero-in hero-delay-3 mx-auto lg:mx-0 lg:pr-8">
             <PhoneWireframe />
             <figcaption className="mt-4 text-center text-xs text-neutral-600">
               Illustrative layout, not a client project.

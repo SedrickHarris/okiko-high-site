@@ -10,7 +10,11 @@ export function SiteHeader() {
         </Link>
         <nav aria-label="Primary" className="font-heading flex flex-wrap gap-5 text-sm font-semibold">
           {navLinks.map((l) => (
-            <Link key={l.href} href={l.href} className="hover:underline">
+            <Link
+              key={l.href}
+              href={l.href}
+              className="underline decoration-transparent underline-offset-4 transition-colors duration-150 hover:text-brand-blue-strong hover:decoration-current motion-reduce:transition-none"
+            >
               {l.label}
             </Link>
           ))}

@@ -58,3 +58,82 @@ button:focus-visible {
   outline: 3px solid var(--color-brand-blue-strong);
   outline-offset: 2px;
 }
+
+/*
+ * Motion. Subtle, short, and opt-in: everything below runs only when the visitor
+ * has not asked for reduced motion. Animate transform and opacity so layout
+ * never shifts. Content is fully visible without these rules.
+ */
+@media (prefers-reduced-motion: no-preference) {
+  /* Hero entrance: plays once on load, total under 600ms. The H1 starts
+     partly visible and has no delay so it never waits to appear. */
+  @keyframes hero-in {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  @keyframes hero-in-soft {
+    from {
+      opacity: 0.6;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  .hero-in-h1 {
+    animation: hero-in-soft 300ms ease-out both;
+  }
+  .hero-in {
+    animation: hero-in 400ms ease-out both;
+  }
+  .hero-delay-1 {
+    animation-delay: 80ms;
+  }
+  .hero-delay-2 {
+    animation-delay: 160ms;
+  }
+  .hero-delay-3 {
+    animation-delay: 240ms;
+  }
+
+  /* FAQ accordion: quick height and opacity ease. Browsers without
+     ::details-content or interpolate-size simply open instantly. */
+  details {
+    interpolate-size: allow-keywords;
+  }
+  details::details-content {
+    block-size: 0;
+    opacity: 0;
+    overflow: clip;
+    transition:
+      block-size 200ms ease,
+      opacity 200ms ease,
+      content-visibility 200ms allow-discrete;
+  }
+  details[open]::details-content {
+    block-size: auto;
+    opacity: 1;
+  }
+}
+
+/* Reusable lift for clickable cards (service and audience cards). Pointer
+   devices only; keyboard focus gets the same lift. Not used on static cards. */
+@media (prefers-reduced-motion: no-preference) and (hover: hover) {
+  .card-lift {
+    transition:
+      transform 180ms ease,
+      box-shadow 180ms ease;
+  }
+  .card-lift:hover,
+  .card-lift:focus-within {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgb(23 23 23 / 0.08);
+  }
+}

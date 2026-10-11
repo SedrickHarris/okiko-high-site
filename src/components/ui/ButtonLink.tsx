@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 
 // Brand fills use brand-ink text for contrast (docs/05).
 const base =
-  "font-heading inline-flex min-h-11 items-center justify-center rounded-md px-5 py-2.5 text-base font-semibold";
+  "font-heading inline-flex min-h-11 items-center justify-center rounded-md px-5 py-2.5 text-base font-semibold motion-safe:transition-[transform,box-shadow,background-color,color] motion-safe:duration-150 motion-safe:hover:-translate-y-px motion-safe:active:translate-y-0 hover:shadow-md";
 
 const variants = {
   primary: "bg-brand-blue text-brand-ink hover:bg-brand-blue-hover",
