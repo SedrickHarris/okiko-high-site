@@ -100,7 +100,7 @@ export default function Page() {
         {/* A. Hero */}
         <header className="grid items-center gap-10 lg:grid-cols-[1fr_auto]">
           <div>
-            <h1 className="max-w-3xl text-4xl font-bold tracking-tight sm:text-5xl">
+            <h1 className="max-w-3xl text-4xl font-extrabold tracking-tight sm:text-5xl">
               {page.h1}
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-neutral-700">

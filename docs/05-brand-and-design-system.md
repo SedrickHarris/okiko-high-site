@@ -75,9 +75,27 @@ Do not stretch, recolor, rearrange, or recreate the logo without approval. Prese
 
 ## Typography
 
-- **Display and heading typeface:** TBD
-- **Body typeface:** TBD
-- **Fallback fonts:** Use system sans-serif fallbacks until the final fonts are selected.
+Initial design-system choice: **Manrope + Inter**.
+
+- **Manrope** for headings, navigation, buttons, and short callouts. Its geometric shapes give OKIKO HIGH a modern, technology-forward feel that fits its automation services.
+- **Inter** for body copy, forms, FAQs, and longer reading. It stays highly readable for detailed service explanations and research-informed content.
+- Together they feel polished without looking overly futuristic. Keep the typography consistent across the white theme and the logo-based brand colors.
+
+| Use | Font | Weight |
+|---|---|---|
+| H1 and major headings | Manrope | 700-800 (site default: 800) |
+| H2 and H3 | Manrope | 600-700 (site default: H2 700, H3 600) |
+| Navigation and buttons | Manrope | 600 |
+| Body copy | Inter | 400-500 |
+| Labels and supporting text | Inter | 500-600 |
+
+Implementation notes:
+
+- Both fonts load through `next/font/google` in `src/app/layout.tsx`, which self-hosts them at build time. The CSS variables are `--font-manrope` and `--font-inter`.
+- `src/app/globals.css` maps them to Tailwind: `font-sans` is Inter (and the `body` default), and `font-heading` is Manrope. All `h1` to `h6` elements use Manrope through a base rule. Add `font-heading` to any non-heading element that should use Manrope, such as navigation links and buttons.
+- Fallbacks: `ui-sans-serif, system-ui, sans-serif`.
+- Geist and Geist Mono were removed. There is no monospace font in the design system.
+- FAQ question headings are H3s, so they use Manrope. FAQ answers use Inter.
 - Maintain readable line lengths, clear hierarchy, and comfortable line spacing across screen sizes.
 
 ## Interface patterns
@@ -119,6 +137,5 @@ Use consistent spacing, border radius, shadows, and icon treatments. Avoid unnec
 
 - Exact logo color values
 - Approved web and social logo assets
-- Heading and body font choices
 - Final button, card, and form styles
 - Image direction for page types
