@@ -5,9 +5,12 @@ import type { ChatTurn } from "@/content/services/ai-chatbots";
 export function PhoneChat({
   turns,
   businessLabel = "Sample business",
+  badges = {},
 }: {
   turns: ReadonlyArray<ChatTurn>;
   businessLabel?: string;
+  // Maps a turn index to a number badge shown on that bubble.
+  badges?: Record<number, number>;
 }) {
   return (
     <div className="mx-auto w-full max-w-[20rem] rounded-[2.5rem] border-[3px] border-neutral-800 bg-neutral-900 p-2.5 shadow-lg">
@@ -41,8 +44,9 @@ export function PhoneChat({
             turn.from === "ai" ? (
               <div
                 key={index}
-                className="max-w-[82%] self-start rounded-2xl rounded-bl-sm border border-neutral-200 bg-white px-3 py-2 text-[13px] leading-snug text-neutral-800"
+                className="relative max-w-[82%] self-start rounded-2xl rounded-bl-sm border border-neutral-200 bg-white px-3 py-2 text-[13px] leading-snug text-neutral-800"
               >
+                {badges[index] && <Badge n={badges[index]} />}
                 <span className="sr-only">AI assistant: </span>
                 {turn.text}
               </div>
@@ -74,5 +78,16 @@ export function PhoneChat({
         </div>
       </div>
     </div>
+  );
+}
+
+function Badge({ n }: { n: number }) {
+  return (
+    <span
+      aria-hidden="true"
+      className="absolute -right-2.5 -top-2.5 flex h-6 w-6 items-center justify-center rounded-full border-2 border-white bg-brand-blue-strong text-xs font-bold text-white"
+    >
+      {n}
+    </span>
   );
 }

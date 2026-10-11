@@ -24,6 +24,7 @@ import {
   journeys,
   likelyUseful,
   mustHandOff,
+  noticePoints,
   sampleConversation,
   scopeColumns,
   setupSteps,
@@ -192,6 +193,23 @@ export default function Page() {
                 what is needed, decline to invent a price, and pass the request to a
                 person.
               </p>
+              <h4 className="mt-6 text-lg font-semibold">What to notice in this chat</h4>
+              <ol className="mt-3 space-y-3">
+                {noticePoints.map((point, index) => (
+                  <li key={point.title} className="flex items-start gap-3 rounded-lg border border-neutral-200 bg-white p-4">
+                    <span
+                      aria-hidden="true"
+                      className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-brand-blue-strong text-xs font-bold text-white"
+                    >
+                      {index + 1}
+                    </span>
+                    <div className="min-w-0">
+                      <IconCardHeading icon={point.icon} tone={tones[index % tones.length]} title={point.title} as="h4" />
+                      <p className="mt-2 text-sm text-neutral-700">{point.body}</p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
               <p className="mt-4 rounded-lg border border-brand-blue/30 bg-white p-4 text-neutral-700">
                 Sample conversation with a fictional business and sample data. It is
                 not a client result.
@@ -199,7 +217,10 @@ export default function Page() {
               <SourceLinks sources={[sources.highLevelSetup]} label="Source" />
             </div>
             <figure>
-              <PhoneChat turns={sampleConversation} />
+              <PhoneChat
+                turns={sampleConversation}
+                badges={Object.fromEntries(noticePoints.map((point, i) => [point.turn, i + 1]))}
+              />
               <figcaption className="mt-4 text-center text-xs font-semibold uppercase tracking-wider text-neutral-600">
                 Sample chat - fictional business
               </figcaption>

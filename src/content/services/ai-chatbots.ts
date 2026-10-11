@@ -128,6 +128,35 @@ export const sampleConversation: ReadonlyArray<ChatTurn> = [
   },
 ];
 
+// Points shown beside the sample chat. `turn` is the index in sampleConversation
+// whose bubble carries the matching number badge.
+export const noticePoints = [
+  {
+    turn: 0,
+    icon: "shield",
+    title: "It says it is an AI",
+    body: "The first message says it is an AI assistant, that it may make mistakes, and that your team is available.",
+  },
+  {
+    turn: 2,
+    icon: "lead",
+    title: "It asks only what is needed",
+    body: "It asks for the service and a contact preference, nothing more.",
+  },
+  {
+    turn: 4,
+    icon: "tag",
+    title: "It declines to invent a price",
+    body: "It says it cannot give an exact price in chat and offers to have a team member confirm.",
+  },
+  {
+    turn: 6,
+    icon: "headset",
+    title: "It hands the request to a person",
+    body: "It passes the request to the team and says a person will follow up by email.",
+  },
+] as const;
+
 export const comparisonRows = [
   {
     icon: "integrations",
