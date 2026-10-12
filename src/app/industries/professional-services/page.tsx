@@ -13,22 +13,28 @@ import { ButtonLink } from "@/components/ui/ButtonLink";
 import { NamedIcon } from "@/components/ui/icons";
 import { QuickAnswer } from "@/components/ui/QuickAnswer";
 import {
+  audienceProfessions,
+  boundariesNote,
+  buyerMap,
+  buyerPoints,
+  buyerStat,
   canHandle,
   compatibilityChecks,
-  exclusions,
+  discoveryChecklist,
+  existingSystemsFlow,
   failedTransfer,
   faqs,
   handoffNote,
   measurementNote,
-  metricDefinitions,
+  measures,
   mustEscalate,
   problems,
   problemsStat,
-  processNote,
-  processSteps,
   professionalServicesPage as page,
   scenarioNote,
   scenarios,
+  segmentNote,
+  segments,
   serviceCards,
   softwareNote,
   stackNote,
@@ -79,12 +85,11 @@ const structuredData = graph([
 
 const accents = ["border-t-brand-blue", "border-t-brand-green", "border-t-brand-yellow"] as const;
 
-// IconCardHeading tones that use the logo blue, green, and yellow as fills with
-// brand-ink glyphs (docs/05).
-const chipTones = ["optional", "included", "default"] as const;
-
 const linkClass =
   "font-semibold text-brand-blue-strong underline underline-offset-2 hover:text-brand-ink";
+
+const fieldClass =
+  "mt-1 block w-full rounded-md border border-neutral-400 bg-white px-3 py-2 text-base";
 
 const contactButton =
   "font-heading inline-flex min-h-11 items-center justify-center gap-2 rounded-md px-5 py-2.5 text-base font-semibold text-brand-ink hover:brightness-95 hover:shadow-md motion-safe:transition-[transform,box-shadow,filter] motion-safe:duration-150 motion-safe:hover:-translate-y-px motion-safe:active:translate-y-0";
@@ -113,15 +118,19 @@ export default function Page() {
               {page.h1}
             </h1>
             <p className="hero-in hero-delay-1 mt-4 max-w-3xl font-heading text-xl font-semibold text-brand-blue-strong">
-              A credible website. Clear intake. Dependable follow-up.
+              {page.theme}
             </p>
             <p className="hero-in hero-delay-1 mt-6 max-w-3xl text-lg leading-relaxed text-neutral-700">
               This page is for owners, managing partners, and operations leads at
-              professional firms of about 1 to 25 people. It describes a proposed
-              approach that connects your website with how prospective clients
-              reach you and what happens next. The right starting point depends on
-              your firm&apos;s bottleneck, and the scope is confirmed before any
-              implementation.
+              professional firms of about 1 to 25 people, including {audienceProfessions}.
+              It follows a prospective client from first hearing about your firm to
+              the next step. Credibility, a clear way to make contact, and
+              dependable follow-up are connected needs, and the right starting point
+              depends on your firm&apos;s workflow and the software you already use.
+            </p>
+            <p className="hero-in hero-delay-1 mt-4 max-w-3xl text-neutral-700">
+              Listing a profession here does not mean OKIKO HIGH has served it.
+              Relevant experience and service fit are confirmed directly.
             </p>
             <div className="hero-in hero-delay-2 mt-8">
               <ButtonLink href={page.primaryCta.href}>{page.primaryCta.label}</ButtonLink>
@@ -136,15 +145,61 @@ export default function Page() {
           </figure>
         </header>
 
-        {/* B. Problems */}
+        {/* B. Buyer journey */}
         <PageSection
-          id="intake-breakdowns"
-          heading="Where Credibility and Client Intake Break Down"
+          id="buyer-journey"
+          heading="Help Prospective Clients Evaluate Your Firm"
           intro={
             <p>
-              A strong reputation does not guarantee a smooth first contact. These
-              are the places where a prospective client&apos;s path most often
-              stalls.
+              A referral opens the door, and your website is often where the
+              prospect decides whether to walk through it.{" "}
+              <Link href="/services/website-design" className={linkClass}>
+                Website design for a clearer client journey
+              </Link>{" "}
+              starts with the questions buyers are already asking.
+            </p>
+          }
+        >
+          <ul className="grid gap-6 md:grid-cols-3">
+            {buyerMap.map((item, index) => (
+              <li
+                key={item.question}
+                style={{ "--reveal-i": index } as CSSProperties}
+                className={`reveal-on-scroll rounded-lg border border-neutral-200 border-t-4 bg-white p-5 ${accents[index % accents.length]}`}
+              >
+                <IconCardHeading icon={item.icon} title={`“${item.question}”`} />
+                <p className="mt-3 flex items-center gap-2 font-heading text-sm font-bold text-brand-blue-strong">
+                  <NamedIcon name="transfer" className="h-4 w-4" />
+                  Answered by: {item.content}
+                </p>
+                <p className="mt-2 text-neutral-700">{item.body}</p>
+              </li>
+            ))}
+          </ul>
+          <ul className="mt-8 max-w-3xl space-y-3 text-neutral-700">
+            {buyerPoints.map((point) => (
+              <li key={point} className="flex items-start gap-3">
+                <span aria-hidden="true" className="mt-0.5 shrink-0 text-brand-blue-strong">
+                  <NamedIcon name="check" className="h-5 w-5" />
+                </span>
+                {point}
+              </li>
+            ))}
+          </ul>
+          <QuickAnswer lead={buyerStat.lead} detail={buyerStat.detail} source={buyerStat.source} />
+        </PageSection>
+
+        {/* C. Pain points */}
+        <PageSection
+          id="intake-breakdowns"
+          heading="Where Credibility and Inquiry Handling Break Down"
+          muted
+          className="xl:-mx-10"
+          intro={
+            <p>
+              A strong reputation does not guarantee a smooth first contact. If
+              your goal is better-fit inquiries rather than more of them, these are
+              also the places to look.
             </p>
           }
         >
@@ -153,80 +208,84 @@ export default function Page() {
               <li
                 key={problem.title}
                 style={{ "--reveal-i": index % 4 } as CSSProperties}
-                className={`reveal-on-scroll rounded-lg border border-neutral-200 border-t-4 bg-white p-5 ${accents[index % accents.length]}`}
+                className={`reveal-on-scroll flex flex-col rounded-lg border border-neutral-200 border-t-4 bg-white p-5 ${accents[index % accents.length]}`}
               >
                 <IconCardHeading icon={problem.icon} title={problem.title} />
                 <p className="mt-3 text-neutral-700">{problem.body}</p>
+                {problem.link && (
+                  <p className="mt-auto pt-4">
+                    <Link href={problem.link.href} className={linkClass}>
+                      {problem.link.label}
+                    </Link>
+                  </p>
+                )}
               </li>
             ))}
           </ul>
           <QuickAnswer lead={problemsStat.lead} detail={problemsStat.detail} source={problemsStat.source} />
         </PageSection>
 
-        {/* C. Service cards */}
+        {/* D. Segment needs */}
         <PageSection
-          id="services"
-          heading="Start With the Bottleneck, Not Every Tool"
+          id="professions"
+          heading="Different Professions Need Different Workflows"
+          intro={
+            <p>
+              Law, accounting, consulting, financial advice, insurance, and
+              engineering are not interchangeable. Buyer questions, qualification,
+              proof, and approval requirements all change. Fit by profession is a
+              question for discovery, not something this page assumes.
+            </p>
+          }
+        >
+          <ul className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {segments.map((segment, index) => (
+              <li
+                key={segment.title}
+                style={{ "--reveal-i": index % 3 } as CSSProperties}
+                className={`reveal-on-scroll flex flex-col rounded-lg border border-neutral-200 border-t-4 bg-white p-6 ${accents[index % accents.length]}`}
+              >
+                <IconCardHeading icon={segment.icon} title={segment.title} />
+                <h4 className="mt-4 font-heading text-sm font-bold uppercase tracking-wider text-neutral-700">
+                  Needs to consider
+                </h4>
+                <ul className="mt-2 space-y-2 text-neutral-700">
+                  {segment.needs.map((need) => (
+                    <li key={need} className="flex items-start gap-3">
+                      <span aria-hidden="true" className="mt-0.5 shrink-0 text-brand-blue-strong">
+                        <NamedIcon name="check" className="h-5 w-5" />
+                      </span>
+                      {need}
+                    </li>
+                  ))}
+                </ul>
+                <h4 className="mt-5 font-heading text-sm font-bold uppercase tracking-wider text-neutral-700">
+                  Example workflow (illustrative)
+                </h4>
+                <p className="mt-2 text-neutral-700">
+                  {segment.workflow ??
+                    "No example is given here. Producer licensing and carrier approvals need their own review first, and financial-advisor compliance language should not be reused."}
+                </p>
+              </li>
+            ))}
+          </ul>
+          <QuickAnswer
+            lead={segmentNote.lead}
+            detail={segmentNote.detail}
+            sources={[segmentNote.source, segmentNote.extraSource]}
+          />
+        </PageSection>
+
+        {/* E. Scenarios */}
+        <PageSection
+          id="small-firm-scenarios"
+          heading="What This Could Look Like in a Small Firm"
           muted
           className="xl:-mx-10"
           intro={
             <p>
-              Six services can support a professional firm. You do not need all of
-              them. A website and dependable human follow-up form the proposed
-              foundation, reputation and Google Business Profile support depend on
-              your situation, and AI chat and voice are optional additions. Each
-              service has its own page.{" "}
-              <Link href="/services" className={linkClass}>
-                Explore marketing and automation services
-              </Link>
-              .
-            </p>
-          }
-        >
-          <p className="mb-6 inline-flex items-start gap-3 rounded-lg border border-brand-yellow bg-white p-4 text-neutral-800">
-            <span
-              aria-hidden="true"
-              className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-brand-yellow text-brand-ink"
-            >
-              <NamedIcon name="flag" className="h-5 w-5" />
-            </span>
-            <span>
-              <span className="font-semibold">{stackNote.scopeLabel}: </span>
-              {stackNote.scopeNote}
-            </span>
-          </p>
-          <ul className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {serviceCards.map((service, index) => (
-              <li
-                key={service.slug}
-                style={{ "--reveal-i": index % 3 } as CSSProperties}
-                className={`card-lift reveal-on-scroll flex flex-col rounded-lg border border-neutral-200 border-t-4 bg-white p-6 ${accents[index % accents.length]}`}
-              >
-                <p className="mb-3 inline-block self-start rounded-full bg-brand-yellow px-2.5 py-0.5 font-heading text-xs font-bold text-brand-ink">
-                  {service.layer}
-                </p>
-                <IconCardHeading icon={service.icon} title={service.title} />
-                <p className="mt-4 text-neutral-700">{service.description}</p>
-                <div className="mt-auto pt-6">
-                  <ButtonLink href={service.path} variant="secondary">
-                    {service.buttonLabel}
-                  </ButtonLink>
-                </div>
-              </li>
-            ))}
-          </ul>
-          <QuickAnswer lead={stackNote.lead} detail={stackNote.detail} source={stackNote.source} />
-        </PageSection>
-
-        {/* D. Audience-specific workflows */}
-        <PageSection
-          id="different-workflows"
-          heading="Different Firms Need Different Intake Workflows"
-          intro={
-            <p>
-              A law practice, a bookkeeping firm, and an engineering firm do not
-              handle first contact the same way. These five examples show how the
-              workflow changes with the profession. Select one to read it.
+              These five examples show practical next steps, not revenue gains.
+              Each keeps a person in charge of the inquiry. Select one to read it.
             </p>
           }
         >
@@ -270,10 +329,62 @@ export default function Page() {
           </p>
         </PageSection>
 
-        {/* E. Existing software */}
+        {/* F. Service navigation */}
         <PageSection
-          id="existing-software"
-          heading="Build Around the Software Your Firm Already Uses"
+          id="services"
+          heading="Choose Support Around Your Firm's Needs"
+          intro={
+            <p>
+              {stackNote.intro}{" "}
+              <Link href="/services" className={linkClass}>
+                Explore marketing and automation services
+              </Link>
+              .
+            </p>
+          }
+        >
+          <p className="mb-6 flex max-w-3xl items-start gap-3 rounded-lg border border-brand-yellow bg-white p-4 text-neutral-800">
+            <span
+              aria-hidden="true"
+              className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-brand-yellow text-brand-ink"
+            >
+              <NamedIcon name="flag" className="h-5 w-5" />
+            </span>
+            <span>
+              <span className="font-semibold">{stackNote.scopeLabel}: </span>
+              {stackNote.scopeNote}
+            </span>
+          </p>
+          <ul className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {serviceCards.map((service, index) => (
+              <li
+                key={service.slug}
+                style={{ "--reveal-i": index % 3 } as CSSProperties}
+                className={`card-lift reveal-on-scroll flex flex-col rounded-lg border border-neutral-200 border-t-4 bg-white p-6 ${accents[index % accents.length]}`}
+              >
+                <IconCardHeading icon={service.icon} title={service.title} />
+                <p className="mt-4 font-semibold text-neutral-900">
+                  <span className="font-heading text-sm font-bold uppercase tracking-wider text-neutral-700">
+                    Consider if:{" "}
+                  </span>
+                  {service.need}
+                </p>
+                <p className="mt-3 text-neutral-700">{service.description}</p>
+                <div className="mt-auto pt-6">
+                  <ButtonLink href={service.path} variant="secondary">
+                    {service.linkLabel}
+                  </ButtonLink>
+                </div>
+              </li>
+            ))}
+          </ul>
+          <QuickAnswer lead={stackNote.lead} detail={stackNote.detail} source={stackNote.source} />
+        </PageSection>
+
+        {/* G. Existing systems */}
+        <PageSection
+          id="existing-systems"
+          heading="Start With the Systems Your Firm Already Uses"
           muted
           className="xl:-mx-10"
           intro={
@@ -284,6 +395,24 @@ export default function Page() {
             </p>
           }
         >
+          <ol className="mb-8 grid gap-4 md:grid-cols-[1fr_auto_1fr_auto_1fr] md:items-stretch">
+            {existingSystemsFlow.map((step, index) => (
+              <li key={step.title} className="contents">
+                <div className="rounded-lg border border-neutral-200 border-t-4 border-t-brand-blue bg-white p-5">
+                  <IconCardHeading icon={step.icon} title={step.title} />
+                  <p className="mt-2 text-neutral-700">{step.body}</p>
+                </div>
+                {index < existingSystemsFlow.length - 1 && (
+                  <span
+                    aria-hidden="true"
+                    className="flex items-center justify-center text-brand-blue-strong max-md:rotate-90"
+                  >
+                    <NamedIcon name="transfer" className="h-7 w-7" />
+                  </span>
+                )}
+              </li>
+            ))}
+          </ol>
           <ul className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {compatibilityChecks.map((check) => (
               <li key={check.title} className="rounded-lg border border-neutral-200 bg-white p-5">
@@ -306,21 +435,22 @@ export default function Page() {
           </div>
         </PageSection>
 
-        {/* F. Discretion and human handoffs */}
+        {/* H. Discretion and oversight */}
         <PageSection
-          id="human-handoffs"
-          heading="Keep Professional Judgment With Your Team"
+          id="oversight"
+          heading="Keep Professional Judgment and Sensitive Information Protected"
           intro={
             <p>
-              Any automation here is administrative. It collects minimal
-              information, follows approved answers, and hands off to a named
-              person. These are proposed boundaries, not confirmed terms.
+              Any automation here is administrative. Initial contact collects only
+              the information needed, unsupported requests and failed transfers
+              reach a monitored person, and regulated content gets the review it
+              needs. These are proposed boundaries, not confirmed terms.
             </p>
           }
         >
           <div className="grid gap-6 md:grid-cols-2">
             <div className="rounded-lg border border-neutral-200 border-t-4 border-t-brand-green bg-white p-6">
-              <IconCardHeading icon="check" title="Can handle" tone="included" />
+              <IconCardHeading icon="check" title="Administrative support" tone="included" />
               <ul className="mt-4 space-y-3 text-neutral-700">
                 {canHandle.map((item) => (
                   <li key={item} className="flex items-start gap-3">
@@ -333,7 +463,7 @@ export default function Page() {
               </ul>
             </div>
             <div className="rounded-lg border border-neutral-200 border-t-4 border-t-brand-yellow bg-white p-6">
-              <IconCardHeading icon="flag" title="Must escalate to a person" />
+              <IconCardHeading icon="flag" title="Professional decisions stay with people" />
               <ul className="mt-4 space-y-3 text-neutral-700">
                 {mustEscalate.map((item) => (
                   <li key={item} className="flex items-start gap-3">
@@ -358,102 +488,86 @@ export default function Page() {
               <p className="mt-2 text-neutral-700">{failedTransfer.body}</p>
             </div>
           </div>
-          <QuickAnswer lead={handoffNote.lead} detail={handoffNote.detail} source={handoffNote.source} />
+          <QuickAnswer
+            lead={handoffNote.lead}
+            detail={handoffNote.detail}
+            sources={[handoffNote.source, handoffNote.extraSource]}
+          />
         </PageSection>
 
-        {/* G. Measurement */}
+        {/* I. Evaluation and engagement */}
         <PageSection
-          id="measurement"
-          heading="Measure Whether the Workflow Is Working"
+          id="fit-and-scope"
+          heading="Define Fit, Scope, and Useful Measures First"
           muted
           className="xl:-mx-10"
           intro={
             <p>
-              Establish a baseline first, then track useful work rather than
-              activity. These sample definitions keep the two apart. No results
-              are shown here.
+              Uncertainty about cost, responsibilities, and staff adoption is
+              reasonable. A responsible engagement settles those points in writing
+              before work begins, and measures useful work rather than activity.
             </p>
           }
         >
-          <ul className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {metricDefinitions.map((item, index) => (
+          <div className="grid items-center gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,22rem)]">
+            <div className="rounded-lg border border-neutral-200 border-t-4 border-t-brand-blue bg-white p-6">
+              <IconCardHeading icon="clipboard" title="Discovery checklist" />
+              <ul className="mt-4 space-y-3 text-neutral-700">
+                {discoveryChecklist.map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <span aria-hidden="true" className="mt-0.5 shrink-0 text-brand-blue-strong">
+                      <NamedIcon name="check" className="h-5 w-5" />
+                    </span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <figure className="mx-auto w-full max-w-sm lg:max-w-none">
+              <ProfessionalServicesScopeIllustration />
+            </figure>
+          </div>
+
+          <h3 className="mt-10 text-xl font-semibold">An illustrative measurement framework</h3>
+          <p className="mt-2 max-w-3xl text-neutral-700">
+            These definitions show what would be tracked, including correction and
+            supervision effort. No numbers or results are shown here.
+          </p>
+          <ul className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {measures.map((item, index) => (
               <li
                 key={item.metric}
                 className={`rounded-lg border border-neutral-200 border-t-4 bg-white p-5 ${accents[index % accents.length]}`}
               >
-                <IconCardHeading icon={item.icon} title={item.metric} tone={chipTones[index % chipTones.length]} />
+                <IconCardHeading icon={item.icon} title={item.metric} />
                 <p className="mt-3 text-neutral-700">{item.meaning}</p>
               </li>
             ))}
           </ul>
-          <p className="mt-6 max-w-3xl text-neutral-700">{measurementNote.body}</p>
-        </PageSection>
-
-        {/* H. Process and scope */}
-        <PageSection
-          id="process"
-          heading="A Clear Scope Before Anything Goes Live"
-          intro={
-            <p>
-              Uncertainty about cost, responsibilities, and staff adoption is
-              reasonable. The process is built to settle those points in writing
-              first.
-            </p>
-          }
-        >
-          <ol className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {processSteps.map((step, index) => (
-              <li
-                key={step.title}
-                className="rounded-lg border border-neutral-200 border-t-4 border-t-brand-blue bg-white p-5"
-              >
-                <p className="mb-3 inline-block rounded-full bg-brand-yellow px-2.5 py-0.5 font-heading text-xs font-bold text-brand-ink">
-                  Step {index + 1}
-                </p>
-                <IconCardHeading icon={step.icon} title={step.title} />
-                <p className="mt-3 text-neutral-700">{step.body}</p>
-              </li>
-            ))}
-          </ol>
-          <div className="mt-8 rounded-lg border border-neutral-200 bg-white p-6">
-            <IconCardHeading icon="minus" title="Not included in the proposed scope" tone="muted" />
-            <ul className="mt-4 grid gap-x-8 gap-y-2 text-neutral-700 md:grid-cols-2">
-              {exclusions.map((item) => (
-                <li key={item} className="flex items-start gap-3">
-                  <span aria-hidden="true" className="mt-0.5 shrink-0 text-neutral-700">
-                    <NamedIcon name="minus" className="h-5 w-5" />
-                  </span>
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <p className="mt-6 max-w-3xl text-neutral-700">{processNote}</p>
+          <p className="mt-6 max-w-3xl text-neutral-700">{measurementNote}</p>
+          <p className="mt-3 max-w-3xl text-neutral-700">{boundariesNote}</p>
           <div className="mt-8">
             <ButtonLink href={page.primaryCta.href}>{page.primaryCta.label}</ButtonLink>
           </div>
         </PageSection>
 
-        {/* I. FAQ (two-column layout from FaqSection) */}
-        <FaqSection
-          id="faq"
-          heading="Questions About Marketing and Automation for Your Firm"
-          faqs={faqs}
-        />
+        {/* J. FAQ (two-column layout from FaqSection) */}
+        <FaqSection id="faq" heading="Questions From Professional Firms" faqs={faqs} />
 
         <RelatedIndustries currentPath="/industries/professional-services" />
 
-        {/* J. Final CTA. The brief's inquiry form is not built yet: the contact path
-            and consent wording are TBD (docs/01), so this points to /contact. */}
+        {/* J. Closing inquiry. The form below is layout only: the destination, consent
+            wording, and SMS/AI-call consent are TBD (docs/01), so it is not wired to
+            anything and every CTA points to /contact. */}
         <section
           id="contact"
           aria-labelledby="final-cta"
           className="rounded-xl border-2 border-brand-blue bg-surface-muted p-6 sm:p-10"
         >
-          <div className="grid items-center gap-8 md:grid-cols-[minmax(0,1fr)_minmax(0,24rem)]">
+          <div className="grid items-start gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,28rem)]">
             <div>
               <h2 id="final-cta" className="text-2xl font-bold tracking-tight sm:text-3xl">
-                Discuss Your Firm&apos;s Website and Intake Workflow
+                {page.primaryCta.label}
               </h2>
               <p className="mt-4 max-w-3xl text-lg text-neutral-700">
                 Tell us where inquiries slow down today, which software you already
@@ -492,9 +606,75 @@ export default function Page() {
                 </a>
               </div>
             </div>
-            <figure className="mx-auto w-full max-w-sm md:mx-0 md:max-w-none">
-              <ProfessionalServicesScopeIllustration />
-            </figure>
+
+            {/* Layout only: fields are disabled and nothing is submitted. */}
+            <form
+              aria-labelledby="inquiry-form-title"
+              className="rounded-lg border border-neutral-300 bg-white p-6"
+            >
+              <h3 id="inquiry-form-title" className="text-lg font-semibold">
+                Short inquiry form
+              </h3>
+              <p className="mt-2 text-sm text-neutral-700">
+                This form is not active yet. For now, use the contact page, email,
+                or phone.
+              </p>
+              <fieldset disabled className="mt-4 space-y-4 opacity-70">
+                <legend className="sr-only">Inquiry details</legend>
+                <div>
+                  <label htmlFor="inq-firm" className="block text-sm font-semibold">
+                    Firm name and profession
+                  </label>
+                  <input id="inq-firm" type="text" className={fieldClass} />
+                </div>
+                <div>
+                  <label htmlFor="inq-bottleneck" className="block text-sm font-semibold">
+                    Where do inquiries slow down today?
+                  </label>
+                  <textarea id="inq-bottleneck" rows={3} className={fieldClass} />
+                </div>
+                <div>
+                  <label htmlFor="inq-software" className="block text-sm font-semibold">
+                    Software you already use
+                  </label>
+                  <input id="inq-software" type="text" className={fieldClass} />
+                </div>
+                <div>
+                  <label htmlFor="inq-method" className="block text-sm font-semibold">
+                    Preferred contact method
+                  </label>
+                  <select id="inq-method" className={fieldClass} defaultValue="">
+                    <option value="">Choose one</option>
+                    <option value="email">Email</option>
+                    <option value="phone">Phone call</option>
+                  </select>
+                </div>
+                <div>
+                  <label htmlFor="inq-contact" className="block text-sm font-semibold">
+                    Email address or phone number
+                  </label>
+                  <input id="inq-contact" type="text" className={fieldClass} />
+                </div>
+                <p className="text-sm text-neutral-700">
+                  We use these details only to respond to your inquiry. Marketing
+                  messages are separate and require their own permission. Submitting
+                  a phone number does not authorize automated marketing texts or calls.
+                </p>
+                <div className="flex items-start gap-3">
+                  <input id="inq-permission" type="checkbox" className="mt-1 h-4 w-4" />
+                  <label htmlFor="inq-permission" className="text-sm">
+                    I agree that OKIKO HIGH may use these details to respond to this
+                    inquiry.
+                  </label>
+                </div>
+                <button
+                  type="button"
+                  className="font-heading min-h-11 rounded-md bg-neutral-200 px-5 py-2.5 text-base font-semibold text-neutral-700"
+                >
+                  Send inquiry
+                </button>
+              </fieldset>
+            </form>
           </div>
         </section>
       </div>
