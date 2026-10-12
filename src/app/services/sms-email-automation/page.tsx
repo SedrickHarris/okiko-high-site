@@ -9,6 +9,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { NamedIcon } from "@/components/ui/icons";
+import { QuickAnswer } from "@/components/ui/QuickAnswer";
 import { SourceLinks } from "@/components/ui/SourceLinks";
 import {
   automated,
@@ -20,6 +21,7 @@ import {
   metricTiles,
   needsConfirming,
   needsPerson,
+  openRatesNote,
   permissionNotes,
   permissionSteps,
   problems,
@@ -292,7 +294,13 @@ export default function Page() {
             client results or a proven deployment. Spacing between steps is set with
             you and tested.
           </p>
-          <div className="mt-8 grid gap-6 md:grid-cols-2">
+          <QuickAnswer
+            icon="shield"
+            lead={openRatesNote.lead}
+            detail={openRatesNote.detail}
+            sources={openRatesNote.sources}
+          />
+          <div className="mt-6 max-w-3xl space-y-6">
             {channelNotes.map((note) => (
               <div key={note.title} className="rounded-lg border border-neutral-200 p-5">
                 <IconCardHeading icon={note.icon} tone={note.tone} title={note.title} />
@@ -300,7 +308,6 @@ export default function Page() {
               </div>
             ))}
           </div>
-          <SourceLinks sources={[sources.klaviyo, sources.mailchimpPrivacy]} />
         </PageSection>
 
         {/* E. Build */}

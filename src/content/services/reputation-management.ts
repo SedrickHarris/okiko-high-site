@@ -194,7 +194,7 @@ export const scopeColumns = [
   },
   {
     icon: "minus",
-    tone: "muted",
+    tone: "negative",
     heading: "Not included",
     note: "Not assumed unless your scope says so.",
     items: [
@@ -542,3 +542,11 @@ export const faqs: Faq[] = [
       "Cost depends on scope: how many locations and platforms are involved, how many requests you send, which integrations are needed, and who drafts, approves, and publishes replies. Software prices are not the same as the cost of a managed service. We do not publish a price on this page; ask for a scoped quote.",
   },
 ];
+
+// Quick fact at the top of the platform-rules section.
+export const reviewRulesNote = {
+  lead: "Google does not allow incentives for reviews, or selectively asking only happy customers to post.",
+  detail:
+    "Its policy bars merchants from offering incentives in exchange for a review or for removing a negative one, and from selectively soliciting positive reviews, a practice known as review gating. Merchants can still encourage genuine reviews with no incentive and no attempt to influence the rating or content.",
+  source: sources.googlePolicy,
+};

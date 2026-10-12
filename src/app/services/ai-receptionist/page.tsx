@@ -9,9 +9,11 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { NamedIcon } from "@/components/ui/icons";
+import { QuickAnswer } from "@/components/ui/QuickAnswer";
 import { SourceLinks } from "@/components/ui/SourceLinks";
 import {
   aiReceptionistPage as page,
+  aiVoiceRuleNote,
   bookingChecks,
   bookingOutcomes,
   boundaryColumns,
@@ -156,7 +158,7 @@ export default function Page() {
             ))}
           </ul>
           <div className="mt-8 rounded-lg border border-neutral-200 p-5">
-            <IconCardHeading icon="minus" tone="muted" title="Not assumed" />
+            <IconCardHeading icon="minus" tone="negative" title="Not assumed" />
             <p className="mt-3 text-sm text-neutral-600">
               Included only if your written scope says so.
             </p>
@@ -188,20 +190,39 @@ export default function Page() {
           <div className="grid gap-8 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)]">
             <ol className="space-y-4">
               {sampleCall.map((turn, index) => (
-                <li key={index} className="rounded-lg border border-neutral-200 bg-white p-4">
-                  <p className="text-sm font-semibold text-brand-blue-strong">{turn.speaker}</p>
-                  <p className="mt-1 text-neutral-900">&ldquo;{turn.line}&rdquo;</p>
-                  <p className="mt-2 text-sm text-neutral-600">{turn.note}</p>
+                <li
+                  key={index}
+                  className={`flex gap-3 rounded-lg border border-neutral-200 border-l-4 bg-white p-4 ${
+                    turn.speaker === "Assistant" ? "border-l-brand-blue" : "border-l-brand-yellow"
+                  }`}
+                >
+                  <span
+                    className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-md text-brand-ink ${
+                      turn.speaker === "Assistant" ? "bg-brand-blue" : "bg-brand-yellow"
+                    }`}
+                  >
+                    <NamedIcon name={turn.speaker === "Assistant" ? "headset" : "call"} className="h-5 w-5" />
+                  </span>
+                  <div>
+                    <p className="text-sm font-semibold text-brand-blue-strong">{turn.speaker}</p>
+                    <p className="mt-1 text-neutral-900">&ldquo;{turn.line}&rdquo;</p>
+                    <p className="mt-2 text-sm text-neutral-600">{turn.note}</p>
+                  </div>
                 </li>
               ))}
             </ol>
-            <div className="self-start rounded-lg border border-neutral-200 bg-white p-5">
-              <h3 className="text-lg font-semibold">{sampleOutcome.heading}</h3>
+            <div className="self-start rounded-lg border border-neutral-200 border-t-4 border-t-brand-blue bg-white p-5">
+              <IconCardHeading icon="clipboard" title={sampleOutcome.heading} />
               <dl className="mt-4 space-y-3 text-sm">
                 {sampleOutcome.rows.map((row) => (
-                  <div key={row.label}>
-                    <dt className="font-semibold text-neutral-900">{row.label}</dt>
-                    <dd className="text-neutral-700">{row.value}</dd>
+                  <div key={row.label} className="flex gap-3">
+                    <span className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-surface-muted text-brand-blue-strong`}>
+                      <NamedIcon name={row.icon} className="h-5 w-5" />
+                    </span>
+                    <div>
+                      <dt className="font-semibold text-neutral-900">{row.label}</dt>
+                      <dd className="text-neutral-700">{row.value}</dd>
+                    </div>
                   </div>
                 ))}
               </dl>
@@ -277,9 +298,14 @@ export default function Page() {
         >
           <ol className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {processSteps.map((step, index) => (
-              <li key={step.title} className="rounded-lg border border-neutral-200 bg-white p-5">
-                <p className="text-sm font-semibold text-brand-blue-strong">Step {index + 1}</p>
-                <h3 className="mt-1 text-lg font-semibold">{step.title}</h3>
+              <li
+                key={step.title}
+                className="rounded-lg border border-neutral-200 border-t-4 border-t-brand-blue bg-white p-5"
+              >
+                <p className="mb-3 inline-block rounded-full bg-brand-yellow px-2.5 py-0.5 font-heading text-xs font-bold text-brand-ink">
+                  Step {index + 1}
+                </p>
+                <IconCardHeading icon={step.icon} title={step.title} />
                 <p className="mt-2 text-neutral-800">{step.body}</p>
                 <p className="mt-3 text-sm text-neutral-600">
                   <span className="font-semibold">From you:</span> {step.clientInput}
@@ -306,18 +332,26 @@ export default function Page() {
         >
           <div className="grid gap-8 md:grid-cols-2">
             <div>
-              <h3 className="text-lg font-semibold">What gets validated before live booking</h3>
-              <ul className="mt-3 list-disc space-y-2 pl-5 text-neutral-800">
+              <IconCardHeading icon="check" tone="included" title="What gets validated before live booking" />
+              <ul className="mt-4 space-y-3 text-neutral-800">
                 {bookingChecks.map((item) => (
-                  <li key={item}>{item}</li>
+                  <li key={item.text} className="flex items-center gap-3">
+                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-surface-muted text-brand-blue-strong">
+                      <NamedIcon name={item.icon} className="h-5 w-5" />
+                    </span>
+                    {item.text}
+                  </li>
                 ))}
               </ul>
             </div>
             <div>
-              <h3 className="text-lg font-semibold">A booking and a request are different</h3>
-              <div className="mt-3 space-y-4">
+              <IconCardHeading icon="swap" title="A booking and a request are different" />
+              <div className="mt-4 space-y-4">
                 {bookingOutcomes.map((item) => (
-                  <div key={item.heading} className="rounded-lg border border-neutral-200 p-5">
+                  <div
+                    key={item.heading}
+                    className="rounded-lg border border-neutral-200 border-l-4 border-l-brand-blue p-5"
+                  >
                     <IconCardHeading icon={item.icon} title={item.heading} as="h4" />
                     <p className="mt-3 text-neutral-700">{item.body}</p>
                   </div>
@@ -351,7 +385,7 @@ export default function Page() {
                 What the assistant does and does not do in four kinds of call
               </caption>
               <thead>
-                <tr className="border-b border-neutral-300">
+                <tr className="border-b-2 border-brand-blue">
                   <th scope="col" className="py-3 pr-4 font-semibold">If the caller...</th>
                   <th scope="col" className="py-3 pr-4 font-semibold">The assistant</th>
                   <th scope="col" className="py-3 font-semibold">It does not</th>
@@ -360,7 +394,14 @@ export default function Page() {
               <tbody>
                 {handoffPaths.map((row) => (
                   <tr key={row.situation} className="border-b border-neutral-200 align-top">
-                    <th scope="row" className="py-3 pr-4 font-semibold">{row.situation}</th>
+                    <th scope="row" className="py-3 pr-4 font-semibold">
+                      <span className="flex items-center gap-3">
+                        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-white text-brand-blue-strong">
+                          <NamedIcon name={row.icon} className="h-5 w-5" />
+                        </span>
+                        {row.situation}
+                      </span>
+                    </th>
                     <td className="py-3 pr-4 text-neutral-800">{row.does}</td>
                     <td className="py-3 text-neutral-800">{row.doesNot}</td>
                   </tr>
@@ -397,7 +438,7 @@ export default function Page() {
                 in-house receptionist compare
               </caption>
               <thead>
-                <tr className="border-b border-neutral-300">
+                <tr className="border-b-2 border-brand-blue">
                   <th scope="col" className="py-3 pr-4 font-semibold">Option</th>
                   <th scope="col" className="py-3 pr-4 font-semibold">During the call</th>
                   <th scope="col" className="py-3 pr-4 font-semibold">Coverage</th>
@@ -407,7 +448,14 @@ export default function Page() {
               <tbody>
                 {comparisonRows.map((row) => (
                   <tr key={row.option} className="border-b border-neutral-200 align-top">
-                    <th scope="row" className="py-3 pr-4 font-semibold">{row.option}</th>
+                    <th scope="row" className="py-3 pr-4 font-semibold">
+                      <span className="flex items-center gap-3">
+                        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-surface-muted text-brand-blue-strong">
+                          <NamedIcon name={row.icon} className="h-5 w-5" />
+                        </span>
+                        {row.option}
+                      </span>
+                    </th>
                     <td className="py-3 pr-4 text-neutral-800">{row.handles}</td>
                     <td className="py-3 pr-4 text-neutral-800">{row.coverage}</td>
                     <td className="py-3 text-neutral-800">{row.cost}</td>
@@ -418,10 +466,15 @@ export default function Page() {
           </div>
           <div className="mt-8 grid gap-8 md:grid-cols-2">
             <div>
-              <h3 className="text-lg font-semibold">Compare total cost, not just the plan price</h3>
-              <ul className="mt-3 list-disc space-y-2 pl-5 text-neutral-800">
+              <IconCardHeading icon="analytics" title="Compare total cost, not just the plan price" />
+              <ul className="mt-4 space-y-3 text-neutral-800">
                 {totalCostItems.map((item) => (
-                  <li key={item}>{item}</li>
+                  <li key={item.text} className="flex items-center gap-3">
+                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-surface-muted text-brand-blue-strong">
+                      <NamedIcon name={item.icon} className="h-5 w-5" />
+                    </span>
+                    {item.text}
+                  </li>
                 ))}
               </ul>
             </div>
@@ -474,13 +527,13 @@ export default function Page() {
           </div>
           <p className="mt-8 max-w-3xl text-neutral-700">
             Recording rules vary by jurisdiction and by the circumstances of the call.
-            The FCC has ruled that AI-generated voices fall under the TCPA&apos;s
-            artificial or prerecorded voice rules. That ruling concerns covered
-            outbound calls and is not a ban on answering inbound calls with AI, but
-            callbacks and other outbound workflows need their own review.
           </p>
-          <SourceLinks
-            sources={[sources.euAiTransparency, sources.rcfp, sources.fccRuling]}
+          <SourceLinks sources={[sources.euAiTransparency, sources.rcfp]} />
+          <QuickAnswer
+            icon="shield"
+            lead={aiVoiceRuleNote.lead}
+            detail={aiVoiceRuleNote.detail}
+            sources={aiVoiceRuleNote.sources}
           />
         </PageSection>
 
@@ -509,7 +562,7 @@ export default function Page() {
                 What a call-handling report tracks and how each measure is counted
               </caption>
               <thead>
-                <tr className="border-b border-neutral-300">
+                <tr className="border-b-2 border-brand-blue">
                   <th scope="col" className="py-3 pr-4 font-semibold">Measure</th>
                   <th scope="col" className="py-3 font-semibold">How it is counted</th>
                 </tr>
@@ -517,7 +570,14 @@ export default function Page() {
               <tbody>
                 {measures.map((row) => (
                   <tr key={row.measure} className="border-b border-neutral-200 align-top">
-                    <th scope="row" className="py-3 pr-4 font-semibold">{row.measure}</th>
+                    <th scope="row" className="py-3 pr-4 font-semibold">
+                      <span className="flex items-center gap-3">
+                        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-surface-muted text-brand-blue-strong">
+                          <NamedIcon name={row.icon} className="h-5 w-5" />
+                        </span>
+                        {row.measure}
+                      </span>
+                    </th>
                     <td className="py-3 text-neutral-800">{row.counted}</td>
                   </tr>
                 ))}
@@ -529,14 +589,21 @@ export default function Page() {
             figures.
           </p>
           <div className="mt-8 rounded-lg border border-brand-blue/30 bg-surface-muted p-5">
-            <h3 className="text-lg font-semibold">Keep these four numbers separate</h3>
-            <ul className="mt-3 flex flex-wrap gap-3">
-              {keepDistinct.map((item) => (
-                <li
-                  key={item}
-                  className="rounded-md border border-neutral-300 bg-white px-3 py-2 text-sm font-medium"
-                >
-                  {item}
+            <IconCardHeading icon="analytics" title="Keep these four numbers separate" />
+            <ul className="mt-4 flex flex-wrap items-center gap-3">
+              {keepDistinct.map((item, index) => (
+                <li key={item.text} className="flex items-center gap-3">
+                  {index > 0 && (
+                    <span aria-hidden="true" className="font-bold text-brand-blue-strong">
+                      &ne;
+                    </span>
+                  )}
+                  <span className="flex items-center gap-2 rounded-md border border-neutral-300 bg-white px-3 py-2 text-sm font-medium">
+                    <span className="flex h-6 w-6 items-center justify-center rounded bg-brand-blue text-brand-ink">
+                      <NamedIcon name={item.icon} className="h-4 w-4" />
+                    </span>
+                    {item.text}
+                  </span>
                 </li>
               ))}
             </ul>

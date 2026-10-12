@@ -285,7 +285,7 @@ export const scopeColumns = [
   },
   {
     icon: "minus",
-    tone: "muted",
+    tone: "negative",
     heading: "Not included",
     note: "Not assumed unless your scope says so.",
     items: [

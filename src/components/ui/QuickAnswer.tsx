@@ -1,23 +1,27 @@
-import type { SourceLink } from "@/content/services/website-design";
-import { NamedIcon } from "./icons";
+import type { SourceLink } from "@/content/shared";
+import { NamedIcon, type IconName } from "./icons";
 import { SourceLinks } from "./SourceLinks";
 
 // "Quick fact" callout: a labeled card with a bold direct answer first, the
 // supporting detail next, and the source last. The logo blue is a fill and a
 // left accent with brand-ink glyphs (docs/05); the label text and icon carry the
 // meaning, never color alone.
+//
+// Pass `source` for one citation or `sources` when a fact rests on more than one.
 export function QuickAnswer({
   lead,
   detail,
   source,
   sources,
+  icon = "message",
 }: {
   lead: string;
   detail: string;
   source?: SourceLink;
   sources?: ReadonlyArray<SourceLink>;
+  icon?: IconName;
 }) {
-  const list = sources ?? (source ? [source] : []);
+  const cited = sources ?? (source ? [source] : []);
   return (
     <aside
       aria-label="Quick fact"
@@ -28,13 +32,13 @@ export function QuickAnswer({
           aria-hidden="true"
           className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-brand-blue text-brand-ink"
         >
-          <NamedIcon name="message" className="h-5 w-5" />
+          <NamedIcon name={icon} className="h-5 w-5" />
         </span>
         Quick fact
       </p>
       <p className="mt-3 text-lg font-semibold leading-snug text-neutral-900">{lead}</p>
       <p className="mt-2 text-neutral-700">{detail}</p>
-      {list.length > 0 && <SourceLinks sources={list} />}
+      {cited.length > 0 && <SourceLinks sources={cited} />}
     </aside>
   );
 }

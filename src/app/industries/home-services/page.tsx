@@ -7,6 +7,7 @@ import { HomeServicesBranchingDiagram } from "@/components/illustrations/HomeSer
 import { HomeServicesHeroIllustration } from "@/components/illustrations/HomeServicesHeroIllustration";
 import { HomeServicesHandoffIllustration } from "@/components/illustrations/HomeServicesHandoffIllustration";
 import { PageSection } from "@/components/sections/PageSection";
+import { RelatedIndustries } from "@/components/sections/RelatedIndustries";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { ButtonLink } from "@/components/ui/ButtonLink";
@@ -42,7 +43,9 @@ import {
   organizationNode,
 } from "@/lib/schema";
 
-// Approved by the owner (2026-10-11): indexable and listed in src/app/sitemap.ts.
+// Home Services is a currently served audience (docs/01). The owner approved indexing on
+// 2026-10-11, so the page is indexable and listed in src/app/sitemap.ts. Keep the copy free of
+// pricing, ownership terms, tested integrations, results, and client proof until confirmed.
 export const metadata: Metadata = {
   title: page.title,
   description: page.description,
@@ -540,6 +543,8 @@ export default function Page() {
           heading="Questions About Marketing and Automation for Home-Service Businesses"
           faqs={faqs}
         />
+
+        <RelatedIndustries currentPath="/industries/home-services" />
 
         {/* Final CTA. The inquiry form is not built yet: the contact path and consent
             language are TBD (docs/01), so this points to /contact. */}

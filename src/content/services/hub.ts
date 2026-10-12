@@ -25,8 +25,9 @@ export type HubService = {
   description: string;
   buttonLabel: string;
   // Matches src/app/sitemap.ts. Only published services go into the hub's
-  // ItemList structured data (docs/07). Flip to true when the owner confirms
-  // availability, removes `robots` from that service page, and adds it to the sitemap.
+  // ItemList structured data (docs/07). Set to true when the service page is
+  // indexable (no `robots` noindex) and listed in the sitemap. The owner approved
+  // indexing all six service pages on 2026-10-11.
   published: boolean;
 };
 

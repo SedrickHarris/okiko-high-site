@@ -1,7 +1,8 @@
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/data/site";
 
-// Every indexable route. Add new pages here when they are built and published.
+// Core routes plus built service pages. Add industry, resource and case-study
+// pages here once they are built and published.
 const routes = [
   "",
   "/about",
@@ -14,6 +15,8 @@ const routes = [
   "/services/sms-email-automation",
   "/industries",
   "/industries/home-services",
+  "/industries/professional-services",
+  "/industries/property-management-real-estate",
   "/case-studies",
   "/resources",
   "/contact",

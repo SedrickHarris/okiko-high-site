@@ -5,6 +5,7 @@ import { IconCardHeading } from "@/components/cards/IconCardHeading";
 import { FaqSection } from "@/components/sections/FaqSection";
 import { QuestionAnswerIllustration } from "@/components/illustrations/QuestionAnswerIllustration";
 import { PageSection } from "@/components/sections/PageSection";
+import { RelatedIndustries } from "@/components/sections/RelatedIndustries";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { ButtonLink } from "@/components/ui/ButtonLink";
@@ -194,9 +195,6 @@ export default function Page() {
                 Review management supports the trust your website relies on.
               </p>
             </div>
-            <figcaption className="mt-3 text-center text-xs text-neutral-600">
-              Illustrative path, not a client project.
-            </figcaption>
           </figure>
         </header>
 
@@ -400,12 +398,18 @@ export default function Page() {
               </li>
             ))}
           </ol>
-          <p className="mt-8 max-w-3xl text-neutral-700">
-            We do not publish prices or timelines on this page. Setup, recurring
-            costs, third-party software, and ongoing support are defined in your
-            scope before pricing is given.
+          <p className="mt-8 text-neutral-700">
+            <span className="block">We do not publish prices or timelines on this page.</span>
+            <span className="block">
+              Setup, recurring costs, third-party software, and ongoing support are defined in your scope before pricing is given.
+            </span>
           </p>
         </PageSection>
+
+        <RelatedIndustries
+          heading="See How the Services Fit Your Industry"
+          intro="The six services apply differently depending on how your customers reach you. Choose your industry to see the proposed approach."
+        />
 
         {/* D. FAQs */}
         <FaqSection id="faq" heading="Services Questions, Answered" faqs={faqs} />

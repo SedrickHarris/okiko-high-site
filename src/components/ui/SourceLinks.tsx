@@ -1,4 +1,4 @@
-import type { SourceLink } from "@/content/services/website-design";
+import type { SourceLink } from "@/content/shared";
 
 export function SourceLinks({
   sources,
