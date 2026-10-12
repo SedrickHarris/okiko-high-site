@@ -39,15 +39,14 @@ import {
   organizationNode,
 } from "@/lib/schema";
 
-// AI receptionist availability is TBD in docs/01. Keep the page out of search
-// results (and out of the sitemap) until the owner confirms the offering, then
-// remove `robots` here, add the Service node back, and add the route to
-// src/app/sitemap.ts.
+// The owner approved indexing this page on 2026-10-11, so it is indexable and
+// listed in src/app/sitemap.ts. docs/01 still lists ai receptionist availability,
+// scope, and pricing as TBD, and no Service node is emitted until those are
+// confirmed (docs/07). Keep the copy free of availability, price, and results claims.
 export const metadata: Metadata = {
   title: page.title,
   description: page.description,
   alternates: { canonical: page.path },
-  robots: { index: false, follow: true },
 };
 
 const pageUrl = absoluteUrl(page.path);
