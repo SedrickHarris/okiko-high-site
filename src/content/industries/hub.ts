@@ -1,8 +1,8 @@
 // Content for /industries (the industries hub) and the "other industries" strips on
 // the audience pages and the services hub.
 // Status labels follow docs/01: Home Services is currently served; Professional
-// Services (which includes real estate) and Property Management and Real Estate are
-// planned audiences, so their pages describe a proposed approach, not client work.
+// Services (which includes real estate), Property Management and Real Estate, and
+// Healthcare, Dental and Med Spa are planned audiences, so their pages describe a proposed approach, not client work.
 // Nothing here adds a fact that is still TBD in docs/01.
 
 import type { IconName } from "@/components/ui/icons";
@@ -52,6 +52,15 @@ export const audiences: ReadonlyArray<IndustryAudience> = [
     description:
       "Property managers, landlords, rental operators, and real estate teams. Separate paths for owners, renters, and buyers, with human handoffs.",
     buttonLabel: "Explore Property Management and Real Estate",
+  },
+  {
+    path: "/industries/healthcare",
+    title: "Healthcare, Dental and Med Spa",
+    status: "Planned audience",
+    icon: "shield",
+    description:
+      "Healthcare, dental, and med spa practices of about 1 to 10 providers. Clearer contact paths and administrative follow-up, with clinical questions staying with your team.",
+    buttonLabel: "Explore Healthcare, Dental and Med Spa",
   },
 ];
 

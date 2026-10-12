@@ -60,16 +60,12 @@ import {
 // category, and every service this page describes is still TBD or only partly
 // confirmed. The page states no availability, pricing, tested integrations, results,
 // BAA readiness, HIPAA compliance, or experience: keep it that way until docs/01
-// confirms those facts. The page is built but NOT indexed (robots noindex), is not in
-// src/app/sitemap.ts, and is not linked from the industries hub until the owner
-// approves publication. To publish: remove `robots` below, add the path to
-// src/app/sitemap.ts, and add the page to `audiences` in
-// src/content/industries/hub.ts.
+// confirms those facts. The owner approved publication on 2026-10-12, so the page is
+// indexable, listed in src/app/sitemap.ts, and linked from the industries hub.
 export const metadata: Metadata = {
   title: page.title,
   description: page.description,
   alternates: { canonical: page.path },
-  robots: { index: false, follow: false },
 };
 
 const pageUrl = absoluteUrl(page.path);

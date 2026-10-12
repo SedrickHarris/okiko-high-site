@@ -14,6 +14,7 @@ const routes = [
   "/services/reputation-management",
   "/services/sms-email-automation",
   "/industries",
+  "/industries/healthcare",
   "/industries/home-services",
   "/industries/professional-services",
   "/industries/property-management-real-estate",
