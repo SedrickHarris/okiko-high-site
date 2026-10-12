@@ -43,15 +43,14 @@ import {
 
 // Professional Services is a FUTURE opportunity in docs/01, not a current client
 // category, and every service this page describes is still TBD or only partly
-// confirmed. No pricing, tested integrations, demonstration, experience, or client
-// proof exists yet. Keep the page out of search results (and out of the sitemap)
-// until the owner approves it, then remove `robots` here and add the route to
-// src/app/sitemap.ts.
+// confirmed. The owner approved indexing on 2026-10-11, so the page is indexable
+// and listed in src/app/sitemap.ts. It still states no availability, pricing,
+// tested integrations, results, or experience: keep it that way until docs/01
+// confirms those facts.
 export const metadata: Metadata = {
   title: page.title,
   description: page.description,
   alternates: { canonical: page.path },
-  robots: { index: false, follow: true },
 };
 
 const pageUrl = absoluteUrl(page.path);

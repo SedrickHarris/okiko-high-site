@@ -10,6 +10,7 @@ const routes = [
   "/services/website-design",
   "/services/google-business-profile-optimization",
   "/industries",
+  "/industries/professional-services",
   "/case-studies",
   "/resources",
   "/contact",
