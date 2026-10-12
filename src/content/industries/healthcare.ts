@@ -441,9 +441,6 @@ export const scenarios: ReadonlyArray<Scenario> = [
   },
 ];
 
-export const scenarioNote =
-  "These are hypothetical workflow designs, not OKIKO HIGH case studies, and no client results or benchmarks are implied. OKIKO HIGH's ability to deliver them is still being confirmed.";
-
 // Section 6: existing software. Platform names are discovery inputs only.
 export const compatibilityChecks: ReadonlyArray<{ title: string; body: string }> = [
   {

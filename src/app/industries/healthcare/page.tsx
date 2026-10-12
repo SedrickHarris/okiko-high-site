@@ -39,7 +39,6 @@ import {
   reminderNote,
   remindersLawNote,
   reviewReplyNote,
-  scenarioNote,
   scenarios,
   scopeAndLimits,
   scopeWorldwideNote,
@@ -568,15 +567,6 @@ export default function Page() {
               </li>
             ))}
           </ul>
-          <p className="mt-6 flex max-w-3xl items-start gap-3 rounded-lg border border-neutral-300 bg-white p-4 text-neutral-800">
-            <span
-              aria-hidden="true"
-              className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-neutral-200 text-neutral-800"
-            >
-              <NamedIcon name="shield" className="h-5 w-5" />
-            </span>
-            <span>{scenarioNote}</span>
-          </p>
           <div className="mt-8">
             <ButtonLink href={page.primaryCta.href}>{page.primaryCta.label}</ButtonLink>
           </div>
