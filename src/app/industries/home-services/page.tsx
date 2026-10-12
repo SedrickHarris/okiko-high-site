@@ -3,6 +3,7 @@ import Link from "next/link";
 import type { CSSProperties } from "react";
 import { IconCardHeading } from "@/components/cards/IconCardHeading";
 import { FaqSection } from "@/components/sections/FaqSection";
+import { HomeServicesBranchingDiagram } from "@/components/illustrations/HomeServicesBranchingDiagram";
 import { HomeServicesHeroIllustration } from "@/components/illustrations/HomeServicesHeroIllustration";
 import { HomeServicesHandoffIllustration } from "@/components/illustrations/HomeServicesHandoffIllustration";
 import { PageSection } from "@/components/sections/PageSection";
@@ -11,26 +12,26 @@ import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { NamedIcon } from "@/components/ui/icons";
 import { QuickAnswer } from "@/components/ui/QuickAnswer";
-import { SourceLinks } from "@/components/ui/SourceLinks";
 import {
-  compatibilityChecks,
+  branchPaths,
+  compatibilityItems,
+  controlPoints,
+  dedupeFact,
   faqs,
+  heroJourney,
   homeServicesPage as page,
+  journeyStages,
+  limits,
   measurementNote,
-  metricDefinitions,
+  permissionFact,
+  permissionPoints,
+  permissionSteps,
   problems,
-  problemsStat,
-  responsibilityRows,
-  restorationCaution,
-  safeguardsNote,
-  seasonalityNote,
-  serviceStack,
-  softwareNote,
-  stackNote,
-  tradeWorkflows,
-  workflowNote,
-  workflowSteps,
-  workflowStrip,
+  reportTiles,
+  reviewFact,
+  textBackFact,
+  tradeGroups,
+  workflowCards,
 } from "@/content/industries/home-services";
 import { siteConfig } from "@/data/site";
 import {
@@ -74,17 +75,6 @@ const structuredData = graph([
 
 const accents = ["border-t-brand-blue", "border-t-brand-green", "border-t-brand-yellow"] as const;
 
-// IconCardHeading tones that use the logo blue, green, and yellow as fills with
-// brand-ink glyphs (docs/05). "optional" is the logo blue; "included" the green.
-const chipTones = ["optional", "included", "default"] as const;
-
-// Responsibility columns: icon and column label carry the meaning, not color.
-const columns = [
-  { key: "system", label: "System handles", icon: "plug", chip: "bg-brand-blue" },
-  { key: "team", label: "Your team handles", icon: "headset", chip: "bg-brand-green" },
-  { key: "confirm", label: "Needs confirmation", icon: "flag", chip: "bg-brand-yellow" },
-] as const;
-
 const linkClass =
   "font-semibold text-brand-blue-strong underline underline-offset-2 hover:text-brand-ink";
 
@@ -92,6 +82,9 @@ const contactButton =
   "font-heading inline-flex min-h-11 items-center justify-center gap-2 rounded-md px-5 py-2.5 text-base font-semibold text-brand-ink hover:brightness-95 hover:shadow-md motion-safe:transition-[transform,box-shadow,filter] motion-safe:duration-150 motion-safe:hover:-translate-y-px motion-safe:active:translate-y-0";
 
 const telHref = `tel:+1${siteConfig.phone.replace(/\D/g, "")}`;
+
+const exampleLabel =
+  "inline-block rounded-full bg-brand-yellow px-2.5 py-0.5 font-heading text-xs font-bold text-brand-ink";
 
 export default function Page() {
   return (
@@ -108,28 +101,33 @@ export default function Page() {
       <div className="mt-8 space-y-16">
         {/* A. Hero */}
         <header className="grid gap-10 lg:grid-cols-[1fr_22rem] lg:items-center">
-          {/* Text comes first so the heading leads on mobile and for screen
-              readers; on large screens the illustration sits to its right. */}
           <div>
             <h1 className="hero-in-h1 max-w-4xl text-4xl font-extrabold tracking-tight sm:text-5xl">
               {page.h1}
             </h1>
             <p className="hero-in hero-delay-1 mt-6 max-w-3xl text-lg leading-relaxed text-neutral-700">
               This page is for home-service teams. It describes a proposed approach
-              that connects your online presence with what happens after a customer
-              reaches out. Where to start depends on where your own process breaks
-              down, not on a fixed bundle of tools.
+              to marketing automation for home services: connecting your online
+              presence with what happens after a customer reaches out, from the
+              first inquiry to the next visit. Where to start depends on where your
+              own process breaks down, not on a fixed bundle of tools.
             </p>
-            <div className="hero-in hero-delay-2 mt-8">
+            <div className="hero-in hero-delay-2 mt-8 flex flex-wrap gap-3">
               <ButtonLink href={page.primaryCta.href}>{page.primaryCta.label}</ButtonLink>
+              <ButtonLink href={page.secondaryCta.href} variant="secondary">
+                {page.secondaryCta.label}
+              </ButtonLink>
             </div>
           </div>
           <figure className="hero-in hero-delay-2 mx-auto w-full max-w-sm lg:mx-0 lg:max-w-none">
             <HomeServicesHeroIllustration />
           </figure>
-          <figure className="hero-in hero-delay-3 lg:col-span-2">
+          <div className="hero-in hero-delay-3 lg:col-span-2">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-neutral-600">
+              Example customer journey
+            </p>
             <ol className="grid gap-3 sm:grid-cols-5">
-              {workflowStrip.map((step, i) => (
+              {heroJourney.map((step, i) => (
                 <li
                   key={step.label}
                   className="flex items-center gap-3 rounded-lg border border-neutral-200 bg-white p-3 sm:flex-col sm:items-start"
@@ -149,21 +147,18 @@ export default function Page() {
                 </li>
               ))}
             </ol>
-            <figcaption className="mt-3 text-sm text-neutral-600">
-              Illustrative path, not a client project.
-            </figcaption>
-          </figure>
+          </div>
         </header>
 
         {/* B. Operational problems */}
         <PageSection
-          id="follow-up-slips"
-          heading="When You're on the Job, Customer Follow-Up Can Slip"
+          id="after-the-inquiry"
+          heading="When Marketing Creates an Inquiry, What Happens Next?"
           intro={
             <p>
-              More inquiries are not useful if nobody owns the next step. These
-              are the places where follow-up most often breaks down for small
-              home-service teams.
+              More inquiries are not useful if nobody owns the next step. These are
+              the places where follow-up can break down, each paired with the
+              workflow response we would propose.
             </p>
           }
         >
@@ -176,55 +171,26 @@ export default function Page() {
               >
                 <IconCardHeading icon={problem.icon} title={problem.title} />
                 <p className="mt-3 text-neutral-700">{problem.body}</p>
+                <p className="mt-4 border-t border-neutral-200 pt-3 text-sm text-neutral-800">
+                  <span className="font-semibold">Workflow response: </span>
+                  {problem.response}
+                </p>
               </li>
             ))}
           </ul>
-          <QuickAnswer lead={problemsStat.lead} detail={problemsStat.detail} source={problemsStat.source} />
         </PageSection>
 
-        {/* C. Connected workflow */}
+        {/* C. Trade groups */}
         <PageSection
-          id="connected-workflow"
-          heading="Connect the Next Step, Not Just Another Tool"
+          id="different-workflows"
+          heading="Different Services Need Different Customer Workflows"
           muted
           className="xl:-mx-10"
           intro={
             <p>
-              A workable setup answers four questions for every inquiry. Each step
-              also shows who is responsible for it.
-            </p>
-          }
-        >
-          <ol className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {workflowSteps.map((step, index) => (
-              <li
-                key={step.title}
-                className="rounded-lg border border-neutral-200 border-t-4 border-t-brand-blue bg-white p-5"
-              >
-                <p className="mb-3 inline-block rounded-full bg-brand-yellow px-2.5 py-0.5 font-heading text-xs font-bold text-brand-ink">
-                  Step {index + 1}
-                </p>
-                <IconCardHeading icon={step.icon} title={step.title} />
-                <p className="mt-3 text-neutral-800">{step.body}</p>
-                <p className="mt-4 border-t border-neutral-200 pt-3 text-sm text-neutral-700">
-                  <span className="font-semibold">Who is responsible: </span>
-                  {step.owner}
-                </p>
-              </li>
-            ))}
-          </ol>
-          <p className="mt-6 max-w-3xl text-neutral-700">{workflowNote}</p>
-        </PageSection>
-
-        {/* D. Service priorities */}
-        <PageSection
-          id="service-priorities"
-          heading="Start With the Bottleneck in Your Business"
-          intro={
-            <p>
-              You do not need every service. Start with the layer that matches
-              your main problem, whether that is visibility, missed inquiries,
-              inconsistent follow-up, or capacity, and add to it only if needed.
+              A home-service business is not one workflow. The follow-up that suits
+              an urgent repair is not the follow-up that suits a recurring schedule
+              or a long quote cycle.
             </p>
           }
         >
@@ -235,240 +201,348 @@ export default function Page() {
             >
               <NamedIcon name="flag" className="h-5 w-5" />
             </span>
-            <span>
-              <span className="font-semibold">{stackNote.scopeLabel}: </span>
-              {stackNote.scopeNote}
+            <span className="font-semibold">
+              Proposed workflow applications, not a record of past client work.
             </span>
           </p>
-          <ol className="space-y-6">
-            {serviceStack.map((layer, index) => (
+          <ul className="grid gap-6 lg:grid-cols-3">
+            {tradeGroups.map((group, index) => (
               <li
-                key={layer.title}
+                key={group.title}
                 className={`rounded-lg border border-neutral-200 border-t-4 bg-white p-6 ${accents[index % accents.length]}`}
               >
-                <IconCardHeading icon={layer.icon} title={layer.title} />
-                <p className="mt-2 text-neutral-700">{layer.intro}</p>
-                <ul className="mt-4 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-                  {layer.items.map((item) => (
-                    <li key={item.href} className="rounded-md bg-surface-muted p-4">
-                      <Link href={item.href} className={linkClass}>
-                        {item.label}
-                        <span aria-hidden="true"> &rarr;</span>
-                      </Link>
-                      <p className="mt-2 text-sm text-neutral-700">{item.note}</p>
-                    </li>
+                <IconCardHeading icon={group.icon} title={group.title} />
+                <p className="mt-3 text-neutral-700">{group.focus}</p>
+                <h3 className="mt-5 font-heading text-sm font-bold uppercase tracking-wider text-neutral-700">
+                  Example journey
+                </h3>
+                <ol className="mt-2 list-decimal space-y-1.5 pl-5 text-neutral-800">
+                  {group.journey.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ol>
+                <h3 className="mt-5 font-heading text-sm font-bold uppercase tracking-wider text-neutral-700">
+                  Stopping rules
+                </h3>
+                <ul className="mt-2 list-disc space-y-1.5 pl-5 text-neutral-800">
+                  {group.stops.map((item) => (
+                    <li key={item}>{item}</li>
                   ))}
                 </ul>
               </li>
             ))}
+          </ul>
+          <p className="mt-6">
+            <a href="#workflows" className={linkClass}>
+              See the workflow examples
+              <span aria-hidden="true"> &darr;</span>
+            </a>
+          </p>
+        </PageSection>
+
+        {/* D. Connected journey */}
+        <PageSection
+          id="connected-journey"
+          heading="Connect the Customer Journey, Not Just the Tools"
+          intro={
+            <p>
+              Each stage of the journey can be handled on its own or connected to the
+              next. Start with the stage that matches your main problem.
+            </p>
+          }
+        >
+          <ol className="grid gap-6 md:grid-cols-2">
+            {journeyStages.map((stage, index) => (
+              <li
+                key={stage.title}
+                className={`rounded-lg border border-neutral-200 border-t-4 bg-white p-6 ${accents[index % accents.length]}`}
+              >
+                <IconCardHeading icon={stage.icon} title={stage.title} />
+                <p className="mt-2 text-neutral-700">{stage.intro}</p>
+                {stage.links.length > 0 ? (
+                  <ul className="mt-4 space-y-2">
+                    {stage.links.map((link) => (
+                      <li key={link.href}>
+                        <Link href={link.href} className={linkClass}>
+                          {link.label}
+                          <span aria-hidden="true"> &rarr;</span>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p className="mt-4 text-sm font-semibold text-neutral-800">{stage.plain}</p>
+                )}
+              </li>
+            ))}
           </ol>
-          <QuickAnswer lead={stackNote.lead} detail={stackNote.detail} source={stackNote.source} />
+          <QuickAnswer
+            lead={textBackFact.lead}
+            detail={textBackFact.detail}
+            sources={textBackFact.sources}
+          />
+        </PageSection>
+
+        {/* E. Practical workflows */}
+        <PageSection
+          id="workflows"
+          heading="Practical Follow-Up From First Inquiry to the Next Visit"
+          muted
+          className="xl:-mx-10"
+          intro={
+            <p>
+              Five proposed workflows. Open each one to see what starts it, what it
+              is for, who owns it, and when it stops.
+            </p>
+          }
+        >
+          <div className="space-y-4">
+            {workflowCards.map((card) => (
+              <details
+                key={card.title}
+                className="group rounded-lg border border-neutral-200 bg-white p-5 open:shadow-sm"
+              >
+                <summary className="flex cursor-pointer list-none items-start justify-between gap-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-blue-strong">
+                  <div>
+                    <span className={exampleLabel}>Example workflow</span>
+                    <div className="mt-2">
+                      <IconCardHeading icon={card.icon} title={card.title} as="h3" />
+                    </div>
+                    <p className="mt-2 text-neutral-700">{card.summary}</p>
+                  </div>
+                  <span
+                    aria-hidden="true"
+                    className="mt-1 text-2xl font-bold leading-none text-brand-blue-strong group-open:hidden"
+                  >
+                    +
+                  </span>
+                  <span
+                    aria-hidden="true"
+                    className="mt-1 hidden text-2xl font-bold leading-none text-brand-blue-strong group-open:inline"
+                  >
+                    &minus;
+                  </span>
+                </summary>
+                <dl className="mt-5 grid gap-4 border-t border-neutral-200 pt-4 sm:grid-cols-2">
+                  {(
+                    [
+                      ["Trigger", card.trigger],
+                      ["Purpose", card.purpose],
+                      ["Owner", card.owner],
+                      ["Exit", card.exit],
+                    ] as const
+                  ).map(([term, value]) => (
+                    <div key={term}>
+                      <dt className="text-xs font-bold uppercase tracking-wider text-neutral-600">
+                        {term}
+                      </dt>
+                      <dd className="mt-1 text-neutral-800">{value}</dd>
+                    </div>
+                  ))}
+                </dl>
+                {card.link && (
+                  <p className="mt-4">
+                    <Link href={card.link.href} className={linkClass}>
+                      {card.link.label}
+                      <span aria-hidden="true"> &rarr;</span>
+                    </Link>
+                  </p>
+                )}
+              </details>
+            ))}
+          </div>
+          <QuickAnswer
+            lead={reviewFact.lead}
+            detail={reviewFact.detail}
+            sources={reviewFact.sources}
+          />
           <div className="mt-8">
             <ButtonLink href={page.primaryCta.href}>{page.primaryCta.label}</ButtonLink>
           </div>
         </PageSection>
 
-        {/* E. Different workflows */}
+        {/* F. Human control */}
         <PageSection
-          id="different-workflows"
-          heading="Different Jobs Need Different Customer Workflows"
+          id="team-control"
+          heading="Keep Your Team in Control of the Next Step"
+          intro={
+            <p>
+              Automation should hand work to people, not trap customers in a
+              sequence. These are the boundaries to agree before launch.
+            </p>
+          }
+        >
+          <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {controlPoints.map((point, index) => (
+              <li
+                key={point.title}
+                className={`rounded-lg border border-neutral-200 border-t-4 bg-white p-5 ${accents[index % accents.length]}`}
+              >
+                <IconCardHeading icon={point.icon} title={point.title} />
+                <p className="mt-3 text-neutral-700">{point.body}</p>
+              </li>
+            ))}
+          </ul>
+          <div className="mt-10 grid items-center gap-8 lg:grid-cols-2">
+            <div>
+              <h3 className="text-xl font-semibold">What happens after an automated message</h3>
+              <ul className="mt-4 space-y-3">
+                {branchPaths.map((path) => (
+                  <li key={path.label} className="rounded-md bg-surface-muted p-3">
+                    <span className="font-semibold">{path.label}: </span>
+                    <span className="text-neutral-800">{path.outcome}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <HomeServicesBranchingDiagram paths={branchPaths} />
+          </div>
+          <QuickAnswer
+            lead={dedupeFact.lead}
+            detail={dedupeFact.detail}
+            sources={dedupeFact.sources}
+          />
+        </PageSection>
+
+        {/* G. Compatibility */}
+        <PageSection
+          id="existing-systems"
+          heading="Start With the Systems and Processes You Already Use"
           muted
           className="xl:-mx-10"
           intro={
             <p>
-              A home-service business is not one workflow. The way you handle
-              customers depends on the kind of work you do.
+              Whether a connection works depends on the actions you need, not on the
+              name of your software. Nothing below is confirmed for your business
+              yet.
             </p>
           }
         >
-          <ul className="grid gap-6 md:grid-cols-3">
-            {tradeWorkflows.map((workflow, index) => (
-              <li
-                key={workflow.title}
-                className={`rounded-lg border border-neutral-200 border-t-4 bg-white p-6 ${accents[index % accents.length]}`}
-              >
-                <IconCardHeading icon={workflow.icon} title={workflow.title} />
-                <p className="mt-4 text-neutral-700">{workflow.body}</p>
+          <p className="mb-6 max-w-3xl text-sm text-neutral-700">
+            <span className="font-semibold">Status key: </span>
+            &ldquo;Needs review&rdquo; means it has not been checked. An item moves
+            to &ldquo;Confirmed&rdquo; once it is checked and agreed in writing.
+          </p>
+          <ul className="grid gap-4 md:grid-cols-2">
+            {compatibilityItems.map((item) => (
+              <li key={item.title} className="rounded-lg border border-neutral-200 bg-white p-5">
+                <div className="flex items-start justify-between gap-3">
+                  <IconCardHeading icon={item.icon} title={item.title} />
+                  <span
+                    className={`shrink-0 rounded-full px-2.5 py-0.5 font-heading text-xs font-bold text-brand-ink ${
+                      item.status === "Confirmed" ? "bg-brand-green" : "bg-brand-yellow"
+                    }`}
+                  >
+                    {item.status}
+                  </span>
+                </div>
+                <p className="mt-3 text-neutral-700">{item.body}</p>
               </li>
             ))}
           </ul>
-          <p className="mt-6 flex max-w-3xl items-start gap-3 rounded-lg border border-neutral-300 bg-white p-4 text-neutral-800">
+        </PageSection>
+
+        {/* H. Measurement */}
+        <PageSection
+          id="measurement"
+          heading="Measure What Happens After the Message"
+          intro={
+            <p>
+              Messages sent show activity, not business results. This is a sample
+              reporting layout. It contains no data and no results.
+            </p>
+          }
+        >
+          <p className={exampleLabel}>Sample reporting layout</p>
+          <ul className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {reportTiles.map((tile, index) => (
+              <li
+                key={tile.label}
+                className={`rounded-lg border border-neutral-200 border-t-4 bg-white p-5 ${accents[index % accents.length]}`}
+              >
+                <IconCardHeading icon={tile.icon} title={tile.label} />
+                <p
+                  className="mt-3 font-heading text-3xl font-bold text-neutral-400"
+                  aria-label="No data"
+                >
+                  &ndash;
+                </p>
+                <p className="mt-1 text-sm text-neutral-700">{tile.meaning}</p>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-6 max-w-3xl text-neutral-700">{measurementNote}</p>
+        </PageSection>
+
+        {/* I. Permission */}
+        <PageSection
+          id="customer-permission"
+          heading="Build Customer Permission Into the Process"
+          muted
+          className="xl:-mx-10"
+          intro={
+            <p>
+              Customer communication works better, and stays safer, when permission
+              is part of the design rather than an afterthought.
+            </p>
+          }
+        >
+          <ol className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {permissionSteps.map((step, index) => (
+              <li
+                key={step.title}
+                className="rounded-lg border border-neutral-200 border-t-4 border-t-brand-blue bg-white p-5"
+              >
+                <p className="mb-3 inline-block rounded-full bg-brand-yellow px-2.5 py-0.5 font-heading text-xs font-bold text-brand-ink">
+                  Step {index + 1}
+                </p>
+                <IconCardHeading icon={step.icon} title={step.title} />
+                <p className="mt-3 text-neutral-700">{step.body}</p>
+              </li>
+            ))}
+          </ol>
+          <ul className="mt-8 max-w-3xl list-disc space-y-2 pl-5 text-neutral-800">
+            {permissionPoints.map((point) => (
+              <li key={point}>{point}</li>
+            ))}
+          </ul>
+          <QuickAnswer
+            lead={permissionFact.lead}
+            detail={permissionFact.detail}
+            sources={permissionFact.sources}
+          />
+        </PageSection>
+
+        {/* Scope and limits */}
+        <section
+          aria-labelledby="scope-limits"
+          className="rounded-lg border border-neutral-300 bg-white p-6"
+        >
+          <h2 id="scope-limits" className="flex items-center gap-3 text-xl font-bold">
             <span
               aria-hidden="true"
               className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-neutral-200 text-neutral-800"
             >
               <NamedIcon name="shield" className="h-5 w-5" />
             </span>
-            <span>
-              <span className="font-semibold">Restoration caution: </span>
-              {restorationCaution}
-            </span>
-          </p>
-          <p className="mt-6 max-w-3xl text-neutral-700">{seasonalityNote.body}</p>
-          <SourceLinks sources={[seasonalityNote.source]} />
-        </PageSection>
-
-        {/* F. Existing software */}
-        <PageSection
-          id="existing-software"
-          heading="Work With the Systems You Already Use"
-          intro={
-            <p>
-              Whether a connection works depends on the actions you need, not on
-              the name of your software. These are the points to check before any
-              compatibility is promised.
-            </p>
-          }
-        >
-          <ul className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {compatibilityChecks.map((check) => (
-              <li key={check.title} className="rounded-lg border border-neutral-200 bg-white p-5">
-                <h3 className="flex items-start gap-3 text-lg font-semibold leading-snug">
-                  <span
-                    aria-hidden="true"
-                    className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-brand-green text-brand-ink"
-                  >
-                    <NamedIcon name="check" className="h-5 w-5" />
-                  </span>
-                  {check.title}
-                </h3>
-                <p className="mt-3 text-neutral-700">{check.body}</p>
-              </li>
+            Scope and Limits
+          </h2>
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-neutral-700">
+            {limits.map((item) => (
+              <li key={item}>{item}</li>
             ))}
           </ul>
-          <QuickAnswer lead={softwareNote.lead} detail={softwareNote.detail} source={softwareNote.source} />
-        </PageSection>
-
-        {/* G. Measurement */}
-        <PageSection
-          id="measurement"
-          heading="Measure What Happens After the Inquiry"
-          muted
-          className="xl:-mx-10"
-          intro={
-            <p>
-              Calls answered and messages sent show activity, not business
-              results. These sample definitions keep the two apart. No results are
-              shown here.
-            </p>
-          }
-        >
-          <ul className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {metricDefinitions.map((item, index) => (
-              <li
-                key={item.metric}
-                className={`rounded-lg border border-neutral-200 border-t-4 bg-white p-5 ${accents[index % accents.length]}`}
-              >
-                <IconCardHeading icon={item.icon} title={item.metric} tone={chipTones[index % chipTones.length]} />
-                <p className="mt-3 text-neutral-700">{item.meaning}</p>
-              </li>
-            ))}
-          </ul>
-          <p className="mt-6 max-w-3xl text-neutral-700">{measurementNote.body}</p>
-          <SourceLinks sources={[measurementNote.source]} />
-        </PageSection>
-
-        {/* H. Responsibilities and safeguards */}
-        <PageSection
-          id="responsibilities"
-          heading="Clear Responsibilities, Human Handoffs, and Ownership"
-          intro={
-            <p>
-              These are proposed operating boundaries, not confirmed terms. They
-              show who would own each part, and what still needs to be confirmed
-              before anything is agreed.
-            </p>
-          }
-        >
-          {/* Table on wide screens; stacked cards below, so no column is hidden off-screen. */}
-          <div className="hidden lg:block">
-            <table className="w-full border-collapse text-left">
-              <caption className="sr-only">
-                Proposed responsibilities for the system, your team, and items that
-                still need confirmation
-              </caption>
-              <thead>
-                <tr className="border-b-2 border-brand-blue">
-                  <th scope="col" className="py-3 pr-4 font-heading text-base font-semibold">
-                    Topic
-                  </th>
-                  {columns.map((column) => (
-                    <th key={column.key} scope="col" className="py-3 pr-4 align-bottom">
-                      <span className="flex items-center gap-2.5 font-heading text-base font-semibold">
-                        <span
-                          aria-hidden="true"
-                          className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-md text-brand-ink ${column.chip}`}
-                        >
-                          <NamedIcon name={column.icon} className="h-5 w-5" />
-                        </span>
-                        {column.label}
-                      </span>
-                    </th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody className="text-sm">
-                {responsibilityRows.map((row) => (
-                  <tr key={row.topic} className="border-b border-neutral-200 align-top">
-                    <th scope="row" className="py-4 pr-4 font-medium text-neutral-900">
-                      <span className="flex items-center gap-3">
-                        <span
-                          aria-hidden="true"
-                          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-surface-muted text-brand-blue-strong"
-                        >
-                          <NamedIcon name={row.icon} className="h-6 w-6" />
-                        </span>
-                        <span className="text-base font-semibold">{row.topic}</span>
-                      </span>
-                    </th>
-                    <td className="py-4 pr-4 text-neutral-700">{row.system}</td>
-                    <td className="py-4 pr-4 text-neutral-700">{row.team}</td>
-                    <td className="py-4 text-neutral-700">{row.confirm}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <ul className="grid gap-4 md:grid-cols-2 lg:hidden">
-            {responsibilityRows.map((row, index) => (
-              <li
-                key={row.topic}
-                className={`rounded-lg border border-neutral-200 border-t-4 bg-white p-4 ${accents[index % accents.length]}`}
-              >
-                <IconCardHeading icon={row.icon} title={row.topic} />
-                <dl className="mt-4 space-y-3 text-sm">
-                  {columns.map((column) => (
-                    <div key={column.key} className="flex gap-3">
-                      <span
-                        aria-hidden="true"
-                        className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-md text-brand-ink ${column.chip}`}
-                      >
-                        <NamedIcon name={column.icon} className="h-5 w-5" />
-                      </span>
-                      <div>
-                        <dt className="text-xs font-semibold uppercase tracking-wider text-neutral-600">
-                          {column.label}
-                        </dt>
-                        <dd className="mt-1 text-neutral-700">{row[column.key]}</dd>
-                      </div>
-                    </div>
-                  ))}
-                </dl>
-              </li>
-            ))}
-          </ul>
-          <QuickAnswer lead={safeguardsNote.lead} detail={safeguardsNote.detail} source={safeguardsNote.source} />
-        </PageSection>
+        </section>
 
         {/* J. FAQ */}
         <FaqSection
           id="faq"
-          heading="Questions About Marketing and Automation for Your Business"
+          heading="Questions About Marketing and Automation for Home-Service Businesses"
           faqs={faqs}
         />
 
-        {/* K. Final CTA. The brief's inquiry form is not built yet: the contact path
-            and consent language are TBD (docs/01), so this points to /contact. */}
+        {/* Final CTA. The inquiry form is not built yet: the contact path and consent
+            language are TBD (docs/01), so this points to /contact. */}
         <section
           id="contact"
           aria-labelledby="final-cta"
@@ -477,12 +551,13 @@ export default function Page() {
           <div className="grid items-center gap-8 md:grid-cols-[minmax(0,1fr)_minmax(0,24rem)]">
             <div>
               <h2 id="final-cta" className="text-2xl font-bold tracking-tight sm:text-3xl">
-                Talk Through How Your Team Handles Customers Today
+                Discuss How Your Customers Move From Inquiry to Follow-Up
               </h2>
               <p className="mt-4 max-w-3xl text-lg text-neutral-700">
-                Not every business needs every service. Tell us how customers reach
-                you and where follow-up slips, and we can look at what, if anything,
-                would help. We use what you send to respond to your inquiry; see our{" "}
+                Tell us how customers reach you and where follow-up slips, and we can
+                look at what, if anything, would help. Pricing is not published yet,
+                so we will not quote terms on this page. We use what you send to
+                respond to your inquiry; see our{" "}
                 <Link href="/privacy-policy" className={linkClass}>
                   Privacy Policy
                 </Link>{" "}

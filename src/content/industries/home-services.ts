@@ -1,11 +1,18 @@
 // Content for /industries/home-services.
-// Source: the Home Services audience page brief. Publication gate: docs/01 lists Home
-// Services as a currently served audience, but every service named here is still
-// TBD or only partly confirmed, and no pricing, ownership or exit terms, integrations,
-// demonstration, or client proof has been supplied. The page therefore describes a
-// proposed approach, not a package, and makes no availability, pricing, results,
-// compatibility, or experience-in-a-trade claims. Open items live in the brief's
-// "Proof gaps" section.
+// Source: the updated Home-Service Businesses audience page brief (2026-10-11).
+// Home services is a currently served audience (docs/01) and the owner confirmed
+// the six service pages on 2026-10-11. Still unconfirmed, so intentionally not
+// stated here: pricing, ownership and exit terms, tested integrations, specific
+// trade experience, results, testimonials, and any vendor partnership. Workflow
+// examples are proposed applications, not records of client work.
+//
+// Decisions agreed with the owner while rebuilding:
+// - Title and H1 are distinct from the planned combo page
+//   (/industries/home-services/marketing-automation/).
+// - The brief's Reddit thread is research only and is not cited on the page.
+// - No numeric follow-up-speed target is published (no source).
+// - Examples are labeled "Example workflow" and covered by the page-level limits
+//   block, not by repeated captions.
 
 import type { IconName } from "@/components/ui/icons";
 import type { Faq, SourceLink } from "../services/website-design";
@@ -13,378 +20,428 @@ import type { Faq, SourceLink } from "../services/website-design";
 export const homeServicesPage = {
   path: "/industries/home-services",
   // The root layout appends " | OKIKO HIGH".
-  title: "Home Services Marketing Agency",
+  title: "Digital Marketing for Home-Service Businesses",
   description:
-    "Connect your website, customer inquiries, estimates, and follow-up. Explore a practical marketing approach for your home-service business.",
-  h1: "Home Services Marketing and Automation Built Around Your Workflow",
+    "Explore marketing and automation for home-service businesses, connecting inquiries, quotes, appointments, and customer follow-up with OKIKO HIGH.",
+  h1: "Digital Marketing and Automation for Home-Service Businesses",
   // Primary contact action is TBD in docs/01. Point every CTA here so it can change
   // in one place once the owner confirms the contact path.
-  primaryCta: { label: "Talk Through Your Current Workflow", href: "/contact" },
+  primaryCta: { label: "Discuss Your Customer Follow-Up Workflow", href: "/contact" },
+  secondaryCta: { label: "See a Home-Service Workflow Example", href: "#workflows" },
 } as const;
 
 export const sources = {
-  jobberReport: {
-    label: "Jobber, Home Service Trends Report",
-    href: "https://www.getjobber.com/home-service-trends-report/",
-  },
-  highlevelJobber: {
-    label: "HighLevel Support, How to integrate Jobber with HighLevel",
-    href: "https://help.gohighlevel.com/support/solutions/articles/155000005429-how-to-integrate-jobber-with-highlevel",
+  highlevelTextBack: {
+    label: "HighLevel Support, Missed-call text-back",
+    href: "https://help.gohighlevel.com/support/solutions/articles/48001239140-where-and-how-to-configure-the-missed-call-text-back-feature",
   },
   googleReviewPolicy: {
     label: "Google, Prohibited and restricted content for reviews",
     href: "https://support.google.com/contributionpolicy/answer/7400114?hl=en",
   },
+  twilioCompliance: {
+    label: "Twilio, SMS compliance and A2P 10DLC in the US",
+    href: "https://help.twilio.com/articles/4408675845019-SMS-Compliance-and-A2P-10DLC-in-the-US",
+  },
 } satisfies Record<string, SourceLink>;
 
-// Hero workflow strip.
-export const workflowStrip: ReadonlyArray<{ icon: IconName; label: string }> = [
-  { icon: "search", label: "Website and Google" },
+// A. Hero journey strip.
+export const heroJourney: ReadonlyArray<{ icon: IconName; label: string }> = [
   { icon: "message", label: "Inquiry" },
-  { icon: "repeat", label: "Follow-up" },
-  { icon: "calendar", label: "Booking or request" },
-  { icon: "check", label: "Completed job" },
+  { icon: "headset", label: "Conversation" },
+  { icon: "clipboard", label: "Quote or appointment" },
+  { icon: "check", label: "Completed service" },
+  { icon: "repeat", label: "Appropriate follow-up" },
 ];
 
-// Section B.
-export const problems: ReadonlyArray<{ icon: IconName; title: string; body: string }> = [
-  {
-    icon: "call",
-    title: "Missed calls",
-    body: "Calls arrive while your team is on a job or driving, and no one is free to pick up.",
-  },
-  {
-    icon: "clipboard",
-    title: "Open estimates",
-    body: "An estimate goes out and then sits, with no clear next step or person who owns the follow-up.",
-  },
-  {
-    icon: "calendar",
-    title: "Schedule gaps",
-    body: "Cancellations leave holes in the schedule that someone has to notice and fill.",
-  },
-  {
-    icon: "star",
-    title: "Review requests",
-    body: "Asking for reviews is inconsistent, so it depends on who remembers after a job.",
-  },
-];
-
-export const problemsStat = {
-  lead: "In Jobber's survey of home-service owners, customer communication and quoting were named as major time drains by 40% and 37% of respondents.",
-  detail: "These are owner-reported figures from a mixed-trade survey, not measured savings from automation.",
-  source: sources.jobberReport,
-};
-
-// Section C.
-export const workflowSteps: ReadonlyArray<{
+// B. Operational problems, each paired with a proposed workflow response.
+export const problems: ReadonlyArray<{
   icon: IconName;
   title: string;
   body: string;
-  owner: string;
+  response: string;
 }> = [
   {
+    icon: "clock",
+    title: "Inquiries wait",
+    body: "Inquiries can wait while staff handle other work.",
+    response: "Acknowledge promptly and route each inquiry to a named person.",
+  },
+  {
     icon: "clipboard",
-    title: "Capture the inquiry",
-    body: "Record who reached out, how, and the job details your team needs to respond.",
-    owner: "System captures; your team defines which details matter",
+    title: "Quotes go quiet",
+    body: "Quotes can go quiet without a defined next step.",
+    response: "Follow up on a schedule that changes after a reply or a decision.",
   },
   {
-    icon: "flag",
-    title: "Assign the next step",
-    body: "Each inquiry goes to a named person or to an approved automated action, so nothing waits on an unclear owner.",
-    owner: "Your team names the owner; the system routes",
+    icon: "message",
+    title: "Replies get scattered",
+    body: "Responses can become scattered across channels.",
+    response: "Agree where replies are handled and who owns them.",
   },
   {
-    icon: "repeat",
-    title: "Follow up under defined rules",
-    body: "Messages go out only where permitted, at a limited frequency, and stop when the customer books, declines, or opts out.",
-    owner: "System sends within rules you approve",
-  },
-  {
-    icon: "analytics",
-    title: "Track what becomes a booking",
-    body: "Keep requests, valid bookings, and completed jobs separate, so activity is not mistaken for results.",
-    owner: "Shared: the system records; your team confirms",
+    icon: "bell",
+    title: "Reminders repeat or vanish",
+    body: "Manual reminders can be forgotten or duplicated.",
+    response: "Run each reminder once, with rules that prevent repeats.",
   },
 ];
 
-export const workflowNote =
-  "Connected marketing and intake is not unique on its own, since other home-service marketing providers describe similar approaches. What matters is who owns each step in your business and how the rules are set.";
+// C. Trade groups. Proposed workflow applications until delivery experience is verified.
+export type TradeGroup = {
+  icon: IconName;
+  title: string;
+  focus: string;
+  journey: ReadonlyArray<string>;
+  stops: ReadonlyArray<string>;
+};
 
-// Section D: service priorities. Links go only to pages that exist.
-export type StackLayer = {
+export const tradeGroups: ReadonlyArray<TradeGroup> = [
+  {
+    icon: "call",
+    title: "HVAC and plumbing",
+    focus: "Urgent inquiries, missed calls, service windows, and maintenance reminders.",
+    journey: [
+      "An inquiry or missed call arrives and is acknowledged.",
+      "A named person takes the request and confirms a service window.",
+      "A reminder goes out before the visit.",
+      "A maintenance reminder follows later, where it is appropriate.",
+    ],
+    stops: [
+      "Staff reply, or the customer books or declines.",
+      "The customer opts out.",
+      "Urgent requests go to a person under agreed rules. This is not emergency dispatch.",
+    ],
+  },
+  {
+    icon: "repeat",
+    title: "Landscaping and cleaning",
+    focus: "Recurring schedules, seasonal communication, and eligible reactivation.",
+    journey: [
+      "An inquiry arrives and a quote or schedule is agreed.",
+      "Visits are confirmed and reminded on the recurring schedule.",
+      "Seasonal updates go to customers who have agreed to receive them.",
+      "Past customers are contacted only where permission and relevance are confirmed.",
+    ],
+    stops: [
+      "The customer pauses or cancels service.",
+      "The customer opts out.",
+      "There is no permission on record for the message.",
+    ],
+  },
+  {
+    icon: "clipboard",
+    title: "General contracting and remodeling",
+    focus: "Longer quote cycles and decision-stage follow-up.",
+    journey: [
+      "An inquiry arrives and a visit or quote is arranged.",
+      "Follow-up after the quote changes once the customer replies.",
+      "A decision-stage check-in goes out only if the quote is still open.",
+      "A later check-in happens only if it is appropriate.",
+    ],
+    stops: [
+      "The quote is accepted or declined.",
+      "The customer replies, and the thread moves to a person.",
+      "The customer opts out, or an agreed limit is reached.",
+    ],
+  },
+];
+
+// D. Connected service areas. Links go only to pages that exist. Anchor text per brief.
+export type JourneyStage = {
   icon: IconName;
   title: string;
   intro: string;
-  items: ReadonlyArray<{ label: string; href: string; note: string }>;
+  links: ReadonlyArray<{ label: string; href: string }>;
+  plain?: string;
 };
 
-export const serviceStack: ReadonlyArray<StackLayer> = [
+export const journeyStages: ReadonlyArray<JourneyStage> = [
   {
-    icon: "website",
-    title: "Foundation",
-    intro: "How customers find you and decide whether to trust you.",
-    items: [
-      {
-        label: "website design for clearer customer inquiries",
-        href: "/services/website-design",
-        note: "Only where the current website does not already do the job.",
-      },
-      {
-        label: "Google Business Profile management",
-        href: "/services/google-business-profile-optimization",
-        note: "Accurate listing details and routine updates.",
-      },
-      {
-        label: "reputation management and review requests",
-        href: "/services/reputation-management",
-        note: "Neutral review requests and consistent replies.",
-      },
+    icon: "search",
+    title: "Capture the inquiry",
+    intro: "Where customers first reach out, and what gets recorded.",
+    links: [
+      { label: "connect website inquiries to the next step", href: "/services/website-design" },
+      { label: "collect inquiry details through website chat", href: "/services/ai-chatbots" },
+      { label: "connect Google Business Profile inquiries", href: "/services/google-business-profile-optimization" },
     ],
   },
   {
-    icon: "repeat",
-    title: "Follow-through",
-    intro: "What happens after someone reaches out.",
-    items: [
-      {
-        label: "estimate follow-up and customer reminders",
-        href: "/services/sms-email-automation",
-        note: "Text and email reminders, estimate follow-up, and repeat-service messages.",
-      },
+    icon: "call",
+    title: "Handle the call",
+    intro: "Missed, overflow, or after-hours calls, with a way to reach a person.",
+    links: [
+      { label: "connect call handling with customer follow-up", href: "/services/ai-receptionist" },
     ],
   },
   {
-    icon: "plus",
-    title: "Conditional additions",
-    intro: "Added only when a specific problem calls for them.",
-    items: [
-      {
-        label: "AI receptionists for customer intake",
-        href: "/services/ai-receptionist",
-        note: "For missed, overflow, or after-hours calls, with a human option.",
-      },
-      {
-        label: "AI website chatbots",
-        href: "/services/ai-chatbots",
-        note: "For website questions and intake when your site needs it.",
-      },
-    ],
+    icon: "mail",
+    title: "Follow up on quotes and appointments",
+    intro: "Text and email for quotes, appointments, and appropriate ongoing communication.",
+    links: [],
+    plain: "Text and email automation",
+  },
+  {
+    icon: "star",
+    title: "Ask for honest reviews",
+    intro: "A neutral review-request process after completed work.",
+    links: [],
+    plain: "Reputation management",
   },
 ];
 
-export const stackNote = {
-  lead: "An adequate website should not automatically trigger a rebuild.",
-  detail: "In the same Jobber survey, 43% of businesses lacked clear service areas on their website and 65% lacked business hours. Those gaps are worth checking, but they are not a promise of more inquiries.",
-  source: sources.jobberReport,
-  scopeLabel: "Confirm scope",
-  scopeNote:
-    "Availability and scope of each service are being confirmed. This is a proposed way to prioritize, not a package.",
+export const textBackFact = {
+  lead: "Platform features show what is possible, not what OKIKO HIGH delivers.",
+  detail:
+    "HighLevel documents a missed-call text-back feature. That establishes a platform capability. The scope of any work for your business is agreed separately.",
+  sources: [sources.highlevelTextBack],
 };
 
-// Section E.
-export const tradeWorkflows: ReadonlyArray<{
+// E. Practical workflows: expandable cards with trigger, purpose, owner, exit.
+export type WorkflowCard = {
   icon: IconName;
   title: string;
-  body: string;
-}> = [
+  summary: string;
+  trigger: string;
+  purpose: string;
+  owner: string;
+  exit: string;
+  link?: { label: string; href: string };
+};
+
+export const workflowCards: ReadonlyArray<WorkflowCard> = [
   {
     icon: "bell",
-    title: "Urgent repairs",
-    body: "Urgent jobs need defined human escalation and real coverage. An automated reply cannot replace someone who can actually respond.",
+    title: "Prompt acknowledgment",
+    summary: "Confirm receipt and set clear staff-response expectations.",
+    trigger: "A new inquiry or a missed call.",
+    purpose: "Confirm the inquiry arrived and say when a person will respond.",
+    owner: "The person your team names to own new inquiries.",
+    exit: "A staff reply, the customer books, or the customer opts out.",
   },
   {
     icon: "clipboard",
-    title: "Estimates and projects",
-    body: "Roofing and other project work depend on clarifying the estimate and following up while the customer is still deciding.",
-  },
-  {
-    icon: "repeat",
-    title: "Recurring service",
-    body: "Cleaning, pest control, and maintenance workflows often center on recurring appointments, reminders, and rebooking.",
-  },
-];
-
-export const restorationCaution =
-  "Restoration work is handled separately. It carries its own risk and escalation requirements, which need to be planned before any automated intake is considered.";
-
-export const seasonalityNote = {
-  body: "Seasonality matters too: 34% of owners in Jobber's survey reported it as a challenge. A better workflow can help you handle busy periods, but it does not remove seasonal demand cycles.",
-  source: sources.jobberReport,
-};
-
-// Section F.
-export const compatibilityChecks: ReadonlyArray<{ title: string; body: string }> = [
-  {
-    title: "Which actions are needed",
-    body: "List what the connection must actually do, such as create a contact, read a job status, or pass along a booking request. A software brand name alone does not confirm any of these.",
-  },
-  {
-    title: "Account permissions and plan",
-    body: "Access depends on your account, plan, and permissions, and some platforms limit API access.",
-  },
-  {
-    title: "Sync direction",
-    body: "Decide which system is the source of truth for each record, and which way changes flow.",
-  },
-  {
-    title: "Duplicate prevention",
-    body: "Define how the same customer or job is recognized so it is not created twice.",
-  },
-  {
-    title: "Exceptions",
-    body: "Decide who is notified, and what happens, when a sync fails or a request cannot be completed.",
-  },
-  {
-    title: "Requests versus dispatch slots",
-    body: "A booking request is not a confirmed dispatch slot. A synchronized calendar does not necessarily show real crew availability.",
-  },
-];
-
-export const softwareNote = {
-  lead: "Replacing your field-service software is not part of this approach.",
-  detail:
-    "Several platforms document integration or API options, and HighLevel documents a Jobber integration. ServiceTitan uses permissioned API access, Housecall Pro has API eligibility requirements, and FieldEdge provides partner API access. None of that confirms OKIKO HIGH compatibility with your account.",
-  source: sources.highlevelJobber,
-};
-
-// Section G: sample metric definitions. No results are shown or implied.
-export const metricDefinitions: ReadonlyArray<{ icon: IconName; metric: string; meaning: string }> = [
-  {
-    icon: "message",
-    metric: "Acknowledged",
-    meaning: "An automated reply went out. This is not the same as a person responding.",
-  },
-  {
-    icon: "headset",
-    metric: "Human response",
-    meaning: "A named person followed up on the inquiry.",
-  },
-  {
-    icon: "lead",
-    metric: "Qualified inquiry",
-    meaning: "An inquiry for work you actually do, in an area you serve.",
+    title: "Quote follow-up",
+    summary: "Follow up in a way that changes after a reply or a decision.",
+    trigger: "A quote is sent.",
+    purpose: "Check whether the customer has questions, and change course once they respond or decide.",
+    owner: "The estimator or office lead who owns the quote.",
+    exit: "The quote is accepted or declined, the customer replies, they opt out, or an agreed limit is reached.",
+    link: { label: "automate appropriate customer follow-up", href: "/services/sms-email-automation" },
   },
   {
     icon: "calendar",
-    metric: "Valid booking",
-    meaning: "A confirmed appointment that fits your schedule and capacity, not just a request.",
-  },
-  {
-    icon: "check",
-    metric: "Completed job",
-    meaning: "Work finished, kept separate from revenue so each can be checked on its own.",
-  },
-  {
-    icon: "clock",
-    metric: "Staff time and correction work",
-    meaning: "The hours your team spends managing the system and fixing its mistakes.",
-  },
-];
-
-export const measurementNote = {
-  body: "Compare results with your own baseline, your capacity, and the total cost, not with a general benchmark. For context only, 20% of owners in Jobber's survey said they respond to inquiries within an hour. That is an external figure, not an OKIKO HIGH promise.",
-  source: sources.jobberReport,
-};
-
-// Section H: proposed operating boundaries, not confirmed terms.
-export const responsibilityRows: ReadonlyArray<{
-  icon: IconName;
-  topic: string;
-  system: string;
-  team: string;
-  confirm: string;
-}> = [
-  {
-    icon: "call",
-    topic: "Callbacks and escalations",
-    system: "Routes the request and notifies the named person.",
-    team: "Names who calls back and who covers after hours.",
-    confirm: "Coverage hours and after-hours arrangements.",
-  },
-  {
-    icon: "message",
-    topic: "AI answers and bookings",
-    system: "Answers only the questions you approve and collects a request.",
-    team: "Approves what the AI may say and which appointment types it may book.",
-    confirm: "Booking permissions for each connected system.",
+    title: "Appointment confirmation and reminders",
+    summary: "Confirmation, preparation details, and reminders.",
+    trigger: "An appointment is scheduled.",
+    purpose: "Confirm the visit, share any preparation details, and remind the customer.",
+    owner: "Whoever manages your schedule.",
+    exit: "The visit is completed, rescheduled, or cancelled, or the customer opts out.",
   },
   {
     icon: "repeat",
-    topic: "Automated follow-up",
-    system: "Stops after a booking, refusal, opt-out, or agreed limit.",
-    team: "Approves message content and how often it is sent.",
-    confirm: "Consent and opt-out wording.",
+    title: "Eligible reactivation and seasonal communication",
+    summary: "Relevant check-ins, only where permission is confirmed.",
+    trigger: "Seasonal timing, or a past-customer group with confirmed permission.",
+    purpose: "Send a relevant, useful message to customers who can appropriately receive it.",
+    owner: "The owner or operations manager who approves the list and the message.",
+    exit: "The customer replies or books, opts out, or has no permission on record.",
   },
   {
-    icon: "key",
-    topic: "Ownership and exit",
-    system: "Nothing is assumed.",
-    team: "Keeps its own customer records.",
-    confirm: "Ownership of domains, accounts, phone numbers, and data, plus support and exit terms.",
+    icon: "star",
+    title: "Honest review requests",
+    summary: "The same invitation to every eligible customer.",
+    trigger: "A job is completed.",
+    purpose: "Invite genuine feedback without incentives and without filtering for happy customers.",
+    owner: "The person who owns reviews and difficult replies.",
+    exit: "A review is left, the customer declines or opts out, or an agreed limit is reached.",
+    link: { label: "build an honest review-request process", href: "/services/reputation-management" },
   },
 ];
 
-export const safeguardsNote = {
-  lead: "Review requests must stay neutral, with no incentives and no steering only happy customers toward Google.",
+export const reviewFact = {
+  lead: "Review requests cannot be filtered toward happy customers.",
   detail:
-    "Automated messaging also depends on applicable permission and sending requirements, so marketing-text consent is kept separate from a simple inquiry.",
-  source: sources.googleReviewPolicy,
+    "Google prohibits review incentives and selectively soliciting positive reviews, so a request process needs to invite feedback from every eligible customer.",
+  sources: [sources.googleReviewPolicy],
 };
 
-// Section J.
+// F. Human handoffs and boundaries.
+export const controlPoints: ReadonlyArray<{ icon: IconName; title: string; body: string }> = [
+  {
+    icon: "flag",
+    title: "Ownership of replies and exceptions",
+    body: "Name who handles each reply and each exception before launch, including who covers when that person is away.",
+  },
+  {
+    icon: "swap",
+    title: "Pause or branch on a response",
+    body: "When a customer replies or books, the workflow pauses or changes course instead of sending the next scheduled message.",
+  },
+  {
+    icon: "shield",
+    title: "No repeated messages",
+    body: "Overlapping workflows are checked so one customer does not receive the same message from several of them.",
+  },
+  {
+    icon: "bell",
+    title: "Not emergency dispatch",
+    body: "Marketing automation is not presented as emergency dispatch. Any urgent-request process needs confirmed routing and staff coverage.",
+  },
+];
+
+export const branchPaths: ReadonlyArray<{ label: string; outcome: string }> = [
+  { label: "Customer replies", outcome: "Pause and route to a named person" },
+  { label: "Customer books", outcome: "Stop follow-up and confirm the visit" },
+  { label: "Customer declines", outcome: "Stop and close out the quote" },
+  { label: "Customer cancels", outcome: "Stop reminders and hand to a person" },
+  { label: "Customer opts out", outcome: "Stop marketing texts and record it" },
+];
+
+export const dedupeFact = {
+  lead: "Repeated missed calls can trigger repeated texts.",
+  detail:
+    "HighLevel's documentation warns about this, which is why deduplication needs to be designed into any missed-call workflow.",
+  sources: [sources.highlevelTextBack],
+};
+
+// G. Implementation and compatibility. Nothing is confirmed yet, so every item is "Needs review".
+export const compatibilityItems: ReadonlyArray<{
+  icon: IconName;
+  title: string;
+  body: string;
+  status: "Confirmed" | "Needs review";
+}> = [
+  {
+    icon: "search",
+    title: "Review what you already use",
+    body: "Look at your CRM, scheduling, phone, and reminder capabilities before adding anything, so new workflows do not duplicate existing reminders.",
+    status: "Needs review",
+  },
+  {
+    icon: "plug",
+    title: "Confirm integration requirements",
+    body: "Check the actions you need and your account permissions before any compatibility is promised. No universal compatibility is claimed.",
+    status: "Needs review",
+  },
+  {
+    icon: "key",
+    title: "Define ownership",
+    body: "Agree who owns accounts, phone numbers, domains, and customer data. OKIKO HIGH's ownership policy is not published yet, so confirm it before you agree to work.",
+    status: "Needs review",
+  },
+  {
+    icon: "clipboard",
+    title: "Agree testing, maintenance, and responsibilities",
+    body: "Decide how workflows are tested, who maintains them, and what your staff are responsible for.",
+    status: "Needs review",
+  },
+];
+
+// H. Measurement: sample reporting layout, no data.
+export const reportTiles: ReadonlyArray<{ icon: IconName; label: string; meaning: string }> = [
+  { icon: "headset", label: "Substantive staff responses", meaning: "A person answered, as distinct from an automated acknowledgment." },
+  { icon: "message", label: "Conversations", meaning: "Customers who engaged after the first message." },
+  { icon: "clipboard", label: "Accepted quotes", meaning: "Quotes the customer agreed to." },
+  { icon: "calendar", label: "Appointments", meaning: "Confirmed visits on the schedule." },
+  { icon: "check", label: "Completed jobs", meaning: "Work finished, kept apart from revenue." },
+  { icon: "clock", label: "Staff workload", meaning: "Time spent managing the workflow and fixing mistakes." },
+  { icon: "exit", label: "Opt-outs", meaning: "Customers who asked to stop receiving messages." },
+  { icon: "flag", label: "Workflow failures", meaning: "Messages that failed, duplicated, or reached the wrong person." },
+];
+
+export const measurementNote =
+  "Compare outcomes with a baseline, or with a holdout group where that is practical. An open, a send, or a platform-attributed conversion is activity, not a business result.";
+
+// I. Responsible customer communication.
+export const permissionSteps: ReadonlyArray<{ icon: IconName; title: string; body: string }> = [
+  { icon: "shield", title: "Permission", body: "Match permission to the purpose of the message." },
+  { icon: "clock", title: "Appropriate timing", body: "Check registration, timing, and frequency requirements." },
+  { icon: "message", title: "Useful message", body: "Send something relevant to what the customer asked for." },
+  { icon: "exit", title: "Reply or opt-out", body: "Make it easy to respond or to stop." },
+];
+
+export const permissionPoints: ReadonlyArray<string> = [
+  "Review registration, timing, and opt-out requirements for each type of message.",
+  "Check historical customer lists before any reactivation. An old record does not automatically authorize a promotional text.",
+  "Request honest reviews without incentives or positive-only filtering.",
+];
+
+export const permissionFact = {
+  lead: "Being able to send a message is not the same as having permission to send it.",
+  detail:
+    "Texting requirements depend on the purpose of the message, consent, jurisdiction, and opt-out handling, and carrier policies apply as well.",
+  sources: [sources.twilioCompliance],
+};
+
+// Page-level limits (visible disclaimers required by the brief).
+export const limits: ReadonlyArray<string> = [
+  "Specific service scope and integrations require confirmation for your business.",
+  "Workflow examples on this page are illustrative unless supported by an approved deployment.",
+  "Automation does not guarantee bookings, sales, attendance, or inbox placement.",
+  "Messaging requirements vary by purpose and by the recipient's jurisdiction.",
+  "OKIKO HIGH serves clients worldwide, but that does not mean every workflow is available in every country.",
+];
+
+// J. FAQ.
 export const faqs: Faq[] = [
   {
-    question: "What does home-services marketing and automation include?",
+    question: "What does marketing and automation mean for a home-service business?",
     answer:
-      "It can connect your website, Google presence, customer inquiries, follow-up, and review processes. OKIKO HIGH's available services and exact deliverables must be confirmed before any package is described as available.",
+      "It means connecting customer-facing marketing with the steps that follow an inquiry, such as a conversation, quote, appointment, or appropriate reminder. The goal is to make those steps more organized while keeping clear responsibility for customer questions and exceptions.",
   },
   {
-    question: "Do I need all six services?",
+    question: "Do I need to replace my existing scheduling or CRM software?",
     answer:
-      "No. The right starting point depends on whether your main problem is visibility, missed inquiries, inconsistent follow-up, or capacity, so a focused workflow may make more sense than adding every tool.",
+      "Not necessarily. Review the capabilities already in place before adding another platform, and confirm integrations so new workflows do not duplicate existing reminders.",
   },
   {
-    question: "Will this replace my existing job-management software?",
+    question: "How quickly should we follow up with a new inquiry?",
     answer:
-      "Replacement is not part of the proposed approach. First assess whether your current software already supports the required workflow and identify where additional connections would genuinely help.",
+      "As soon as practical. Aim for prompt acknowledgment and a substantive human response as quickly as your staffing allows during working hours. Your team sets its own target, and this is an operating recommendation, not a guaranteed result or an OKIKO HIGH service commitment.",
   },
   {
-    question: "Can this connect with ServiceTitan, Jobber, Housecall Pro, or FieldEdge?",
+    question: "Will automated texts and emails annoy customers?",
     answer:
-      "These platforms have documented integration or API options, but access and supported actions differ. OKIKO HIGH compatibility must be confirmed for your specific account, permissions, and workflow before it is promised.",
-    sources: [sources.highlevelJobber],
+      "They can if they are unwanted, repetitive, poorly timed, or continue after a response. Use appropriate permissions, useful content, sensible frequency limits, and stopping rules that reflect the customer's next action.",
   },
   {
-    question: "Can an AI receptionist book jobs?",
+    question: "What happens when a customer replies?",
     answer:
-      "It may book appointments when the connected system supports the action and your scheduling rules can be enforced. Otherwise, it should collect a booking request for staff confirmation rather than promise a valid dispatch slot.",
+      "The workflow should pause or branch and route the reply to the appropriate person. Staff ownership, response expectations, and escalation responsibilities need to be agreed before launch.",
   },
   {
-    question: "Will customers know they are speaking with AI?",
+    question: "Can automation handle urgent service requests?",
     answer:
-      "The recommended approach is clear disclosure and an accessible human option. The wording and any legal requirements should be checked for the jurisdictions involved.",
+      "A workflow can acknowledge an inquiry or route it according to approved rules, but it should not be presented as emergency dispatch. Any urgent-request process needs confirmed routing, staff coverage, and clear boundaries.",
   },
   {
-    question: "What happens to emergency calls?",
+    question: "Is it legal to text customers about appointments or services?",
     answer:
-      "The workflow should follow approved escalation instructions and connect to an available human where supported. It must not promise emergency attendance, diagnose dangerous situations, or substitute for emergency services.",
+      "It can be, but requirements depend on message purpose, technology, consent, jurisdiction, and opt-out handling. Carrier policies also apply, so technical ability to send a message is not the same as permission to send it.",
+    sources: [sources.twilioCompliance],
   },
   {
-    question: "Will automated follow-up annoy customers?",
+    question: "Can we reconnect with past customers?",
     answer:
-      "Follow-up should be relevant, permitted, and limited in frequency. It should stop after booking, refusal, opt-out, or an agreed limit rather than continue chasing someone who has already responded.",
+      "Potentially, after checking permissions, suppression records, data quality, and the relevance of the message. An old customer record does not automatically authorize every promotional text.",
+    sources: [sources.twilioCompliance],
   },
   {
-    question: "Can you guarantee more reviews or a first-place Google Maps ranking?",
+    question: "Can review requests be automated?",
     answer:
-      "No. Review requests must follow platform rules, and Google rankings depend on factors including relevance, distance, and prominence; neither ratings nor ranking positions should be guaranteed.",
+      "A review-request workflow can be configured, but it must invite genuine feedback rather than selectively ask only satisfied customers. Google prohibits review incentives and selectively soliciting positive reviews.",
     sources: [sources.googleReviewPolicy],
+  },
+  {
+    question: "How will we know whether the workflow is helping?",
+    answer:
+      "Measure substantive responses, accepted quotes, appointments, completed jobs, staff workload, and opt-outs. Compare against a baseline where practical rather than treating every message, open, or platform-attributed conversion as a business result.",
   },
   {
     question: "What does it cost, and what happens if I leave?",
     answer:
-      "OKIKO HIGH's pricing and exit terms are currently TBD. Before agreeing to work, confirm setup and usage costs, support responsibilities, website and account ownership, phone-number portability, and data-export arrangements.",
+      "OKIKO HIGH's pricing and exit terms have not been finalized or published yet. Before agreeing to work, confirm setup and usage costs, support responsibilities, ownership of websites, accounts, and phone numbers, and data-export arrangements.",
   },
 ];

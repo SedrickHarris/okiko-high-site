@@ -10,11 +10,14 @@ export function QuickAnswer({
   lead,
   detail,
   source,
+  sources,
 }: {
   lead: string;
   detail: string;
   source?: SourceLink;
+  sources?: ReadonlyArray<SourceLink>;
 }) {
+  const list = sources ?? (source ? [source] : []);
   return (
     <aside
       aria-label="Quick fact"
@@ -31,7 +34,7 @@ export function QuickAnswer({
       </p>
       <p className="mt-3 text-lg font-semibold leading-snug text-neutral-900">{lead}</p>
       <p className="mt-2 text-neutral-700">{detail}</p>
-      {source && <SourceLinks sources={[source]} />}
+      {list.length > 0 && <SourceLinks sources={list} />}
     </aside>
   );
 }
