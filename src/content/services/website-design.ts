@@ -141,7 +141,7 @@ export const scopeColumns = [
   },
   {
     icon: "minus",
-    tone: "muted",
+    tone: "negative",
     heading: "Not assumed",
     note: "Included only if your scope says so.",
     items: [

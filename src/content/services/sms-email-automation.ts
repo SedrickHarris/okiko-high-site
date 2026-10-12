@@ -294,7 +294,7 @@ export const buildStages = [
 export const stopBranches = [
   { icon: "headset", tone: "default", label: "Reply", action: "The sequence pauses and a task is created for the assigned person." },
   { icon: "calendar", tone: "included", label: "Booked", action: "Quote messages end and confirmation and reminders begin." },
-  { icon: "minus", tone: "muted", label: "Not interested", action: "The sequence closes with no further nudges." },
+  { icon: "minus", tone: "negative", label: "Not interested", action: "The sequence closes with no further nudges." },
   { icon: "exit", tone: "optional", label: "Opt-out", action: "The contact is suppressed across every workflow." },
 ] as const;
 

@@ -7,6 +7,7 @@ const tones = {
   included: "bg-brand-green text-brand-ink",
   optional: "bg-brand-blue text-brand-ink",
   muted: "bg-neutral-200 text-neutral-700",
+  negative: "bg-red-600 text-white",
 } as const;
 
 export function IconCardHeading({

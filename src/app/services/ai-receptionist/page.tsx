@@ -154,7 +154,7 @@ export default function Page() {
             ))}
           </ul>
           <div className="mt-8 rounded-lg border border-neutral-200 p-5">
-            <IconCardHeading icon="minus" tone="muted" title="Not assumed" />
+            <IconCardHeading icon="minus" tone="negative" title="Not assumed" />
             <p className="mt-3 text-sm text-neutral-600">
               Included only if your written scope says so.
             </p>

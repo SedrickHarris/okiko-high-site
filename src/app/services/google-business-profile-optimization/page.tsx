@@ -265,7 +265,7 @@ export default function Page() {
               <IconList items={canInfluence} chipClass="bg-brand-green text-brand-ink" />
             </div>
             <div className="rounded-lg border border-neutral-200 bg-white p-5">
-              <IconCardHeading icon="minus" tone="muted" title="What it cannot control" />
+              <IconCardHeading icon="minus" tone="negative" title="What it cannot control" />
               <IconList items={cannotControl} chipClass="bg-brand-yellow text-brand-ink" icon="minus" />
             </div>
           </div>
@@ -416,7 +416,7 @@ export default function Page() {
               </ul>
             </div>
             <div className="rounded-lg border border-neutral-200 p-5">
-              <IconCardHeading icon="minus" tone="muted" title="Automation cannot" />
+              <IconCardHeading icon="minus" tone="negative" title="Automation cannot" />
               <ul className="mt-4 list-disc space-y-2 pl-5 text-neutral-800">
                 {automationCannot.map((item) => <li key={item}>{item}</li>)}
               </ul>
@@ -543,7 +543,7 @@ export default function Page() {
           </ol>
           <div className="mt-6 grid gap-6 md:grid-cols-2">
             <div className="rounded-lg border border-neutral-200 p-5">
-              <IconCardHeading icon="flag" tone="muted" title="What to avoid" />
+              <IconCardHeading icon="flag" tone="negative" title="What to avoid" />
               <ul className="mt-4 list-disc space-y-2 pl-5 text-neutral-800">
                 {suspensionAvoid.map((item) => <li key={item}>{item}</li>)}
               </ul>

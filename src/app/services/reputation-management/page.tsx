@@ -628,7 +628,7 @@ export default function Page() {
               </ul>
             </div>
             <div className="rounded-lg border border-dashed border-neutral-400 bg-white p-5">
-              <IconCardHeading icon="minus" tone="muted" title="What we do not promise" />
+              <IconCardHeading icon="minus" tone="negative" title="What we do not promise" />
               <ul className="mt-4 space-y-3 text-neutral-800">
                 {notPromised.map((item) => (
                   <li key={item} className="flex gap-3">
