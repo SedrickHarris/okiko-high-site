@@ -13,16 +13,25 @@ import { ButtonLink } from "@/components/ui/ButtonLink";
 import { NamedIcon } from "@/components/ui/icons";
 import { QuickAnswer } from "@/components/ui/QuickAnswer";
 import {
+  businessTypes,
+  businessTypesNote,
+  businessTypesQuickAnswer,
   canHandle,
   compatibilityChecks,
+  existingFirstNote,
   exclusions,
   failedTransfer,
   faqs,
+  gapNotes,
   handoffNote,
-  inquiryPaths,
+  inquiryMatrix,
+  inquiryPrompts,
+  introNote,
+  introPoints,
+  measureGroups,
   measurementNote,
-  metricDefinitions,
   mustEscalate,
+  noticesNote,
   problems,
   problemsNote,
   processNote,
@@ -31,6 +40,7 @@ import {
   scenarioNote,
   scenarios,
   serviceCards,
+  serviceLayers,
   softwareNote,
   stackNote,
 } from "@/content/industries/property-management-real-estate";
@@ -105,7 +115,7 @@ export default function Page() {
       />
 
       <div className="mt-8 space-y-16">
-        {/* A. Hero */}
+        {/* Hero: H1, short intro, both CTAs, and the four-stage journey */}
         <header className="grid gap-10 lg:grid-cols-[1fr_22rem] lg:items-center">
           {/* Text comes first so the heading leads on mobile and for screen
               readers; on large screens the illustration sits to its right. */}
@@ -124,8 +134,11 @@ export default function Page() {
               software you already use, and the scope is confirmed before any
               implementation.
             </p>
-            <div className="hero-in hero-delay-2 mt-8">
+            <div className="hero-in hero-delay-2 mt-8 flex flex-wrap gap-3">
               <ButtonLink href={page.primaryCta.href}>{page.primaryCta.label}</ButtonLink>
+              <ButtonLink href={page.secondaryCta.href} variant="secondary">
+                {page.secondaryCta.label}
+              </ButtonLink>
             </div>
           </div>
           <figure className="hero-in hero-delay-2 mx-auto w-full max-w-sm lg:mx-0 lg:max-w-none">
@@ -133,14 +146,119 @@ export default function Page() {
           </figure>
         </header>
 
-        {/* B. Problems */}
+        {/* 1. Audience introduction */}
         <PageSection
-          id="inquiry-breakdowns"
-          heading="Where Inquiries and Follow-Up Break Down"
+          id="connect-follow-through"
+          heading="Connect Your Online Presence With Customer Follow-Through"
           intro={
             <p>
-              Getting inquiries is one challenge. Handling them well is another.
-              These are the places where a contact most often stalls.
+              A website, a Google profile, or a phone number only helps when the
+              inquiry behind it reaches the right person and gets an answer. The
+              approach here starts with that path, then looks at which services
+              support it. Jump to{" "}
+              <a href="#business-types" className={linkClass}>
+                your business type
+              </a>
+              , the{" "}
+              <a href="#services" className={linkClass}>
+                services that may fit
+              </a>
+              , or{" "}
+              <a href="#existing-software" className={linkClass}>
+                how it works with your existing software
+              </a>
+              . You can also{" "}
+              <Link href="/services" className={linkClass}>
+                explore marketing and automation services
+              </Link>
+              .
+            </p>
+          }
+        >
+          <ul className="grid gap-6 md:grid-cols-3">
+            {introPoints.map((point, index) => (
+              <li
+                key={point.title}
+                style={{ "--reveal-i": index % 3 } as CSSProperties}
+                className={`reveal-on-scroll rounded-lg border border-neutral-200 border-t-4 bg-white p-5 ${accents[index % accents.length]}`}
+              >
+                <IconCardHeading icon={point.icon} title={point.title} tone={chipTones[index % chipTones.length]} />
+                <p className="mt-3 text-neutral-700">{point.body}</p>
+              </li>
+            ))}
+          </ul>
+          <QuickAnswer lead={introNote.lead} detail={introNote.detail} source={introNote.source} />
+        </PageSection>
+
+        {/* 2. Business types */}
+        <PageSection
+          id="business-types"
+          heading="Find the Workflow That Fits Your Business"
+          muted
+          className="xl:-mx-10"
+          intro={
+            <p>
+              Residential managers, landlords, rental operators, and brokerages do
+              not handle first contact the same way. Find the closest match, then
+              follow the links to the services that apply.
+            </p>
+          }
+        >
+          <p className="mb-6 inline-flex items-start gap-3 rounded-lg border border-brand-yellow bg-white p-4 text-neutral-800">
+            <span
+              aria-hidden="true"
+              className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-brand-yellow text-brand-ink"
+            >
+              <NamedIcon name="flag" className="h-5 w-5" />
+            </span>
+            <span>
+              <span className="font-semibold">{businessTypesNote.scopeLabel}: </span>
+              {businessTypesNote.body}
+            </span>
+          </p>
+          <ul className="grid gap-6 md:grid-cols-2">
+            {businessTypes.map((type, index) => (
+              <li
+                key={type.title}
+                style={{ "--reveal-i": index % 2 } as CSSProperties}
+                className={`card-lift reveal-on-scroll flex flex-col rounded-lg border border-neutral-200 border-t-4 bg-white p-6 ${accents[index % accents.length]}`}
+              >
+                <IconCardHeading icon={type.icon} title={type.title} tone={chipTones[index % chipTones.length]} />
+                <p className="mt-4 text-sm font-bold uppercase tracking-wider text-neutral-600">
+                  Common needs
+                </p>
+                <p className="mt-1 text-neutral-700">{type.needs}</p>
+                <p className="mt-4 text-sm font-bold uppercase tracking-wider text-neutral-600">
+                  Related services
+                </p>
+                <ul className="mt-1 space-y-1">
+                  {type.links.map((link) => (
+                    <li key={link.href + link.label}>
+                      <Link href={link.href} className={linkClass}>
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            ))}
+          </ul>
+          <QuickAnswer
+            lead={businessTypesQuickAnswer.lead}
+            detail={businessTypesQuickAnswer.detail}
+            sources={businessTypesQuickAnswer.sources}
+          />
+        </PageSection>
+
+        {/* 3. Shared problems, different consequences */}
+        <PageSection
+          id="communication-gaps"
+          heading="Similar Communication Gaps, Different Customer Journeys"
+          intro={
+            <p>
+              The gaps look alike from the outside: calls that go unanswered,
+              inquiries with no owner, and the same questions asked again. What
+              each contact needs next is different.
             </p>
           }
         >
@@ -156,30 +274,84 @@ export default function Page() {
               </li>
             ))}
           </ul>
+
+          <h3 className="mt-10 text-xl font-bold tracking-tight">
+            Inquiry type, needed response, responsible person
+          </h3>
+          <p className="mt-2 max-w-3xl text-neutral-700">
+            Each contact type needs its own response and a named person who owns it.
+          </p>
+          <ul className="mt-5 space-y-4">
+            {inquiryMatrix.map((row, index) => (
+              <li
+                key={row.type}
+                className={`rounded-lg border border-neutral-200 border-l-4 bg-white p-5 ${
+                  ["border-l-brand-blue", "border-l-brand-green", "border-l-brand-yellow"][index % 3]
+                }`}
+              >
+                <div className="grid gap-4 md:grid-cols-[minmax(0,1fr)_minmax(0,1.6fr)_minmax(0,1fr)] md:items-start">
+                  <div>
+                    <p className="text-xs font-bold uppercase tracking-wider text-neutral-600">
+                      Inquiry type
+                    </p>
+                    <p className="mt-1 flex items-center gap-2 text-lg font-semibold leading-snug">
+                      <span
+                        aria-hidden="true"
+                        className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-surface-muted text-brand-blue-strong"
+                      >
+                        <NamedIcon name={row.icon} className="h-5 w-5" />
+                      </span>
+                      {row.type}
+                    </p>
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold uppercase tracking-wider text-neutral-600">
+                      Needed response
+                    </p>
+                    <p className="mt-1 text-neutral-700">{row.response}</p>
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold uppercase tracking-wider text-neutral-600">
+                      Responsible person
+                    </p>
+                    <p className="mt-1 text-neutral-700">{row.person}</p>
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ul>
+
+          <ul className="mt-8 grid gap-6 md:grid-cols-2">
+            {gapNotes.map((note, index) => (
+              <li
+                key={note.title}
+                className={`rounded-lg border border-neutral-200 border-t-4 bg-white p-5 ${accents[(index + 1) % accents.length]}`}
+              >
+                <IconCardHeading icon={note.icon} title={note.title} tone={index === 0 ? "optional" : "default"} />
+                <p className="mt-3 text-neutral-700">{note.body}</p>
+              </li>
+            ))}
+          </ul>
           <QuickAnswer lead={problemsNote.lead} detail={problemsNote.detail} source={problemsNote.source} />
         </PageSection>
 
-        {/* C. Service cards */}
+        {/* 4. Service options, grouped */}
         <PageSection
           id="services"
-          heading="Start With the Foundation, Then Add Automation"
+          heading="Match the Service to the Gap"
           muted
           className="xl:-mx-10"
           intro={
             <p>
-              Six services can support a property business. You do not need all of
-              them. A clear website and dependable follow-up form the proposed
-              foundation, reputation and Google Business Profile support depend on
+              Six services can support a property business, and you do not need all
+              of them. A clear website and dependable follow-up form the proposed
+              foundation. Reputation and Google Business Profile support depend on
               your situation, and AI chat and voice are optional additions. Each
-              service has its own page.{" "}
-              <Link href="/services" className={linkClass}>
-                Explore marketing and automation services
-              </Link>
-              .
+              service has its own page.
             </p>
           }
         >
-          <p className="mb-6 inline-flex items-start gap-3 rounded-lg border border-brand-yellow bg-white p-4 text-neutral-800">
+          <p className="mb-8 inline-flex items-start gap-3 rounded-lg border border-brand-yellow bg-white p-4 text-neutral-800">
             <span
               aria-hidden="true"
               className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-brand-yellow text-brand-ink"
@@ -191,95 +363,80 @@ export default function Page() {
               {stackNote.scopeNote}
             </span>
           </p>
-          <ul className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {serviceCards.map((service, index) => (
-              <li
-                key={service.slug}
-                style={{ "--reveal-i": index % 3 } as CSSProperties}
-                className={`card-lift reveal-on-scroll flex flex-col rounded-lg border border-neutral-200 border-t-4 bg-white p-6 ${accents[index % accents.length]}`}
-              >
-                <p className="mb-3 inline-block self-start rounded-full bg-brand-yellow px-2.5 py-0.5 font-heading text-xs font-bold text-brand-ink">
-                  {service.layer}
-                </p>
-                <IconCardHeading icon={service.icon} title={service.title} />
-                <p className="mt-4 text-neutral-700">{service.description}</p>
-                <div className="mt-auto pt-6">
-                  <ButtonLink href={service.path} variant="secondary">
-                    {service.buttonLabel}
-                  </ButtonLink>
-                </div>
-              </li>
+          <div className="space-y-10">
+            {serviceLayers.map((group) => (
+              <div key={group.layer}>
+                <h3 className="text-xl font-bold tracking-tight">{group.layer}</h3>
+                <p className="mt-1 text-neutral-700">{group.summary}</p>
+                <ul className="mt-4 grid gap-6 md:grid-cols-2">
+                  {serviceCards
+                    .filter((service) => service.layer === group.layer)
+                    .map((service, index) => (
+                      <li
+                        key={service.slug}
+                        style={{ "--reveal-i": index % 2 } as CSSProperties}
+                        className={`card-lift reveal-on-scroll flex flex-col rounded-lg border border-neutral-200 border-t-4 bg-white p-6 ${accents[serviceCards.indexOf(service) % accents.length]}`}
+                      >
+                        <IconCardHeading icon={service.icon} title={service.title} />
+                        <p className="mt-4 text-neutral-700">{service.description}</p>
+                        <div className="mt-auto pt-6">
+                          <ButtonLink href={service.path} variant="secondary">
+                            {service.buttonLabel}
+                          </ButtonLink>
+                        </div>
+                      </li>
+                    ))}
+                </ul>
+              </div>
             ))}
-          </ul>
+          </div>
           <QuickAnswer lead={stackNote.lead} detail={stackNote.detail} source={stackNote.source} />
         </PageSection>
 
-        {/* D. Inquiry paths */}
-        <PageSection
-          id="inquiry-paths"
-          heading="Different Inquiries Need Different Next Steps"
-          intro={
-            <p>
-              An owner comparing management companies, a renter asking about a
-              tour, and a resident reporting a problem should not follow the same
-              script. Each contact type needs its own destination and owner.
-            </p>
-          }
-        >
-          <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {inquiryPaths.map((path, index) => (
-              <li
-                key={path.title}
-                style={{ "--reveal-i": index % 3 } as CSSProperties}
-                className={`reveal-on-scroll rounded-lg border border-neutral-200 border-t-4 bg-white p-5 ${accents[index % accents.length]}`}
-              >
-                <IconCardHeading icon={path.icon} title={path.title} tone={chipTones[index % chipTones.length]} />
-                <p className="mt-3 text-neutral-700">{path.body}</p>
-              </li>
-            ))}
-          </ul>
-        </PageSection>
-
-        {/* E. Scenarios */}
+        {/* 5. Illustrative scenarios */}
         <PageSection
           id="different-workflows"
-          heading="Where a Connected Workflow Could Help"
-          muted
-          className="xl:-mx-10"
+          heading="What a Better-Organized Workflow Could Look Like"
           intro={
             <p>
-              A 20-unit landlord, a 250-unit leasing office, a rental operator, and
-              a brokerage do not handle first contact the same way. These five
-              examples show how the workflow changes. Select one to read it.
+              A 20-unit landlord, a 250-unit leasing team, a rental operator, and a
+              brokerage would not organize first contact the same way. These five
+              hypothetical examples show how the gap, the next step, and the
+              measure change.
             </p>
           }
         >
-          <ul className="grid items-start gap-4 lg:grid-cols-2">
-            {scenarios.map((scenario) => (
-              <li key={scenario.title}>
-                <details className="group rounded-lg border border-neutral-200 bg-white p-5">
-                  <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 [&::-webkit-details-marker]:hidden">
-                    <span className="flex items-center gap-3">
-                      <span
-                        aria-hidden="true"
-                        className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-surface-muted text-brand-blue-strong"
-                      >
-                        <NamedIcon name={scenario.icon} className="h-6 w-6" />
-                      </span>
-                      <span>
-                        <h3 className="text-lg font-semibold leading-snug">{scenario.title}</h3>
-                        <span className="block text-sm text-neutral-600">{scenario.summary}</span>
-                      </span>
-                    </span>
-                    <span
-                      aria-hidden="true"
-                      className="text-2xl leading-none text-brand-blue-strong transition-transform group-open:rotate-45"
-                    >
-                      +
-                    </span>
-                  </summary>
-                  <p className="mt-4 leading-relaxed text-neutral-700">{scenario.body}</p>
-                </details>
+          <ul className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {scenarios.map((scenario, index) => (
+              <li
+                key={scenario.title}
+                style={{ "--reveal-i": index % 3 } as CSSProperties}
+                className={`reveal-on-scroll flex flex-col rounded-lg border border-neutral-200 border-t-4 bg-white p-5 ${accents[index % accents.length]}`}
+              >
+                <p className="mb-3 inline-block self-start rounded-full bg-brand-yellow px-2.5 py-0.5 font-heading text-xs font-bold text-brand-ink">
+                  Illustrative scenario
+                </p>
+                <IconCardHeading icon={scenario.icon} title={scenario.title} />
+                <dl className="mt-4 space-y-3 text-neutral-700">
+                  <div>
+                    <dt className="text-xs font-bold uppercase tracking-wider text-neutral-600">
+                      Workflow gap
+                    </dt>
+                    <dd className="mt-1">{scenario.gap}</dd>
+                  </div>
+                  <div>
+                    <dt className="text-xs font-bold uppercase tracking-wider text-neutral-600">
+                      Proposed next step
+                    </dt>
+                    <dd className="mt-1">{scenario.next}</dd>
+                  </div>
+                  <div>
+                    <dt className="text-xs font-bold uppercase tracking-wider text-neutral-600">
+                      Measure
+                    </dt>
+                    <dd className="mt-1">{scenario.measure}</dd>
+                  </div>
+                </dl>
               </li>
             ))}
           </ul>
@@ -297,19 +454,33 @@ export default function Page() {
           </div>
         </PageSection>
 
-        {/* F. Existing software */}
+        {/* 6. Existing software */}
         <PageSection
           id="existing-software"
-          heading="Work With Your Existing Software, Not Around It"
+          heading="Start With the Systems You Already Use"
+          muted
+          className="xl:-mx-10"
           intro={
             <p>
-              Whether a connection works depends on the actions you need, not on
-              the name of your software. These are the points to check before any
+              Whether a connection works depends on the actions you need, not on the
+              name of your software. These are the places to look before any
               compatibility is promised.
             </p>
           }
         >
-          <ul className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          <p className="mb-6 inline-flex items-start gap-3 rounded-lg border border-brand-yellow bg-white p-4 text-neutral-800">
+            <span
+              aria-hidden="true"
+              className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-brand-yellow text-brand-ink"
+            >
+              <NamedIcon name="search" className="h-5 w-5" />
+            </span>
+            <span>
+              <span className="font-semibold">{existingFirstNote.label}: </span>
+              {existingFirstNote.body}
+            </span>
+          </p>
+          <ul className="grid gap-4 md:grid-cols-2">
             {compatibilityChecks.map((check) => (
               <li key={check.title} className="rounded-lg border border-neutral-200 bg-white p-5">
                 <h3 className="flex items-start gap-3 text-lg font-semibold leading-snug">
@@ -325,15 +496,13 @@ export default function Page() {
               </li>
             ))}
           </ul>
-          <QuickAnswer lead={softwareNote.lead} detail={softwareNote.detail} source={softwareNote.source} />
+          <QuickAnswer lead={softwareNote.lead} detail={softwareNote.detail} sources={softwareNote.sources} />
         </PageSection>
 
-        {/* G. Human handoffs and boundaries */}
+        {/* 7. Boundaries and human responsibility */}
         <PageSection
           id="human-handoffs"
-          heading="Clear Limits and Human Handoffs"
-          muted
-          className="xl:-mx-10"
+          heading="Keep People in Control of Sensitive Requests"
           intro={
             <p>
               Any automation here is administrative. It follows approved answers,
@@ -344,7 +513,7 @@ export default function Page() {
         >
           <div className="grid gap-6 md:grid-cols-2">
             <div className="rounded-lg border border-neutral-200 border-t-4 border-t-brand-green bg-white p-6">
-              <IconCardHeading icon="check" title="Can assist" tone="included" />
+              <IconCardHeading icon="check" title="Automation can assist" tone="included" />
               <ul className="mt-4 space-y-3 text-neutral-700">
                 {canHandle.map((item) => (
                   <li key={item} className="flex items-start gap-3">
@@ -357,7 +526,7 @@ export default function Page() {
               </ul>
             </div>
             <div className="rounded-lg border border-neutral-200 border-t-4 border-t-brand-yellow bg-white p-6">
-              <IconCardHeading icon="flag" title="Requires a person" />
+              <IconCardHeading icon="flag" title="A person must decide" />
               <ul className="mt-4 space-y-3 text-neutral-700">
                 {mustEscalate.map((item) => (
                   <li key={item} className="flex items-start gap-3">
@@ -383,49 +552,24 @@ export default function Page() {
             </div>
           </div>
           <QuickAnswer lead={handoffNote.lead} detail={handoffNote.detail} source={handoffNote.source} />
+          <QuickAnswer lead={noticesNote.lead} detail={noticesNote.detail} source={noticesNote.source} icon="file" />
         </PageSection>
 
-        {/* H. Measurement */}
+        {/* 8. Fit and measurement */}
         <PageSection
-          id="measurement"
-          heading="Measure Response, Handoffs, and Follow-Through"
-          intro={
-            <p>
-              Establish a baseline first, then track useful work rather than
-              activity. These sample definitions keep the two apart. No results
-              are shown here.
-            </p>
-          }
-        >
-          <ul className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {metricDefinitions.map((item, index) => (
-              <li
-                key={item.metric}
-                className={`rounded-lg border border-neutral-200 border-t-4 bg-white p-5 ${accents[index % accents.length]}`}
-              >
-                <IconCardHeading icon={item.icon} title={item.metric} tone={chipTones[index % chipTones.length]} />
-                <p className="mt-3 text-neutral-700">{item.meaning}</p>
-              </li>
-            ))}
-          </ul>
-          <p className="mt-6 max-w-3xl text-neutral-700">{measurementNote.body}</p>
-        </PageSection>
-
-        {/* I. Process and scope */}
-        <PageSection
-          id="process"
-          heading="Map, Test, Pilot, and Improve"
+          id="fit-and-measurement"
+          heading="Define the Gap Before Adding Another Tool"
           muted
           className="xl:-mx-10"
           intro={
             <p>
               Uncertainty about cost, responsibilities, and staff adoption is
-              reasonable. The process starts small and settles those points in
-              writing first.
+              reasonable. The process starts with one narrow workflow and a
+              baseline, then expands only if it works. There is no fixed timeline.
             </p>
           }
         >
-          <ol className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <ol className="grid gap-6 md:grid-cols-3 lg:grid-cols-5">
             {processSteps.map((step, index) => (
               <li
                 key={step.title}
@@ -439,6 +583,27 @@ export default function Page() {
               </li>
             ))}
           </ol>
+          <ul className="mt-8 grid gap-6 md:grid-cols-2">
+            {measureGroups.map((group, index) => (
+              <li
+                key={group.title}
+                className={`rounded-lg border border-neutral-200 border-t-4 bg-white p-5 ${accents[(index + 1) % accents.length]}`}
+              >
+                <IconCardHeading icon={group.icon} title={group.title} tone={chipTones[index % chipTones.length]} />
+                <ul className="mt-4 space-y-2 text-neutral-700">
+                  {group.items.map((item) => (
+                    <li key={item} className="flex items-start gap-3">
+                      <span aria-hidden="true" className="mt-0.5 shrink-0 text-brand-blue-strong">
+                        <NamedIcon name="check" className="h-5 w-5" />
+                      </span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-6 max-w-3xl text-neutral-700">{measurementNote.body}</p>
           <div className="mt-8 rounded-lg border border-neutral-200 bg-white p-6">
             <IconCardHeading icon="minus" title="Not included in the proposed scope" tone="negative" />
             <ul className="mt-4 grid gap-x-8 gap-y-2 text-neutral-700 md:grid-cols-2">
@@ -453,12 +618,9 @@ export default function Page() {
             </ul>
           </div>
           <p className="mt-6 max-w-3xl text-neutral-700">{processNote}</p>
-          <div className="mt-8">
-            <ButtonLink href={page.primaryCta.href}>{page.primaryCta.label}</ButtonLink>
-          </div>
         </PageSection>
 
-        {/* J. FAQ (two-column layout from FaqSection) */}
+        {/* 9. FAQ (two-column layout from FaqSection) */}
         <FaqSection
           id="faq"
           heading="Property Management and Real Estate Marketing Automation FAQs"
@@ -467,8 +629,9 @@ export default function Page() {
 
         <RelatedIndustries currentPath="/industries/property-management-real-estate" />
 
-        {/* K. Final CTA. The brief's inquiry form is not built yet: the contact path
-            and consent wording are TBD (docs/01), so this points to /contact. */}
+        {/* Final CTA. The brief's inquiry form is not built yet: the contact path and
+            consent wording are TBD (docs/01), so this lists what to include and
+            points to /contact. */}
         <section
           id="contact"
           aria-labelledby="final-cta"
@@ -477,13 +640,25 @@ export default function Page() {
           <div className="grid items-center gap-8 md:grid-cols-[minmax(0,1fr)_minmax(0,24rem)]">
             <div>
               <h2 id="final-cta" className="text-2xl font-bold tracking-tight sm:text-3xl">
-                Discuss Where Your Inquiry Workflow Breaks Down
+                Find the Right Starting Point for Your Business
               </h2>
               <p className="mt-4 max-w-3xl text-lg text-neutral-700">
-                Tell us which inquiries are missed or delayed, which software and
-                channels you already use, and how you prefer to be contacted. Fit and
-                scope are assessed before any implementation. We use what you send to
-                respond to your inquiry; see our{" "}
+                Tell us where communication breaks down and which software you
+                already use. Scope, compatibility, and pricing are confirmed with
+                you before any implementation. A helpful message includes:
+              </p>
+              <ul className="mt-4 max-w-3xl space-y-2 text-neutral-700">
+                {inquiryPrompts.map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <span aria-hidden="true" className="mt-0.5 shrink-0 text-brand-blue-strong">
+                      <NamedIcon name="check" className="h-5 w-5" />
+                    </span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-4 max-w-3xl text-neutral-700">
+                We use what you send to respond to your inquiry; see our{" "}
                 <Link href="/privacy-policy" className={linkClass}>
                   Privacy Policy
                 </Link>{" "}

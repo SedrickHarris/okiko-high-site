@@ -1,13 +1,14 @@
 // Content for /industries/property-management-real-estate.
-// Source: the Property Management and Real Estate research pack and the Property
-// Management Marketing and Automation page brief. Publication gate: docs/01 lists
-// Professional Services (which includes real estate) as a FUTURE opportunity, not a
-// current client category, and all six services named here are still TBD or only
-// partly confirmed. No pricing, delivery scope, tested integrations, property or
-// real estate experience, demonstration, or client proof exists yet. The page
-// therefore describes a proposed approach, not a package, and makes no
-// availability, pricing, results, compatibility, or specialist-experience claims.
-// Open items live in the brief's "Proof gaps" section.
+// Source: the Property Management and Real Estate research pack and the updated
+// "Audience Page - Property Management and Real Estate" brief. Publication gate:
+// docs/01 lists Professional Services (which includes real estate) as a FUTURE
+// opportunity, not a current client category, and all six services named here are
+// still TBD or only partly confirmed. No pricing, delivery scope, tested
+// integrations, property or real estate experience, demonstration, or client proof
+// exists yet. The page therefore describes a proposed approach, not a package, and
+// makes no availability, pricing, results, compatibility, or specialist-experience
+// claims. This page is the audience hub: it recognizes the visitor's business type
+// and routes them onward. Open items live in the brief's "Proof gaps" section.
 
 import type { IconName } from "@/components/ui/icons";
 import type { Faq, SourceLink } from "../services/website-design";
@@ -15,13 +16,14 @@ import type { Faq, SourceLink } from "../services/website-design";
 export const propertyRealEstatePage = {
   path: "/industries/property-management-real-estate",
   // The root layout appends " | OKIKO HIGH".
-  title: "Property Management & Real Estate Marketing",
+  title: "Property & Real Estate Marketing",
   description:
-    "Explore website, inquiry routing, review, and follow-up options for property managers, rental operators, and real estate teams, with clear human handoffs.",
+    "Explore marketing and automation options for property managers, rental operators, and real estate teams, with clear workflows and human handoffs.",
   h1: "Marketing and Automation for Property Management and Real Estate",
   // Primary contact action is TBD in docs/01. Point every CTA here so it can change
   // in one place once the owner confirms the contact path.
   primaryCta: { label: "Discuss Your Inquiry Workflow", href: "/contact" },
+  secondaryCta: { label: "Find Your Workflow", href: "#business-types" },
 } as const;
 
 export const sources = {
@@ -33,9 +35,25 @@ export const sources = {
     label: "Yardi, Chat IQ",
     href: "https://www.yardi.com/product/chat-iq/",
   },
+  guestyInbox: {
+    label: "Guesty, unified inbox",
+    href: "https://www.guesty.com/features/unified-inbox/",
+  },
+  followUpBoss: {
+    label: "Follow Up Boss, lead engagement integrations",
+    href: "https://www.followupboss.com/integrations?tag=Lead+Engagement",
+  },
+  operatorDiscussion: {
+    label: "Reddit r/PropertyManagement, property manager calls (operator discussion)",
+    href: "https://www.reddit.com/r/PropertyManagement/comments/13zl3o0/property_manager_calls/",
+  },
   hudFairHousing: {
     label: "HUD, Fair Housing Act overview",
     href: "https://www.hud.gov/helping-americans/fair-housing-act-overview",
+  },
+  texasPropertyCode92: {
+    label: "Texas Property Code, chapter 92 (example of a state landlord-tenant statute)",
+    href: "https://statutes.capitol.texas.gov/Docs/PR/htm/PR.92.htm",
   },
   googleGbpEligibility: {
     label: "Google, Business Profile eligibility",
@@ -47,49 +65,208 @@ export const sources = {
   },
 } satisfies Record<string, SourceLink>;
 
-// Section B.
-export const problems: ReadonlyArray<{ icon: IconName; title: string; body: string }> = [
+// Section 1: the introduction. Three working principles from the brief.
+export const introPoints: ReadonlyArray<{ icon: IconName; title: string; body: string }> = [
   {
-    icon: "swap",
-    title: "Different contacts, one inbox",
-    body: "Owners weighing a management company, rental prospects, residents, and guests all need different answers. When they share one path, each one waits for the wrong person.",
+    icon: "integrations",
+    title: "Connect marketing to follow-through",
+    body: "Digital marketing only helps when an inquiry is captured, routed to a person, and followed up. The approach connects those steps.",
   },
   {
-    icon: "call",
-    title: "Calls with no next step",
-    body: "After hours, or when the office is busy, a caller who reaches voicemail may have no clear next step and no one assigned to follow up.",
+    icon: "swap",
+    title: "Different readers, different paths",
+    body: "Property managers, rental operators, and real estate teams handle first contact differently, so each gets its own path.",
   },
   {
     icon: "clipboard",
+    title: "Practical tasks, not promised growth",
+    body: "The focus is everyday customer management. No ranking, occupancy, or revenue outcome is promised.",
+  },
+];
+
+export const introNote = {
+  lead: "Connected marketing and follow-up is an established category.",
+  detail:
+    "Property-management marketing providers such as Upkeep Media already present marketing and follow-up as one service. That shows the category exists. It is not an OKIKO HIGH result, and no approved OKIKO HIGH proof is available yet.",
+  source: sources.upkeepMedia,
+};
+
+// Section 2: business types. Links go only to pages that exist today.
+export type BusinessType = {
+  icon: IconName;
+  title: string;
+  needs: string;
+  links: ReadonlyArray<{ label: string; href: string }>;
+};
+
+export const businessTypes: ReadonlyArray<BusinessType> = [
+  {
+    icon: "clipboard",
+    title: "Residential managers and leasing offices",
+    needs:
+      "Separate paths for owner acquisition and for renters and residents, with after-hours calls and routine questions handled by approved steps.",
+    links: [
+      { label: "website design for property businesses", href: "/services/website-design" },
+      { label: "after-hours AI call handling", href: "/services/ai-receptionist" },
+      { label: "Google Business Profile support", href: "/services/google-business-profile-optimization" },
+    ],
+  },
+  {
+    icon: "key",
+    title: "Landlords",
+    needs:
+      "A scope that fits your staffing and portfolio size: a clear website, dependable acknowledgment, and a named person for each inquiry.",
+    links: [
+      { label: "website design for property businesses", href: "/services/website-design" },
+      { label: "inquiry follow-up automation", href: "/services/sms-email-automation" },
+    ],
+  },
+  {
+    icon: "calendar",
+    title: "Short and midterm rental operators",
+    needs:
+      "Guest and reservation-centered communication that works through the booking platforms and property management system you already use.",
+    links: [
+      { label: "AI website chat", href: "/services/ai-chatbots" },
+      { label: "inquiry follow-up automation", href: "/services/sms-email-automation" },
+    ],
+  },
+  {
+    icon: "lead",
+    title: "Agents and brokerages",
+    needs:
+      "Buyer and seller lead assignment and appointment follow-up, usually inside the CRM you already have. Another CRM is not assumed.",
+    links: [
+      { label: "inquiry follow-up automation", href: "/services/sms-email-automation" },
+      { label: "website design for property businesses", href: "/services/website-design" },
+    ],
+  },
+];
+
+export const businessTypesNote = {
+  scopeLabel: "Scope being confirmed",
+  body: "These are the business types this page is written for. Property management and real estate are planned audiences, and OKIKO HIGH confirms which workflows it can responsibly offer before any implementation. Existing page links are shown only for services that have their own page.",
+};
+
+export const businessTypesQuickAnswer = {
+  lead: "Owner leads and tenant inquiries are different journeys, and so are guests and brokerage leads.",
+  detail:
+    "Upkeep Media separates owner leads from tenant inquiries on its own pages. Guesty documents a guest inbox and Follow Up Boss documents brokerage lead engagement, which shows that guest and brokerage software contexts differ. Neither is an OKIKO HIGH integration.",
+  sources: [sources.upkeepMedia, sources.guestyInbox, sources.followUpBoss],
+};
+
+// Section 3: shared problems, different consequences.
+export const problems: ReadonlyArray<{ icon: IconName; title: string; body: string }> = [
+  {
+    icon: "call",
+    title: "Repeated calls, no next step",
+    body: "Repeated calls and unanswered inquiries compete with staff's existing workload. A caller who reaches voicemail may have no assigned follow-up.",
+  },
+  {
+    icon: "swap",
+    title: "Different contacts, one inbox",
+    body: "Owners, rental prospects, residents, and guests all need different answers. When they share one path, each waits for the wrong person.",
+  },
+  {
+    icon: "flag",
     title: "Follow-up without an owner",
-    body: "Tour requests, application questions, and owner consultations can stall when no one is responsible for the next action.",
+    body: "Tour requests, application questions, and owner consultations stall when no one is responsible for the next action.",
   },
   {
     icon: "clock",
     title: "Repetitive questions",
-    body: "Routine questions about listings, applications, and office hours can take staff time away from the work that needs a person.",
+    body: "Routine questions about listings, applications, and office hours take staff time away from the work that needs a person.",
+  },
+];
+
+// Inquiry type, needed response, responsible person.
+export const inquiryMatrix: ReadonlyArray<{
+  icon: IconName;
+  type: string;
+  response: string;
+  person: string;
+}> = [
+  {
+    icon: "key",
+    type: "Property owner",
+    response: "Service information and a consultation follow-up, not a leasing script.",
+    person: "A named owner-acquisition contact",
+  },
+  {
+    icon: "search",
+    type: "Rental prospect",
+    response: "Listing, tour, and application steps drawn from the authoritative listing.",
+    person: "A leasing contact or a monitored callback task",
+  },
+  {
+    icon: "bell",
+    type: "Resident",
+    response: "An approved support route. Maintenance follows your escalation instructions.",
+    person: "Resident services or the maintenance coordinator",
+  },
+  {
+    icon: "calendar",
+    type: "Short or midterm rental guest",
+    response: "Reservation-specific answers through the existing property or guest system.",
+    person: "A named guest-communication contact",
+  },
+  {
+    icon: "lead",
+    type: "Buyer or seller lead",
+    response: "Assignment and appointment follow-up, usually inside the existing CRM.",
+    person: "The assigned agent or team lead",
+  },
+];
+
+export const gapNotes: ReadonlyArray<{ icon: IconName; title: string; body: string }> = [
+  {
+    icon: "bell",
+    title: "After-hours maintenance is not a leasing inquiry",
+    body: "A leasing question can wait for a callback or an approved answer. A maintenance emergency needs your approved escalation instructions and a staffed backup, so the two should never share one script.",
+  },
+  {
+    icon: "analytics",
+    title: "Vacancy, seasonality, and listing channels need their own measures",
+    body: "Vacancy exposure, seasonal demand, and dependence on listing channels differ by business. Measure against your own baseline. No audience-wide cost or seasonality figure is cited here.",
   },
 ];
 
 export const problemsNote = {
-  lead: "Owner acquisition and leasing need different paths.",
+  lead: "Operators describe repeated calls, application help, and after-hours maintenance worries.",
   detail:
-    "Property-management marketing providers such as Upkeep Media separate owner leads from tenant contacts on their own pages. That shows the category distinction. It is not an OKIKO HIGH result.",
-  source: sources.upkeepMedia,
+    "This comes from an operator discussion, which is anecdotal. It is not an industry statistic or an OKIKO HIGH result.",
+  source: sources.operatorDiscussion,
 };
 
-// Section C: the six candidate services. Every card links to its own service page.
-// `layer` carries the "Foundation / Conditional support / Optional AI" grouping in
-// text, so the grouping never depends on color.
+// Section 4: the six candidate services. Every card links to its own service page.
+// `layer` is the group heading and also shows in text, so the grouping never depends
+// on color.
+export type ServiceLayer = "Foundation" | "Presence" | "Inquiry assistance";
+
 export type PropertyServiceCard = {
   slug: string;
   path: string;
   title: string;
   icon: IconName;
-  layer: "Foundation" | "Conditional support" | "Optional AI";
+  layer: ServiceLayer;
   description: string;
   buttonLabel: string;
 };
+
+export const serviceLayers: ReadonlyArray<{ layer: ServiceLayer; summary: string }> = [
+  {
+    layer: "Foundation",
+    summary: "Capture the inquiry, assign it, and make the next step clear.",
+  },
+  {
+    layer: "Presence",
+    summary: "Keep how you are found and reviewed accurate and consistent.",
+  },
+  {
+    layer: "Inquiry assistance",
+    summary: "Optional AI for approved questions, with tested human escalation.",
+  },
+];
 
 export const serviceCards: ReadonlyArray<PropertyServiceCard> = [
   {
@@ -117,7 +294,7 @@ export const serviceCards: ReadonlyArray<PropertyServiceCard> = [
     path: "/services/reputation-management",
     title: "Reputation Management",
     icon: "star",
-    layer: "Conditional support",
+    layer: "Presence",
     description:
       "Neutral review requests for owners and residents, and careful replies. Requests follow platform rules, with no gating, incentives, or promises about ratings.",
     buttonLabel: "Explore Reputation Management",
@@ -127,7 +304,7 @@ export const serviceCards: ReadonlyArray<PropertyServiceCard> = [
     path: "/services/google-business-profile-optimization",
     title: "Google Business Profile Optimization",
     icon: "pin",
-    layer: "Conditional support",
+    layer: "Presence",
     description:
       "Accurate listing information for a management or leasing office that meets Google's eligibility rules. Eligibility is checked first, because individual rental properties do not qualify.",
     buttonLabel: "Explore Google Business Profile Optimization",
@@ -137,7 +314,7 @@ export const serviceCards: ReadonlyArray<PropertyServiceCard> = [
     path: "/services/ai-chatbots",
     title: "AI Chatbots",
     icon: "message",
-    layer: "Optional AI",
+    layer: "Inquiry assistance",
     description:
       "A website assistant that starts with approved FAQs and inquiry capture. It is identified as AI, sends unsupported questions to staff, and offers a route to a person.",
     buttonLabel: "Explore AI Chatbots",
@@ -147,9 +324,9 @@ export const serviceCards: ReadonlyArray<PropertyServiceCard> = [
     path: "/services/ai-receptionist",
     title: "AI Receptionist and Voice Agents",
     icon: "headset",
-    layer: "Optional AI",
+    layer: "Inquiry assistance",
     description:
-      "A pilot option where call volume and tested human escalation justify the added risk. It handles approved questions and inquiry capture, not emergencies or screening decisions.",
+      "A pilot option where call volume and tested human escalation justify the added risk. It needs tested information, routing, and escalation, and it does not handle emergencies or screening decisions.",
     buttonLabel: "Explore the AI Receptionist",
   },
 ];
@@ -157,128 +334,100 @@ export const serviceCards: ReadonlyArray<PropertyServiceCard> = [
 export const stackNote = {
   scopeLabel: "Confirm scope",
   scopeNote:
-    "Availability and scope of each service are being confirmed. This is a proposed way to prioritize, not a package, and not a delivery order. A busy leasing office may need call coverage before a redesign, and a small landlord may need only a clear website and dependable follow-up.",
+    "Availability and scope of each service are being confirmed. This grouping is a proposed way to prioritize, not a package or a delivery order, and no prices or tiers are set. A busy leasing office may need call coverage before a redesign, and a small landlord may need only a clear website and dependable follow-up.",
   lead: "Google lists rental and for-sale properties as ineligible for a Business Profile.",
   detail:
     "A qualifying management or leasing office can be eligible, subject to the full requirements. Profiles are not created per rental unit.",
   source: sources.googleGbpEligibility,
 };
 
-// Section D: inquiry paths. Each contact type needs its own destination.
-export const inquiryPaths: ReadonlyArray<{
-  icon: IconName;
-  title: string;
-  body: string;
-}> = [
-  {
-    icon: "key",
-    title: "Property owners",
-    body: "Owners evaluating a management company need service information and a consultation follow-up, not a leasing script.",
-  },
-  {
-    icon: "search",
-    title: "Rental prospects",
-    body: "Prospects need listing information and clear tour or application directions drawn from the authoritative listing.",
-  },
-  {
-    icon: "bell",
-    title: "Residents",
-    body: "Residents need support routes and approved maintenance escalation, handled apart from sales and leasing follow-up.",
-  },
-  {
-    icon: "calendar",
-    title: "Short and midterm rental guests",
-    body: "Guest communication revolves around reservations and stays, so it needs its own workflow and respects each booking platform's rules.",
-  },
-  {
-    icon: "lead",
-    title: "Buyer and seller leads",
-    body: "Real estate teams need buyer and seller inquiries assigned and followed up, usually inside the CRM they already use.",
-  },
-];
-
-// Section E: illustrative scenarios (brief section 4). Labeled as examples, not
-// client stories. Nothing here claims experience with any property type.
+// Section 5: illustrative scenarios (brief section 5). Hypothetical examples from
+// the research pack, not client stories. Nothing here claims experience with any
+// property type, and no outcomes or benchmarks appear.
 export type Scenario = {
   icon: IconName;
   title: string;
-  summary: string;
-  body: string;
+  gap: string;
+  next: string;
+  measure: string;
 };
 
 export const scenarios: ReadonlyArray<Scenario> = [
   {
     icon: "key",
     title: "20-unit landlord",
-    summary: "Small portfolio: capture and handoffs",
-    body: "Website and portal links send visitors to the right place. Approved email or text follow-up acknowledges inquiries, and maintenance requests are routed to a person. Measure missed contacts, handoff completion, and staff handling time.",
+    gap: "Inquiries arrive by phone, email, and the website, with no single place or person assigned.",
+    next: "Clear website paths, approved acknowledgment and follow-up, and maintenance requests routed to a person.",
+    measure: "Missed contacts, handoff completion, and staff handling time.",
   },
   {
     icon: "clipboard",
     title: "75-unit residential manager",
-    summary: "Owners and renters kept separate",
-    body: "Separate owner and renter forms feed follow-up for each audience, and neutral review requests go to owners and residents under the same rules. Owner consultations and tours are reported separately.",
+    gap: "Owner inquiries and renter inquiries share one path and one follow-up.",
+    next: "Separate owner and renter forms with their own follow-up, and neutral review requests under the same rules.",
+    measure: "Owner consultations and tours, reported separately.",
   },
   {
     icon: "headset",
-    title: "250-unit leasing operation",
-    summary: "After-hours calls and approved FAQs",
-    body: "An after-hours AI voice pilot and approved FAQ chat sit alongside the existing work-order escalation. Measure transfer success, answer accuracy, and tour requests. Screening stays with people.",
+    title: "250-unit leasing team",
+    gap: "After-hours calls and repeated routine questions reach the same staff.",
+    next: "Test after-hours intake and escalation beside the existing work-order process. Screening stays with people.",
+    measure: "Transfer success, answer accuracy, and tour requests.",
   },
   {
     icon: "calendar",
-    title: "40 short and midterm rentals",
-    summary: "Direct inquiries and guest FAQs",
-    body: "A website and permitted direct-inquiry follow-up work alongside guest FAQ support through the existing property management system. Booking platform terms are checked first. Measure response times, exceptions, and correction work.",
+    title: "40-rental operator",
+    gap: "Direct inquiries and guest questions are spread across channels.",
+    next: "A website and permitted direct-inquiry follow-up, plus guest-centered workflows through the existing system. Booking platform terms are checked first.",
+    measure: "Response times, exceptions, and correction work.",
   },
   {
     icon: "lead",
     title: "Small brokerage",
-    summary: "Real estate: lead assignment and follow-up",
-    body: "A website conversion review plus lead assignment and follow-up, inside or alongside the CRM the brokerage already uses. Measure contact attempts, conversations, appointments, and duplicate campaigns.",
+    gap: "Buyer and seller leads are assigned and followed up unevenly.",
+    next: "Improve assignment and follow-up inside the CRM already in use, without automatically adding another one.",
+    measure: "Contact attempts, conversations, appointments, and duplicate campaigns.",
   },
 ];
 
 export const scenarioNote =
-  "These are illustrative workflows, not OKIKO HIGH case studies, and no client results are implied. A brokerage page would use real-estate-specific wording rather than tenant and maintenance messaging.";
+  "These are hypothetical workflows, not OKIKO HIGH case studies, and no client results or benchmarks are implied. A brokerage workflow would use real-estate wording rather than tenant and maintenance messaging.";
 
-// Section F: existing software. Platform names are discovery inputs only.
+// Section 6: existing software. Platform names are discovery inputs only.
 export const compatibilityChecks: ReadonlyArray<{ title: string; body: string }> = [
   {
     title: "Property management software",
-    body: "To assess: AppFolio, Buildium, and Yardi. Review their leasing, resident communication, maintenance, website, and API access first. Your existing software may already solve the gap.",
+    body: "Examples to evaluate: AppFolio, Buildium, and Yardi. Review their leasing, resident communication, maintenance, website, and API access before adding overlapping functions.",
   },
   {
     title: "Rental and guest platforms",
-    body: "To assess: Guesty and Hostaway. Check supported channels, permissions, and how messages are ordered before adding another layer.",
+    body: "Examples to evaluate: Guesty and Hostaway. Check supported channels, permissions, and how guest messages are ordered before adding another communication layer.",
   },
   {
     title: "Brokerage CRMs",
-    body: "To assess: Follow Up Boss and kvCORE/BoldTrail. Confirm the actual account, plan, and capabilities before adding brokerage automation.",
+    body: "Examples to evaluate: Follow Up Boss and kvCORE/BoldTrail. kvCORE has evolved into BoldTrail, so confirm the actual account, plan, and capabilities first.",
   },
   {
-    title: "What must move between systems",
-    body: "List which fields and actions a connection has to handle, such as creating a contact or assigning an inquiry. A product name alone confirms none of these.",
-  },
-  {
-    title: "Permissions, plans, and failures",
-    body: "Access depends on your account and plan. Define how duplicate contacts are recognized and who is told when a sync fails.",
-  },
-  {
-    title: "Compatibility assessment required",
-    body: "Listed software is a discovery input, not a promised integration. OKIKO HIGH's tested integrations are not yet confirmed.",
+    title: "Before compatibility is promised",
+    body: "Verify plan access, permissions, which data has to move, how duplicate contacts are recognized, and who is told when a sync fails. A product name alone confirms none of these.",
   },
 ];
+
+export const existingFirstNote = {
+  label: "Assess existing capabilities first",
+  body: "Listed software is an example to evaluate, not a supported or tested integration. OKIKO HIGH's tested integrations are not yet confirmed.",
+};
 
 export const softwareNote = {
   lead: "Replacing your property management software is not the default.",
   detail:
-    "Yardi documents multichannel AI communication in its own Chat IQ product, so existing features should be reviewed first. That describes Yardi, not an OKIKO HIGH integration.",
-  source: sources.yardiChatIq,
+    "Yardi documents multichannel AI communication in its own Chat IQ product, and Follow Up Boss documents lead engagement features, so existing tools should be reviewed first. That describes those products, not an OKIKO HIGH integration.",
+  sources: [sources.yardiChatIq, sources.followUpBoss],
 };
 
-// Section G: "Can assist / Must escalate" comparison.
+// Section 7: "Can assist / Requires a person" comparison.
 export const canHandle: ReadonlyArray<string> = [
+  "Disclosing that the visitor is talking with AI and offering a route to a person",
   "Answering a short list of approved questions",
   "Capturing an inquiry and routing it as an owner, prospect, or resident contact",
   "Pointing to tour and application steps from the authoritative listing",
@@ -302,54 +451,55 @@ export const failedTransfer = {
 export const handoffNote = {
   lead: "Say when it is AI, and always offer a person.",
   detail:
-    "The Fair Housing Act prohibits housing discrimination on listed protected grounds, so scripts for housing contacts should be reviewed for steering and unequal information. This is a US federal baseline, local rules differ, and this page is not legal advice.",
+    "The Fair Housing Act prohibits housing discrimination on listed protected grounds, so scripts and advertising for housing contacts should be reviewed for steering and unequal information. This is a US federal baseline, local rules differ, and this page is not legal advice.",
   source: sources.hudFairHousing,
 };
 
-// Section H: sample metric definitions. No results are shown or implied.
-export const metricDefinitions: ReadonlyArray<{ icon: IconName; metric: string; meaning: string }> = [
+export const noticesNote = {
+  lead: "Automated messages do not replace legally required landlord-tenant notices.",
+  detail:
+    "Notice, recording, transcription, and consent rules vary by jurisdiction. Texas Property Code chapter 92 is one example of a state statute that governs landlord-tenant duties. Workflows are reviewed against the rules where your business and contacts are located.",
+  source: sources.texasPropertyCode92,
+};
+
+// Section 8: fit and measurement. Recommended evaluation approach only.
+export const measureGroups: ReadonlyArray<{
+  icon: IconName;
+  title: string;
+  items: ReadonlyArray<string>;
+}> = [
   {
-    icon: "clock",
-    metric: "Acknowledgment and real response",
-    meaning: "Time to an automated acknowledgment, and separately the median and slowest time until a person follows up, against a baseline.",
-  },
-  {
-    icon: "flag",
-    metric: "Inquiries with an owner",
-    meaning: "The share of eligible inquiries assigned to a responsible person with a next action.",
-  },
-  {
-    icon: "transfer",
-    metric: "Handoff reliability",
-    meaning: "Scripted emergency and transfer tests that reach the approved path before launch, and failed transfers after it.",
-  },
-  {
-    icon: "check",
-    metric: "Answer accuracy",
-    meaning: "Incorrect answers found and corrected, tracked alongside handling time so savings are real, not assumed.",
+    icon: "gauge",
+    title: "Operational measures",
+    items: [
+      "Time to a real human response, not only an automated acknowledgment",
+      "Share of inquiries assigned to a named person",
+      "Handoff reliability, including failed transfers",
+      "Answer accuracy and correction burden",
+      "Opt-outs and complaints",
+    ],
   },
   {
     icon: "analytics",
-    metric: "Funnel stages",
-    meaning: "Owner consultations, tours, applications, leases, and signed management agreements, reported separately.",
-  },
-  {
-    icon: "bell",
-    metric: "Opt-outs and complaints",
-    meaning: "Opt-outs, duplicate contacts, and customer complaints, reported next to efficiency figures.",
+    title: "Business outcomes, tracked separately",
+    items: [
+      "Owner consultations and signed management agreements",
+      "Tours, applications, and leases",
+      "Appointments and agreements for real estate teams",
+    ],
   },
 ];
 
 export const measurementNote = {
-  body: "Compare results with your own baseline, not a general benchmark. No verified industry-wide figure exists for this combination of services, and no results are shown on this page. Attribution does not prove that automation caused every change, and pricing, demand, inventory, and staff follow-through all affect leasing and owner acquisition.",
+  body: "Compare results with your own baseline, not a general benchmark. Operational improvements are reported apart from business outcomes, because attribution does not prove that a workflow caused every change. Pricing, demand, inventory, and staff follow-through all affect leasing and owner acquisition. No results are shown on this page.",
 };
 
-// Section I: process. Six steps from the research pack.
+// Five-step strip. No fixed timeline or guaranteed targets.
 export const processSteps: ReadonlyArray<{ icon: IconName; title: string; body: string }> = [
   {
     icon: "search",
     title: "Map",
-    body: "List the owner, prospect, resident, guest, and brokerage inquiries separately.",
+    body: "List audiences, channels, current systems, and who owns each inquiry type.",
   },
   {
     icon: "clipboard",
@@ -357,24 +507,19 @@ export const processSteps: ReadonlyArray<{ icon: IconName; title: string; body: 
     body: "Review your website, profiles, existing software, consent records, and staff handoffs.",
   },
   {
-    icon: "flag",
-    title: "Select",
-    body: "Choose a small first workflow and identify its authoritative data source.",
-  },
-  {
-    icon: "integrations",
-    title: "Configure",
-    body: "Set up approved content, routing, follow-up, and any permitted integrations.",
-  },
-  {
     icon: "check",
     title: "Test",
-    body: "Try incorrect information, emergencies, opt-outs, duplicate contacts, and failed transfers.",
+    body: "Try incorrect information, emergencies, opt-outs, duplicate contacts, and failed transfers on one narrow workflow.",
   },
   {
     icon: "rocket",
     title: "Pilot",
-    body: "Measure against the baseline and expand only after the workflow runs reliably.",
+    body: "Run the workflow against your baseline and expand only after it works reliably.",
+  },
+  {
+    icon: "analytics",
+    title: "Review",
+    body: "Compare results with the baseline, then decide what to keep, change, or stop.",
   },
 ];
 
@@ -390,41 +535,62 @@ export const exclusions: ReadonlyArray<string> = [
 ];
 
 export const processNote =
-  "Worldwide service coverage does not mean every workflow is permitted in every country. Messaging, calling, recording, and housing rules are reviewed for the places your business and contacts are actually located. Pricing is not published here and is defined in the written proposal.";
+  "Worldwide service coverage does not mean every workflow is permitted or available in every country. Messaging, calling, recording, and housing rules are reviewed for the places your business and contacts are actually located.";
+
+// Final conversion section. The brief's inquiry form is not built (contact path and
+// consent wording are TBD in docs/01); this list tells the visitor what to include.
+export const inquiryPrompts: ReadonlyArray<string> = [
+  "Your business type: residential management, landlord, rental operation, or real estate team",
+  "The software you already use",
+  "Your approximate portfolio size, where relevant",
+  "The main place where inquiries or follow-up break down",
+];
 
 // Single source for the visible FAQ section and the FAQPage JSON-LD.
 export const faqs: Faq[] = [
   {
-    question: "What is property management marketing automation?",
+    question: "What marketing and automation needs do property businesses share?",
     answer:
-      "It connects inquiry capture, assignment, approved responses, and follow-up around a property business's customer journeys. Owner acquisition, leasing, and resident support should use distinct workflows rather than one generic campaign.",
+      "Common needs include a clear online presence, organized inquiry capture, assigned follow-up, and consistent customer communication. The workflow should still distinguish owners, rental prospects, residents, guests, and brokerage clients.",
   },
   {
-    question: "Does marketing automation replace our property management software?",
+    question: "Is the same approach suitable for property managers and real estate agents?",
     answer:
-      "It does not need to. The recommended approach keeps the existing operational system and adds only marketing or communication functions that address a verified gap.",
+      "Not without adapting it. Property managers need owner, leasing, and resident-support paths, while agents and brokerages need buyer and seller lead assignment and appointment follow-up.",
+  },
+  {
+    question: "How do short and midterm rental workflows differ?",
+    answer:
+      "Rental-operator communication centers on reservations, booking channels, and guest stays rather than long-term applications and resident support. Existing Guesty or Hostaway capabilities should be reviewed before adding another communication layer.",
+    sources: [sources.guestyInbox],
+  },
+  {
+    question: "Do we need to replace our existing software?",
+    answer:
+      "Not necessarily. The recommended approach starts by reviewing current capabilities and adds only functions that address a verified gap, without unnecessary duplication.",
   },
   {
     question: "Can a workflow connect to AppFolio, Buildium, or Yardi?",
     answer:
-      "Compatibility depends on the product, subscription, permissions, and required data flows. Existing capabilities should be reviewed and any proposed connection tested before compatibility is promised.",
+      "Compatibility depends on the product, subscription, permissions, and required data flows. Any proposed connection should be tested before compatibility is promised.",
     sources: [sources.yardiChatIq],
   },
   {
-    question: "Can AI answer after-hours leasing calls?",
+    question: "Should a brokerage add another CRM if it already uses Follow Up Boss or kvCORE?",
     answer:
-      "AI can be configured for approved questions, inquiry capture, and handoffs. Reliable operation requires current information, clear AI disclosure, and a fallback when it cannot answer or transfer the call.",
+      "Not automatically. Review the existing account, native automation, assignment process, and staff adoption first. kvCORE has evolved into BoldTrail, so the actual account capabilities also need confirmation.",
+    sources: [sources.followUpBoss],
+  },
+  {
+    question: "Can AI help with after-hours inquiries?",
+    answer:
+      "AI can be configured for approved questions, inquiry capture, and handoffs. It needs clear disclosure, reliable information, and a human fallback when it cannot answer or transfer.",
     sources: [sources.yardiChatIq],
   },
   {
-    question: "Can AI handle maintenance emergencies?",
+    question: "Can AI make decisions about maintenance emergencies?",
     answer:
-      "AI should not independently diagnose an emergency or decide that a situation is safe. A proposed intake workflow should follow operator-approved escalation instructions and provide a staffed backup route.",
-  },
-  {
-    question: "Can a chatbot provide current rent and availability?",
-    answer:
-      "Only a validated information source can support reliable current answers. Without that connection, the chatbot should direct visitors to the authoritative listing or a staff member.",
+      "AI should not independently diagnose an emergency or decide that a situation is safe. Any proposed intake workflow should follow operator-approved escalation instructions and provide a staffed backup route.",
   },
   {
     question: "Can rental prospects receive automated text follow-up?",
@@ -432,7 +598,7 @@ export const faqs: Faq[] = [
       "Automated messaging needs a reviewed consent and compliance process appropriate to the message and technology. Permission should be recorded, opt-outs supported, and marketing separated from operational communication.",
   },
   {
-    question: "Can each rental property have a Google Business Profile?",
+    question: "Can every rental property have a Google Business Profile?",
     answer:
       "Google lists rental and for-sale properties as ineligible. Qualifying sales or leasing offices may be eligible, subject to the full business eligibility requirements.",
     sources: [sources.googleGbpEligibility],
@@ -444,8 +610,8 @@ export const faqs: Faq[] = [
     sources: [sources.googleReviewPolicy],
   },
   {
-    question: "What results should we measure?",
+    question: "What should we measure before and after a workflow change?",
     answer:
-      "Start with response times, assignment completion, handoff reliability, answer accuracy, and staff handling time. Then track consultations, tours, applications, leases, or signed management agreements without claiming automation caused every change.",
+      "Measure response times, assignment completion, handoff reliability, answer accuracy, staff handling time, and correction work. Track consultations, tours, applications, leases, or agreements separately, without claiming the workflow caused every change.",
   },
 ];
