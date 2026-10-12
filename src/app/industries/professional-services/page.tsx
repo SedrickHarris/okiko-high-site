@@ -138,10 +138,6 @@ export default function Page() {
           </div>
           <figure className="hero-in hero-delay-2 mx-auto w-full max-w-sm lg:mx-0 lg:max-w-none">
             <ProfessionalServicesHeroIllustration />
-            <figcaption className="mt-3 text-sm text-neutral-600">
-              Illustrative journey. This page shows a proposed approach, not client
-              work or results.
-            </figcaption>
           </figure>
         </header>
 
