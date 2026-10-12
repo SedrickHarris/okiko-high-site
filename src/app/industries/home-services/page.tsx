@@ -521,7 +521,7 @@ export default function Page() {
           <h2 id="scope-limits" className="flex items-center gap-3 text-xl font-bold">
             <span
               aria-hidden="true"
-              className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-neutral-200 text-neutral-800"
+              className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-red-600 text-white"
             >
               <NamedIcon name="shield" className="h-5 w-5" />
             </span>
