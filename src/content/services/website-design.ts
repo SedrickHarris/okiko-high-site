@@ -3,7 +3,9 @@
 // Business facts that are still TBD in docs/01 are intentionally not stated here:
 // agency pricing, delivery timelines, platform stack, ownership terms, results, testimonials.
 
-export type SourceLink = { label: string; href: string };
+// Re-exported so existing content imports keep working; the type lives in ../shared.
+export type { SourceLink } from "../shared";
+import type { SourceLink } from "../shared";
 
 export const websiteDesignPage = {
   path: "/services/website-design",
@@ -222,7 +224,7 @@ export const qualityChecks = [
   {
     icon: "gauge",
     heading: "Performance targets",
-    body: "Targets follow Google's Core Web Vitals thresholds: LCP of 2.5 seconds or less, INP of 200 milliseconds or less, and CLS of 0.1 or less, assessed at the 75th percentile of real-user data on mobile and desktop.",
+    body: "Targets follow Google's Core Web Vitals thresholds for loading, responsiveness, and visual stability on mobile and desktop.",
   },
   {
     icon: "accessibility",
@@ -453,3 +455,20 @@ export const faqs: Faq[] = [
       "No responsible guarantee can ignore demand, traffic quality, competition, the offer, and follow-up. Set measurable deliverables and evaluate qualified inquiries and booked appointments rather than clicks alone.",
   },
 ];
+
+// Quick facts. Thresholds as published by Google and web.dev; the card does not
+// imply a ranking or revenue result.
+export const coreWebVitalsNote = {
+  lead: "Google's \"good\" Core Web Vitals targets are LCP of 2.5 seconds or less, INP of 200 milliseconds or less, and CLS of 0.1 or less.",
+  detail:
+    "They are assessed at the 75th percentile of real-user data on mobile and desktop. We use them as testing targets, not as a guarantee of rankings or revenue.",
+  sources: [sources.googleCwv, sources.webDevVitals],
+};
+
+// The closing sentence is existing page copy; the HHS page supports the rest.
+export const healthPrivacyNote = {
+  lead: "A website that handles health information needs a separate privacy review for forms, scheduling tools, chat, and tracking.",
+  detail:
+    "HHS guidance says regulated entities must not use tracking technologies in ways that cause impermissible disclosures of protected health information, and a cookie banner or privacy notice does not replace a HIPAA authorization. No website is \"HIPAA certified\" by design.",
+  source: sources.hhs,
+};

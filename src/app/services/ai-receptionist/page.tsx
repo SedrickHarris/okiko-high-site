@@ -9,9 +9,11 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { NamedIcon } from "@/components/ui/icons";
+import { QuickAnswer } from "@/components/ui/QuickAnswer";
 import { SourceLinks } from "@/components/ui/SourceLinks";
 import {
   aiReceptionistPage as page,
+  aiVoiceRuleNote,
   bookingChecks,
   bookingOutcomes,
   boundaryColumns,
@@ -470,13 +472,13 @@ export default function Page() {
           </div>
           <p className="mt-8 max-w-3xl text-neutral-700">
             Recording rules vary by jurisdiction and by the circumstances of the call.
-            The FCC has ruled that AI-generated voices fall under the TCPA&apos;s
-            artificial or prerecorded voice rules. That ruling concerns covered
-            outbound calls and is not a ban on answering inbound calls with AI, but
-            callbacks and other outbound workflows need their own review.
           </p>
-          <SourceLinks
-            sources={[sources.euAiTransparency, sources.rcfp, sources.fccRuling]}
+          <SourceLinks sources={[sources.euAiTransparency, sources.rcfp]} />
+          <QuickAnswer
+            icon="shield"
+            lead={aiVoiceRuleNote.lead}
+            detail={aiVoiceRuleNote.detail}
+            sources={aiVoiceRuleNote.sources}
           />
         </PageSection>
 

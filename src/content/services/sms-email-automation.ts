@@ -253,12 +253,6 @@ export const sampleSequence = [
 
 export const channelNotes = [
   {
-    icon: "shield",
-    tone: "default",
-    title: 'Why avoid "98% open rate" messaging',
-    body: "One major messaging platform says it does not track SMS opens at all, and Apple Mail Privacy Protection affects email open metrics. We measure replies and completed actions instead of opens.",
-  },
-  {
     icon: "integrations",
     tone: "included",
     title: "One record, one next action",
@@ -441,3 +435,11 @@ export const faqs: ReadonlyArray<Faq> = [
   { question: "Can I use my existing CRM and scheduling software?", answer: "Possibly, but compatibility should be checked against the actual systems, permissions, and integration requirements. Existing reminders should also be reviewed so a new workflow does not duplicate messages." },
   { question: "Can I send reactivation messages to former customers?", answer: "Potentially, after checking permissions, suppression records, data quality, and the purpose of the message. An old customer record is not automatic permission for every promotional text." },
 ];
+
+// Quick fact beside the channel notes (replaces the former "98% open rate" card).
+export const openRatesNote = {
+  lead: "Open rates are a weak measure of follow-up, so we track replies and completed actions instead.",
+  detail:
+    "Klaviyo's documentation says it does not track open rates for SMS. Mailchimp explains that Apple Mail Privacy Protection preloads tracking pixels, which can count emails as opened when they were not and inflate open-related metrics.",
+  sources: [sources.klaviyo, sources.mailchimpPrivacy],
+};

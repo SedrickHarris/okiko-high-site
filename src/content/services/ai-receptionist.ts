@@ -431,3 +431,12 @@ export const faqs: Faq[] = [
       "Pricing and service packages have not been confirmed yet. Setup, recurring service, usage, telephony, integrations, maintenance, and any human-backup costs need to be defined before pricing is published.",
   },
 ];
+
+// Quick fact for the boundaries section. The FCC ruling is the source; reading it
+// as a limit on outbound calls rather than inbound answering is this page's own scoping.
+export const aiVoiceRuleNote = {
+  lead: "The FCC has confirmed that AI-generated voices count as an \"artificial or prerecorded voice\" under the TCPA.",
+  detail:
+    "Covered calls need the called party's prior express consent. That ruling concerns covered outbound calls and is not a ban on answering inbound calls with AI, but callbacks and other outbound workflows need their own review.",
+  sources: [sources.fccRuling],
+};

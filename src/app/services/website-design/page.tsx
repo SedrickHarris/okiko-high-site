@@ -19,16 +19,19 @@ import {
   MessageIcon,
   NamedIcon,
 } from "@/components/ui/icons";
+import { QuickAnswer } from "@/components/ui/QuickAnswer";
 import { SourceLinks } from "@/components/ui/SourceLinks";
 import {
   approachGuide,
   architectureLevels,
   capabilities,
   contactPathPoints,
+  coreWebVitalsNote,
   costDrivers,
   costRows,
   customerJourney,
   faqs,
+  healthPrivacyNote,
   inquiryFlow,
   migrationChecklist,
   ownershipRows,
@@ -390,7 +393,13 @@ export default function Page() {
           <figure className="mb-8">
             <ResponsiveDevices />
           </figure>
-          <div className="grid gap-6 md:grid-cols-2">
+          <QuickAnswer
+            icon="gauge"
+            lead={coreWebVitalsNote.lead}
+            detail={coreWebVitalsNote.detail}
+            sources={coreWebVitalsNote.sources}
+          />
+          <div className="mt-8 grid gap-6 md:grid-cols-2">
             {qualityChecks.map((check) => (
               <div key={check.heading} className="rounded-lg border border-neutral-200 p-5">
                 <IconCardHeading icon={check.icon} title={check.heading} />
@@ -595,12 +604,13 @@ export default function Page() {
             TCPA&apos;s artificial or prerecorded voice rules, so consent, revocation,
             and recording language need review for each workflow.
           </p>
-          <p className="mt-4 max-w-3xl text-neutral-700">
-            If your website handles health information, forms, scheduling tools,
-            chat, and tracking need separate privacy review. No website is
-            &ldquo;HIPAA certified&rdquo; by design.
-          </p>
-          <SourceLinks sources={[sources.fcc, sources.hhs]} />
+          <SourceLinks sources={[sources.fcc]} />
+          <QuickAnswer
+            icon="shield"
+            lead={healthPrivacyNote.lead}
+            detail={healthPrivacyNote.detail}
+            source={healthPrivacyNote.source}
+          />
           <p className="mt-6">
             <Link href="/services" className="font-semibold text-brand-blue-strong underline underline-offset-2 hover:text-brand-ink">
               See all OKIKO HIGH services

@@ -9,6 +9,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { NamedIcon } from "@/components/ui/icons";
+import { QuickAnswer } from "@/components/ui/QuickAnswer";
 import { SourceLinks } from "@/components/ui/SourceLinks";
 import {
   alternativeRows,
@@ -26,6 +27,7 @@ import {
   realisticAims,
   replyPrinciples,
   reportSteps,
+  reviewRulesNote,
   reputationManagementPage as page,
   sampleEmail,
   sampleReply,
@@ -332,7 +334,13 @@ export default function Page() {
             </p>
           }
         >
-          <div className="grid items-start gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)]">
+          <QuickAnswer
+            icon="shield"
+            lead={reviewRulesNote.lead}
+            detail={reviewRulesNote.detail}
+            source={reviewRulesNote.source}
+          />
+          <div className="mt-8 grid items-start gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)]">
             <div className="rounded-lg border border-neutral-200 p-5">
               <IconCardHeading icon="shield" tone="included" title="What we will not do" />
               <ul className="mt-4 list-disc space-y-2 pl-5 text-neutral-800">
