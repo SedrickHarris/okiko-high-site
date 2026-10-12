@@ -6,6 +6,7 @@ import { ProfessionalServicesHeroIllustration } from "@/components/illustrations
 import { ProfessionalServicesScopeIllustration } from "@/components/illustrations/ProfessionalServicesScopeIllustration";
 import { FaqSection } from "@/components/sections/FaqSection";
 import { PageSection } from "@/components/sections/PageSection";
+import { RelatedIndustries } from "@/components/sections/RelatedIndustries";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { ButtonLink } from "@/components/ui/ButtonLink";
@@ -439,6 +440,8 @@ export default function Page() {
           heading="Questions About Marketing and Automation for Your Firm"
           faqs={faqs}
         />
+
+        <RelatedIndustries currentPath="/industries/professional-services" />
 
         {/* J. Final CTA. The brief's inquiry form is not built yet: the contact path
             and consent wording are TBD (docs/01), so this points to /contact. */}

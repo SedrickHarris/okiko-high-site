@@ -6,6 +6,7 @@ import { FaqSection } from "@/components/sections/FaqSection";
 import { HomeServicesHeroIllustration } from "@/components/illustrations/HomeServicesHeroIllustration";
 import { HomeServicesHandoffIllustration } from "@/components/illustrations/HomeServicesHandoffIllustration";
 import { PageSection } from "@/components/sections/PageSection";
+import { RelatedIndustries } from "@/components/sections/RelatedIndustries";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { ButtonLink } from "@/components/ui/ButtonLink";
@@ -470,6 +471,8 @@ export default function Page() {
           heading="Questions About Marketing and Automation for Your Business"
           faqs={faqs}
         />
+
+        <RelatedIndustries currentPath="/industries/home-services" />
 
         {/* K. Final CTA. The brief's inquiry form is not built yet: the contact path
             and consent language are TBD (docs/01), so this points to /contact. */}

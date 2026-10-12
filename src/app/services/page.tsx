@@ -5,6 +5,7 @@ import { IconCardHeading } from "@/components/cards/IconCardHeading";
 import { FaqSection } from "@/components/sections/FaqSection";
 import { QuestionAnswerIllustration } from "@/components/illustrations/QuestionAnswerIllustration";
 import { PageSection } from "@/components/sections/PageSection";
+import { RelatedIndustries } from "@/components/sections/RelatedIndustries";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { ButtonLink } from "@/components/ui/ButtonLink";
@@ -404,6 +405,11 @@ export default function Page() {
             </span>
           </p>
         </PageSection>
+
+        <RelatedIndustries
+          heading="See How the Services Fit Your Industry"
+          intro="The six services apply differently depending on how your customers reach you. Choose your industry to see the proposed approach."
+        />
 
         {/* D. FAQs */}
         <FaqSection id="faq" heading="Services Questions, Answered" faqs={faqs} />
