@@ -143,11 +143,11 @@ export const sampleCall = [
 export const sampleOutcome = {
   heading: "Resulting call summary (illustrative)",
   rows: [
-    { label: "Request", value: "Service request: leak under kitchen sink" },
-    { label: "Address", value: "132 Main Street (corrected during the call)" },
-    { label: "Booking", value: "Not confirmed: visit time requested, awaiting your confirmation" },
-    { label: "Transfer", value: "Attempted, unanswered" },
-    { label: "Next step", value: "Callback task assigned to a named person" },
+    { icon: "clipboard", label: "Request", value: "Service request: leak under kitchen sink" },
+    { icon: "pin", label: "Address", value: "132 Main Street (corrected during the call)" },
+    { icon: "calendar", label: "Booking", value: "Not confirmed: visit time requested, awaiting your confirmation" },
+    { icon: "transfer", label: "Transfer", value: "Attempted, unanswered" },
+    { icon: "flag", label: "Next step", value: "Callback task assigned to a named person" },
   ],
 } as const;
 
@@ -178,31 +178,37 @@ export const callProblems = [
 // Section 4: setup workflow.
 export const processSteps = [
   {
+    icon: "clipboard",
     title: "Define the call flow",
     body: "Decide which calls the assistant may handle, the answers it may give, the intake fields to collect, booking rules, and escalation conditions.",
     clientInput: "Which calls to handle, approved answers, and urgency rules.",
   },
   {
+    icon: "phone",
     title: "Choose coverage",
     body: "Connect an eligible phone number and set direct answering, backup answering, or scheduled coverage.",
     clientInput: "Phone provider details and when you want coverage.",
   },
   {
+    icon: "integrations",
     title: "Connect your systems",
     body: "Connect business information, calendars, contact fields, workflows, and transfer destinations.",
     clientInput: "Calendar and system access, plus who receives transfers.",
   },
   {
+    icon: "shield",
     title: "Set the actions",
     body: "Configure the AI disclosure, intake questions, and each approved action, plus the notifications that follow a call.",
     clientInput: "Approval of wording and follow-up messages.",
   },
   {
+    icon: "call",
     title: "Test the full phone path",
     body: "Place real phone calls and check answering, transfers, booking results, and failed actions. A browser test cannot validate a human transfer.",
     clientInput: "Test calls and your sign-off before coverage expands.",
   },
   {
+    icon: "repeat",
     title: "Review and adjust",
     body: "Review failures, adjust the workflow, and agree who reviews and maintains it.",
     clientInput: "Review of flagged calls and agreed maintenance responsibilities.",
@@ -214,11 +220,11 @@ export const routingWarning =
 
 // Section 5: booking.
 export const bookingChecks = [
-  "Appointment types you want booked by phone",
-  "Time zones for the business and the caller",
-  "Availability rules and real capacity",
-  "The confirmation message the caller receives",
-  "Which contact and CRM fields get updated",
+  { icon: "calendar", text: "Appointment types you want booked by phone" },
+  { icon: "globe", text: "Time zones for the business and the caller" },
+  { icon: "clock", text: "Availability rules and real capacity" },
+  { icon: "mail", text: "The confirmation message the caller receives" },
+  { icon: "clipboard", text: "Which contact and CRM fields get updated" },
 ] as const;
 
 export const bookingOutcomes = [
@@ -237,21 +243,25 @@ export const bookingOutcomes = [
 // Section 6: handoff and urgency.
 export const handoffPaths = [
   {
+    icon: "clipboard",
     situation: "Routine request",
     does: "Collects intake, then books an eligible appointment or captures a request, following your rules.",
     doesNot: "Answer beyond the information you approved.",
   },
   {
+    icon: "transfer",
     situation: "Caller asks for a person",
     does: "Tries the approved transfer destination. If no one answers, says so and records a callback request with an owner.",
     doesNot: "Imply someone has accepted the request when no one has.",
   },
   {
+    icon: "bell",
     situation: "Urgent service request",
     does: "Collects location and callback details, applies your approved urgency criteria, and attempts the on-call route.",
     doesNot: "Promise dispatch or an arrival time unless it is confirmed.",
   },
   {
+    icon: "flag",
     situation: "Immediate danger or medical emergency",
     does: "Gives an approved instruction to contact the applicable emergency service.",
     doesNot: "Diagnose, give improvised safety advice, or act as an emergency service.",
@@ -261,24 +271,28 @@ export const handoffPaths = [
 // Section 7: comparison.
 export const comparisonRows = [
   {
+    icon: "mail",
     option: "Voicemail",
     handles: "Records a message. No intake conversation or booking during the call.",
     coverage: "Always on, but the caller waits for a callback.",
     cost: "Usually part of your existing phone plan.",
   },
   {
+    icon: "call",
     option: "AI receptionist",
     handles: "Answers, collects intake, books eligible appointments, routes, and records the outcome.",
     coverage: "Runs on the schedule you set. Human backup depends on your setup.",
     cost: "Often a subscription plus usage, with telephony billed separately.",
   },
   {
+    icon: "headset",
     option: "Human answering service",
     handles: "A person converses, screens, and escalates. Depth of service varies by provider.",
     coverage: "Staffed coverage supplied by the provider.",
     cost: "Commonly per-call or per-minute plans.",
   },
   {
+    icon: "lead",
     option: "In-house receptionist",
     handles: "Calls plus other front-desk duties and knowledge of your business.",
     coverage: "Follows staffing: breaks, absences, and hours.",
@@ -287,10 +301,10 @@ export const comparisonRows = [
 ] as const;
 
 export const totalCostItems = [
-  "Telephony and software or platform fees",
-  "Setup and ongoing maintenance",
-  "Human backup, where you want it",
-  "Staff time spent reviewing and correcting calls",
+  { icon: "server", text: "Telephony and software or platform fees" },
+  { icon: "repeat", text: "Setup and ongoing maintenance" },
+  { icon: "headset", text: "Human backup, where you want it" },
+  { icon: "clock", text: "Staff time spent reviewing and correcting calls" },
 ] as const;
 
 // Section 8: boundaries.
@@ -338,36 +352,42 @@ export const boundaryColumns = [
 // Section 9: measurement. No figures: no client results are published.
 export const measures = [
   {
+    icon: "call",
     measure: "Eligible calls handled",
     counted: "Handled calls divided by eligible routed calls, split into AI, voicemail, and human answering.",
   },
   {
+    icon: "clipboard",
     measure: "Complete intake",
     counted: "Records with every required field, checked for accuracy by hand.",
   },
   {
+    icon: "calendar",
     measure: "Correct bookings",
     counted: "Correct calendar events divided by attempted eligible bookings.",
   },
   {
+    icon: "transfer",
     measure: "Transfer and escalation outcomes",
     counted: "Successful transfers and acknowledged alerts divided by attempts, including unavailable staff.",
   },
   {
+    icon: "clock",
     measure: "Staff correction time",
     counted: "Minutes spent reviewing, correcting, and calling back, before versus after.",
   },
   {
+    icon: "analytics",
     measure: "Total operating cost",
     counted: "Telephony, software, setup, maintenance, and any human backup.",
   },
 ] as const;
 
 export const keepDistinct = [
-  "Answered calls",
-  "Qualified opportunities",
-  "Completed jobs",
-  "Revenue",
+  { icon: "call", text: "Answered calls" },
+  { icon: "lead", text: "Qualified opportunities" },
+  { icon: "check", text: "Completed jobs" },
+  { icon: "analytics", text: "Revenue" },
 ] as const;
 
 // Section 10: single source for the visible FAQ section and the FAQPage JSON-LD.
