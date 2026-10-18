@@ -7,6 +7,7 @@ import { HomeServicesBranchingDiagram } from "@/components/illustrations/HomeSer
 import { HomeServicesHeroIllustration } from "@/components/illustrations/HomeServicesHeroIllustration";
 import { HomeServicesHandoffIllustration } from "@/components/illustrations/HomeServicesHandoffIllustration";
 import { PageSection } from "@/components/sections/PageSection";
+import { PublishedComboLinks } from "@/components/combos/PublishedComboLinks";
 import { RelatedIndustries } from "@/components/sections/RelatedIndustries";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
@@ -542,6 +543,13 @@ export default function Page() {
           id="faq"
           heading="Questions About Marketing and Automation for Home-Service Businesses"
           faqs={faqs}
+        />
+
+        <PublishedComboLinks
+          audience="home-services"
+          id="home-services-guides"
+          heading="Home-Service Guides by Service"
+          intro="Pages that apply one service to home-service businesses."
         />
 
         <RelatedIndustries currentPath="/industries/home-services" />

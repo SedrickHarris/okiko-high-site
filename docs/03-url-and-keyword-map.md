@@ -215,6 +215,7 @@ Home Services is currently served. The other audience groups are future opportun
 | Search intent | Commercial investigation: a home-service owner deciding what a site should include so customers can find services and areas and call or request a quote |
 | Parent pages | `/industries/home-services/` and `/services/website-design/` |
 | Related links | `/services/google-business-profile-optimization/`, `/services/reputation-management/`, `/services/ai-receptionist/`, `/services/sms-email-automation/` |
+| Inbound links | Built behind the published flag: `/industries/home-services/` ("Home-Service Guides by Service") and `/services/website-design/` ("Website Design by Industry"). Both render nothing until the combo is published. |
 | Status | Built, `published: false` (noindex, not in sitemap, not cross-linked) until owner approval |
 | Notes | "contractor website design" was removed from the Home Services audience cluster so the two pages do not compete. Evidence: Jobber 2026 survey (vendor data, n=1,050), LocaliQ 2025 (n=100), web.dev, Google guidance, WCAG 2.2. Verify before launch: the ADA lawsuit count cited from an event listing, and the Google FAQ rich-result change. Schema: Organization, WebPage, BreadcrumbList, FAQPage matching the 10 visible FAQs; no Service node, ratings, prices, or LocalBusiness. |
 

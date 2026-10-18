@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { IconCardHeading } from "@/components/cards/IconCardHeading";
 import { CapabilityGrid } from "@/components/sections/CapabilityGrid";
+import { PublishedComboLinks } from "@/components/combos/PublishedComboLinks";
 import { FaqSection } from "@/components/sections/FaqSection";
 import { PageSection } from "@/components/sections/PageSection";
 import { PhoneWireframe } from "@/components/sections/PhoneWireframe";
@@ -620,6 +621,13 @@ export default function Page() {
 
         {/* K. FAQs and final CTA */}
         <FaqSection id="faq" heading="Website Design Questions, Answered" faqs={faqs} />
+
+        <PublishedComboLinks
+          service="website-design"
+          id="website-design-by-industry"
+          heading="Website Design by Industry"
+          intro="Pages that apply website design to a specific kind of business."
+        />
 
         <section
           aria-labelledby="final-cta"
