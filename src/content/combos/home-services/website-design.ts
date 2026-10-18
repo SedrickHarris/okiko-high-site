@@ -71,6 +71,15 @@ export const combo: ComboContent = {
     "This page is for owners and office managers of home-service businesses. It describes a proposed approach to planning a website: say clearly what you do and where you work, make it easy to call or ask for a quote, structure pages so search and answer engines can read them, and track what happens next.",
     "It is a proposed approach, not a package, a price list, or a record of past client work.",
   ],
+  heroAside: {
+    heading: "What should a home-service website do?",
+    body: "It should name each service you offer, state where you work, show your hours, give customers a clear way to call or request a quote, and answer the questions they ask most.",
+    steps: [
+      "Check what is missing",
+      "Structure pages and answers",
+      "Measure calls and form requests",
+    ],
+  },
   // Primary contact action is TBD in docs/01, so every CTA points to /contact.
   primaryCta: { label: "Discuss Your Website Plan", href: "/contact" },
   secondaryCta: { label: "Check Your Site Against the List", href: "#checklist" },
@@ -80,17 +89,38 @@ export const combo: ComboContent = {
       id: "where-customers-check-you-out",
       heading: "Where Customers Check You Out",
       intro: [
-        "In Jobber's 2026 survey of 1,050 US home-service owners (fielded December 2025, margin of error plus or minus 3 points), referrals and repeat customers led the list of lead sources (59% each), ahead of Facebook (32%), local networking (25%), Google Search (20%), Local Services Ads (19%), and lead generation sites (16%). When hiring, customers weighed competitive pricing (62%) and positive reviews (51%) most, then speed of first response (25%), safety, background checks, or licensing (22%), and easy booking (14%). A strong online presence ranked last of the listed factors (8%).",
+        "In Jobber's 2026 survey of 1,050 US home-service owners, referrals and repeat customers led the list of lead sources, ahead of Google Search. Customers weighed price and reviews most when they hired.",
       ],
-      quickAnswer: {
-        lead: "A home-service website should name each service, state where you work, show your hours, and give customers a clear way to call or request a quote.",
-        detail:
-          "It should also answer the questions customers ask most, on the page where they would ask them.",
-        icon: "website",
+      charts: {
+        charts: [
+          {
+            title: "Top lead sources named by owners",
+            rows: [
+              { label: "Referrals", value: 59 },
+              { label: "Repeat customers", value: 59 },
+              { label: "Facebook", value: 32 },
+              { label: "Local networking", value: 25 },
+              { label: "Google Search", value: 20 },
+              { label: "Local Services Ads", value: 19 },
+              { label: "Lead generation sites", value: 16 },
+            ],
+          },
+          {
+            title: "What customers prioritize when hiring",
+            rows: [
+              { label: "Competitive pricing", value: 62 },
+              { label: "Positive reviews", value: 51 },
+              { label: "Speed of first response", value: 25 },
+              { label: "Safety, checks, licensing", value: 22 },
+              { label: "Easy booking", value: 14 },
+              { label: "Strong online presence", value: 8 },
+            ],
+          },
+        ],
+        note: "Source: Jobber, Home Service Trends Report 2026 (1,050 US home-service owners, fielded December 2025, margin of error plus or minus 3 points). Owners could name more than one source. Jobber sells software to these businesses, so treat its figures as vendor-sourced.",
       },
       paragraphs: [
         "Our reading, not a survey result: a referred customer often looks a business up before calling. In that moment the website's job is to confirm what you do, where you work, and how to reach you.",
-        "Jobber sells software to these businesses, so treat its figures as vendor-sourced.",
       ],
       sources: [sources.jobber],
     },
@@ -101,8 +131,17 @@ export const combo: ComboContent = {
       muted: true,
       intro: [
         "Open your site on a phone and check what you can confirm.",
-        "In Jobber's 2026 platform data, 43% of home-service sites did not clearly list service areas, 65% did not show business hours, and 74% had no FAQ section. Jobber says these gaps hurt conversion before a quote is sent; that is its claim, not a measured result. In LocaliQ's 2025 sample of 100 US home-service businesses, 15% of directory listings were complete and correct, a small sample that is best read as a signal.",
       ],
+      stats: {
+        heading: "What the data shows",
+        items: [
+          { value: "43%", label: "of home-service sites in Jobber's platform data did not clearly list service areas" },
+          { value: "65%", label: "did not show business hours" },
+          { value: "74%", label: "had no FAQ section" },
+          { value: "15%", label: "of directory listings were complete and correct in LocaliQ's sample of 100 US home-service businesses" },
+        ],
+        note: "Jobber, 2026: platform data from a software vendor, not a survey. Jobber says these gaps hurt conversion before a quote is sent; that is its claim, not a measured result. LocaliQ, 2025: 18 directories and a small sample, so read it as a signal, not a benchmark.",
+      },
       items: [
         {
           icon: "file",
@@ -238,12 +277,18 @@ export const combo: ComboContent = {
       intro: [
         "Speed and accessibility are part of whether a visitor can use the site at all, and both have published targets you can test against.",
       ],
+      columns: 2,
+      table: {
+        caption: "Core Web Vitals: Google's good targets",
+        columns: ["Metric", "What it measures", "Good"],
+        rows: [
+          ["LCP", "Largest Contentful Paint: how fast the main content appears", "2.5 seconds or less"],
+          ["INP", "Interaction to Next Paint: how fast the page responds to taps", "200 milliseconds or less"],
+          ["CLS", "Cumulative Layout Shift: how much the page jumps around", "0.1 or less"],
+        ],
+        note: "Measured at the 75th percentile of page loads.",
+      },
       items: [
-        {
-          icon: "gauge",
-          title: "Core Web Vitals targets",
-          body: "Google's 'good' targets are Largest Contentful Paint of 2.5 seconds or less, Interaction to Next Paint of 200 milliseconds or less, and Cumulative Layout Shift of 0.1 or less, measured at the 75th percentile of page loads.",
-        },
         {
           icon: "accessibility",
           title: "WCAG 2.2",

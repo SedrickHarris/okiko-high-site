@@ -4,6 +4,7 @@ import { FaqSection } from "@/components/sections/FaqSection";
 import { PageSection } from "@/components/sections/PageSection";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
+import { BarCharts, DataTableView, StatTiles } from "@/components/combos/ComboVisuals";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { QuickAnswer } from "@/components/ui/QuickAnswer";
 import { SourceLinks } from "@/components/ui/SourceLinks";
@@ -57,6 +58,10 @@ function Section({ section }: { section: ComboSection }) {
 
   return (
     <PageSection id={section.id} heading={section.heading} intro={intro} muted={section.muted}>
+      {section.charts && <BarCharts group={section.charts} />}
+      {section.stats && <StatTiles group={section.stats} />}
+      {section.table && <DataTableView table={section.table} />}
+
       {section.quickAnswer && (
         <QuickAnswer
           lead={section.quickAnswer.lead}
@@ -195,26 +200,56 @@ export function ComboPage({ content }: { content: ComboContent }) {
       />
 
       <div className="mt-8 space-y-16">
-        <header>
-          <h1 className="hero-in-h1 max-w-4xl text-4xl font-extrabold tracking-tight sm:text-5xl">
-            {content.h1}
-          </h1>
-          <p className="hero-in hero-delay-1 mt-4 max-w-3xl font-heading text-xl font-semibold text-brand-blue-strong">
-            {content.tagline}
-          </p>
-          <div className="hero-in hero-delay-1 mt-6 max-w-3xl space-y-4 text-lg leading-relaxed text-neutral-700">
-            {content.intro.map((text) => (
-              <p key={text}>{text}</p>
-            ))}
+        <header className={content.heroAside ? "grid gap-10 lg:grid-cols-[1.4fr_1fr] lg:items-start" : ""}>
+          <div>
+            <h1 className="hero-in-h1 max-w-4xl text-4xl font-extrabold tracking-tight sm:text-5xl">
+              {content.h1}
+            </h1>
+            <p className="hero-in hero-delay-1 mt-4 max-w-3xl font-heading text-xl font-semibold text-brand-blue-strong">
+              {content.tagline}
+            </p>
+            <div className="hero-in hero-delay-1 mt-6 max-w-3xl space-y-4 text-lg leading-relaxed text-neutral-700">
+              {content.intro.map((text) => (
+                <p key={text}>{text}</p>
+              ))}
+            </div>
+            <div className="hero-in hero-delay-2 mt-8 flex flex-wrap gap-3">
+              <ButtonLink href={content.primaryCta.href}>{content.primaryCta.label}</ButtonLink>
+              {content.secondaryCta && (
+                <ButtonLink href={content.secondaryCta.href} variant="secondary">
+                  {content.secondaryCta.label}
+                </ButtonLink>
+              )}
+            </div>
           </div>
-          <div className="hero-in hero-delay-2 mt-8 flex flex-wrap gap-3">
-            <ButtonLink href={content.primaryCta.href}>{content.primaryCta.label}</ButtonLink>
-            {content.secondaryCta && (
-              <ButtonLink href={content.secondaryCta.href} variant="secondary">
-                {content.secondaryCta.label}
-              </ButtonLink>
-            )}
-          </div>
+
+          {content.heroAside && (
+            <aside
+              aria-label="Quick answer"
+              className="hero-in hero-delay-2 rounded-xl border border-brand-blue/30 bg-surface-muted p-6"
+            >
+              <p className="font-heading text-xs font-bold uppercase tracking-wider text-brand-blue-strong">
+                Quick answer
+              </p>
+              <h2 className="mt-2 text-xl font-bold leading-snug">{content.heroAside.heading}</h2>
+              <p className="mt-3 text-neutral-800">{content.heroAside.body}</p>
+              <ol className="mt-5 space-y-3">
+                {content.heroAside.steps.map((step, index) => (
+                  <li key={step} className="flex items-center gap-3 font-semibold">
+                    <span
+                      aria-hidden="true"
+                      className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full font-heading font-extrabold text-brand-ink ${
+                        ["bg-brand-blue", "bg-brand-green", "bg-brand-yellow"][index % 3]
+                      }`}
+                    >
+                      {index + 1}
+                    </span>
+                    {step}
+                  </li>
+                ))}
+              </ol>
+            </aside>
+          )}
         </header>
 
         {content.sections.map((section) => (

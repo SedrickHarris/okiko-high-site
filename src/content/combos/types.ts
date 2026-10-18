@@ -38,6 +38,35 @@ type SectionBase = {
     icon?: IconName;
   };
   sources?: ReadonlyArray<SourceLink>;
+  // Optional data visuals, shown under the intro and before the section body.
+  charts?: ChartGroup;
+  stats?: StatGroup;
+  table?: DataTable;
+};
+
+/** Horizontal bar charts. Values are percentages (0 to 100). */
+export type ChartGroup = {
+  charts: ReadonlyArray<{
+    title: string;
+    rows: ReadonlyArray<{ label: string; value: number }>;
+  }>;
+  // Source and caveat line under the charts.
+  note?: string;
+};
+
+/** Large-number callouts. Keep the label specific and the note honest about the source. */
+export type StatGroup = {
+  heading: string;
+  items: ReadonlyArray<{ value: string; label: string }>;
+  note?: string;
+};
+
+export type DataTable = {
+  caption: string;
+  columns: ReadonlyArray<string>;
+  // The first cell of each row is the row header.
+  rows: ReadonlyArray<ReadonlyArray<string>>;
+  note?: string;
 };
 
 export type CardItem = { icon: IconName; title: string; body: string };
@@ -82,6 +111,8 @@ export type ComboContent = {
   // Short line under the H1.
   tagline: string;
   intro: ReadonlyArray<string>;
+  // Optional "Quick answer" panel beside the hero text on large screens.
+  heroAside?: { heading: string; body: string; steps: ReadonlyArray<string> };
   // Primary contact action is TBD in docs/01, so CTAs point to /contact.
   primaryCta: { label: string; href: string };
   secondaryCta?: { label: string; href: string };
