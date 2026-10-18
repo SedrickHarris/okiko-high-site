@@ -235,6 +235,18 @@ export const combo: ComboContent = {
       intro: [
         "Put the next step where a worried homeowner will look: a tap-to-call button, your hours, your service area, and a short form. If you handle urgent work, give it its own clear path.",
       ],
+      wireframe: {
+        label: "Phone wireframe of a home-service page: business name, call button, hours, short quote form, and license and insurance placeholders",
+        caption: "A phone wireframe, not a design. Show license and insurance only if they are facts you can verify.",
+        businessName: "[Business name]",
+        tagline: "[Trade] serving [service areas]",
+        callLabel: "Call now: [phone number]",
+        hoursLine: "Open [hours]. Urgent request? [How to reach you]",
+        formTitle: "Request a quote",
+        fields: ["Name", "Phone", "What do you need?"],
+        submitLabel: "Send request",
+        trustFacts: ["[License no.]", "[Insurance]"],
+      },
       items: [
         {
           icon: "call",

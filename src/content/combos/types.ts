@@ -42,6 +42,22 @@ type SectionBase = {
   charts?: ChartGroup;
   stats?: StatGroup;
   table?: DataTable;
+  wireframe?: PhoneWireframeData;
+};
+
+/** A labeled phone-screen wireframe. Use bracketed placeholders, never real business facts. */
+export type PhoneWireframeData = {
+  // Accessible name and visible caption for the figure.
+  label: string;
+  caption: string;
+  businessName: string;
+  tagline: string;
+  callLabel: string;
+  hoursLine: string;
+  formTitle: string;
+  fields: ReadonlyArray<string>;
+  submitLabel: string;
+  trustFacts: ReadonlyArray<string>;
 };
 
 /** Horizontal bar charts. Values are percentages (0 to 100). */

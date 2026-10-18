@@ -4,7 +4,7 @@ import { FaqSection } from "@/components/sections/FaqSection";
 import { PageSection } from "@/components/sections/PageSection";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
-import { BarCharts, DataTableView, StatTiles } from "@/components/combos/ComboVisuals";
+import { BarCharts, DataTableView, PhoneWireframeFigure, StatTiles } from "@/components/combos/ComboVisuals";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { QuickAnswer } from "@/components/ui/QuickAnswer";
 import { SourceLinks } from "@/components/ui/SourceLinks";
@@ -61,6 +61,7 @@ function Section({ section }: { section: ComboSection }) {
       {section.charts && <BarCharts group={section.charts} />}
       {section.stats && <StatTiles group={section.stats} />}
       {section.table && <DataTableView table={section.table} />}
+      {section.wireframe && <PhoneWireframeFigure data={section.wireframe} />}
 
       {section.quickAnswer && (
         <QuickAnswer

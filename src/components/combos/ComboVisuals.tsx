@@ -1,4 +1,4 @@
-import type { ChartGroup, DataTable, StatGroup } from "@/content/combos/types";
+import type { ChartGroup, DataTable, PhoneWireframeData, StatGroup } from "@/content/combos/types";
 
 const barTones = ["bg-brand-blue", "bg-brand-green", "bg-brand-yellow"] as const;
 
@@ -100,5 +100,53 @@ export function DataTableView({ table }: { table: DataTable }) {
       </div>
       {table.note && <p className="mt-3 max-w-3xl text-sm text-neutral-700">{table.note}</p>}
     </div>
+  );
+}
+
+// A phone-screen wireframe built from divs, so nothing in it is a working control.
+// The figure carries one accessible name and a visible caption.
+export function PhoneWireframeFigure({ data }: { data: PhoneWireframeData }) {
+  return (
+    <figure className="my-8 flex flex-col items-center gap-6 sm:flex-row sm:items-start">
+      <div
+        role="img"
+        aria-label={data.label}
+        className="w-72 shrink-0 rounded-[2rem] border-4 border-brand-ink bg-white p-4 shadow-sm"
+      >
+        <div aria-hidden="true" className="space-y-3 text-neutral-900">
+          <div>
+            <p className="font-heading text-base font-extrabold leading-tight">{data.businessName}</p>
+            <p className="text-xs text-neutral-700">{data.tagline}</p>
+          </div>
+          <div className="flex min-h-11 items-center justify-center rounded-md bg-brand-blue px-2 text-center text-sm font-bold text-brand-ink">
+            {data.callLabel}
+          </div>
+          <p className="text-xs text-neutral-700">{data.hoursLine}</p>
+          <div className="space-y-2 rounded-md border border-neutral-300 p-3">
+            <p className="font-heading text-sm font-bold">{data.formTitle}</p>
+            {data.fields.map((field) => (
+              <div key={field}>
+                <p className="text-[11px] font-semibold text-neutral-700">{field}</p>
+                <div className="mt-0.5 h-6 rounded border border-neutral-300 bg-neutral-50" />
+              </div>
+            ))}
+            <div className="flex min-h-9 items-center justify-center rounded bg-brand-green text-xs font-bold text-brand-ink">
+              {data.submitLabel}
+            </div>
+          </div>
+          <div className="flex gap-2">
+            {data.trustFacts.map((fact) => (
+              <span
+                key={fact}
+                className="flex-1 rounded border border-dashed border-neutral-400 px-1 py-2 text-center text-[11px] text-neutral-700"
+              >
+                {fact}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+      <figcaption className="max-w-md text-neutral-800">{data.caption}</figcaption>
+    </figure>
   );
 }
