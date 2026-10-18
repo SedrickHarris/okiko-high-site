@@ -160,6 +160,13 @@ function Related({ content }: { content: ComboContent }) {
             {service.name}: the service in detail
           </Link>
         </li>
+        {content.relatedLinks?.map((link) => (
+          <li key={link.href}>
+            <Link href={link.href} className={linkClass}>
+              {link.label}
+            </Link>
+          </li>
+        ))}
         {siblings.map((c) => (
           <li key={`${c.audience}/${c.service}`}>
             <Link href={comboPath(c.audience, c.service)} className={linkClass}>

@@ -90,4 +90,7 @@ export type ComboContent = {
   faqsHeading?: string;
   faqs: ReadonlyArray<Faq>;
   finalCta: { heading: string; body: string; label: string; href: string };
+  // Extra links for the Related Pages section, beyond the parent audience and service
+  // pages and any published sibling combos. Link only pages that exist and are indexable.
+  relatedLinks?: ReadonlyArray<{ label: string; href: string }>;
 };

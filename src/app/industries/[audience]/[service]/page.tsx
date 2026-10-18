@@ -3,9 +3,6 @@ import { notFound } from "next/navigation";
 import { ComboPage } from "@/components/combos/ComboPage";
 import { builtCombos, comboPath, getCombo } from "@/content/combos/registry";
 
-// NOT ROUTED YET: this folder is private (_combos). Enable it with the git mv
-// described in src/content/combos/registry.ts when the first combo is built.
-//
 // Audience x service combo pages. Static export requires every path up front, so
 // only combos in the registry are built and any other path is a 404.
 export const dynamicParams = false;

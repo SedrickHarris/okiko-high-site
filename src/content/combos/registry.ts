@@ -9,6 +9,7 @@
 // - true: the page is indexable, listed in the sitemap, and linked from related pages.
 // Set it to true only after the owner approves the page.
 
+import { combo as homeServicesWebsiteDesign } from "./home-services/website-design";
 import {
   audienceSlugs,
   serviceSlugs,
@@ -44,16 +45,15 @@ export const serviceInfo: Record<ServiceSlug, { name: string; path: string }> = 
 
 type ComboEntry = { content: ComboContent; published: boolean };
 
-// No combo pages are built yet (Phase 0). Example entry:
-//   import { combo as homeServicesAiReceptionist } from "./home-services/ai-receptionist";
-//   { content: homeServicesAiReceptionist, published: false },
+// Built combos. Add the import above and an entry here to build a page; set `published`
+// to true only after the owner approves it.
 //
-// The route lives in the private folder src/app/industries/_combos/ so it is not
-// routed yet: with `output: "export"`, Next fails the build when generateStaticParams
-// returns nothing. When the FIRST combo is added to this registry, enable the route:
-//   git mv "src/app/industries/_combos/[audience]" "src/app/industries/[audience]"
-//   (then delete the empty _combos folder)
-const entries: ReadonlyArray<ComboEntry> = [];
+// The route lives at src/app/industries/[audience]/[service]/ and was enabled when the
+// first combo was added: with `output: "export"`, Next fails the build when
+// generateStaticParams returns nothing, so it must not be routed while this list is empty.
+const entries: ReadonlyArray<ComboEntry> = [
+  { content: homeServicesWebsiteDesign, published: false },
+];
 
 export function comboPath(audience: AudienceSlug, service: ServiceSlug): string {
   return `/industries/${audience}/${service}`;

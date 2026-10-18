@@ -30,6 +30,6 @@ Commands: `npm run dev`, `npm run lint`, `npm run build`, `npm run check:combos`
 ## Audience x service combo pages
 
 - Types, registry, and content live in `src/content/combos/` (`types.ts`, `registry.ts`, `{audience}/{service}.ts`). Content files use `import type` only. The template is `src/components/combos/ComboPage.tsx`.
-- URLs are `/industries/{audience}/{service}` (no trailing slash, matching the rest of the site). The route is parked in `src/app/industries/_combos/` until the first combo exists; `registry.ts` explains how to enable it.
+- URLs are `/industries/{audience}/{service}` (no trailing slash, matching the rest of the site). The route is enabled at `src/app/industries/[audience]/[service]`; only combos in `registry.ts` are built.
 - `published: false` builds the page as noindex and keeps it out of the sitemap and all cross-links. Set it to `true` only after owner approval.
 - Run `npm run check:combos` before committing combo copy. It fails on duplicate titles, descriptions, H1s, keywords, or FAQ questions, em dashes in copy, and the banned caption.
