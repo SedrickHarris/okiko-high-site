@@ -45,6 +45,10 @@ type SectionBase = {
   wireframe?: PhoneWireframeData;
   structure?: StructureComparison;
   answerExample?: AnswerExample;
+  // Numbered question list. With `split`, the heading and intro sit beside the list
+  // on large screens instead of above it.
+  numbered?: ReadonlyArray<string>;
+  split?: boolean;
 };
 
 /** A before/after answer example beside short guidance notes with optional sources. */

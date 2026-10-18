@@ -4,7 +4,7 @@ import { FaqSection } from "@/components/sections/FaqSection";
 import { PageSection } from "@/components/sections/PageSection";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
-import { AnswerExampleBlock, BarCharts, DataTableView, PhoneWireframeFigure, StatTiles, StructureCards } from "@/components/combos/ComboVisuals";
+import { AnswerExampleBlock, BarCharts, NumberedList, DataTableView, PhoneWireframeFigure, StatTiles, StructureCards } from "@/components/combos/ComboVisuals";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { QuickAnswer } from "@/components/ui/QuickAnswer";
 import { SourceLinks } from "@/components/ui/SourceLinks";
@@ -56,6 +56,28 @@ function Section({ section }: { section: ComboSection }) {
     </>
   ) : undefined;
 
+  if (section.split && section.numbered) {
+    return (
+      <section
+        aria-labelledby={section.id}
+        className={`grid gap-10 lg:grid-cols-[1fr_1.4fr] lg:items-start ${
+          section.muted ? "rounded-xl border border-brand-blue/30 bg-surface-muted p-6 sm:p-10" : "py-2"
+        }`}
+      >
+        <div>
+          <span aria-hidden="true" className="mb-3 block h-1 w-12 rounded bg-brand-yellow" />
+          <h2 id={section.id} className="text-2xl font-bold tracking-tight sm:text-3xl">
+            {section.heading}
+          </h2>
+          <div className="mt-4 space-y-4 text-lg leading-relaxed text-neutral-700">
+            {section.intro?.map((text) => <p key={text}>{text}</p>)}
+          </div>
+        </div>
+        <NumberedList items={section.numbered} />
+      </section>
+    );
+  }
+
   return (
     <PageSection id={section.id} heading={section.heading} intro={intro} muted={section.muted}>
       {section.charts && <BarCharts group={section.charts} />}
@@ -64,6 +86,7 @@ function Section({ section }: { section: ComboSection }) {
       {section.wireframe && <PhoneWireframeFigure data={section.wireframe} />}
       {section.structure && <StructureCards data={section.structure} />}
       {section.answerExample && <AnswerExampleBlock data={section.answerExample} />}
+      {section.numbered && !section.split && <NumberedList items={section.numbered} />}
 
       {section.quickAnswer && (
         <QuickAnswer

@@ -331,35 +331,23 @@ export const combo: ComboContent = {
       sources: [sources.webVitals, sources.wcag, sources.adaListing],
     },
     {
-      kind: "cards",
+      kind: "prose",
       id: "ownership-questions",
       heading: "Questions to Ask Any Website Provider",
-      columns: 2,
+      split: true,
       intro: [
         "Who owns the site is easy to skip before you sign and hard to fix afterward. Ask these of any provider, including us, and get the answers in writing.",
         "This page lists questions to ask. It does not state OKIKO HIGH's terms.",
       ],
-      items: [
-        {
-          icon: "key",
-          title: "Domain and hosting",
-          body: "Who registers the domain, and in whose name? Who holds the hosting account, and do you get access?",
-        },
-        {
-          icon: "file",
-          title: "Content and code",
-          body: "Who owns the text, photos, and code you pay for? Can you export the whole site, and in what format?",
-        },
-        {
-          icon: "server",
-          title: "Platform and support",
-          body: "What platform is it built on, and what happens if that platform changes? What is included in monthly support, and what costs extra?",
-        },
-        {
-          icon: "exit",
-          title: "If you leave",
-          body: "What happens to the site, the domain, and your data if you cancel? Will you have direct access to your call and form reports?",
-        },
+      numbered: [
+        "Who registers the domain, and in whose name?",
+        "Who holds the hosting account, and do you get access?",
+        "Who owns the text, photos, and code you pay for?",
+        "Can you export the whole site, and in what format?",
+        "What platform is it built on, and what happens if that platform changes?",
+        "What is included in monthly support, and what costs extra?",
+        "What happens to the site, the domain, and your data if you cancel?",
+        "Will you have direct access to your call and form reports?",
       ],
     },
     {

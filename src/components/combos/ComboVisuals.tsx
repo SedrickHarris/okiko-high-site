@@ -252,3 +252,24 @@ export function AnswerExampleBlock({ data }: { data: AnswerExample }) {
     </div>
   );
 }
+
+export function NumberedList({ items }: { items: ReadonlyArray<string> }) {
+  return (
+    <ol className="space-y-2.5">
+      {items.map((item, index) => (
+        <li
+          key={item}
+          className="flex items-start gap-4 rounded-lg border border-neutral-200 bg-white px-5 py-4"
+        >
+          <span
+            aria-hidden="true"
+            className="flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-full bg-brand-blue font-heading font-extrabold text-brand-ink"
+          >
+            {index + 1}
+          </span>
+          <span className="leading-snug">{item}</span>
+        </li>
+      ))}
+    </ol>
+  );
+}
