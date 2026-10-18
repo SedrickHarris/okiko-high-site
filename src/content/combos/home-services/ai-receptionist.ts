@@ -69,8 +69,12 @@ const sources = {
     href: "https://primis.phmsa.dot.gov/stakeholder-comms/emergencyresponse",
   },
   twilio: {
-    label: "Twilio, A2P 10DLC messaging registration",
-    href: "https://support.twilio.com/hc/en-us/articles/1260801864489-A2P-10DLC-Messaging-Registration-Process",
+    label: "Twilio Docs, A2P 10DLC registration",
+    href: "https://www.twilio.com/docs/messaging/compliance/a2p-10dlc",
+  },
+  convoso: {
+    label: "Convoso, FCC delays the TCPA cross-channel consent revocation provision to January 31, 2027",
+    href: "https://www.convoso.com/news/fcc-extends-tcpa-consent-revocation-rule-to-2027/",
   },
   highlevelVoice: {
     label: "HighLevel Support, how to create Voice AI agents",
@@ -124,7 +128,7 @@ export const combo: ComboContent = {
             ],
           },
           {
-            title: "Share of HVAC calls that came in off-hours (ServiceTitan, 2025)",
+            title: "Share of residential HVAC calls that came in off-hours (ServiceTitan, 2025)",
             rows: [
               { label: "June, all off-hours", value: 14.1 },
               { label: "October, all off-hours", value: 9.8 },
@@ -133,7 +137,7 @@ export const combo: ComboContent = {
             ],
           },
         ],
-        note: "Sources: Invoca, July 2026 benchmarks report, and ServiceTitan, 2025 HVAC call data. Both are software vendors reporting on their own customers, so the figures are not nationally representative.",
+        note: "Sources: Invoca, July 2026 benchmarks report, and ServiceTitan, 2025 HVAC call data. Both are software vendors reporting on their own customers, so the figures are not nationally representative. ServiceTitan counts business hours as Monday to Friday, 8 a.m. to 5 p.m. in each shop's time zone, so its off-hours share includes weekends.",
       },
       paragraphs: [
         "Our reading, not a data result: a call that goes to voicemail while the team is on a job is a call someone else may answer first, and off-hours calls are a minority of volume but not a negligible one. How many of your own calls are missed is something only your phone records can tell you.",
@@ -151,12 +155,12 @@ export const combo: ComboContent = {
       stats: {
         heading: "What the data shows",
         items: [
-          { value: "38%", label: "of answered home-service calls were leads, in Invoca's data" },
+          { value: "38%", label: "of answered calls were leads, in Invoca's home-services data" },
           { value: "45%", label: "of those leads converted on the call" },
           { value: "64%", label: "of customers said they would prefer companies not use AI for customer service (Gartner)" },
           { value: "53%", label: "of customers said they would consider switching to a competitor over it (Gartner)" },
         ],
-        note: "Invoca is vendor data from calls its platform tracked. Gartner is a survey of 5,728 customers in 2023 about customer service in general, not home services or phone calls specifically. Treat it as a reason to give callers an easy path to a person.",
+        note: "Invoca is vendor data averaged across its customers, and the report does not state a home-services sample size. Gartner is a December 2023 survey of 5,728 customers, described only as customers, about customer service in general, not home services or phone calls specifically. Treat it as a reason to give callers an easy path to a person.",
       },
       items: [
         {
@@ -337,7 +341,7 @@ export const combo: ComboContent = {
             paragraphs: [
               "Jobber's 2026 survey reports that 28% of customers expect an immediate reply and another 28% expect one within an hour. 25% named speed of first response as a factor when hiring a provider.",
             ],
-            note: "Vendor-sourced survey, and the respondent base is not clear from the report. No response-time target is recommended here.",
+            note: "Vendor-sourced survey of 1,050 US home-service owners. The report does not say whether the expectation figures reflect customers or owners reporting on them. No response-time target is recommended here.",
           },
         ],
       },
@@ -357,14 +361,14 @@ export const combo: ComboContent = {
             icon: "mic",
             tone: "blue",
             title: "Recording consent",
-            body: "Federal law needs one party's consent. Justia's survey lists California, Florida, Illinois, Maryland, Massachusetts, Montana, New Hampshire, Pennsylvania, and Washington as all-party states, with qualifications, and notes extra conditions in Delaware, Michigan, Nevada, and Connecticut.",
+            body: "Federal law needs one party's consent. Justia's survey (reviewed September 2024) labels California, Florida, Maryland, Massachusetts, New Hampshire, Pennsylvania, and Washington as all-party states, and describes Illinois and Montana as generally all-party. It notes ambiguity or extra conditions in Delaware, Michigan, Nevada, and Connecticut.",
             checkWith: "A lawyer, for the states your callers are in",
           },
           {
             icon: "headset",
             tone: "green",
             title: "AI disclosure",
-            body: "No federal rule was found for AI answering inbound calls. Maine's statute covers chatbots used in trade. Utah limits proactive disclosure to high-risk uses and requires it when a consumer clearly asks. California's bot law is written for online communication and does not mention phone calls.",
+            body: "No federal rule was found for AI answering inbound calls. Maine's statute covers chatbots used in trade. Utah requires disclosure when a consumer clearly asks, and proactive disclosure for high-risk uses in regulated occupations. California's bot law is written for online communication and does not mention phone calls.",
             checkWith: "A lawyer, and the current state statutes",
           },
           {
@@ -378,7 +382,7 @@ export const combo: ComboContent = {
             icon: "message",
             tone: "blue",
             title: "Text follow-up",
-            body: "Stop words must be honored and processed within 10 business days. The wider revoke-all rule was delayed to January 31, 2027, as reported by TCPAWorld. US long-code texting needs A2P 10DLC registration through your provider.",
+            body: "Stop words must be honored and processed within 10 business days. The wider revoke-all rule was delayed to January 31, 2027, as reported by TCPAWorld and Convoso (FCC order DA 26-12). US long-code texting needs A2P 10DLC registration through your provider.",
             checkWith: "Your messaging provider and a lawyer",
           },
           {
@@ -396,7 +400,7 @@ export const combo: ComboContent = {
             checkWith: "Your gas utility and local authorities",
           },
         ],
-        note: "Not legal advice. Several items were read from summaries of the rules, and the revoke-all date should be confirmed on fcc.gov before you rely on it.",
+        note: "Not legal advice. The revoke-all date comes from two trade reports of an FCC order, and some state rules were read from summaries, so confirm them on the official sites before you rely on them.",
       },
       sources: [
         sources.justia,
@@ -404,6 +408,7 @@ export const combo: ComboContent = {
         sources.fcc2417,
         sources.fcc2484,
         sources.tcpaworld,
+        sources.convoso,
         sources.twilio,
         sources.zwillgen,
         sources.phmsa,
@@ -515,7 +520,7 @@ export const combo: ComboContent = {
     {
       question: "Is it legal to record calls an AI receptionist answers?",
       answer:
-        "Federal law needs one party's consent, but several states need every party's, including California, Florida, Illinois, Maryland, Massachusetts, Montana, New Hampshire, Pennsylvania, and Washington, with qualifications. Check the states your callers are in. This is not legal advice.",
+        "Federal law needs one party's consent, but several states need every party's, including California, Florida, Maryland, Massachusetts, New Hampshire, Pennsylvania, and Washington, and a few others have qualifications. Check the states your callers are in. This is not legal advice.",
     },
     {
       question: "Can an AI receptionist text customers after a call?",
@@ -530,12 +535,12 @@ export const combo: ComboContent = {
     {
       question: "How many home-service calls come in after hours?",
       answer:
-        "ServiceTitan's 2025 HVAC data put off-hours calls at 14.1% in June and 9.8% in October, and weekday calls before 8 or after 5 at 9.3% and 6.8%. That is one vendor's HVAC data, not a national figure, so check your own phone records.",
+        "ServiceTitan's 2025 residential HVAC data put calls outside Monday to Friday, 8 a.m. to 5 p.m. at 14.1% in June and 9.8% in October, and weekday calls before 8 or after 5 at 9.3% and 6.8%. That is one vendor's data, not a national figure, so check your own phone records.",
     },
     {
       question: "Will callers mind talking to an AI receptionist?",
       answer:
-        "Some will. In a 2023 Gartner survey of 5,728 customers about customer service in general, 64% said they would prefer that companies not use AI for it, and 53% said they would consider switching. It was not about home services specifically, so give callers an easy way to reach a person.",
+        "Some will. In a December 2023 Gartner survey of 5,728 customers about customer service in general, 64% said they would prefer that companies not use AI for it, and 53% said they would consider switching. It was not about home services specifically, so give callers an easy way to reach a person.",
     },
     {
       question: "What does an AI receptionist cost a home-service business?",
