@@ -4,7 +4,7 @@
 // sitemap, and emits Service schema. Intentionally not stated here: agency pricing, ownership terms, results,
 // testimonials, integrations as confirmed capabilities, and any vendor partnership.
 
-import type { Faq, SourceLink } from "./website-design";
+import type { Faq, SourceLink } from "../shared";
 
 export const aiChatbotsPage = {
   path: "/services/ai-chatbots",

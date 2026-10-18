@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { comboPath, publishedCombos } from "@/content/combos/registry";
 import { siteConfig } from "@/data/site";
 
 // Core routes plus built service pages. Add industry, resource and case-study
@@ -29,5 +30,6 @@ const routes = [
 export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return routes.map((path) => ({ url: `${siteConfig.url}${path}` }));
+  const comboRoutes = publishedCombos().map((c) => comboPath(c.audience, c.service));
+  return [...routes, ...comboRoutes].map((path) => ({ url: `${siteConfig.url}${path}` }));
 }

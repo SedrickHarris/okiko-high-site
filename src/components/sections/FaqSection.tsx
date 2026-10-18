@@ -1,4 +1,4 @@
-import type { Faq } from "@/content/services/website-design";
+import type { Faq } from "@/content/shared";
 import { PageSection } from "./PageSection";
 import { SourceLinks } from "../ui/SourceLinks";
 

@@ -11,7 +11,7 @@
 // and routes them onward. Open items live in the brief's "Proof gaps" section.
 
 import type { IconName } from "@/components/ui/icons";
-import type { Faq, SourceLink } from "../services/website-design";
+import type { Faq, SourceLink } from "../shared";
 
 export const propertyRealEstatePage = {
   path: "/industries/property-management-real-estate",

@@ -6,7 +6,7 @@
 // testimonials, ratings or review totals, client names, vendor prices, and any vendor
 // partnership. The "what we will not do" list is treated as approved with the page.
 
-import type { Faq, SourceLink } from "./website-design";
+import type { Faq, SourceLink } from "../shared";
 
 export const reputationManagementPage = {
   path: "/services/reputation-management",

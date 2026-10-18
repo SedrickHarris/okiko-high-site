@@ -15,7 +15,7 @@
 //   block, not by repeated captions.
 
 import type { IconName } from "@/components/ui/icons";
-import type { Faq, SourceLink } from "../services/website-design";
+import type { Faq, SourceLink } from "../shared";
 
 export const homeServicesPage = {
   path: "/industries/home-services",

@@ -7,7 +7,7 @@
 // not a tested OKIKO HIGH configuration.
 
 import type { IconName } from "@/components/ui/icons";
-import type { Faq, SourceLink } from "./website-design";
+import type { Faq, SourceLink } from "../shared";
 
 export const gbpPage = {
   path: "/services/google-business-profile-optimization",

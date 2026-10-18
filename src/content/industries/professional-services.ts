@@ -12,7 +12,7 @@
 // and should be linked from the service navigation only once it exists.
 
 import type { IconName } from "@/components/ui/icons";
-import type { Faq, SourceLink } from "../services/website-design";
+import type { Faq, SourceLink } from "../shared";
 
 export const professionalServicesPage = {
   path: "/industries/professional-services",

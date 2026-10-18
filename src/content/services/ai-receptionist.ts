@@ -5,7 +5,7 @@
 // supported-system, or human-backup claims. Open items live in the page brief's
 // "Proof gaps" section.
 
-import type { Faq, SourceLink } from "./website-design";
+import type { Faq, SourceLink } from "../shared";
 
 export const aiReceptionistPage = {
   path: "/services/ai-receptionist",

@@ -4,8 +4,8 @@
 // agency pricing, delivery timelines, platform stack, ownership terms, results, testimonials.
 
 // Re-exported so existing content imports keep working; the type lives in ../shared.
-export type { SourceLink } from "../shared";
-import type { SourceLink } from "../shared";
+export type { Faq, SourceLink } from "../shared";
+import type { Faq, SourceLink } from "../shared";
 
 export const websiteDesignPage = {
   path: "/services/website-design",
@@ -389,11 +389,6 @@ export const customerJourney = [
   },
 ] as const;
 
-export type Faq = {
-  question: string;
-  answer: string;
-  sources?: SourceLink[];
-};
 
 // Single source for the visible FAQ section and the FAQPage JSON-LD.
 export const faqs: Faq[] = [

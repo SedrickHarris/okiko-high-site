@@ -4,7 +4,7 @@
 // is still TBD in docs/01: prices, timelines, results, partnerships, or proof.
 
 import type { IconName } from "@/components/ui/icons";
-import type { Faq } from "./website-design";
+import type { Faq } from "../shared";
 
 export const hubPage = {
   path: "/services",

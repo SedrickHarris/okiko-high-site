@@ -7,7 +7,7 @@
 // business and are not client results.
 
 import type { IconName } from "@/components/ui/icons";
-import type { Faq, SourceLink } from "./website-design";
+import type { Faq, SourceLink } from "../shared";
 
 export const smsEmailPage = {
   path: "/services/sms-email-automation",
