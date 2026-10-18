@@ -351,40 +351,50 @@ export const combo: ComboContent = {
       intro: [
         "The rules below are a summary of the sources cited, not legal advice. They change, and they differ by state. Ask a lawyer what applies to your business.",
       ],
-      table: {
-        caption: "Call rules to check, what the sources say, and who to check with",
-        columns: ["Topic", "What the sources say", "Check with"],
-        rows: [
-          [
-            "Recording consent",
-            "Federal law needs one party's consent. Justia's survey lists California, Florida, Illinois, Maryland, Massachusetts, Montana, New Hampshire, Pennsylvania, and Washington as all-party states, with qualifications, and notes extra conditions in Delaware, Michigan, Nevada, and Connecticut.",
-            "A lawyer, for the states your callers are in",
-          ],
-          [
-            "AI disclosure",
-            "No federal rule was found for AI answering inbound calls. Maine's statute covers chatbots used in trade. Utah limits proactive disclosure to high-risk uses and requires it when a consumer clearly asks. California's bot law is written for online communication and does not mention phone calls.",
-            "A lawyer, and the current state statutes",
-          ],
-          [
-            "AI voice on outbound calls and callbacks",
-            "The FCC ruled in February 2024 that AI-generated voices count as an artificial voice under the TCPA, so outbound calls need prior express consent (written for telemarketing). The FCC's 2024 proposal on AI call disclosure is aimed at outbound calls, and no final rule was found.",
-            "A lawyer, before any outbound AI calling",
-          ],
-          [
-            "Text follow-up",
-            "Stop words must be honored and processed within 10 business days. The wider revoke-all rule was delayed to January 31, 2027, as reported by TCPAWorld. US long-code texting needs A2P 10DLC registration through your provider.",
-            "Your messaging provider and a lawyer",
-          ],
-          [
-            "Third-party AI vendors",
-            "In Ambriz v. Google (N.D. Cal., February 2025), a motion to dismiss was denied on a wiretap claim about a vendor's AI listening to customer calls. That is a ruling on a motion, not a finding of liability.",
-            "A lawyer, and your vendor's data terms",
-          ],
-          [
-            "Emergencies",
-            "For a gas smell, PHMSA guidance is to leave, call 911 from a safe place, and avoid phones and switches near the leak. An AI receptionist is not an emergency service.",
-            "Your gas utility and local authorities",
-          ],
+      ruleCards: {
+        items: [
+          {
+            icon: "mic",
+            tone: "blue",
+            title: "Recording consent",
+            body: "Federal law needs one party's consent. Justia's survey lists California, Florida, Illinois, Maryland, Massachusetts, Montana, New Hampshire, Pennsylvania, and Washington as all-party states, with qualifications, and notes extra conditions in Delaware, Michigan, Nevada, and Connecticut.",
+            checkWith: "A lawyer, for the states your callers are in",
+          },
+          {
+            icon: "headset",
+            tone: "green",
+            title: "AI disclosure",
+            body: "No federal rule was found for AI answering inbound calls. Maine's statute covers chatbots used in trade. Utah limits proactive disclosure to high-risk uses and requires it when a consumer clearly asks. California's bot law is written for online communication and does not mention phone calls.",
+            checkWith: "A lawyer, and the current state statutes",
+          },
+          {
+            icon: "call",
+            tone: "yellow",
+            title: "AI voice on outbound calls and callbacks",
+            body: "The FCC ruled in February 2024 that AI-generated voices count as an artificial voice under the TCPA, so outbound calls need prior express consent (written for telemarketing). The FCC's 2024 proposal on AI call disclosure is aimed at outbound calls, and no final rule was found.",
+            checkWith: "A lawyer, before any outbound AI calling",
+          },
+          {
+            icon: "message",
+            tone: "blue",
+            title: "Text follow-up",
+            body: "Stop words must be honored and processed within 10 business days. The wider revoke-all rule was delayed to January 31, 2027, as reported by TCPAWorld. US long-code texting needs A2P 10DLC registration through your provider.",
+            checkWith: "Your messaging provider and a lawyer",
+          },
+          {
+            icon: "shield",
+            tone: "green",
+            title: "Third-party AI vendors",
+            body: "In Ambriz v. Google (N.D. Cal., February 2025), a motion to dismiss was denied on a wiretap claim about a vendor's AI listening to customer calls. That is a ruling on a motion, not a finding of liability.",
+            checkWith: "A lawyer, and your vendor's data terms",
+          },
+          {
+            icon: "warning",
+            tone: "red",
+            title: "Emergencies",
+            body: "For a gas smell, PHMSA guidance is to leave, call 911 from a safe place, and avoid phones and switches near the leak. An AI receptionist is not an emergency service.",
+            checkWith: "Your gas utility and local authorities",
+          },
         ],
         note: "Not legal advice. Several items were read from summaries of the rules, and the revoke-all date should be confirmed on fcc.gov before you rely on it.",
       },
@@ -548,13 +558,13 @@ export const combo: ComboContent = {
     heading: "Where This Connects",
     intro: "Call handling works alongside the other places customers find and contact you.",
     links: [
-      { label: "AI receptionist service", description: "The general service this page builds on.", href: "/services/ai-receptionist" },
-      { label: "Home Services", description: "The full audience page for home-service businesses.", href: "/industries/home-services" },
-      { label: "Google Business Profile management", description: "Keep the number customers call consistent.", href: "/services/google-business-profile-optimization" },
-      { label: "Text and email automation", description: "Follow up on the calls that need a message.", href: "/services/sms-email-automation" },
-      { label: "Website design service", description: "Give callers a clear way to reach you.", href: "/services/website-design" },
-      { label: "AI chatbots", description: "Answer the same questions on your website.", href: "/services/ai-chatbots" },
-      { label: "Review management", description: "Reviews are a top factor when customers hire.", href: "/services/reputation-management" },
+      { label: "AI receptionist service", description: "The general service this page builds on.", href: "/services/ai-receptionist", icon: "headset" },
+      { label: "Home Services", description: "The full audience page for home-service businesses.", href: "/industries/home-services", icon: "globe" },
+      { label: "Google Business Profile management", description: "Keep the number customers call consistent.", href: "/services/google-business-profile-optimization", icon: "pin" },
+      { label: "Text and email automation", description: "Follow up on the calls that need a message.", href: "/services/sms-email-automation", icon: "mail" },
+      { label: "Website design service", description: "Give callers a clear way to reach you.", href: "/services/website-design", icon: "website" },
+      { label: "AI chatbots", description: "Answer the same questions on your website.", href: "/services/ai-chatbots", icon: "message" },
+      { label: "Review management", description: "Reviews are a top factor when customers hire.", href: "/services/reputation-management", icon: "star" },
     ],
   },
 };

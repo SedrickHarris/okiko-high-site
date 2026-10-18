@@ -1,3 +1,4 @@
+import { NamedIcon } from "@/components/ui/icons";
 import type {
   AccordionItem,
   AnswerExample,
@@ -5,6 +6,7 @@ import type {
   ChartGroup,
   DataTable,
   PhoneWireframeData,
+  RuleCards,
   StatGroup,
   StructureComparison,
 } from "@/content/combos/types";
@@ -392,5 +394,55 @@ export function CallFlowDiagram({ data }: { data: CallFlowData }) {
       <figcaption className="mt-4 max-w-3xl text-sm text-neutral-700">{data.caption}</figcaption>
       {data.note && <p className="mt-2 max-w-3xl text-sm text-neutral-700">{data.note}</p>}
     </figure>
+  );
+}
+
+const ruleTones = {
+  blue: { top: "border-t-brand-blue", chip: "bg-brand-blue text-brand-ink" },
+  green: { top: "border-t-brand-green", chip: "bg-brand-green text-brand-ink" },
+  yellow: { top: "border-t-brand-yellow", chip: "bg-brand-yellow text-brand-ink" },
+  red: { top: "border-t-red-700", chip: "bg-red-700 text-white" },
+} as const;
+
+// Icons are decorative. Every title, rule, and "check with" line is real text.
+export function RuleCardGrid({ data }: { data: RuleCards }) {
+  return (
+    <div className="my-8">
+      <ul className="grid gap-6 lg:grid-cols-2">
+        {data.items.map((item) => (
+          <li
+            key={item.title}
+            className={`flex flex-col rounded-lg border border-neutral-200 border-t-[6px] bg-white p-6 ${ruleTones[item.tone].top}`}
+          >
+            <div className="flex items-center gap-3.5">
+              <span
+                aria-hidden="true"
+                className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-[10px] ${ruleTones[item.tone].chip}`}
+              >
+                <NamedIcon name={item.icon} className="h-6 w-6" />
+              </span>
+              <h3 className="font-heading text-lg font-bold leading-snug">{item.title}</h3>
+            </div>
+            <p className="mt-3.5 flex-1 text-neutral-800">{item.body}</p>
+            <p className="mt-4 flex items-start gap-2.5 rounded-md bg-surface-muted px-3.5 py-3 text-sm text-neutral-900">
+              <span aria-hidden="true" className="mt-0.5 shrink-0 text-brand-blue-strong">
+                <NamedIcon name="check" className="h-5 w-5" />
+              </span>
+              <span>
+                <strong>Check with:</strong> {item.checkWith}
+              </span>
+            </p>
+          </li>
+        ))}
+      </ul>
+      {data.note && (
+        <p className="mt-6 flex max-w-3xl items-start gap-3.5 rounded-r-lg border border-l-[6px] border-brand-blue/30 border-l-brand-blue bg-white px-5 py-4 text-neutral-900">
+          <span aria-hidden="true" className="mt-0.5 shrink-0 text-brand-blue-strong">
+            <NamedIcon name="scale" className="h-6 w-6" />
+          </span>
+          <span>{data.note}</span>
+        </p>
+      )}
+    </div>
   );
 }

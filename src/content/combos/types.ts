@@ -52,6 +52,21 @@ type SectionBase = {
   accordion?: ReadonlyArray<AccordionItem>;
   // Call-routing diagram: one gate, then lanes by urgency, each with a fallback.
   callFlow?: CallFlowData;
+  // Icon cards for rules or checks, each with a "check with" line.
+  ruleCards?: RuleCards;
+};
+
+/** Cards for rules to check: an icon, a title, what the sources say, and who to check with. */
+export type RuleCards = {
+  items: ReadonlyArray<{
+    icon: IconName;
+    tone: "blue" | "green" | "yellow" | "red";
+    title: string;
+    body: string;
+    checkWith: string;
+  }>;
+  // Short notice under the cards, shown with a scale icon.
+  note?: string;
 };
 
 /**
@@ -212,6 +227,6 @@ export type ComboContent = {
   related?: {
     heading: string;
     intro?: string;
-    links: ReadonlyArray<{ label: string; description: string; href: string }>;
+    links: ReadonlyArray<{ label: string; description: string; href: string; icon?: IconName }>;
   };
 };

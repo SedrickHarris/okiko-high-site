@@ -4,8 +4,9 @@ import { FaqSection } from "@/components/sections/FaqSection";
 import { PageSection } from "@/components/sections/PageSection";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
-import { AccordionList, AnswerExampleBlock, BarCharts, CallFlowDiagram, NumberedList, DataTableView, PhoneWireframeFigure, StatTiles, StructureCards } from "@/components/combos/ComboVisuals";
+import { AccordionList, AnswerExampleBlock, BarCharts, CallFlowDiagram, RuleCardGrid, NumberedList, DataTableView, PhoneWireframeFigure, StatTiles, StructureCards } from "@/components/combos/ComboVisuals";
 import { ButtonLink } from "@/components/ui/ButtonLink";
+import { NamedIcon } from "@/components/ui/icons";
 import { QuickAnswer } from "@/components/ui/QuickAnswer";
 import { SourceLinks } from "@/components/ui/SourceLinks";
 import {
@@ -84,6 +85,7 @@ function Section({ section }: { section: ComboSection }) {
       {section.stats && <StatTiles group={section.stats} />}
       {section.table && <DataTableView table={section.table} />}
       {section.wireframe && <PhoneWireframeFigure data={section.wireframe} />}
+      {section.ruleCards && <RuleCardGrid data={section.ruleCards} />}
       {section.callFlow && <CallFlowDiagram data={section.callFlow} />}
       {section.structure && <StructureCards data={section.structure} />}
       {section.answerExample && <AnswerExampleBlock data={section.answerExample} />}
@@ -196,10 +198,29 @@ function Related({ content }: { content: ComboContent }) {
                 href={link.href}
                 className="block h-full rounded-lg border border-neutral-200 bg-white p-4 hover:border-brand-blue"
               >
-                <span className="block font-heading font-bold text-brand-blue-strong underline underline-offset-2">
-                  {link.label}
-                </span>
-                <span className="mt-1 block text-sm text-neutral-700">{link.description}</span>
+                {link.icon ? (
+                  <span className="flex items-start gap-3.5">
+                    <span
+                      aria-hidden="true"
+                      className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-surface-muted text-brand-blue-strong"
+                    >
+                      <NamedIcon name={link.icon} className="h-6 w-6" />
+                    </span>
+                    <span className="block">
+                      <span className="block font-heading font-bold text-brand-blue-strong underline underline-offset-2">
+                        {link.label}
+                      </span>
+                      <span className="mt-1 block text-sm text-neutral-700">{link.description}</span>
+                    </span>
+                  </span>
+                ) : (
+                  <>
+                    <span className="block font-heading font-bold text-brand-blue-strong underline underline-offset-2">
+                      {link.label}
+                    </span>
+                    <span className="mt-1 block text-sm text-neutral-700">{link.description}</span>
+                  </>
+                )}
               </Link>
             </li>
           ))}

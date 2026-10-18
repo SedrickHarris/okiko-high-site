@@ -385,6 +385,36 @@ export const KeyIcon = (p: P) => (
   </Icon>
 );
 
+/** Microphone (recording) */
+export const MicIcon = (p: P) => (
+  <Icon {...p}>
+    <rect x="9" y="3" width="6" height="11" rx="3" />
+    <path d="M5 11a7 7 0 0 0 14 0M12 18v3" />
+  </Icon>
+);
+
+/** Warning triangle */
+export const WarningIcon = (p: P) => (
+  <Icon {...p}>
+    <path d="M12 3l10 18H2z" />
+    <path d="M12 10v5M12 18h.01" />
+  </Icon>
+);
+
+/** Balance scales (legal notice) */
+export const ScaleIcon = (p: P) => (
+  <Icon {...p}>
+    <path d="M12 3v18M6 21h12M5 7h14M5 7l-3 7a3.5 3.5 0 0 0 6 0zM19 7l-3 7a3.5 3.5 0 0 0 6 0z" />
+  </Icon>
+);
+
+/** Arrow pointing right */
+export const ArrowRightIcon = (p: P) => (
+  <Icon {...p}>
+    <path d="M5 12h14M13 6l6 6-6 6" />
+  </Icon>
+);
+
 export const iconRegistry = {
   call: CallIcon,
   transfer: TransferIcon,
@@ -428,6 +458,10 @@ export const iconRegistry = {
   exit: ExitIcon,
   key: KeyIcon,
   launch: LaunchIcon,
+  mic: MicIcon,
+  warning: WarningIcon,
+  scale: ScaleIcon,
+  arrow: ArrowRightIcon,
 } as const;
 
 export type IconName = keyof typeof iconRegistry;
