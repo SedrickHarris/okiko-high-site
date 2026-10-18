@@ -228,8 +228,8 @@ Home Services is currently served. The other audience groups are future opportun
 | Search intent | Commercial investigation: a home-service owner deciding how an AI receptionist should answer calls, route emergencies to a person, and book estimates, and which call rules to check |
 | Parent pages | `/industries/home-services/` and `/services/ai-receptionist/` |
 | Related links | `/services/google-business-profile-optimization/`, `/services/sms-email-automation/`, `/services/website-design/`, `/services/ai-chatbots/`, `/services/reputation-management/` |
-| Inbound links | Built behind the published flag: `/industries/home-services/` and `/services/ai-receptionist/` once the combo is published. Nothing renders until then. |
-| Status | Built, `published: false` (noindex, not in sitemap, not cross-linked) until owner approval |
+| Inbound links | `/industries/home-services/` ("Home-Service Guides by Service") and `/services/ai-receptionist/` ("AI Receptionist by Industry"). |
+| Status | Published (owner approved 2026-10-18): indexable, in the sitemap, cross-linked |
 | Notes | "AI receptionist for home services" was removed from the Home Services audience cluster; `/services/ai-receptionist/` keeps "AI receptionist for small business". This page owns routing by urgency, handoff, and call rules for home services. Evidence: Invoca 2026 and ServiceTitan 2025 (vendor data), Jobber 2026, Gartner 2024 (counter-evidence, customer service in general). No outcome claim is made for AI receptionists; widely quoted missed-call figures with no traceable study are left out. Compliance table is a cited summary, not legal advice. Verify before launch: the revoke-all delay date on fcc.gov, the Twilio A2P 10DLC page (end-of-life notice), Maine statute scope, state recording and AI-disclosure rules, a live SERP review, and the owner's pricing, ownership, and tested-integration facts. Schema is `Organization`, `WebPage`, `BreadcrumbList`, and `FAQPage` matching the 10 visible FAQs. |
 
 ## Optional sub-audience URLs

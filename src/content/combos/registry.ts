@@ -54,7 +54,7 @@ type ComboEntry = { content: ComboContent; published: boolean };
 // generateStaticParams returns nothing, so it must not be routed while this list is empty.
 const entries: ReadonlyArray<ComboEntry> = [
   { content: homeServicesWebsiteDesign, published: false },
-  { content: homeServicesAiReceptionist, published: false },
+  { content: homeServicesAiReceptionist, published: true },
 ];
 
 export function comboPath(audience: AudienceSlug, service: ServiceSlug): string {

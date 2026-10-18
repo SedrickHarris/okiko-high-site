@@ -3,6 +3,7 @@ import Link from "next/link";
 import { IconCardHeading } from "@/components/cards/IconCardHeading";
 import { CallFlowDiagram } from "@/components/illustrations/CallFlowDiagram";
 import { CallRoutingIllustration } from "@/components/illustrations/CallRoutingIllustration";
+import { PublishedComboLinks } from "@/components/combos/PublishedComboLinks";
 import { FaqSection } from "@/components/sections/FaqSection";
 import { PageSection } from "@/components/sections/PageSection";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -647,6 +648,13 @@ export default function Page() {
 
         {/* 10. FAQ and conversion */}
         <FaqSection id="faq" heading="Questions About AI Call Handling" faqs={faqs} />
+
+        <PublishedComboLinks
+          service="ai-receptionist"
+          id="ai-receptionist-by-industry"
+          heading="AI Receptionist by Industry"
+          intro="Pages that apply call handling to a specific kind of business."
+        />
 
         <section
           aria-labelledby="final-cta"
