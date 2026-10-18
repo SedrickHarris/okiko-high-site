@@ -9,6 +9,7 @@
 // - true: the page is indexable, listed in the sitemap, and linked from related pages.
 // Set it to true only after the owner approves the page.
 
+import { combo as homeServicesAiReceptionist } from "./home-services/ai-receptionist";
 import { combo as homeServicesWebsiteDesign } from "./home-services/website-design";
 import {
   audienceSlugs,
@@ -53,6 +54,7 @@ type ComboEntry = { content: ComboContent; published: boolean };
 // generateStaticParams returns nothing, so it must not be routed while this list is empty.
 const entries: ReadonlyArray<ComboEntry> = [
   { content: homeServicesWebsiteDesign, published: false },
+  { content: homeServicesAiReceptionist, published: false },
 ];
 
 export function comboPath(audience: AudienceSlug, service: ServiceSlug): string {

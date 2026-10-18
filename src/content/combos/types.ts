@@ -50,6 +50,29 @@ type SectionBase = {
   numbered?: ReadonlyArray<string>;
   split?: boolean;
   accordion?: ReadonlyArray<AccordionItem>;
+  // Call-routing diagram: one gate, then lanes by urgency, each with a fallback.
+  callFlow?: CallFlowData;
+};
+
+/**
+ * A call-routing diagram for phone-handling pages. Real text in ordered lists, so it
+ * reads the same without color or sight. Use bracketed placeholders for business facts.
+ */
+export type CallFlowData = {
+  // Accessible name and visible caption for the figure.
+  label: string;
+  caption: string;
+  start: string;
+  firstStep: string;
+  gate: string;
+  lanes: ReadonlyArray<{
+    tone: "danger" | "urgent" | "scheduled";
+    title: string;
+    trigger: string;
+    steps: ReadonlyArray<string>;
+    fallback: string;
+  }>;
+  note?: string;
 };
 
 /** A collapsible item with a small label, a title, and labeled paragraphs. */

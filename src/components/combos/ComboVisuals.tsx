@@ -1,6 +1,7 @@
 import type {
   AccordionItem,
   AnswerExample,
+  CallFlowData,
   ChartGroup,
   DataTable,
   PhoneWireframeData,
@@ -334,5 +335,62 @@ export function AccordionList({ items }: { items: ReadonlyArray<AccordionItem> }
         </details>
       ))}
     </div>
+  );
+}
+
+const laneTones = {
+  danger: "border-t-red-700",
+  urgent: "border-t-brand-yellow",
+  scheduled: "border-t-brand-green",
+} as const;
+
+// Arrows and connectors are decorative. Each lane is an ordered list of real text.
+export function CallFlowDiagram({ data }: { data: CallFlowData }) {
+  return (
+    <figure aria-label={data.label} className="my-8">
+      <div className="flex flex-col items-center gap-3">
+        <p className="rounded-lg bg-brand-ink px-5 py-2.5 font-heading font-bold text-white">
+          {data.start}
+        </p>
+        <span aria-hidden="true" className="h-4 w-0.5 bg-neutral-400" />
+        <p className="rounded-lg border-2 border-brand-ink bg-white px-5 py-2.5 text-center font-heading font-bold">
+          {data.firstStep}
+        </p>
+        <span aria-hidden="true" className="h-4 w-0.5 bg-neutral-400" />
+        <p className="max-w-2xl rounded-lg border border-brand-blue/30 bg-surface-muted px-5 py-2.5 text-center font-heading font-bold">
+          {data.gate}
+        </p>
+        <span aria-hidden="true" className="h-4 w-0.5 bg-neutral-400" />
+      </div>
+      <ul className="grid gap-6 lg:grid-cols-3">
+        {data.lanes.map((lane) => (
+          <li
+            key={lane.title}
+            className={`rounded-lg border border-neutral-200 border-t-[6px] bg-white p-5 ${laneTones[lane.tone]}`}
+          >
+            <h3 className="font-heading text-lg font-bold">{lane.title}</h3>
+            <p className="mt-1.5 text-sm text-neutral-700">{lane.trigger}</p>
+            <ol className="mt-4 space-y-2.5">
+              {lane.steps.map((step, index) => (
+                <li key={step} className="flex items-start gap-3">
+                  <span
+                    aria-hidden="true"
+                    className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-brand-blue text-sm font-extrabold text-brand-ink"
+                  >
+                    {index + 1}
+                  </span>
+                  <span className="leading-snug text-neutral-800">{step}</span>
+                </li>
+              ))}
+            </ol>
+            <p className="mt-4 rounded-md border border-dashed border-neutral-500 p-3 text-sm text-neutral-800">
+              <strong>If that fails.</strong> {lane.fallback}
+            </p>
+          </li>
+        ))}
+      </ul>
+      <figcaption className="mt-4 max-w-3xl text-sm text-neutral-700">{data.caption}</figcaption>
+      {data.note && <p className="mt-2 max-w-3xl text-sm text-neutral-700">{data.note}</p>}
+    </figure>
   );
 }

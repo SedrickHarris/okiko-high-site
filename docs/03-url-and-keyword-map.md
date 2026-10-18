@@ -153,7 +153,7 @@ Home Services is currently served. The other audience groups are future opportun
 | Page type | Audience |
 | Target keyword | digital marketing for home-service businesses |
 | Search intent | Commercial investigation: an owner-operator or operations manager at a home-service business evaluating how marketing connects to quotes, appointments, and follow-up, without replacing existing job-management software |
-| Supporting keyword clusters | marketing automation for home services (body copy only, reserved as the combo page target); home-service customer follow-up; quote follow-up; appointment reminders; missed-call text-back; reactivation of past customers; honest review requests; AI receptionist for home services. Question clusters: whether existing scheduling or CRM software must be replaced; how quickly to follow up; whether automated texts annoy customers; what happens when a customer replies; urgent requests and emergency dispatch; texting legality and permission; reconnecting with past customers; automated review requests; measuring whether a workflow helps; cost and exit terms |
+| Supporting keyword clusters | marketing automation for home services (body copy only, reserved as the combo page target); home-service customer follow-up; quote follow-up; appointment reminders; missed-call text-back; reactivation of past customers; honest review requests. Question clusters: whether existing scheduling or CRM software must be replaced; how quickly to follow up; whether automated texts annoy customers; what happens when a customer replies; urgent requests and emergency dispatch; texting legality and permission; reconnecting with past customers; automated review requests; measuring whether a workflow helps; cost and exit terms |
 | Parent page | `/industries/` |
 | Internal links | Links out to `/services/website-design/`, `/services/google-business-profile-optimization/`, `/services/reputation-management/`, `/services/sms-email-automation/`, `/services/ai-receptionist/`, `/services/ai-chatbots/`, `/contact/`, `/privacy-policy/`, `/industries/` (breadcrumb). Add links to the Home Services + AI Receptionist, + Follow-Up, and + Website combo pages only after they are built and substantive. Link plumbing/HVAC, roofing, or recurring-service audience pages only after separate research and approved scope. |
 | Status | Published-ready (owner confirmed availability 2026-10-11; indexable, in sitemap, `Service` schema included where the page is a service) |
@@ -218,6 +218,19 @@ Home Services is currently served. The other audience groups are future opportun
 | Inbound links | Built behind the published flag: `/industries/home-services/` ("Home-Service Guides by Service") and `/services/website-design/` ("Website Design by Industry"). Both render nothing until the combo is published. |
 | Status | Built, `published: false` (noindex, not in sitemap, not cross-linked) until owner approval |
 | Notes | "contractor website design" was removed from the Home Services audience cluster so the two pages do not compete. Evidence: Jobber 2026 survey (vendor data, n=1,050), LocaliQ 2025 (n=100), web.dev, Google guidance, WCAG 2.2. Verify before launch: the ADA lawsuit count cited from an event listing, and the Google FAQ rich-result change. Schema: Organization, WebPage, BreadcrumbList, FAQPage matching the 10 visible FAQs; no Service node, ratings, prices, or LocalBusiness. |
+
+| Field | Value |
+|---|---|
+| URL | `/industries/home-services/ai-receptionist` |
+| Primary keyword | AI receptionist for home services |
+| Title | AI Receptionist for Home Services |
+| H1 | AI Receptionist for Home-Service Businesses |
+| Search intent | Commercial investigation: a home-service owner deciding how an AI receptionist should answer calls, route emergencies to a person, and book estimates, and which call rules to check |
+| Parent pages | `/industries/home-services/` and `/services/ai-receptionist/` |
+| Related links | `/services/google-business-profile-optimization/`, `/services/sms-email-automation/`, `/services/website-design/`, `/services/ai-chatbots/`, `/services/reputation-management/` |
+| Inbound links | Built behind the published flag: `/industries/home-services/` and `/services/ai-receptionist/` once the combo is published. Nothing renders until then. |
+| Status | Built, `published: false` (noindex, not in sitemap, not cross-linked) until owner approval |
+| Notes | "AI receptionist for home services" was removed from the Home Services audience cluster; `/services/ai-receptionist/` keeps "AI receptionist for small business". This page owns routing by urgency, handoff, and call rules for home services. Evidence: Invoca 2026 and ServiceTitan 2025 (vendor data), Jobber 2026, Gartner 2024 (counter-evidence, customer service in general). No outcome claim is made for AI receptionists; widely quoted missed-call figures with no traceable study are left out. Compliance table is a cited summary, not legal advice. Verify before launch: the revoke-all delay date on fcc.gov, the Twilio A2P 10DLC page (end-of-life notice), Maine statute scope, state recording and AI-disclosure rules, a live SERP review, and the owner's pricing, ownership, and tested-integration facts. Schema is `Organization`, `WebPage`, `BreadcrumbList`, and `FAQPage` matching the 10 visible FAQs. |
 
 ## Optional sub-audience URLs
 
