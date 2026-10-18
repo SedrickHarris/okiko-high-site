@@ -8,7 +8,8 @@ Use this checklist to catch practical issues before and after launch. It is a wo
 
 ## Business information and content
 
-- [ ] Confirm the canonical domain format: `www` or apex.
+- [x] Canonical domain format decided: apex (`okikohigh.com`), 2026-10-18.
+- [ ] Set `NEXT_PUBLIC_SITE_URL=https://okikohigh.com` in the Cloudflare production environment and rebuild.
 - [ ] Confirm the approved website logo file and logo color values.
 - [ ] Confirm which services are currently available.
 - [ ] Confirm audience descriptions and the education subcategories before publishing those details.
@@ -59,7 +60,8 @@ Use this checklist to catch practical issues before and after launch. It is a wo
 - [ ] Confirm the production build completes successfully.
 - [ ] Confirm Cloudflare deployment settings match the selected Next.js deployment approach.
 - [ ] Confirm production domain and HTTPS configuration.
-- [ ] Confirm the preferred canonical host works and the alternate host redirects correctly.
+- [ ] Confirm the apex host works and `www.okikohigh.com` 301-redirects to it (zone-level Redirect Rule).
+- [ ] Confirm the production domain does not send the `*.pages.dev` noindex header.
 - [ ] Verify sitemap and robots behavior.
 - [ ] Confirm preview or unfinished pages are not accidentally indexable.
 - [ ] Check redirects for any changed or retired URLs.

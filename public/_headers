@@ -1,0 +1,6 @@
+# Keep Cloudflare Pages development hosts out of search results. These rules match
+# *.pages.dev hosts only; the launch domain (okikohigh.com) is unaffected.
+https://:project.pages.dev/*
+  X-Robots-Tag: noindex
+https://:version.:project.pages.dev/*
+  X-Robots-Tag: noindex

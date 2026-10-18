@@ -9,8 +9,8 @@ This document records verified Okiko High business information for use across th
 ## Business identity
 
 - **Public business name:** OKIKO HIGH Digital Marketing Agency
-- **Website domain:** `www.okikohigh.com`
-- **Canonical URL:** TBD — confirm whether the preferred URL uses `www` or the apex domain.
+- **Website domain:** `okikohigh.com` (launch domain). Development runs on a Cloudflare Pages `*.pages.dev` address until launch.
+- **Canonical URL:** `https://okikohigh.com` (apex, owner decision 2026-10-18). `www.okikohigh.com` redirects to it.
 - **Business description:** OKIKO HIGH Digital Marketing Agency provides digital marketing, marketing automation, and Software as a Service (SaaS) solutions powered by GoHighLevel and its ecosystem.
 - **Mission:** Make marketing smarter, business operations easier, and growth more achievable.
 - **Founding date:** May 3, 2026 — confirm before publishing.

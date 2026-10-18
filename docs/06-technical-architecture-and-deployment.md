@@ -14,7 +14,10 @@ Record the technical approach for building, maintaining, and deploying the OKIKO
 - **Styling:** Tailwind CSS
 - **Version control:** Git and GitHub
 - **Deployment:** Cloudflare
-- **Production domain:** `www.okikohigh.com` is supplied; canonical host and Cloudflare configuration are TBD.
+- **Production domain:** `okikohigh.com` (apex) is the canonical host, decided 2026-10-18. Development runs on `*.pages.dev`.
+- **Site URL:** `src/data/site.ts` reads `NEXT_PUBLIC_SITE_URL` at build time (fallback `https://okikohigh.com`). It feeds canonical tags, the sitemap, the robots.txt sitemap line, and structured-data identifiers. Set it in each Cloudflare Pages environment and rebuild after changing it.
+- **www redirect:** `www.okikohigh.com` must permanently (301) redirect to `https://okikohigh.com`. Cloudflare Pages `_redirects` cannot match on host, so create this as a zone-level Redirect Rule (Rules, Redirect Rules) in the Cloudflare dashboard.
+- **Development indexing:** `public/_headers` sends `X-Robots-Tag: noindex` for `*.pages.dev` hosts only, so the development site is not indexed as a duplicate. It does not apply to the launch domain.
 
 Confirm the Cloudflare deployment method and build settings before configuring production. Do not assume static export or a specific Cloudflare adapter until the deployment approach is selected.
 

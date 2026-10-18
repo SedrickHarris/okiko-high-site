@@ -1,8 +1,10 @@
 export const siteConfig = {
   name: "OKIKO HIGH Digital Marketing Agency",
   shortName: "OKIKO HIGH",
-  // Canonical host format (www vs apex) is TBD; override with NEXT_PUBLIC_SITE_URL.
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.okikohigh.com",
+  // Canonical host is the apex (owner decision, 2026-10-18). This is a build-time value:
+  // set NEXT_PUBLIC_SITE_URL in each Cloudflare Pages environment (production:
+  // https://okikohigh.com) and rebuild. The www host redirects to the apex.
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://okikohigh.com",
   description:
     "OKIKO HIGH Digital Marketing Agency provides digital marketing, marketing automation, and SaaS solutions powered by GoHighLevel and its ecosystem.",
   email: "okikohigh@gmail.com",
