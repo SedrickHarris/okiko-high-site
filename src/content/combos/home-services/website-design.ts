@@ -182,28 +182,34 @@ export const combo: ComboContent = {
       sources: [sources.jobber, sources.localiq],
     },
     {
-      kind: "scope",
+      kind: "prose",
       id: "structure-for-search",
       heading: "One Useful Page per Service, Not a Page per Keyword",
       intro: [
         "Give each service you actually offer a page with specific, useful detail, and link those pages together so a visitor can move between them.",
         "Google's spam policies describe doorway abuse as pages made to rank for similar searches. Its examples include pages aimed at particular cities or regions that funnel visitors to one page, and near-duplicate pages. Scaled content abuse covers many pages made mainly to manipulate rankings.",
       ],
-      left: {
-        heading: "A structure that helps",
-        items: [
-          "Each service has its own page with specific detail: scope, process, and questions.",
-          "Pages link to one another so a visitor can move between services.",
-          "A page for a city or region exists only when it carries information of its own for people in that place.",
-        ],
-      },
-      right: {
-        heading: "A pattern to avoid",
-        items: [
-          "Several pages for the same service that differ by one place name.",
-          "Near-duplicate pages written to catch similar searches.",
-          "Pages that exist mainly to send visitors to one other page.",
-        ],
+      structure: {
+        good: {
+          heading: "A structure that helps",
+          top: "Home",
+          middle: "Services overview",
+          children: [
+            { title: "[Service A]", note: "Scope, process, own FAQ, contact path" },
+            { title: "[Service B]", note: "Scope, process, own FAQ, contact path" },
+            { title: "[Service C]", note: "Scope, process, own FAQ, contact path" },
+          ],
+          caption: "Each page earns its place with details a visitor cannot get from the others, and the pages link to one another.",
+        },
+        avoid: {
+          heading: "A pattern to avoid",
+          items: [
+            { title: "[Service] in [Town A]", note: "Same paragraphs, one word changed" },
+            { title: "[Service] in [Town B]", note: "Same paragraphs, one word changed" },
+            { title: "[Service] in [Town C]", note: "Same paragraphs, one word changed" },
+          ],
+          caption: "A page for a city or region is worth building only when it has information of its own that helps a visitor in that place.",
+        },
       },
       sources: [sources.googleSpam],
     },
@@ -215,18 +221,28 @@ export const combo: ComboContent = {
       intro: [
         "Answer engines and visitors both look for a clear question and a direct answer. Put the answer in the first sentence, in words a homeowner would use.",
       ],
-      quickAnswer: {
-        lead: "Google says no special markup, schema, or AI files are required to appear in AI Overviews or AI Mode.",
-        detail:
-          "A page needs to be indexed and eligible to appear in Search with a snippet. Structured data, where you use it, should match what a visitor can see on the page.",
-        sources: [sources.googleAiFeatures],
-        icon: "search",
+      answerExample: {
+        before: "Quality service you can trust, every time.",
+        question: "Do you serve [your area]?",
+        answer: "Yes. We serve [list the areas you actually cover]. If you are outside that list, call [phone number] and we will tell you whether we can help.",
+        note: "Placeholders in brackets are for your own facts. Only publish what you can verify.",
+        notes: [
+          {
+            title: "No special markup or AI files required",
+            body: "Google states there are no additional requirements to appear in AI Overviews or AI Mode, no special schema.org markup, and no need for AI text files. A page needs to be indexed and eligible to appear in Search with a snippet.",
+            source: { label: "Google, AI features and your website (updated December 2025)", href: sources.googleAiFeatures.href },
+          },
+          {
+            title: "Structured data should match the page",
+            body: "Mark up only facts a visitor can also see on the page, such as your FAQ answers, and keep the two identical.",
+          },
+          {
+            title: "FAQ rich results are gone, FAQs are not",
+            body: "Google's documentation says FAQ rich results no longer appear in Search. A visible FAQ still answers visitors' questions, so write it for them.",
+            source: { label: "Google, FAQPage structured data", href: sources.googleFaq.href },
+          },
+        ],
       },
-      paragraphs: [
-        "For example, instead of a general line such as 'quality service you can trust,' use a heading such as 'Do you serve my town?' and answer it directly, naming the areas you cover and what a customer outside them should do. Only publish facts you can verify.",
-        "Google's documentation says FAQ rich results no longer appear in Search. A visible FAQ still answers visitors' questions, so write it for them and keep any markup identical to the page.",
-      ],
-      sources: [sources.googleFaq],
     },
     {
       kind: "cards",

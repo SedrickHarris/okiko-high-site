@@ -43,6 +43,33 @@ type SectionBase = {
   stats?: StatGroup;
   table?: DataTable;
   wireframe?: PhoneWireframeData;
+  structure?: StructureComparison;
+  answerExample?: AnswerExample;
+};
+
+/** A before/after answer example beside short guidance notes with optional sources. */
+export type AnswerExample = {
+  before: string;
+  question: string;
+  answer: string;
+  note: string;
+  notes: ReadonlyArray<{ title: string; body: string; source?: SourceLink }>;
+};
+
+/** Side-by-side site-structure cards: a helpful page tree versus a pattern to avoid. */
+export type StructureComparison = {
+  good: {
+    heading: string;
+    top: string;
+    middle: string;
+    children: ReadonlyArray<{ title: string; note: string }>;
+    caption: string;
+  };
+  avoid: {
+    heading: string;
+    items: ReadonlyArray<{ title: string; note: string }>;
+    caption: string;
+  };
 };
 
 /** A labeled phone-screen wireframe. Use bracketed placeholders, never real business facts. */

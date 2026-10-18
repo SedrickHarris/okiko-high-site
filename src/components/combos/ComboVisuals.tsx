@@ -1,4 +1,11 @@
-import type { ChartGroup, DataTable, PhoneWireframeData, StatGroup } from "@/content/combos/types";
+import type {
+  AnswerExample,
+  ChartGroup,
+  DataTable,
+  PhoneWireframeData,
+  StatGroup,
+  StructureComparison,
+} from "@/content/combos/types";
 
 const barTones = ["bg-brand-blue", "bg-brand-green", "bg-brand-yellow"] as const;
 
@@ -148,5 +155,100 @@ export function PhoneWireframeFigure({ data }: { data: PhoneWireframeData }) {
       </div>
       <figcaption className="max-w-md text-neutral-800">{data.caption}</figcaption>
     </figure>
+  );
+}
+
+// Connector lines are decorative. The text of every node carries the meaning.
+export function StructureCards({ data }: { data: StructureComparison }) {
+  const { good, avoid } = data;
+  return (
+    <div className="my-8 grid gap-6 lg:grid-cols-2">
+      <div className="rounded-lg border border-neutral-200 border-t-[6px] border-t-brand-green bg-white p-6">
+        <h3 className="font-heading text-lg font-bold">{good.heading}</h3>
+        <div className="mt-5 flex flex-col items-center gap-3">
+          <p className="rounded-lg bg-brand-ink px-5 py-2.5 font-heading font-bold text-white">
+            {good.top}
+          </p>
+          <span aria-hidden="true" className="h-4 w-0.5 bg-neutral-400" />
+          <p className="rounded-lg border-2 border-brand-ink bg-white px-5 py-2.5 font-heading font-bold">
+            {good.middle}
+          </p>
+          <span aria-hidden="true" className="h-4 w-0.5 bg-neutral-400" />
+          <ul className="grid w-full gap-3 sm:grid-cols-3">
+            {good.children.map((child) => (
+              <li
+                key={child.title}
+                className="rounded-lg border border-neutral-200 bg-surface-muted p-3"
+              >
+                <p className="font-heading text-[15px] font-bold">{child.title}</p>
+                <p className="mt-1.5 text-[13px] leading-snug text-neutral-700">{child.note}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <p className="mt-5 text-neutral-800">{good.caption}</p>
+      </div>
+
+      <div className="rounded-lg border border-neutral-200 border-t-[6px] border-t-brand-yellow bg-white p-6">
+        <h3 className="font-heading text-lg font-bold">{avoid.heading}</h3>
+        <ul className="mt-5 space-y-3">
+          {avoid.items.map((item) => (
+            <li key={item.title} className="rounded-lg border border-dashed border-neutral-500 p-3.5">
+              <p className="font-heading text-[15px] font-bold">{item.title}</p>
+              <p className="mt-1.5 text-[13px] leading-snug text-neutral-700">{item.note}</p>
+            </li>
+          ))}
+        </ul>
+        <p className="mt-5 text-neutral-800">{avoid.caption}</p>
+      </div>
+    </div>
+  );
+}
+
+const noteAccents = ["border-l-brand-blue", "border-l-brand-green", "border-l-brand-yellow"] as const;
+
+export function AnswerExampleBlock({ data }: { data: AnswerExample }) {
+  return (
+    <div className="my-8 grid gap-10 lg:grid-cols-2 lg:items-start">
+      <div className="space-y-4">
+        <div className="rounded-lg border border-neutral-200 bg-neutral-50 p-6">
+          <p className="font-heading text-xs font-bold uppercase tracking-wider text-neutral-700">
+            Instead of
+          </p>
+          <p className="mt-2.5 text-lg leading-snug text-neutral-700">&ldquo;{data.before}&rdquo;</p>
+        </div>
+        <div className="rounded-lg border border-brand-blue/30 bg-surface-muted p-6">
+          <p className="font-heading text-xs font-bold uppercase tracking-wider text-brand-blue-strong">
+            Write
+          </p>
+          <h3 className="mt-2.5 text-xl font-bold">{data.question}</h3>
+          <p className="mt-2 text-neutral-800">{data.answer}</p>
+        </div>
+        <p className="text-sm text-neutral-700">{data.note}</p>
+      </div>
+
+      <ul className="space-y-4">
+        {data.notes.map((note, index) => (
+          <li
+            key={note.title}
+            className={`border-l-[6px] py-1 pl-5 ${noteAccents[index % noteAccents.length]}`}
+          >
+            <h3 className="text-lg font-bold">{note.title}</h3>
+            <p className="mt-2 text-neutral-800">{note.body}</p>
+            {note.source && (
+              <p className="mt-2 text-sm text-neutral-700">
+                <a
+                  href={note.source.href}
+                  rel="noopener noreferrer"
+                  className="text-brand-blue-strong underline underline-offset-2 hover:text-brand-ink"
+                >
+                  {note.source.label}
+                </a>
+              </p>
+            )}
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }
