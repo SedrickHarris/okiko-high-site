@@ -89,6 +89,13 @@ export type PhoneWireframeData = {
   fields: ReadonlyArray<string>;
   submitLabel: string;
   trustFacts: ReadonlyArray<string>;
+  // Panels shown beside the phone on large screens.
+  panels?: ReadonlyArray<{
+    title: string;
+    bullets?: ReadonlyArray<string>;
+    paragraphs?: ReadonlyArray<string>;
+    note?: string;
+  }>;
 };
 
 /** Horizontal bar charts. Values are percentages (0 to 100). */

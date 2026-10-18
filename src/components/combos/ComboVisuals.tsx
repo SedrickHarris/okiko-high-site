@@ -111,50 +111,77 @@ export function DataTableView({ table }: { table: DataTable }) {
 }
 
 // A phone-screen wireframe built from divs, so nothing in it is a working control.
-// The figure carries one accessible name and a visible caption.
+// The phone carries one accessible name; the caption and panels are ordinary text.
 export function PhoneWireframeFigure({ data }: { data: PhoneWireframeData }) {
   return (
-    <figure className="my-8 flex flex-col items-center gap-6 sm:flex-row sm:items-start">
-      <div
-        role="img"
-        aria-label={data.label}
-        className="w-72 shrink-0 rounded-[2rem] border-4 border-brand-ink bg-white p-4 shadow-sm"
-      >
-        <div aria-hidden="true" className="space-y-3 text-neutral-900">
-          <div>
-            <p className="font-heading text-base font-extrabold leading-tight">{data.businessName}</p>
-            <p className="text-xs text-neutral-700">{data.tagline}</p>
-          </div>
-          <div className="flex min-h-11 items-center justify-center rounded-md bg-brand-blue px-2 text-center text-sm font-bold text-brand-ink">
-            {data.callLabel}
-          </div>
-          <p className="text-xs text-neutral-700">{data.hoursLine}</p>
-          <div className="space-y-2 rounded-md border border-neutral-300 p-3">
-            <p className="font-heading text-sm font-bold">{data.formTitle}</p>
-            {data.fields.map((field) => (
-              <div key={field}>
-                <p className="text-[11px] font-semibold text-neutral-700">{field}</p>
-                <div className="mt-0.5 h-6 rounded border border-neutral-300 bg-neutral-50" />
+    <div className="my-8 grid gap-10 lg:grid-cols-[auto_1fr] lg:items-start">
+      <figure className="mx-auto flex w-full max-w-xs flex-col items-center gap-4">
+        <div
+          role="img"
+          aria-label={data.label}
+          className="w-full overflow-hidden rounded-[2.5rem] border-[10px] border-brand-ink bg-white"
+        >
+          <div aria-hidden="true" className="text-neutral-900">
+            <div className="border-b border-neutral-200 px-4 pb-3 pt-4">
+              <p className="font-heading text-lg font-bold leading-tight">{data.businessName}</p>
+              <p className="text-xs text-neutral-700">{data.tagline}</p>
+            </div>
+            <div className="space-y-3 p-4">
+              <div className="flex min-h-12 items-center justify-center rounded-md bg-brand-blue px-2 text-center font-heading font-bold text-brand-ink">
+                {data.callLabel}
               </div>
-            ))}
-            <div className="flex min-h-9 items-center justify-center rounded bg-brand-green text-xs font-bold text-brand-ink">
-              {data.submitLabel}
+              <p className="text-center text-xs leading-snug text-neutral-700">{data.hoursLine}</p>
+              <div className="space-y-2.5 border-t border-neutral-200 pt-3">
+                <p className="font-heading text-sm font-bold">{data.formTitle}</p>
+                {data.fields.map((field) => (
+                  <div key={field}>
+                    <p className="text-xs font-semibold">{field}</p>
+                    <div className="mt-1 h-10 rounded border-2 border-neutral-500 bg-white" />
+                  </div>
+                ))}
+                <div className="flex min-h-12 items-center justify-center rounded-md bg-brand-ink font-heading font-bold text-white">
+                  {data.submitLabel}
+                </div>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {data.trustFacts.map((fact) => (
+                  <span
+                    key={fact}
+                    className="rounded-full bg-brand-yellow px-2.5 py-1 text-[11px] font-bold text-brand-ink"
+                  >
+                    {fact}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
-          <div className="flex gap-2">
-            {data.trustFacts.map((fact) => (
-              <span
-                key={fact}
-                className="flex-1 rounded border border-dashed border-neutral-400 px-1 py-2 text-center text-[11px] text-neutral-700"
-              >
-                {fact}
-              </span>
-            ))}
-          </div>
         </div>
-      </div>
-      <figcaption className="max-w-md text-neutral-800">{data.caption}</figcaption>
-    </figure>
+        <figcaption className="text-center text-sm text-neutral-700">{data.caption}</figcaption>
+      </figure>
+
+      {data.panels && (
+        <div className="space-y-6">
+          {data.panels.map((panel) => (
+            <div key={panel.title} className="rounded-lg border border-neutral-200 bg-white p-6">
+              <h3 className="font-heading text-lg font-bold">{panel.title}</h3>
+              {panel.bullets && (
+                <ul className="mt-4 list-disc space-y-2 pl-5 text-neutral-800">
+                  {panel.bullets.map((bullet) => (
+                    <li key={bullet}>{bullet}</li>
+                  ))}
+                </ul>
+              )}
+              {panel.paragraphs?.map((text) => (
+                <p key={text} className="mt-3 text-neutral-800">
+                  {text}
+                </p>
+              ))}
+              {panel.note && <p className="mt-3 text-sm text-neutral-700">{panel.note}</p>}
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
   );
 }
 

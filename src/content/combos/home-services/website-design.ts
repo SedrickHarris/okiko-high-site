@@ -245,7 +245,7 @@ export const combo: ComboContent = {
       },
     },
     {
-      kind: "cards",
+      kind: "prose",
       id: "conversion-path",
       heading: "From Visit to Call or Quote Request",
       intro: [
@@ -262,39 +262,26 @@ export const combo: ComboContent = {
         fields: ["Name", "Phone", "What do you need?"],
         submitLabel: "Send request",
         trustFacts: ["[License no.]", "[Insurance]"],
+        panels: [
+          {
+            title: "What to put on every service page",
+            bullets: [
+              "A tap-to-call link and the same number everywhere",
+              "A short quote form with only the fields you need",
+              "Service area and hours near the buttons",
+              "An urgent-request path separate from scheduled work",
+              "Trust facts you can verify, such as license and insurance",
+            ],
+          },
+          {
+            title: "Customers expect a fast answer",
+            paragraphs: [
+              "Jobber's 2026 survey reports that 28% of customers expect an immediate reply and another 28% expect one within an hour. 25% of respondents named speed of first response as a factor when hiring a provider.",
+            ],
+            note: "Vendor-sourced survey. No numeric response target is recommended here.",
+          },
+        ],
       },
-      items: [
-        {
-          icon: "call",
-          title: "Tap-to-call",
-          body: "A tap-to-call link, and the same number everywhere it appears.",
-        },
-        {
-          icon: "clipboard",
-          title: "A short quote form",
-          body: "Ask only for what you need to reply, and make it easy to complete on a phone.",
-        },
-        {
-          icon: "pin",
-          title: "Service area and hours nearby",
-          body: "Put them next to the call and quote buttons so a visitor does not have to hunt for them.",
-        },
-        {
-          icon: "bell",
-          title: "A path for urgent requests",
-          body: "Give urgent work its own clear path, separate from scheduled work.",
-        },
-        {
-          icon: "shield",
-          title: "Trust facts you can verify",
-          body: "Show license, insurance, and similar facts only when you can verify them.",
-        },
-        {
-          icon: "clock",
-          title: "Customers expect a fast reply",
-          body: "Jobber's 2026 survey reports that 28% of customers expect an immediate reply and another 28% expect one within an hour, and 25% of respondents named speed of first response as a key factor in hiring. This page recommends no numeric response target.",
-        },
-      ],
       sources: [sources.jobber],
     },
     {
