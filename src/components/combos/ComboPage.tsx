@@ -4,7 +4,7 @@ import { FaqSection } from "@/components/sections/FaqSection";
 import { PageSection } from "@/components/sections/PageSection";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
-import { AnswerExampleBlock, BarCharts, NumberedList, DataTableView, PhoneWireframeFigure, StatTiles, StructureCards } from "@/components/combos/ComboVisuals";
+import { AccordionList, AnswerExampleBlock, BarCharts, NumberedList, DataTableView, PhoneWireframeFigure, StatTiles, StructureCards } from "@/components/combos/ComboVisuals";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { QuickAnswer } from "@/components/ui/QuickAnswer";
 import { SourceLinks } from "@/components/ui/SourceLinks";
@@ -87,6 +87,7 @@ function Section({ section }: { section: ComboSection }) {
       {section.structure && <StructureCards data={section.structure} />}
       {section.answerExample && <AnswerExampleBlock data={section.answerExample} />}
       {section.numbered && !section.split && <NumberedList items={section.numbered} />}
+      {section.accordion && <AccordionList items={section.accordion} />}
 
       {section.quickAnswer && (
         <QuickAnswer
@@ -178,6 +179,46 @@ function Related({ content }: { content: ComboContent }) {
       (c.audience === content.audience && c.service !== content.service) ||
       (c.service === content.service && c.audience !== content.audience),
   );
+
+  if (content.related) {
+    const { heading, intro, links } = content.related;
+    return (
+      <PageSection
+        id="related"
+        heading={heading}
+        intro={intro ? <p>{intro}</p> : undefined}
+      >
+        <ul className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {links.map((link) => (
+            <li key={link.href}>
+              <Link
+                href={link.href}
+                className="block h-full rounded-lg border border-neutral-200 bg-white p-4 hover:border-brand-blue"
+              >
+                <span className="block font-heading font-bold text-brand-blue-strong underline underline-offset-2">
+                  {link.label}
+                </span>
+                <span className="mt-1 block text-sm text-neutral-700">{link.description}</span>
+              </Link>
+            </li>
+          ))}
+          {siblings.map((c) => (
+            <li key={`${c.audience}/${c.service}`}>
+              <Link
+                href={comboPath(c.audience, c.service)}
+                className="block h-full rounded-lg border border-neutral-200 bg-white p-4 hover:border-brand-blue"
+              >
+                <span className="block font-heading font-bold text-brand-blue-strong underline underline-offset-2">
+                  {c.h1}
+                </span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </PageSection>
+    );
+  }
+
   return (
     <PageSection id="related" heading="Related Pages">
       <ul className="grid gap-3 md:grid-cols-2">
@@ -191,13 +232,6 @@ function Related({ content }: { content: ComboContent }) {
             {service.name}: the service in detail
           </Link>
         </li>
-        {content.relatedLinks?.map((link) => (
-          <li key={link.href}>
-            <Link href={link.href} className={linkClass}>
-              {link.label}
-            </Link>
-          </li>
-        ))}
         {siblings.map((c) => (
           <li key={`${c.audience}/${c.service}`}>
             <Link href={comboPath(c.audience, c.service)} className={linkClass}>
@@ -293,19 +327,29 @@ export function ComboPage({ content }: { content: ComboContent }) {
         <section
           id="contact"
           aria-labelledby="final-cta"
-          className="rounded-xl border-2 border-brand-blue bg-surface-muted p-6 sm:p-10"
+          className="flex flex-col gap-8 rounded-xl border-2 border-brand-blue bg-surface-muted p-6 sm:p-10 lg:flex-row lg:items-center lg:justify-between"
         >
-          <h2 id="final-cta" className="text-2xl font-bold tracking-tight sm:text-3xl">
-            {content.finalCta.heading}
-          </h2>
-          <p className="mt-4 max-w-3xl text-lg text-neutral-700">
-            {content.finalCta.body} We use what you send to respond to your inquiry; see our{" "}
-            <Link href="/privacy-policy" className={linkClass}>
-              Privacy Policy
-            </Link>{" "}
-            for details.
-          </p>
-          <div className="mt-8">
+          <div className="max-w-3xl">
+            <h2 id="final-cta" className="text-2xl font-bold tracking-tight sm:text-3xl">
+              {content.finalCta.heading}
+            </h2>
+            <p className="mt-4 text-lg text-neutral-700">{content.finalCta.body}</p>
+            {content.finalCta.items && (
+              <ul className="mt-4 list-disc space-y-1.5 pl-5 text-neutral-800">
+                {content.finalCta.items.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            )}
+            <p className="mt-4 text-sm text-neutral-700">
+              We use what you send to respond to your inquiry; see our{" "}
+              <Link href="/privacy-policy" className={linkClass}>
+                Privacy Policy
+              </Link>{" "}
+              for details.
+            </p>
+          </div>
+          <div className="shrink-0">
             <ButtonLink href={content.finalCta.href}>{content.finalCta.label}</ButtonLink>
           </div>
         </section>

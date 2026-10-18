@@ -1,4 +1,5 @@
 import type {
+  AccordionItem,
   AnswerExample,
   ChartGroup,
   DataTable,
@@ -298,5 +299,40 @@ export function NumberedList({ items }: { items: ReadonlyArray<string> }) {
         </li>
       ))}
     </ol>
+  );
+}
+
+// Native <details>: works without JavaScript and the answers stay in the page text.
+export function AccordionList({ items }: { items: ReadonlyArray<AccordionItem> }) {
+  return (
+    <div className="my-8 space-y-3">
+      {items.map((item) => (
+        <details key={item.title} className="group rounded-lg border border-neutral-200 bg-white">
+          <summary className="flex cursor-pointer list-none items-center justify-between gap-4 p-5 [&::-webkit-details-marker]:hidden">
+            <span>
+              <span className="block font-heading text-xs font-bold uppercase tracking-wider text-brand-blue-strong">
+                {item.label}
+              </span>
+              <span className="mt-1 block font-heading text-lg font-bold leading-snug">
+                {item.title}
+              </span>
+            </span>
+            <span
+              aria-hidden="true"
+              className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-blue text-xl font-bold leading-none text-brand-ink transition-transform group-open:rotate-45"
+            >
+              +
+            </span>
+          </summary>
+          <div className="space-y-3 border-t border-neutral-200 p-5 text-neutral-800">
+            {item.parts.map((part) => (
+              <p key={part.label}>
+                <strong>{part.label}.</strong> {part.text}
+              </p>
+            ))}
+          </div>
+        </details>
+      ))}
+    </div>
   );
 }

@@ -361,27 +361,39 @@ export const combo: ComboContent = {
       ],
     },
     {
-      kind: "cards",
+      kind: "prose",
       id: "scenarios",
       heading: "Three Situations, and What to Check",
       intro: [
         "Each is an illustrative scenario. None is a client story, and no results are implied.",
       ],
-      items: [
+      accordion: [
         {
-          icon: "call",
-          title: "Illustrative scenario: a plumber whose work comes mostly from referrals",
-          body: "Situation: referred customers look the business up before they call, and the site lists services but not service areas or hours. Check: service areas, hours, a tap-to-call button, and one page per service. Proposed approach: state the service area plainly, show hours and the urgent-request path, add tap-to-call, and confirm the Google Business Profile shows the same details.",
+          label: "Illustrative scenario",
+          title: "A plumber whose work comes mostly from referrals",
+          parts: [
+            { label: "Situation", text: "Referred customers look the business up before they call. The site lists services but not service areas or hours." },
+            { label: "What to check", text: "Service areas, hours, a tap-to-call button, one page per service." },
+            { label: "Proposed approach", text: "State the service area plainly, show hours and the urgent-request path, add tap-to-call, and confirm the Google Business Profile shows the same details." },
+          ],
         },
         {
-          icon: "file",
-          title: "Illustrative scenario: a roofer with one page for everything",
-          body: "Situation: repair, replacement, and gutters share a single page, so each gets only a sentence or two. Check: whether each service has enough specific detail to stand on its own, and whether the pages link to one another. Proposed approach: split the content into one page per service with its own scope, process, and questions, link them together, and avoid near-duplicate copy.",
+          label: "Illustrative scenario",
+          title: "A roofer with one page for everything",
+          parts: [
+            { label: "Situation", text: "Repair, replacement, and gutters share a single page, so each gets only a sentence or two." },
+            { label: "What to check", text: "Whether each service has enough specific detail to stand on its own, and whether the pages link to one another." },
+            { label: "Proposed approach", text: "Split the content into one page per service with its own scope, process, and questions, link them together, and avoid near-duplicate copy." },
+          ],
         },
         {
-          icon: "clipboard",
-          title: "Illustrative scenario: a cleaning company whose booking form is hard to use on a phone",
-          body: "Situation: the form has many fields, small tap targets, and no confirmation after sending. Check: field count, target size on a phone, labels, and what the visitor sees after submitting. Proposed approach: shorten the form to what is needed for a first reply, make the controls easy to tap, show a clear confirmation, and decide who follows up and when.",
+          label: "Illustrative scenario",
+          title: "A cleaning company whose booking form is hard to use on a phone",
+          parts: [
+            { label: "Situation", text: "The form has many fields, small tap targets, and no confirmation after sending." },
+            { label: "What to check", text: "Field count, target size on a phone, labels, and what the visitor sees after submitting." },
+            { label: "Proposed approach", text: "Shorten the form to what is needed for a first reply, make the controls easy to tap, show a clear confirmation, and decide who follows up and when." },
+          ],
         },
       ],
     },
@@ -441,14 +453,25 @@ export const combo: ComboContent = {
   ],
   finalCta: {
     heading: "Discuss Your Website Plan",
-    body: "Tell us the address of your current site if you have one, the services you offer and the areas you serve, and how customers contact you today. Please do not send passwords or payment details.",
+    body: "Tell us which services you offer, where you work, and how customers reach you today. Please do not send passwords or payment details.",
+    items: [
+      "The address of your current site, if you have one",
+      "The services you offer and the areas you serve",
+      "How customers contact you now",
+    ],
     label: "Discuss Your Website Plan",
     href: "/contact",
   },
-  relatedLinks: [
-    { label: "Google Business Profile Management: keep your listing consistent with your site", href: "/services/google-business-profile-optimization" },
-    { label: "Review Management: reviews are a top factor when customers hire", href: "/services/reputation-management" },
-    { label: "AI Receptionist: handle the calls your tap-to-call button creates", href: "/services/ai-receptionist" },
-    { label: "Text and Email Automation: follow up on the requests your form collects", href: "/services/sms-email-automation" },
-  ],
+  related: {
+    heading: "Where This Connects",
+    intro: "A website works alongside the other places customers find and contact you.",
+    links: [
+      { label: "Website design service", description: "The general service this page builds on.", href: "/services/website-design" },
+      { label: "Google Business Profile management", description: "Keep your listing consistent with your site.", href: "/services/google-business-profile-optimization" },
+      { label: "Review management", description: "Reviews are a top factor when customers hire.", href: "/services/reputation-management" },
+      { label: "AI receptionist for inbound calls", description: "Handle calls the tap-to-call button creates.", href: "/services/ai-receptionist" },
+      { label: "Text and email automation", description: "Follow up on the requests your form collects.", href: "/services/sms-email-automation" },
+      { label: "Back to Home Services", description: "The full audience page for home-service businesses.", href: "/industries/home-services" },
+    ],
+  },
 };

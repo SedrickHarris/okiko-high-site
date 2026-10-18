@@ -49,6 +49,14 @@ type SectionBase = {
   // on large screens instead of above it.
   numbered?: ReadonlyArray<string>;
   split?: boolean;
+  accordion?: ReadonlyArray<AccordionItem>;
+};
+
+/** A collapsible item with a small label, a title, and labeled paragraphs. */
+export type AccordionItem = {
+  label: string;
+  title: string;
+  parts: ReadonlyArray<{ label: string; text: string }>;
 };
 
 /** A before/after answer example beside short guidance notes with optional sources. */
@@ -174,8 +182,13 @@ export type ComboContent = {
   sections: ReadonlyArray<ComboSection>;
   faqsHeading?: string;
   faqs: ReadonlyArray<Faq>;
-  finalCta: { heading: string; body: string; label: string; href: string };
-  // Extra links for the Related Pages section, beyond the parent audience and service
-  // pages and any published sibling combos. Link only pages that exist and are indexable.
-  relatedLinks?: ReadonlyArray<{ label: string; href: string }>;
+  finalCta: { heading: string; body: string; items?: ReadonlyArray<string>; label: string; href: string };
+  // Related links as cards with a one-line description. When set, replaces the default
+  // Related Pages list (published sibling combos are still appended). Link only pages
+  // that exist and are indexable.
+  related?: {
+    heading: string;
+    intro?: string;
+    links: ReadonlyArray<{ label: string; description: string; href: string }>;
+  };
 };
