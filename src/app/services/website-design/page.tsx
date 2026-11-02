@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { IconCardHeading } from "@/components/cards/IconCardHeading";
+import { FaqIntro } from "@/components/sections/FaqIntro";
+import { accents } from "@/lib/brand";
+import { StepBadge } from "@/components/ui/StepBadge";
 import { CapabilityGrid } from "@/components/sections/CapabilityGrid";
 import { PublishedComboLinks } from "@/components/combos/PublishedComboLinks";
 import { FaqSection } from "@/components/sections/FaqSection";
@@ -452,10 +455,8 @@ export default function Page() {
         >
           <ol className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {processSteps.map((step, index) => (
-              <li key={step.title} className="rounded-lg border border-neutral-200 border-t-4 border-t-brand-blue bg-white p-5">
-                <p className="mb-3 inline-block rounded-full bg-brand-yellow px-2.5 py-0.5 font-heading text-xs font-bold text-brand-ink">
-                  Step {index + 1}
-                </p>
+              <li key={step.title} className={`rounded-lg border border-neutral-200 border-t-4 bg-white p-5 ${accents[index % accents.length]}`}>
+                <StepBadge index={index} />
                 <IconCardHeading icon={step.icon} title={step.title} />
                 <p className="mt-2 text-neutral-800">{step.body}</p>
                 <p className="mt-3 text-sm text-neutral-600">
@@ -633,7 +634,7 @@ export default function Page() {
         </PageSection>
 
         {/* K. FAQs and final CTA */}
-        <FaqSection id="faq" heading="Website Design Questions, Answered" faqs={faqs} />
+        <FaqSection id="faq" heading="Website Design Questions, Answered" faqs={faqs} intro={<FaqIntro related={[{ href: "/services/google-business-profile-optimization", label: "Google Business Profile management" }, { href: "/services/ai-chatbots", label: "AI chatbots" }]} />} />
 
         <PublishedComboLinks
           service="website-design"

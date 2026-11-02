@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import type { CSSProperties } from "react";
 import { IconCardHeading } from "@/components/cards/IconCardHeading";
+import { FaqIntro } from "@/components/sections/FaqIntro";
 import { ProfessionalServicesHeroIllustration } from "@/components/illustrations/ProfessionalServicesHeroIllustration";
 import { ProfessionalServicesScopeIllustration } from "@/components/illustrations/ProfessionalServicesScopeIllustration";
 import { FaqSection } from "@/components/sections/FaqSection";
@@ -560,7 +561,7 @@ export default function Page() {
         </PageSection>
 
         {/* J. FAQ (two-column layout from FaqSection) */}
-        <FaqSection id="faq" heading="Questions From Professional Firms" faqs={faqs} />
+        <FaqSection id="faq" heading="Questions From Professional Firms" faqs={faqs} intro={<FaqIntro relatedLabel="See also:" related={[{ href: "/services", label: "all services" }]} />} />
 
         <RelatedIndustries currentPath="/industries/professional-services" />
 

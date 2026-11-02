@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { IconCardHeading } from "@/components/cards/IconCardHeading";
+import { FaqIntro } from "@/components/sections/FaqIntro";
+import { StepBadge } from "@/components/ui/StepBadge";
 import { ChatHandoffIllustration } from "@/components/illustrations/ChatHandoffIllustration";
 import { ChatWidgetIllustration } from "@/components/illustrations/ChatWidgetIllustration";
 import { PhoneChat } from "@/components/illustrations/PhoneChat";
@@ -358,7 +360,7 @@ export default function Page() {
                 key={step.title}
                 className={`rounded-lg border border-neutral-200 border-t-4 bg-white p-5 ${accents[index % accents.length]}`}
               >
-                <p className="text-sm font-semibold text-brand-blue-strong">Step {index + 1}</p>
+                <StepBadge index={index} className="mb-2" />
                 <div className="mt-2">
                   <IconCardHeading icon={step.icon} tone={tones[index % tones.length]} title={step.title} />
                 </div>
@@ -528,7 +530,7 @@ export default function Page() {
           <Cta />
         </PageSection>
 
-        <FaqSection id="faq" heading="Questions About Website Chatbots" faqs={faqs} />
+        <FaqSection id="faq" heading="Questions About Website Chatbots" faqs={faqs} intro={<FaqIntro related={[{ href: "/services/website-design", label: "Website Design" }, { href: "/services/ai-receptionist", label: "AI receptionist" }]} />} />
 
         <section
           aria-labelledby="final-cta"

@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import type { CSSProperties } from "react";
 import { IconCardHeading } from "@/components/cards/IconCardHeading";
+import { FaqIntro } from "@/components/sections/FaqIntro";
+import { StepBadge } from "@/components/ui/StepBadge";
 import { FaqSection } from "@/components/sections/FaqSection";
 import { HomeServicesBranchingDiagram } from "@/components/illustrations/HomeServicesBranchingDiagram";
 import { HomeServicesHeroIllustration } from "@/components/illustrations/HomeServicesHeroIllustration";
@@ -45,7 +47,7 @@ import {
 } from "@/lib/schema";
 import { HeroJumpCard } from "@/components/sections/HeroJumpCard";
 import { PageHero } from "@/components/sections/PageHero";
-import { accents } from "@/lib/brand";
+import { accents, fillAt } from "@/lib/brand";
 
 // Home Services is a currently served audience (docs/01). The owner approved indexing on
 // 2026-10-11, so the page is indexable and listed in src/app/sitemap.ts. Keep the copy free of
@@ -147,7 +149,7 @@ export default function Page() {
                 >
                   <span
                     aria-hidden="true"
-                    className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-surface-muted text-brand-blue-strong"
+                    className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-md ${fillAt(i)}`}
                   >
                     <NamedIcon name={step.icon} className="h-6 w-6" />
                   </span>
@@ -493,11 +495,9 @@ export default function Page() {
             {permissionSteps.map((step, index) => (
               <li
                 key={step.title}
-                className="rounded-lg border border-neutral-200 border-t-4 border-t-brand-blue bg-white p-5"
+                className={`rounded-lg border border-neutral-200 border-t-4 bg-white p-5 ${accents[index % accents.length]}`}
               >
-                <p className="mb-3 inline-block rounded-full bg-brand-yellow px-2.5 py-0.5 font-heading text-xs font-bold text-brand-ink">
-                  Step {index + 1}
-                </p>
+                <StepBadge index={index} />
                 <IconCardHeading icon={step.icon} title={step.title} />
                 <p className="mt-3 text-neutral-700">{step.body}</p>
               </li>
@@ -541,6 +541,7 @@ export default function Page() {
           id="faq"
           heading="Questions About Marketing and Automation for Home-Service Businesses"
           faqs={faqs}
+          intro={<FaqIntro relatedLabel="See also:" related={[{ href: "/services", label: "all services" }]} />}
         />
 
         <PublishedComboLinks

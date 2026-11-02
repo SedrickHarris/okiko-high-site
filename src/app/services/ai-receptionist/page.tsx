@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { IconCardHeading } from "@/components/cards/IconCardHeading";
+import { FaqIntro } from "@/components/sections/FaqIntro";
+import { accents } from "@/lib/brand";
+import { StepBadge } from "@/components/ui/StepBadge";
 import { CallFlowDiagram } from "@/components/illustrations/CallFlowDiagram";
 import { CallRoutingIllustration } from "@/components/illustrations/CallRoutingIllustration";
 import { PublishedComboLinks } from "@/components/combos/PublishedComboLinks";
@@ -297,11 +300,9 @@ export default function Page() {
             {processSteps.map((step, index) => (
               <li
                 key={step.title}
-                className="rounded-lg border border-neutral-200 border-t-4 border-t-brand-blue bg-white p-5"
+                className={`rounded-lg border border-neutral-200 border-t-4 bg-white p-5 ${accents[index % accents.length]}`}
               >
-                <p className="mb-3 inline-block rounded-full bg-brand-yellow px-2.5 py-0.5 font-heading text-xs font-bold text-brand-ink">
-                  Step {index + 1}
-                </p>
+                <StepBadge index={index} />
                 <IconCardHeading icon={step.icon} title={step.title} />
                 <p className="mt-2 text-neutral-800">{step.body}</p>
                 <p className="mt-3 text-sm text-neutral-600">
@@ -643,7 +644,7 @@ export default function Page() {
         </PageSection>
 
         {/* 10. FAQ and conversion */}
-        <FaqSection id="faq" heading="Questions About AI Call Handling" faqs={faqs} />
+        <FaqSection id="faq" heading="Questions About AI Call Handling" faqs={faqs} intro={<FaqIntro related={[{ href: "/services/ai-chatbots", label: "AI chatbots" }, { href: "/services/sms-email-automation", label: "text and email automation" }]} />} />
 
         <PublishedComboLinks
           service="ai-receptionist"

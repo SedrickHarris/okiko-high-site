@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import type { CSSProperties } from "react";
 import { IconCardHeading } from "@/components/cards/IconCardHeading";
+import { FaqIntro } from "@/components/sections/FaqIntro";
+import { StepBadge } from "@/components/ui/StepBadge";
 import { HealthcareCtaIllustration } from "@/components/illustrations/HealthcareCtaIllustration";
 import { HealthcareHeroIllustration } from "@/components/illustrations/HealthcareHeroIllustration";
 import { FaqSection } from "@/components/sections/FaqSection";
@@ -600,11 +602,9 @@ export default function Page() {
             {processSteps.map((step, index) => (
               <li
                 key={step.title}
-                className="rounded-lg border border-neutral-200 border-t-4 border-t-brand-blue bg-white p-5"
+                className={`rounded-lg border border-neutral-200 border-t-4 bg-white p-5 ${accents[index % accents.length]}`}
               >
-                <p className="mb-3 inline-block rounded-full bg-brand-yellow px-2.5 py-0.5 font-heading text-xs font-bold text-brand-ink">
-                  Step {index + 1}
-                </p>
+                <StepBadge index={index} />
                 <IconCardHeading icon={step.icon} title={step.title} />
                 <p className="mt-3 text-neutral-700">{step.body}</p>
               </li>
@@ -708,6 +708,7 @@ export default function Page() {
           id="faq"
           heading="Healthcare, Dental, and Med Spa Marketing Automation FAQs"
           faqs={faqs}
+          intro={<FaqIntro relatedLabel="See also:" related={[{ href: "/services", label: "all services" }]} />}
         />
 
         <RelatedIndustries currentPath={page.path} />

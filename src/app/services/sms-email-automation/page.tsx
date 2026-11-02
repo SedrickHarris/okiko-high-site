@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { IconCardHeading } from "@/components/cards/IconCardHeading";
+import { FaqIntro } from "@/components/sections/FaqIntro";
+import { StepBadge } from "@/components/ui/StepBadge";
 import { FollowUpPathsIllustration } from "@/components/illustrations/FollowUpPathsIllustration";
 import { FollowUpPhones } from "@/components/illustrations/FollowUpPhones";
 import { FaqSection } from "@/components/sections/FaqSection";
@@ -321,7 +323,7 @@ export default function Page() {
                 key={stage.title}
                 className={`rounded-lg border border-neutral-200 border-t-4 bg-white p-5 ${accents[index % accents.length]}`}
               >
-                <p className="text-sm font-semibold text-brand-blue-strong">Stage {index + 1}</p>
+                <StepBadge index={index} className="mb-2" label="Stage" />
                 <div className="mt-2">
                   <IconCardHeading icon={stage.icon} tone={stage.tone} title={stage.title} />
                 </div>
@@ -590,7 +592,7 @@ export default function Page() {
                 key={step.title}
                 className={`rounded-lg border border-neutral-200 border-t-4 bg-white p-5 ${accents[index % 2 === 0 ? 0 : 1]}`}
               >
-                <p className="text-sm font-semibold text-brand-blue-strong">Step {index + 1}</p>
+                <StepBadge index={index} className="mb-2" />
                 <div className="mt-2">
                   <IconCardHeading icon={step.icon} tone={step.tone} title={step.title} />
                 </div>
@@ -620,7 +622,7 @@ export default function Page() {
           />
         </PageSection>
 
-        <FaqSection id="faq" heading="Questions About Text and Email Automation" faqs={faqs} />
+        <FaqSection id="faq" heading="Questions About Text and Email Automation" faqs={faqs} intro={<FaqIntro related={[{ href: "/services/ai-receptionist", label: "AI receptionist" }, { href: "/services/reputation-management", label: "reputation management" }]} />} />
 
         <section
           id="contact"

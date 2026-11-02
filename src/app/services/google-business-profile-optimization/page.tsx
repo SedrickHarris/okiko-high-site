@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { IconCardHeading } from "@/components/cards/IconCardHeading";
+import { FaqIntro } from "@/components/sections/FaqIntro";
+import { StepBadge } from "@/components/ui/StepBadge";
 import { ProfileCardIllustration } from "@/components/illustrations/ProfileCardIllustration";
 import { ProfileWorkflowIllustration } from "@/components/illustrations/ProfileWorkflowIllustration";
 import { FaqSection } from "@/components/sections/FaqSection";
@@ -392,7 +394,7 @@ export default function Page() {
                 key={step.title}
                 className={`rounded-lg border border-neutral-200 border-t-4 bg-white p-5 ${accents[index % accents.length]}`}
               >
-                <p className="text-sm font-semibold text-brand-blue-strong">Step {index + 1}</p>
+                <StepBadge index={index} className="mb-2" />
                 <div className="mt-2">
                   <IconCardHeading icon={step.icon} tone={step.tone} title={step.title} />
                 </div>
@@ -528,7 +530,7 @@ export default function Page() {
                 key={step}
                 className={`rounded-lg border border-neutral-200 border-t-4 p-5 ${accents[index % accents.length]}`}
               >
-                <p className="text-sm font-semibold text-brand-blue-strong">Step {index + 1}</p>
+                <StepBadge index={index} className="mb-2" />
                 <p className="mt-2 text-sm text-neutral-800">{step}</p>
               </li>
             ))}
@@ -588,7 +590,7 @@ export default function Page() {
           </div>
         </PageSection>
 
-        <FaqSection id="faq" heading="Questions About Google Business Profile Management" faqs={faqs} />
+        <FaqSection id="faq" heading="Questions About Google Business Profile Management" faqs={faqs} intro={<FaqIntro related={[{ href: "/services/website-design", label: "Website Design" }, { href: "/services/reputation-management", label: "reputation management" }]} />} />
 
         <section
           id="contact"

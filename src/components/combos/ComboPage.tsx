@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { IconCardHeading } from "@/components/cards/IconCardHeading";
+import { FaqIntro } from "@/components/sections/FaqIntro";
+import { StepBadge } from "@/components/ui/StepBadge";
 import { FaqSection } from "@/components/sections/FaqSection";
 import { PageSection } from "@/components/sections/PageSection";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -134,11 +136,9 @@ function Section({ section }: { section: ComboSection }) {
           {section.items.map((step, index) => (
             <li
               key={step.title}
-              className="rounded-lg border border-neutral-200 border-t-4 border-t-brand-blue bg-white p-5"
+              className={`rounded-lg border border-neutral-200 border-t-4 bg-white p-5 ${accents[index % accents.length]}`}
             >
-              <p className="mb-3 inline-block rounded-full bg-brand-yellow px-2.5 py-0.5 font-heading text-xs font-bold text-brand-ink">
-                Step {index + 1}
-              </p>
+              <StepBadge index={index} />
               <h3 className="text-lg font-semibold leading-snug">{step.title}</h3>
               <p className="mt-2 text-neutral-800">{step.body}</p>
             </li>
@@ -343,6 +343,14 @@ export function ComboPage({ content }: { content: ComboContent }) {
           id="faq"
           heading={content.faqsHeading ?? "Questions, Answered"}
           faqs={content.faqs}
+          intro={
+            <FaqIntro
+              related={[
+                { href: audienceInfo[content.audience].path, label: audienceInfo[content.audience].name },
+                { href: serviceInfo[content.service].path, label: serviceInfo[content.service].name },
+              ]}
+            />
+          }
         />
 
         <Related content={content} />
