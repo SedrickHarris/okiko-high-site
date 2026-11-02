@@ -27,9 +27,9 @@ export const aboutPage = {
   secondaryCta: { label: "Explore our services", href: "#services" },
 } as const;
 
-// ISO date for the Organization node, shown visibly in the "at a glance" list.
+// ISO date for the Organization node. The full date is visible in the FAQ ("When was
+// OKIKO HIGH founded?"); the "at a glance" list shows the year only.
 export const foundingDateIso = "2026-05-03";
-export const foundingDateLabel = "May 3, 2026";
 
 export const heroPanel: ReadonlyArray<{ icon: IconName; stage: string; body: string }> = [
   {
@@ -53,14 +53,10 @@ export const mission =
   "Our mission is simple: make marketing smarter, business operations easier, and growth more achievable.";
 
 export const glance: ReadonlyArray<{ label: string; value: string }> = [
-  { label: "Founded", value: foundingDateLabel },
-  { label: "Services", value: "Six, each with its own page" },
-  { label: "Currently serves", value: "Home-service businesses" },
-  { label: "Coverage", value: "Clients worldwide, as stated by OKIKO HIGH" },
+  { label: "Founded", value: "2026" },
+  { label: "Services", value: "Six marketing and automation services" },
+  { label: "Coverage", value: "Clients worldwide" },
 ];
-
-export const platformNote =
-  "GoHighLevel is a third-party platform. OKIKO HIGH is not an official GoHighLevel product, and this site does not claim a partner relationship.";
 
 export const approach: ReadonlyArray<{ icon: IconName; title: string; body: string }> = [
   {

@@ -21,7 +21,6 @@ import {
   glance,
   heroPanel,
   mission,
-  platformNote,
 } from "@/content/about";
 import { audiences } from "@/content/industries/hub";
 import { hubServices } from "@/content/services/hub";
@@ -63,7 +62,8 @@ export const metadata: Metadata = {
 };
 
 // Verified facts only (docs/07). The email and phone on the Organization node are
-// shown in the closing section, and the founding date is shown in "At a glance".
+// shown in the closing section, and the founding date is shown in the FAQ (the
+// "At a glance" list shows the year only).
 // The FAQPage node reads the same objects as the visible FAQ. No LocalBusiness,
 // address, hours, sameAs, areaServed, ratings, or reviews.
 const structuredData = graph([
@@ -172,7 +172,7 @@ export default function Page() {
           </div>
 
           <h3 className="mt-10 text-xl font-semibold">OKIKO HIGH at a glance</h3>
-          <dl className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <dl className="mt-4 grid gap-4 sm:grid-cols-3">
             {glance.map((item, index) => (
               <div
                 key={item.label}
@@ -185,16 +185,6 @@ export default function Page() {
               </div>
             ))}
           </dl>
-
-          <div className="mt-6 flex max-w-3xl items-start gap-3.5 rounded-lg border border-neutral-200 bg-white p-4">
-            <span
-              aria-hidden="true"
-              className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-surface-muted text-brand-blue-strong"
-            >
-              <NamedIcon name="plug" className="h-6 w-6" />
-            </span>
-            <p className="text-neutral-800">{platformNote}</p>
-          </div>
         </PageSection>
 
         {/* C. How we work */}
