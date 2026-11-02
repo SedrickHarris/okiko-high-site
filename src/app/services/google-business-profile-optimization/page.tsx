@@ -40,6 +40,8 @@ import {
   organizationId,
   organizationNode,
 } from "@/lib/schema";
+import { PageHero } from "@/components/sections/PageHero";
+import { accents } from "@/lib/brand";
 
 export const metadata: Metadata = {
   title: page.title,
@@ -79,7 +81,6 @@ const structuredData = graph([
   faqPageNode(pageUrl, faqs),
 ]);
 
-const accents = ["border-t-brand-blue", "border-t-brand-green", "border-t-brand-yellow"] as const;
 const tones = ["default", "included", "optional"] as const;
 
 const linkClass = "text-brand-blue-strong underline underline-offset-2";
@@ -145,7 +146,7 @@ export default function Page() {
 
       <div className="mt-8 space-y-16">
         {/* Hero */}
-        <header className="grid items-center gap-10 lg:grid-cols-[1fr_auto]">
+        <PageHero layout="grid items-center gap-10 lg:grid-cols-[1fr_auto]">
           <div>
             <h1 className="hero-in-h1 max-w-3xl text-4xl font-extrabold tracking-tight sm:text-5xl">
               {page.h1}
@@ -181,7 +182,7 @@ export default function Page() {
           <figure className="hero-in hero-delay-3 mx-auto w-full max-w-md lg:mx-0 lg:w-[26rem] lg:max-w-none">
             <ProfileWorkflowIllustration />
           </figure>
-        </header>
+        </PageHero>
 
         {/* Scope */}
         <PageSection

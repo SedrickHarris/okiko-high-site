@@ -27,6 +27,8 @@ import {
   graph,
   organizationNode,
 } from "@/lib/schema";
+import { PageHero } from "@/components/sections/PageHero";
+import { accents } from "@/lib/brand";
 
 export const metadata: Metadata = {
   title: page.title,
@@ -70,7 +72,6 @@ const structuredData = graph([
   faqPageNode(pageUrl, faqs),
 ]);
 
-const accents = ["border-t-brand-blue", "border-t-brand-green", "border-t-brand-yellow"] as const;
 
 const linkClass =
   "font-semibold text-brand-blue-strong underline underline-offset-2 hover:text-brand-ink";
@@ -88,7 +89,7 @@ export default function Page() {
 
       <div className="mt-8 space-y-16">
         {/* A. Hero */}
-        <header className="grid items-center gap-10 lg:grid-cols-[1fr_auto]">
+        <PageHero layout="grid items-center gap-10 lg:grid-cols-[1fr_auto]">
           <div>
             <h1 className="hero-in-h1 max-w-3xl text-4xl font-extrabold tracking-tight sm:text-5xl">
               {page.h1}
@@ -150,7 +151,7 @@ export default function Page() {
               </ol>
             </div>
           </figure>
-        </header>
+        </PageHero>
 
         {/* B. Industry cards */}
         <PageSection
@@ -276,7 +277,20 @@ export default function Page() {
         </PageSection>
 
         {/* E. FAQs */}
-        <FaqSection id="faq" heading="Industries Questions, Answered" faqs={faqs} />
+        <FaqSection
+          id="faq"
+          heading="Industries Questions, Answered"
+          intro={
+            <p>
+              Want more answers? See{" "}
+              <Link href="/faq" className={linkClass}>
+                all frequently asked questions
+              </Link>
+              , grouped by the customer journey.
+            </p>
+          }
+          faqs={faqs}
+        />
 
         {/* F. Final CTA */}
         <section

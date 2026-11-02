@@ -43,6 +43,9 @@ import {
   graph,
   organizationNode,
 } from "@/lib/schema";
+import { HeroJumpCard } from "@/components/sections/HeroJumpCard";
+import { PageHero } from "@/components/sections/PageHero";
+import { accents } from "@/lib/brand";
 
 // Home Services is a currently served audience (docs/01). The owner approved indexing on
 // 2026-10-11, so the page is indexable and listed in src/app/sitemap.ts. Keep the copy free of
@@ -77,13 +80,24 @@ const structuredData = graph([
   faqPageNode(pageUrl, faqs),
 ]);
 
-const accents = ["border-t-brand-blue", "border-t-brand-green", "border-t-brand-yellow"] as const;
 
 const linkClass =
   "font-semibold text-brand-blue-strong underline underline-offset-2 hover:text-brand-ink";
 
 const exampleLabel =
   "inline-block rounded-full bg-brand-yellow px-2.5 py-0.5 font-heading text-xs font-bold text-brand-ink";
+
+const jumpItems = [
+  { href: "#after-the-inquiry", label: "After the inquiry" },
+  { href: "#different-workflows", label: "Workflows by trade" },
+  { href: "#connected-journey", label: "Connected journey" },
+  { href: "#workflows", label: "Follow-up workflows" },
+  { href: "#team-control", label: "Team control" },
+  { href: "#existing-systems", label: "Existing systems" },
+  { href: "#measurement", label: "Measurement" },
+  { href: "#customer-permission", label: "Permission" },
+  { href: "#faq", label: "FAQs" },
+] as const;
 
 export default function Page() {
   return (
@@ -99,7 +113,7 @@ export default function Page() {
 
       <div className="mt-8 space-y-16">
         {/* A. Hero */}
-        <header className="grid gap-10 lg:grid-cols-[1fr_22rem] lg:items-center">
+        <PageHero layout="grid gap-10 lg:grid-cols-[1fr_22rem] lg:items-center">
           <div>
             <h1 className="hero-in-h1 max-w-4xl text-4xl font-extrabold tracking-tight sm:text-5xl">
               {page.h1}
@@ -147,7 +161,10 @@ export default function Page() {
               ))}
             </ol>
           </div>
-        </header>
+          <div className="hero-in hero-delay-3 lg:col-span-2">
+            <HeroJumpCard variant="row" title="On this page" items={jumpItems} />
+          </div>
+        </PageHero>
 
         {/* B. Operational problems */}
         <PageSection

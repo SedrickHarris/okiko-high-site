@@ -53,6 +53,8 @@ import {
   organizationId,
   organizationNode,
 } from "@/lib/schema";
+import { HeroJumpCard } from "@/components/sections/HeroJumpCard";
+import { PageHero } from "@/components/sections/PageHero";
 
 export const metadata: Metadata = {
   title: page.title,
@@ -107,6 +109,19 @@ function Cta({ className = "" }: { className?: string }) {
   );
 }
 
+const jumpItems = [
+  { href: "#contact-path", label: "Contact path" },
+  { href: "#scope", label: "Scope" },
+  { href: "#approach", label: "Approach" },
+  { href: "#seo-migration", label: "SEO and launch" },
+  { href: "#quality", label: "Quality" },
+  { href: "#process", label: "Process" },
+  { href: "#cost", label: "Cost" },
+  { href: "#ownership", label: "Ownership" },
+  { href: "#connected-services", label: "Connected services" },
+  { href: "#faq", label: "FAQs" },
+] as const;
+
 export default function Page() {
   return (
     <>
@@ -121,7 +136,7 @@ export default function Page() {
 
       <div className="mt-8 space-y-16">
         {/* A. Hero */}
-        <header className="grid items-center gap-10 lg:grid-cols-[1fr_auto]">
+        <PageHero layout="grid items-center gap-10 lg:grid-cols-[1fr_auto]">
           <div>
             <h1 className="hero-in-h1 max-w-3xl text-4xl font-extrabold tracking-tight sm:text-5xl">
               {page.h1}
@@ -143,7 +158,10 @@ export default function Page() {
           <figure className="hero-in hero-delay-3 mx-auto w-full max-w-md lg:mx-0 lg:w-[26rem] lg:max-w-none">
             <HeroDevices />
           </figure>
-        </header>
+          <div className="hero-in hero-delay-3 lg:col-span-2">
+            <HeroJumpCard variant="row" title="On this page" items={jumpItems} />
+          </div>
+        </PageHero>
 
         {/* B. Contact-path demonstration */}
         <PageSection

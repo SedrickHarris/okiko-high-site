@@ -47,6 +47,9 @@ import {
   graph,
   organizationNode,
 } from "@/lib/schema";
+import { HeroJumpCard } from "@/components/sections/HeroJumpCard";
+import { PageHero } from "@/components/sections/PageHero";
+import { accents } from "@/lib/brand";
 
 // Professional Services is a FUTURE opportunity in docs/01, not a current client
 // category, and every service this page describes is still TBD or only partly
@@ -83,13 +86,24 @@ const structuredData = graph([
   faqPageNode(pageUrl, faqs),
 ]);
 
-const accents = ["border-t-brand-blue", "border-t-brand-green", "border-t-brand-yellow"] as const;
 
 const linkClass =
   "font-semibold text-brand-blue-strong underline underline-offset-2 hover:text-brand-ink";
 
 const fieldClass =
   "mt-1 block w-full rounded-md border border-neutral-400 bg-white px-3 py-2 text-base";
+
+const jumpItems = [
+  { href: "#buyer-journey", label: "Buyer journey" },
+  { href: "#intake-breakdowns", label: "Where it breaks down" },
+  { href: "#professions", label: "Professions" },
+  { href: "#small-firm-scenarios", label: "Scenarios" },
+  { href: "#services", label: "Services" },
+  { href: "#existing-systems", label: "Existing systems" },
+  { href: "#oversight", label: "Oversight" },
+  { href: "#fit-and-scope", label: "Fit and scope" },
+  { href: "#faq", label: "FAQs" },
+] as const;
 
 export default function Page() {
   return (
@@ -105,7 +119,7 @@ export default function Page() {
 
       <div className="mt-8 space-y-16">
         {/* A. Hero */}
-        <header className="grid gap-10 lg:grid-cols-[1fr_22rem] lg:items-center">
+        <PageHero layout="grid gap-10 lg:grid-cols-[1fr_22rem] lg:items-center">
           {/* Text comes first so the heading leads on mobile and for screen
               readers; on large screens the illustration sits to its right. */}
           <div>
@@ -134,7 +148,10 @@ export default function Page() {
           <figure className="hero-in hero-delay-2 mx-auto w-full max-w-sm lg:mx-0 lg:max-w-none">
             <ProfessionalServicesHeroIllustration />
           </figure>
-        </header>
+          <div className="hero-in hero-delay-3 lg:col-span-2">
+            <HeroJumpCard variant="row" title="On this page" items={jumpItems} />
+          </div>
+        </PageHero>
 
         {/* B. Buyer journey */}
         <PageSection

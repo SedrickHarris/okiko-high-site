@@ -129,6 +129,13 @@ Define reusable styles for:
 
 Use consistent spacing, border radius, shadows, and icon treatments. Avoid unnecessary gradients and decorative effects that reduce readability.
 
+### Shared page patterns
+
+- **Page hero (`src/components/sections/PageHero.tsx`):** every page hero is a soft blue-tinted panel that fades to white, with a short stripe in the three logo colors (blue, lime, yellow) above the content. The tint is a faint wash of `surface-muted`, so the page keeps its white foundation. Pass the page's own column layout to the component instead of writing a new `<header>`.
+- **Brand color helpers (`src/lib/brand.ts`):** use `fills`, `fillAt(index)`, and `accents` for any blue, lime, yellow rotation. Text color follows the fill (white on blue, `brand-ink` on lime and yellow), so a rotation cannot put dark text on the blue fill. Do not write new color-rotation arrays in pages.
+- **Hero jump card (`src/components/sections/HeroJumpCard.tsx`):** a numbered list of section links for long pages. The `card` variant fills a hero's side column, as on `/faq`. The `row` variant is a compact row of pills placed under a hero whose side column already holds an illustration, as on the four industry pages and Website Design. Numbers and labels carry the meaning; the chip color is decoration.
+- **FAQ links:** Home, the Services hub, the Industries hub, and Contact link to `/faq` from their FAQ section intro.
+
 ## Images and icons
 
 - Use imagery that supports the page’s topic and helps visitors understand the service or audience.

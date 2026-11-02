@@ -21,6 +21,7 @@ import {
   organizationNode,
   pageNode,
 } from "@/lib/schema";
+import { PageHero } from "@/components/sections/PageHero";
 
 const pageUrl = absoluteUrl(page.path);
 
@@ -69,10 +70,10 @@ export default function Page() {
       <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Contact" }]} />
 
       <div className="mt-8 space-y-16">
-        <header>
+        <PageHero layout="">
           <h1 className="max-w-3xl text-4xl font-extrabold tracking-tight sm:text-5xl">{page.h1}</h1>
           <p className="mt-6 max-w-3xl text-lg leading-relaxed text-neutral-700">{page.intro}</p>
-        </header>
+        </PageHero>
 
         <PageSection
           id="ways-to-reach-us"
@@ -143,7 +144,20 @@ export default function Page() {
           </ul>
         </PageSection>
 
-        <FaqSection id="faq" heading="Questions Before You Reach Out" faqs={faqs} />
+        <FaqSection
+          id="faq"
+          heading="Questions Before You Reach Out"
+          intro={
+            <p>
+              Want more answers? See{" "}
+              <Link href="/faq" className={linkClass}>
+                all frequently asked questions
+              </Link>
+              , grouped by the customer journey.
+            </p>
+          }
+          faqs={faqs}
+        />
       </div>
     </>
   );

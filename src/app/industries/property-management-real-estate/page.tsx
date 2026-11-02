@@ -52,6 +52,9 @@ import {
   graph,
   organizationNode,
 } from "@/lib/schema";
+import { HeroJumpCard } from "@/components/sections/HeroJumpCard";
+import { PageHero } from "@/components/sections/PageHero";
+import { accents } from "@/lib/brand";
 
 // Property management and real estate is a FUTURE opportunity in docs/01 (real
 // estate sits under Professional Services), not a current client category, and
@@ -88,7 +91,6 @@ const structuredData = graph([
   faqPageNode(pageUrl, faqs),
 ]);
 
-const accents = ["border-t-brand-blue", "border-t-brand-green", "border-t-brand-yellow"] as const;
 
 // IconCardHeading tones that use the logo blue, green, and yellow as fills with
 // white glyphs on blue and brand-ink glyphs on lime and yellow (docs/05).
@@ -96,6 +98,18 @@ const chipTones = ["optional", "included", "default"] as const;
 
 const linkClass =
   "font-semibold text-brand-blue-strong underline underline-offset-2 hover:text-brand-ink";
+
+const jumpItems = [
+  { href: "#connect-follow-through", label: "Online presence" },
+  { href: "#business-types", label: "Business types" },
+  { href: "#communication-gaps", label: "Gaps" },
+  { href: "#services", label: "Services" },
+  { href: "#different-workflows", label: "Workflows" },
+  { href: "#existing-software", label: "Existing software" },
+  { href: "#human-handoffs", label: "Human handoffs" },
+  { href: "#fit-and-measurement", label: "Measurement" },
+  { href: "#faq", label: "FAQs" },
+] as const;
 
 export default function Page() {
   return (
@@ -111,7 +125,7 @@ export default function Page() {
 
       <div className="mt-8 space-y-16">
         {/* Hero: H1, short intro, both CTAs, and the four-stage journey */}
-        <header className="grid gap-10 lg:grid-cols-[1fr_22rem] lg:items-center">
+        <PageHero layout="grid gap-10 lg:grid-cols-[1fr_22rem] lg:items-center">
           {/* Text comes first so the heading leads on mobile and for screen
               readers; on large screens the illustration sits to its right. */}
           <div>
@@ -139,7 +153,10 @@ export default function Page() {
           <figure className="hero-in hero-delay-2 mx-auto w-full max-w-sm lg:mx-0 lg:max-w-none">
             <PropertyRealEstateHeroIllustration />
           </figure>
-        </header>
+          <div className="hero-in hero-delay-3 lg:col-span-2">
+            <HeroJumpCard variant="row" title="On this page" items={jumpItems} />
+          </div>
+        </PageHero>
 
         {/* 1. Audience introduction */}
         <PageSection
