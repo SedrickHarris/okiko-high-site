@@ -25,6 +25,7 @@ Assign each planned page a clear URL, target keyword, and search purpose. Use th
 | Services hub | `/services/` | digital marketing services for local businesses (page built; see keyword map entry below) |
 | Industries hub | `/industries/` | TBD (page built: hero, cards for the four published audience pages in a 2 by 2 grid with no status pills, six service cards linking to the service pages, a how-to-start section, and a two-column FAQ of ten questions; schema is `Organization`, `CollectionPage` with an `ItemList` of the audience pages, `BreadcrumbList`, and `FAQPage` matching the visible FAQ) |
 | Case Studies | `/case-studies/` | TBD |
+| FAQ | `/faq/` | local business marketing automation FAQs (page built; see Notes in the FAQ entry below) |
 | Resources | `/resources/` | TBD |
 | Contact | `/contact/` | TBD |
 | Privacy Policy | `/privacy-policy/` | Not a search-target page |
@@ -81,6 +82,21 @@ Confirm whether GBP optimization and GBP automation are distinct offers with dis
 | Internal links | Links out to all six service pages (`/services/website-design/`, `/services/google-business-profile-optimization/`, `/services/reputation-management/`, `/services/ai-chatbots/`, `/services/ai-receptionist/`, `/services/sms-email-automation/`), `/contact/`, `/privacy-policy/`. Each service page already links back to `/services/`. |
 | Status | Published-ready (indexable, in sitemap; all six services listed in the `ItemList`) |
 | Notes | Keyword is an intent-based recommendation, not a validated search-volume finding; confirm before treating it as final. Card copy and FAQ answers restate the service pages and `docs/01`; no prices, timelines, results, or partnerships are stated. The cards show all six services, and the owner confirmed all six pages on 2026-10-11, so every `published` flag in `src/content/services/hub.ts` is true and the page's `ItemList` structured data names all six (`docs/07`). Pricing, ownership and exit terms, and tested integrations remain unconfirmed and are not stated. The FAQ "What kinds of businesses are these services for?" relies on Home Services being listed as currently served in `docs/01`. Sections: hero, six service cards, situation-to-service guide, example service combinations (not packages), links to the fictional samples already on five service pages plus the Google Business Profile review checklist (not client proof; the GBP proof section is still placeholders), a short "what to expect" section limited to what the service pages already state, FAQs, and a closing CTA. Deliberately left out until the owner confirms the facts: commercial model (one-time vs recurring, ongoing support), ownership and cancellation terms, software and usage charges, client proof or case studies, and a strategy-call form. |
+
+#### FAQ
+
+| Field | Entry |
+|---|---|
+| Page name | FAQ |
+| URL | `/faq/` |
+| Page type | Core (utility and answer hub) |
+| Target keyword | local business marketing automation FAQs |
+| Search intent | Informational and commercial investigation: a local or service-based business owner with specific questions about what the services do, how they are scoped, and what they do not promise |
+| Supporting keyword clusters | how to get found online; website redesign vs rebuild; Google Business Profile eligibility; AI chatbot and AI receptionist questions; after-hours inquiries; missed-call and booking workflows; text and email follow-up consent and opt-outs; review requests without review gating; marketing automation pricing, ownership, and cancellation |
+| Parent page | `/` |
+| Internal links | Links out to all six service pages (cards plus group links), `/services/`, `/industries/` and the four industry pages (related-industries cards), `/contact/`, `/privacy-policy/`. Linked from the footer. |
+| Status | Built (indexable, in sitemap) |
+| Notes | Keyword is an intent-based recommendation, not a validated search-volume finding; confirm before treating it as final. Sections: hero with a jump-to-topic list, six service cards (imported from `src/content/services/hub.ts`, so they stay in sync with the Services hub), five customer-journey FAQ groups of five questions each (getting found; capturing inquiries; qualifying and booking; following up; feedback), a separate "Working With OKIKO HIGH" group of twelve questions covering pricing, setup time, onboarding, support, ownership, privacy, and cancellation, related-industries cards, and a closing CTA. Every group is a two-column layout. Content lives in `src/content/faq.ts`; the visible FAQs and the `FAQPage` JSON-LD read from the same objects. Answers are condensed from the service pages, the hubs, the home services page, and the FAQ research brief (2026-11-02); they describe how workflows can be designed and not a promise that every service or integration fits every project. Pricing, setup time, support commitments, ownership and exit terms are stated as not yet confirmed or published, and no figures, results, or partnerships are stated. Home services is stated as the only audience currently served. Schema is `Organization`, `WebPage`, `BreadcrumbList`, and `FAQPage` matching the 37 visible FAQs; no `Service` node, prices, ratings, or `LocalBusiness`. FAQ markup is not expected to produce a rich result. The research brief lists the six services as candidate offerings; this page follows the repository, where the owner approved all six service pages on 2026-10-11. |
 
 #### Website Design and Development
 

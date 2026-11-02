@@ -21,6 +21,7 @@ const routes = [
   "/industries/property-management-real-estate",
   "/case-studies",
   "/resources",
+  "/faq",
   "/contact",
   "/privacy-policy",
   "/terms-of-service",

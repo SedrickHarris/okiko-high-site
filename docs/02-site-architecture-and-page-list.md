@@ -22,6 +22,7 @@ Define the planned pages, their roles, and how they relate. This is a working bu
 ├── case-studies/
 │   └── {case-study}/
 ├── resources/
+├── faq/
 │   └── {article}/
 ├── contact/
 ├── privacy-policy/
@@ -40,6 +41,7 @@ There is no default city, state, country, or regional page hierarchy. Okiko High
 | Industries / Who We Help | Introduce the planned audience groups. | Clearly distinguish currently served audiences from future opportunities. |
 | Case Studies | Present approved client work and outcomes. | Launch when approved examples are available; do not invent or anonymize as if verified. |
 | Resources | Publish useful educational material supporting services and audiences. | Include articles only when they provide substantive value. |
+| FAQ | Answer common questions in customer-journey order (getting found, inquiries, qualifying and booking, follow-up, feedback) plus a "Working With OKIKO HIGH" group for pricing, setup, support, ownership, privacy, and cancellation. | Links each group to the service pages that hold the full answers. Describes how workflows can be designed, not a promise that every service or integration fits every project. |
 | Contact | Give visitors clear ways to inquire. | Primary contact action and booking link are TBD. |
 | Privacy Policy | Explain data collection and use. | Must reflect actual forms, analytics, and integrations. |
 | Terms of Service | Publish applicable terms. | Content requires owner/legal review before publication. |

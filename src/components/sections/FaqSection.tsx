@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import type { Faq } from "@/content/shared";
 import { PageSection } from "./PageSection";
 import { SourceLinks } from "../ui/SourceLinks";
@@ -7,16 +8,19 @@ import { SourceLinks } from "../ui/SourceLinks";
 export function FaqSection({
   id,
   heading,
+  intro,
   faqs,
 }: {
   id: string;
   heading: string;
+  // Optional lead-in under the heading, for pages that split FAQs into topic groups.
+  intro?: ReactNode;
   faqs: ReadonlyArray<Faq>;
 }) {
   const half = Math.ceil(faqs.length / 2);
   const columns = [faqs.slice(0, half), faqs.slice(half)];
   return (
-    <PageSection id={id} heading={heading}>
+    <PageSection id={id} heading={heading} intro={intro}>
       {/* Two independent columns so opening one item never shifts the other column. */}
       <div className="grid items-start gap-4 lg:grid-cols-2">
         {columns.map((column, i) => (
