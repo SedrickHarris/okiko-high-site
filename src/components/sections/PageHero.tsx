@@ -13,7 +13,7 @@ export function PageHero({
   layout?: string;
 }) {
   return (
-    <header className="rounded-xl border border-brand-blue/20 bg-linear-to-br from-surface-muted via-white to-white p-6 shadow-[0_1px_2px_rgb(23_26_34/0.06),0_14px_36px_-10px_rgb(20_104_255/0.28)] sm:p-10">
+    <header className="rounded-xl border border-brand-blue/20 bg-linear-to-br from-surface-muted via-white to-white p-6 shadow-[0_2px_4px_rgb(23_26_34/0.08),0_8px_16px_-4px_rgb(23_26_34/0.10),0_28px_56px_-12px_rgb(20_104_255/0.40)] sm:p-10">
       <div aria-hidden="true" className="mb-5 flex h-1.5 w-28 overflow-hidden rounded-full">
         <span className="flex-1 bg-brand-blue" />
         <span className="flex-1 bg-brand-green" />
