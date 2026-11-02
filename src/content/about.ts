@@ -54,7 +54,7 @@ export const mission =
 
 export const glance: ReadonlyArray<{ label: string; value: string }> = [
   { label: "Founded", value: "2026" },
-  { label: "Services", value: "Six marketing and automation services" },
+  { label: "Services", value: "A.I., marketing and automation services" },
   { label: "Coverage", value: "Clients worldwide" },
 ];
 
