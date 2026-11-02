@@ -82,7 +82,7 @@ const accents = ["border-t-brand-blue", "border-t-brand-green", "border-t-brand-
 const tones = ["default", "included", "optional"] as const;
 const rowTiles = [
   "bg-surface-muted text-brand-blue-strong",
-  "bg-brand-blue text-brand-ink",
+  "bg-brand-blue text-white",
   "bg-brand-green text-brand-ink",
 ] as const;
 
@@ -401,7 +401,7 @@ export default function Page() {
           }
         >
           <div className="flex flex-col items-center">
-            <div className="flex items-center gap-3 rounded-lg bg-brand-blue px-6 py-3.5 text-brand-ink">
+            <div className="flex items-center gap-3 rounded-lg bg-brand-blue px-6 py-3.5 text-white">
               <MessageIcon className="h-6 w-6" />
               <span className="font-heading text-lg font-bold">
                 Website chat widget

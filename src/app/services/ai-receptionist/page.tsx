@@ -198,8 +198,8 @@ export default function Page() {
                   }`}
                 >
                   <span
-                    className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-md text-brand-ink ${
-                      turn.speaker === "Assistant" ? "bg-brand-blue" : "bg-brand-yellow"
+                    className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-md ${
+                      turn.speaker === "Assistant" ? "bg-brand-blue text-white" : "bg-brand-yellow text-brand-ink"
                     }`}
                   >
                     <NamedIcon name={turn.speaker === "Assistant" ? "headset" : "call"} className="h-5 w-5" />
@@ -600,7 +600,7 @@ export default function Page() {
                     </span>
                   )}
                   <span className="flex items-center gap-2 rounded-md border border-neutral-300 bg-white px-3 py-2 text-sm font-medium">
-                    <span className="flex h-6 w-6 items-center justify-center rounded bg-brand-blue text-brand-ink">
+                    <span className="flex h-6 w-6 items-center justify-center rounded bg-brand-blue text-white">
                       <NamedIcon name={item.icon} className="h-4 w-4" />
                     </span>
                     {item.text}

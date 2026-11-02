@@ -103,7 +103,7 @@ function Cta() {
 function Callout({ icon, children }: { icon: "message" | "shield"; children: React.ReactNode }) {
   return (
     <div className="mt-6 flex max-w-3xl items-start gap-3.5 rounded-lg border border-brand-blue/30 bg-surface-muted p-4">
-      <span aria-hidden="true" className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-brand-blue text-brand-ink">
+      <span aria-hidden="true" className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-brand-blue text-white">
         <NamedIcon name={icon} className="h-6 w-6" />
       </span>
       <p className="text-neutral-800">{children}</p>
@@ -384,7 +384,7 @@ export default function Page() {
           }
         >
           <div className="flex flex-col items-center">
-            <div className="flex items-center gap-3 rounded-lg bg-brand-blue px-6 py-3.5 text-brand-ink">
+            <div className="flex items-center gap-3 rounded-lg bg-brand-blue px-6 py-3.5 text-white">
               <NamedIcon name="message" className="h-6 w-6" />
               <span className="font-heading text-lg font-bold">
                 A message goes out
@@ -507,7 +507,7 @@ export default function Page() {
                         item.tone === "included"
                           ? "bg-brand-green text-brand-ink"
                           : item.tone === "optional"
-                            ? "bg-brand-blue text-brand-ink"
+                            ? "bg-brand-blue text-white"
                             : "bg-surface-muted text-brand-blue-strong"
                       }`}
                     >

@@ -95,7 +95,7 @@ const structuredData = graph([
 const accents = ["border-t-brand-blue", "border-t-brand-green", "border-t-brand-yellow"] as const;
 
 // IconCardHeading tones that use the logo blue, green, and yellow as fills with
-// brand-ink glyphs (docs/05).
+// white glyphs on blue and brand-ink glyphs on lime and yellow (docs/05).
 const chipTones = ["optional", "included", "default"] as const;
 
 const linkClass =
@@ -459,7 +459,7 @@ export default function Page() {
           <div className="mt-6 flex max-w-3xl items-start gap-3 rounded-lg border border-brand-blue/30 bg-white p-5">
             <span
               aria-hidden="true"
-              className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-brand-blue text-brand-ink"
+              className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-brand-blue text-white"
             >
               <NamedIcon name="tag" className="h-5 w-5" />
             </span>

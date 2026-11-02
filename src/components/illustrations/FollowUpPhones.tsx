@@ -34,7 +34,7 @@ function PhoneFrame({ label, children }: { label: string; children: React.ReactN
 function PhoneHeader({ avatar, title, sub }: { avatar: string; title: string; sub: string }) {
   return (
     <div className="flex items-center gap-3 border-b border-neutral-200 px-4 py-2.5">
-      <span aria-hidden="true" className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-brand-blue text-xs font-bold text-brand-ink">
+      <span aria-hidden="true" className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-brand-blue text-xs font-bold text-white">
         {avatar}
       </span>
       <div className="min-w-0">
@@ -58,7 +58,7 @@ export function FollowUpPhones({ id }: { id?: string }) {
                 {turn.text}
               </p>
             ) : (
-              <p key={i} className="max-w-[78%] self-end rounded-2xl rounded-br-sm bg-brand-blue px-3 py-2 text-[13px] leading-snug text-brand-ink">
+              <p key={i} className="max-w-[78%] self-end rounded-2xl rounded-br-sm bg-brand-blue px-3 py-2 text-[13px] leading-snug text-white">
                 <span className="sr-only">Customer: </span>
                 {turn.text}
               </p>
@@ -114,7 +114,7 @@ export function FollowUpPhones({ id }: { id?: string }) {
                       step.tone === "included"
                         ? "bg-brand-green text-brand-ink"
                         : step.tone === "optional"
-                          ? "bg-brand-blue text-brand-ink"
+                          ? "bg-brand-blue text-white"
                           : "bg-surface-muted text-brand-blue-strong"
                     }`}
                   >

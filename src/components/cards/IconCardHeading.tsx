@@ -1,11 +1,11 @@
 import { NamedIcon, type IconName } from "../ui/icons";
 
 // Status tones carry meaning through icon shape and heading text as well,
-// never through color alone. Fills use brand-ink for contrast (docs/05).
+// never through color alone. Blue fills use white text, lime fills use brand-ink (docs/05).
 const tones = {
   default: "bg-surface-muted text-brand-blue-strong",
   included: "bg-brand-green text-brand-ink",
-  optional: "bg-brand-blue text-brand-ink",
+  optional: "bg-brand-blue text-white",
   muted: "bg-neutral-200 text-neutral-700",
   negative: "bg-red-600 text-white",
 } as const;

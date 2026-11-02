@@ -73,9 +73,9 @@ const structuredData = graph([
 
 const accents = ["border-t-brand-blue", "border-t-brand-green", "border-t-brand-yellow"] as const;
 
-// Logo colors as icon-chip fills with brand-ink glyphs (docs/05 contrast rules).
+// Logo colors as icon-chip fills with white glyphs on blue and brand-ink glyphs on lime and yellow (docs/05 contrast rules).
 // Meaning comes from the icon and the row text, never from color alone.
-const chipTones = ["bg-brand-blue", "bg-brand-green", "bg-brand-yellow"] as const;
+const chipTones = ["bg-brand-blue text-white", "bg-brand-green text-brand-ink", "bg-brand-yellow text-brand-ink"] as const;
 
 const linkClass =
   "font-semibold text-brand-blue-strong underline underline-offset-2 hover:text-brand-ink";
@@ -89,7 +89,7 @@ function SituationChip({ icon, index }: { icon: IconName; index: number }) {
   return (
     <span
       aria-hidden="true"
-      className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-md text-brand-ink ${chipTones[index % chipTones.length]}`}
+      className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-md ${chipTones[index % chipTones.length]}`}
     >
       <NamedIcon name={icon} className="h-6 w-6" />
     </span>
@@ -156,7 +156,7 @@ export default function Page() {
             <div className="hero-in hero-delay-2 mt-6 flex max-w-2xl items-start gap-3.5 rounded-lg border border-brand-blue/30 bg-surface-muted p-4">
               <span
                 aria-hidden="true"
-                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-brand-blue text-brand-ink"
+                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-brand-blue text-white"
               >
                 <NamedIcon name="message" className="h-6 w-6" />
               </span>

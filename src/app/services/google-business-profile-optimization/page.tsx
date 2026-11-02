@@ -109,7 +109,7 @@ function Cta({ secondary = true }: { secondary?: boolean }) {
 function Callout({ icon, children }: { icon: IconName; children: React.ReactNode }) {
   return (
     <div className="mt-6 flex max-w-3xl items-start gap-3.5 rounded-lg border border-brand-blue/30 bg-surface-muted p-4">
-      <span aria-hidden="true" className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-brand-blue text-brand-ink">
+      <span aria-hidden="true" className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-brand-blue text-white">
         <NamedIcon name={icon} className="h-6 w-6" />
       </span>
       <p className="text-neutral-800">{children}</p>

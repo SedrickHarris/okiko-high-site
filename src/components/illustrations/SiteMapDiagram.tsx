@@ -15,7 +15,7 @@ export function SiteMapDiagram() {
       <path d="M280 52v22M70 74h420M70 74v22M210 74v22M350 74v22M490 74v22M210 130v34" fill="none" strokeWidth="2" className={line} />
       {/* home */}
       <rect x="220" y="14" width="120" height="38" rx="8" className="fill-brand-blue stroke-neutral-800" strokeWidth="2" />
-      <text x="280" y="38" textAnchor="middle" className="fill-neutral-900 text-[13px] font-bold">Home</text>
+      <text x="280" y="38" textAnchor="middle" className="fill-white text-[13px] font-bold">Home</text>
       {/* second level */}
       {[
         { x: 20, t: "About" },

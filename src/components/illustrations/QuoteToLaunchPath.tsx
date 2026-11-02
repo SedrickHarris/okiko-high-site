@@ -4,10 +4,10 @@
 const heading = { fontFamily: "var(--font-heading), system-ui, sans-serif" };
 
 const stops = [
-  { n: 1, x: 44, y: 226, label: "Scope", fill: "fill-brand-blue" },
-  { n: 2, x: 128, y: 168, label: "Plan", fill: "fill-brand-green" },
-  { n: 3, x: 212, y: 214, label: "Design", fill: "fill-brand-yellow" },
-  { n: 4, x: 290, y: 150, label: "Build", fill: "fill-brand-blue" },
+  { n: 1, x: 44, y: 226, label: "Scope", fill: "fill-brand-blue", num: "fill-white" },
+  { n: 2, x: 128, y: 168, label: "Plan", fill: "fill-brand-green", num: "fill-brand-ink" },
+  { n: 3, x: 212, y: 214, label: "Design", fill: "fill-brand-yellow", num: "fill-brand-ink" },
+  { n: 4, x: 290, y: 150, label: "Build", fill: "fill-brand-blue", num: "fill-white" },
 ] as const;
 
 export function QuoteToLaunchPath({ className }: { className?: string }) {
@@ -39,7 +39,7 @@ export function QuoteToLaunchPath({ className }: { className?: string }) {
             textAnchor="middle"
             fontSize="15"
             fontWeight="800"
-            className="fill-brand-ink"
+            className={s.num}
             style={heading}
           >
             {s.n}

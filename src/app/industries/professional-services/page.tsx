@@ -475,7 +475,7 @@ export default function Page() {
           <div className="mt-6 flex max-w-3xl items-start gap-3 rounded-lg border border-brand-blue/30 bg-surface-muted p-5">
             <span
               aria-hidden="true"
-              className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-brand-blue text-brand-ink"
+              className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-brand-blue text-white"
             >
               <NamedIcon name="call" className="h-5 w-5" />
             </span>

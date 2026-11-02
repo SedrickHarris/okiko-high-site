@@ -13,7 +13,7 @@ export function PhoneWireframe() {
           <div className="h-4 w-3/4 rounded bg-neutral-800" />
         </div>
         <div className="relative">
-          <div className="flex h-9 items-center justify-center rounded-md bg-brand-blue text-xs font-semibold text-brand-ink">
+          <div className="flex h-9 items-center justify-center rounded-md bg-brand-blue text-xs font-semibold text-white">
             Call now
           </div>
           <Marker n={1} />

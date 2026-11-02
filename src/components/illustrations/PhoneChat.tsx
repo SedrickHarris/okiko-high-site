@@ -28,7 +28,7 @@ export function PhoneChat({
         <div className="flex items-center gap-3 border-b border-neutral-200 bg-white px-4 py-2.5">
           <span
             aria-hidden="true"
-            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-brand-blue text-xs font-bold text-brand-ink"
+            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-brand-blue text-xs font-bold text-white"
           >
             AI
           </span>
@@ -53,7 +53,7 @@ export function PhoneChat({
             ) : (
               <div
                 key={index}
-                className="max-w-[78%] self-end rounded-2xl rounded-br-sm bg-brand-blue px-3 py-2 text-[13px] leading-snug text-brand-ink"
+                className="max-w-[78%] self-end rounded-2xl rounded-br-sm bg-brand-blue px-3 py-2 text-[13px] leading-snug text-white"
               >
                 <span className="sr-only">Visitor: </span>
                 {turn.text}
@@ -67,7 +67,7 @@ export function PhoneChat({
           <span className="flex-1 rounded-full border border-neutral-300 px-3 py-1.5 text-xs text-neutral-500">
             Type a message
           </span>
-          <span className="flex h-7 w-7 items-center justify-center rounded-full bg-brand-blue text-brand-ink">
+          <span className="flex h-7 w-7 items-center justify-center rounded-full bg-brand-blue text-white">
             <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M5 12h14M13 6l6 6-6 6" />
             </svg>

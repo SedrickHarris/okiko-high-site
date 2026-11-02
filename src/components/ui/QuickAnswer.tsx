@@ -4,7 +4,7 @@ import { SourceLinks } from "./SourceLinks";
 
 // "Quick fact" callout: a labeled card with a bold direct answer first, the
 // supporting detail next, and the source last. The logo blue is a fill and a
-// left accent with brand-ink glyphs (docs/05); the label text and icon carry the
+// left accent with white glyphs (docs/05); the label text and icon carry the
 // meaning, never color alone.
 //
 // Pass `source` for one citation or `sources` when a fact rests on more than one.
@@ -30,7 +30,7 @@ export function QuickAnswer({
       <p className="flex items-center gap-2.5 font-heading text-xs font-bold uppercase tracking-wider text-neutral-800">
         <span
           aria-hidden="true"
-          className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-brand-blue text-brand-ink"
+          className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-brand-blue text-white"
         >
           <NamedIcon name={icon} className="h-5 w-5" />
         </span>

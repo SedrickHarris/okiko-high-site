@@ -39,11 +39,11 @@ export function CallFlowDiagram() {
 
       {/* 3 Book or route */}
       <rect x="45" y="184" width="130" height="46" rx="10" className="fill-brand-blue" />
-      <text x="110" y="213" textAnchor="middle" fontSize="14" fontWeight="700" className="fill-brand-ink">
+      <text x="110" y="213" textAnchor="middle" fontSize="14" fontWeight="700" className="fill-white">
         3a  Book
       </text>
       <rect x="185" y="184" width="130" height="46" rx="10" className="fill-brand-blue" />
-      <text x="250" y="213" textAnchor="middle" fontSize="14" fontWeight="700" className="fill-brand-ink">
+      <text x="250" y="213" textAnchor="middle" fontSize="14" fontWeight="700" className="fill-white">
         3b  Route
       </text>
 

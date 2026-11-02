@@ -604,7 +604,7 @@ export default function Page() {
               <span className="text-lg">&divide;</span>
               <span className="rounded-full border border-neutral-300 bg-surface-muted px-4 py-2">Delivered requests</span>
               <span className="text-lg">=</span>
-              <span className="inline-flex items-center gap-2 rounded-full bg-brand-blue px-4 py-2 text-brand-ink">
+              <span className="inline-flex items-center gap-2 rounded-full bg-brand-blue px-4 py-2 text-white">
                 <NamedIcon name="analytics" className="h-5 w-5" />
                 Published-review yield
               </span>
