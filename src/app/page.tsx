@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import type { CSSProperties } from "react";
 import { IconCardHeading } from "@/components/cards/IconCardHeading";
+import { StepBadge } from "@/components/ui/StepBadge";
+import { ServiceCard } from "@/components/cards/ServiceCard";
 import { QuestionAnswerIllustration } from "@/components/illustrations/QuestionAnswerIllustration";
 import { FaqSection } from "@/components/sections/FaqSection";
 import { PageSection } from "@/components/sections/PageSection";
@@ -150,19 +152,7 @@ export default function Page() {
         >
           <ul className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {hubServices.map((service, index) => (
-              <li
-                key={service.slug}
-                style={{ "--reveal-i": index % 3 } as CSSProperties}
-                className={`card-lift reveal-on-scroll flex flex-col rounded-lg border border-neutral-200 border-t-4 bg-white p-6 ${accents[index % accents.length]}`}
-              >
-                <IconCardHeading icon={service.icon} title={service.title} />
-                <p className="mt-4 text-neutral-700">{service.description}</p>
-                <div className="mt-auto pt-6">
-                  <ButtonLink href={service.path} variant="secondary">
-                    {service.buttonLabel}
-                  </ButtonLink>
-                </div>
-              </li>
+              <ServiceCard key={service.slug} service={service} index={index} />
             ))}
           </ul>
           <p className="mt-8 max-w-3xl text-neutral-700">
@@ -214,11 +204,9 @@ export default function Page() {
             {expectSteps.map((step, index) => (
               <li
                 key={step.title}
-                className="rounded-lg border border-neutral-200 border-t-4 border-t-brand-blue bg-white p-5"
+                className={`rounded-lg border border-neutral-200 border-t-4 bg-white p-5 ${accents[index % accents.length]}`}
               >
-                <p className="mb-3 inline-block rounded-full bg-brand-yellow px-2.5 py-0.5 font-heading text-xs font-bold text-brand-ink">
-                  Step {index + 1}
-                </p>
+                <StepBadge index={index} />
                 <IconCardHeading icon={step.icon} title={step.title} />
                 <p className="mt-2 text-neutral-800">{step.body}</p>
               </li>

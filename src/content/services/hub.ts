@@ -17,6 +17,18 @@ export const hubPage = {
   secondaryCta: { label: "Compare the services", href: "#services" },
 } as const;
 
+// The five customer-journey stages used on /faq and on the service cards.
+// Short names for pills; the full group headings live in src/content/faq.ts.
+export type JourneyStage = 1 | 2 | 3 | 4 | 5;
+
+export const journeyStageNames: Record<JourneyStage, string> = {
+  1: "Getting found",
+  2: "Inquiries",
+  3: "Booking",
+  4: "Follow-up",
+  5: "Feedback",
+};
+
 export type HubService = {
   slug: string;
   path: string;
@@ -29,6 +41,9 @@ export type HubService = {
   // indexable (no `robots` noindex) and listed in the sitemap. The owner approved
   // indexing all six service pages on 2026-10-11.
   published: boolean;
+  // Journey stages this service mainly supports. A guide to where it fits, not a
+  // promise of results or a statement that it covers every step of a stage.
+  journey: ReadonlyArray<JourneyStage>;
 };
 
 export const hubServices: ReadonlyArray<HubService> = [
@@ -41,6 +56,7 @@ export const hubServices: ReadonlyArray<HubService> = [
       "Websites for local and service-based businesses, organized around calls, quote requests, and bookings. The scope is defined first, so any build recommendation fits your business.",
     buttonLabel: "Explore Website Design",
     published: true,
+    journey: [1],
   },
   {
     slug: "google-business-profile-optimization",
@@ -51,6 +67,7 @@ export const hubServices: ReadonlyArray<HubService> = [
       "Keeps the information customers see on Google Search and Maps accurate, covers routine updates, and shows which customer actions the profile produces, using authorized access and approved content.",
     buttonLabel: "Explore Google Business Profile Management",
     published: true,
+    journey: [1],
   },
   {
     slug: "reputation-management",
@@ -61,6 +78,7 @@ export const hubServices: ReadonlyArray<HubService> = [
       "Honest review requests, monitoring, and consistent replies, built around your completed jobs, your platforms, and a named person who owns the difficult replies. No manipulating what customers say.",
     buttonLabel: "Explore Review Management",
     published: true,
+    journey: [5],
   },
   {
     slug: "ai-chatbots",
@@ -71,6 +89,7 @@ export const hubServices: ReadonlyArray<HubService> = [
       "A website chatbot that answers routine questions, collects inquiry details, and helps visitors request a quote, book, or reach your team, built around your approved information and a real route to a person.",
     buttonLabel: "Explore AI Chatbots",
     published: true,
+    journey: [2, 3],
   },
   {
     slug: "ai-receptionist",
@@ -81,6 +100,7 @@ export const hubServices: ReadonlyArray<HubService> = [
       "Answers inbound calls, collects the details your team needs, and completes approved tasks such as booking an appointment or routing a caller to a person. Fits overflow, after-hours, and routine calls best.",
     buttonLabel: "Explore the AI Receptionist",
     published: true,
+    journey: [2, 3],
   },
   {
     slug: "sms-email-automation",
@@ -91,6 +111,7 @@ export const hubServices: ReadonlyArray<HubService> = [
       "Sends approved messages when a customer takes an action or reaches a stage you define, so follow-up does not depend on remembering every step, and real conversations stay connected to a person.",
     buttonLabel: "Explore Text and Email Automation",
     published: true,
+    journey: [4],
   },
 ];
 

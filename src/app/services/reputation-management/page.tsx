@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { IconCardHeading } from "@/components/cards/IconCardHeading";
+import { FaqIntro } from "@/components/sections/FaqIntro";
+import { StepBadge } from "@/components/ui/StepBadge";
 import { ReviewGapMapIllustration } from "@/components/illustrations/ReviewGapMapIllustration";
 import { ReviewWorkflowIllustration } from "@/components/illustrations/ReviewWorkflowIllustration";
 import { FaqSection } from "@/components/sections/FaqSection";
@@ -238,7 +240,7 @@ export default function Page() {
           <ol className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {workflowSteps.map((step, index) => (
               <li key={step.title} className="rounded-lg border border-neutral-200 bg-white p-5">
-                <p className="text-sm font-semibold text-brand-blue-strong">Step {index + 1}</p>
+                <StepBadge index={index} className="mb-2" />
                 <h3 className="mt-1 text-lg font-semibold">{step.title}</h3>
                 <p className="mt-2 text-neutral-800">{step.body}</p>
                 <p className="mt-3 text-sm text-neutral-600">
@@ -792,7 +794,7 @@ export default function Page() {
         </PageSection>
 
         {/* 12. FAQs and final CTA */}
-        <FaqSection id="faq" heading="Review Management Questions, Answered" faqs={faqs} />
+        <FaqSection id="faq" heading="Review Management Questions, Answered" faqs={faqs} intro={<FaqIntro related={[{ href: "/services/google-business-profile-optimization", label: "Google Business Profile management" }, { href: "/services/sms-email-automation", label: "text and email automation" }]} />} />
 
         <section
           aria-labelledby="final-cta"
