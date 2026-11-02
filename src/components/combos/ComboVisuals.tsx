@@ -131,7 +131,7 @@ export function PhoneWireframeFigure({ data }: { data: PhoneWireframeData }) {
               <p className="text-xs text-neutral-700">{data.tagline}</p>
             </div>
             <div className="space-y-3 p-4">
-              <div className="flex min-h-12 items-center justify-center rounded-md bg-brand-blue px-2 text-center font-heading font-bold text-brand-ink">
+              <div className="flex min-h-12 items-center justify-center rounded-md bg-brand-blue px-2 text-center font-heading font-bold text-white">
                 {data.callLabel}
               </div>
               <p className="text-center text-xs leading-snug text-neutral-700">{data.hoursLine}</p>
@@ -294,7 +294,7 @@ export function NumberedList({ items }: { items: ReadonlyArray<string> }) {
         >
           <span
             aria-hidden="true"
-            className="flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-full bg-brand-blue font-heading font-extrabold text-brand-ink"
+            className="flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-full bg-brand-blue font-heading font-extrabold text-white"
           >
             {index + 1}
           </span>
@@ -322,7 +322,7 @@ export function AccordionList({ items }: { items: ReadonlyArray<AccordionItem> }
             </span>
             <span
               aria-hidden="true"
-              className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-blue text-xl font-bold leading-none text-brand-ink transition-transform group-open:rotate-45"
+              className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-blue text-xl font-bold leading-none text-white transition-transform group-open:rotate-45"
             >
               +
             </span>
@@ -377,7 +377,7 @@ export function CallFlowDiagram({ data }: { data: CallFlowData }) {
                 <li key={step} className="flex items-start gap-3">
                   <span
                     aria-hidden="true"
-                    className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-brand-blue text-sm font-extrabold text-brand-ink"
+                    className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-brand-blue text-sm font-extrabold text-white"
                   >
                     {index + 1}
                   </span>
@@ -398,7 +398,7 @@ export function CallFlowDiagram({ data }: { data: CallFlowData }) {
 }
 
 const ruleTones = {
-  blue: { top: "border-t-brand-blue", chip: "bg-brand-blue text-brand-ink" },
+  blue: { top: "border-t-brand-blue", chip: "bg-brand-blue text-white" },
   green: { top: "border-t-brand-green", chip: "bg-brand-green text-brand-ink" },
   yellow: { top: "border-t-brand-yellow", chip: "bg-brand-yellow text-brand-ink" },
   red: { top: "border-t-red-700", chip: "bg-red-700 text-white" },

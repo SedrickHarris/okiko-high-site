@@ -71,7 +71,7 @@ export function HomeServicesHeroIllustration() {
       <g>
         <rect x="130" y="176" width="140" height="56" rx="10" fill="#fff" stroke={ink} strokeWidth="2" />
         <rect x="130" y="176" width="140" height="22" rx="10" fill={blue} stroke={ink} strokeWidth="2" />
-        <text x="200" y="192" textAnchor="middle" fontSize="14" fontWeight="700" fill={ink}>
+        <text x="200" y="192" textAnchor="middle" fontSize="14" fontWeight="700" fill="#fff">
           Inquiry
         </text>
         <rect x="146" y="206" width="70" height="6" rx="3" fill="#d4d4d4" />

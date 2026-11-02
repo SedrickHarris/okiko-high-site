@@ -112,7 +112,7 @@ export default function Page() {
             <div className="hero-in hero-delay-2 mt-6 flex max-w-2xl items-start gap-3.5 rounded-lg border border-brand-blue/30 bg-surface-muted p-4">
               <span
                 aria-hidden="true"
-                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-brand-blue text-brand-ink"
+                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-brand-blue text-white"
               >
                 <NamedIcon name="message" className="h-6 w-6" />
               </span>

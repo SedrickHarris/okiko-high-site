@@ -320,8 +320,8 @@ export function ComboPage({ content }: { content: ComboContent }) {
                   <li key={step} className="flex items-center gap-3 font-semibold">
                     <span
                       aria-hidden="true"
-                      className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full font-heading font-extrabold text-brand-ink ${
-                        ["bg-brand-blue", "bg-brand-green", "bg-brand-yellow"][index % 3]
+                      className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full font-heading font-extrabold ${
+                        ["bg-brand-blue text-white", "bg-brand-green text-brand-ink", "bg-brand-yellow text-brand-ink"][index % 3]
                       }`}
                     >
                       {index + 1}

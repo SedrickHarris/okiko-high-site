@@ -93,7 +93,7 @@ export function HomeServicesHandoffIllustration() {
       <g>
         <rect x="346" y="106" width="98" height="88" rx="10" fill="#fff" stroke={ink} strokeWidth="2" />
         <rect x="346" y="106" width="98" height="24" rx="10" fill={blue} stroke={ink} strokeWidth="2" />
-        <text x="395" y="123" textAnchor="middle" fontSize="13.5" fontWeight="700" fill={ink}>
+        <text x="395" y="123" textAnchor="middle" fontSize="13.5" fontWeight="700" fill="#fff">
           Callback
         </text>
         <circle cx="366" cy="150" r="7" fill={green} stroke={ink} strokeWidth="1.5" />
