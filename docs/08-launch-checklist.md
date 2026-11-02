@@ -35,7 +35,7 @@ Use this checklist to catch practical issues before and after launch. It is a wo
 
 ## Structured data
 
-- [ ] Confirm entity IDs use the selected canonical domain.
+- [x] Confirm entity IDs use the selected canonical domain (checked in the local build output; recheck on the live site).
 - [ ] Validate JSON-LD syntax on representative page types.
 - [ ] Confirm structured data matches visible content and verified business facts.
 - [ ] Confirm organization details, logo, contact details, and social links are accurate.
@@ -64,6 +64,8 @@ Use this checklist to catch practical issues before and after launch. It is a wo
 - [ ] Confirm the production domain does not send the `*.pages.dev` noindex header.
 - [ ] Verify sitemap and robots behavior.
 - [ ] Confirm preview or unfinished pages are not accidentally indexable.
+- [ ] Confirm `*.pages.dev` hosts return `X-Robots-Tag: noindex` (from `public/_headers`).
+- [ ] Confirm the production domain `okikohigh.com` does NOT receive the `X-Robots-Tag: noindex` header (check the live response headers).
 - [ ] Check redirects for any changed or retired URLs.
 - [ ] Verify the live deployment after publishing.
 

@@ -9,6 +9,7 @@ import { RelatedIndustries } from "@/components/sections/RelatedIndustries";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { ButtonLink } from "@/components/ui/ButtonLink";
+import { ContactActions } from "@/components/ui/ContactActions";
 import { NamedIcon, type IconName } from "@/components/ui/icons";
 import {
   combos,
@@ -20,7 +21,6 @@ import {
   startingPoints,
 } from "@/content/services/hub";
 import { customerJourney } from "@/content/services/website-design";
-import { siteConfig } from "@/data/site";
 import {
   absoluteUrl,
   breadcrumbListNode,
@@ -79,11 +79,6 @@ const chipTones = ["bg-brand-blue text-white", "bg-brand-green text-brand-ink", 
 
 const linkClass =
   "font-semibold text-brand-blue-strong underline underline-offset-2 hover:text-brand-ink";
-
-const contactButton =
-  "font-heading inline-flex min-h-11 items-center justify-center gap-2 rounded-md px-5 py-2.5 text-base font-semibold text-brand-ink hover:brightness-95 hover:shadow-md motion-safe:transition-[transform,box-shadow,filter] motion-safe:duration-150 motion-safe:hover:-translate-y-px motion-safe:active:translate-y-0";
-
-const telHref = `tel:+1${siteConfig.phone.replace(/\D/g, "")}`;
 
 function SituationChip({ icon, index }: { icon: IconName; index: number }) {
   return (
@@ -440,16 +435,7 @@ export default function Page() {
                 <ButtonLink href={page.primaryCta.href}>{page.primaryCta.label}</ButtonLink>
               </div>
               <p className="mt-6 text-neutral-700">Prefer to reach out directly?</p>
-              <div className="mt-3 flex flex-wrap gap-3">
-                <a href={`mailto:${siteConfig.email}`} className={`${contactButton} bg-brand-yellow`}>
-                  <NamedIcon name="mail" className="h-5 w-5" />
-                  {siteConfig.email}
-                </a>
-                <a href={telHref} className={`${contactButton} bg-brand-green`}>
-                  <NamedIcon name="phone" className="h-5 w-5" />
-                  {siteConfig.phone}
-                </a>
-              </div>
+              <ContactActions />
             </div>
             <figure className="flex flex-col items-center md:items-end">
               <QuestionAnswerIllustration />

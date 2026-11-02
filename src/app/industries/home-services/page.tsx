@@ -12,6 +12,7 @@ import { RelatedIndustries } from "@/components/sections/RelatedIndustries";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { ButtonLink } from "@/components/ui/ButtonLink";
+import { ContactActions } from "@/components/ui/ContactActions";
 import { NamedIcon } from "@/components/ui/icons";
 import { QuickAnswer } from "@/components/ui/QuickAnswer";
 import {
@@ -35,7 +36,6 @@ import {
   tradeGroups,
   workflowCards,
 } from "@/content/industries/home-services";
-import { siteConfig } from "@/data/site";
 import {
   absoluteUrl,
   breadcrumbListNode,
@@ -81,11 +81,6 @@ const accents = ["border-t-brand-blue", "border-t-brand-green", "border-t-brand-
 
 const linkClass =
   "font-semibold text-brand-blue-strong underline underline-offset-2 hover:text-brand-ink";
-
-const contactButton =
-  "font-heading inline-flex min-h-11 items-center justify-center gap-2 rounded-md px-5 py-2.5 text-base font-semibold text-brand-ink hover:brightness-95 hover:shadow-md motion-safe:transition-[transform,box-shadow,filter] motion-safe:duration-150 motion-safe:hover:-translate-y-px motion-safe:active:translate-y-0";
-
-const telHref = `tel:+1${siteConfig.phone.replace(/\D/g, "")}`;
 
 const exampleLabel =
   "inline-block rounded-full bg-brand-yellow px-2.5 py-0.5 font-heading text-xs font-bold text-brand-ink";
@@ -566,16 +561,7 @@ export default function Page() {
                 <ButtonLink href={page.primaryCta.href}>{page.primaryCta.label}</ButtonLink>
               </div>
               <p className="mt-6 text-neutral-700">Prefer to reach out directly?</p>
-              <div className="mt-3 flex flex-wrap gap-3">
-                <a href={`mailto:${siteConfig.email}`} className={`${contactButton} bg-brand-yellow`}>
-                  <NamedIcon name="mail" className="h-5 w-5" />
-                  {siteConfig.email}
-                </a>
-                <a href={telHref} className={`${contactButton} bg-brand-green`}>
-                  <NamedIcon name="phone" className="h-5 w-5" />
-                  {siteConfig.phone}
-                </a>
-              </div>
+              <ContactActions />
             </div>
             <figure className="mx-auto w-full max-w-sm md:mx-0 md:max-w-none">
               <HomeServicesHandoffIllustration />

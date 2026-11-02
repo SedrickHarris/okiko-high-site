@@ -8,6 +8,7 @@ import { PageSection } from "@/components/sections/PageSection";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { ButtonLink } from "@/components/ui/ButtonLink";
+import { ContactActions } from "@/components/ui/ContactActions";
 import { NamedIcon, type IconName } from "@/components/ui/icons";
 import { SourceLinks } from "@/components/ui/SourceLinks";
 import {
@@ -21,7 +22,6 @@ import {
   faqs,
   gbpPage as page,
   measureLevels,
-  proofSlots,
   rankingFactors,
   reportsAccountFor,
   scopeColumns,
@@ -32,7 +32,6 @@ import {
   suspensionSteps,
   tellUs,
 } from "@/content/services/google-business-profile";
-import { siteConfig } from "@/data/site";
 import {
   absoluteUrl,
   breadcrumbListNode,
@@ -83,15 +82,7 @@ const structuredData = graph([
 const accents = ["border-t-brand-blue", "border-t-brand-green", "border-t-brand-yellow"] as const;
 const tones = ["default", "included", "optional"] as const;
 
-const contactButton =
-  "font-heading inline-flex min-h-11 items-center justify-center gap-2 rounded-md px-5 py-2.5 text-base font-semibold text-brand-ink hover:brightness-95 hover:shadow-md motion-safe:transition-[transform,box-shadow,filter] motion-safe:duration-150 motion-safe:hover:-translate-y-px motion-safe:active:translate-y-0";
-
-const telHref = `tel:+1${siteConfig.phone.replace(/\D/g, "")}`;
-
 const linkClass = "text-brand-blue-strong underline underline-offset-2";
-
-const tbdBox =
-  "mt-6 rounded-lg border-2 border-dashed border-neutral-600 bg-white p-4 text-sm font-medium text-neutral-800";
 
 function Cta({ secondary = true }: { secondary?: boolean }) {
   return (
@@ -564,42 +555,7 @@ export default function Page() {
             Verification and appeal decisions are made by Google. Approval and timing
             cannot be guaranteed.
           </Callout>
-          <p className={tbdBox}>
-            [OWNER TO CONFIRM] Whether suspension and verification assistance is
-            offered, whether it is part of management or separately scoped, and who
-            delivers it. Until confirmed, this section stays educational and makes
-            no recovery claim.
-          </p>
           <SourceLinks sources={[sources.suspended, sources.video]} />
-        </PageSection>
-
-        {/* Proof */}
-        <PageSection
-          id="proof"
-          heading="See the Work Behind the Management"
-          muted
-          intro={
-            <p>
-              This section will show the work itself: a redacted audit or documented
-              information correction, the approval and monitoring workflow, and any
-              result with its baseline, measurement period, and limitations. Client
-              names, quotes, and outcomes appear only with the client&apos;s approval.
-            </p>
-          }
-        >
-          <div className="grid gap-6 md:grid-cols-3">
-            {proofSlots.map((slot) => (
-              <div key={slot.title} className="rounded-lg border-2 border-dashed border-neutral-600 bg-white p-5">
-                <p className="text-xs font-semibold uppercase tracking-wider text-neutral-600">[PROOF PENDING]</p>
-                <h3 className="mt-2 text-lg font-semibold">{slot.title}</h3>
-                <p className="mt-2 text-sm text-neutral-800">{slot.body}</p>
-              </div>
-            ))}
-          </div>
-          <p className="mt-6 text-sm text-neutral-600">
-            No testimonials, client logos, or outcome statistics are shown until
-            they are approved and documented.
-          </p>
         </PageSection>
 
         {/* Discuss */}
@@ -627,16 +583,8 @@ export default function Page() {
                 Ownership and access should stay clear. Google&apos;s API terms require
                 agencies to support disassociation when a client relationship ends.
               </p>
-              <p className={tbdBox}>
-                [OWNER TO CONFIRM] Client-ownership and exit policy, and the agency
-                access level.
-              </p>
             </div>
           </div>
-          <p className={tbdBox}>
-            [PRICING PENDING] Pricing, packages, and contract terms are published
-            only after owner confirmation.
-          </p>
         </PageSection>
 
         <FaqSection id="faq" heading="Questions About Google Business Profile Management" faqs={faqs} />
@@ -662,16 +610,7 @@ export default function Page() {
                 <ButtonLink href={page.primaryCta.href}>{page.primaryCta.label}</ButtonLink>
               </div>
               <p className="mt-6 text-neutral-700">Prefer to reach out directly?</p>
-              <div className="mt-3 flex flex-wrap gap-3">
-                <a href={`mailto:${siteConfig.email}`} className={`${contactButton} bg-brand-yellow`}>
-                  <NamedIcon name="mail" className="h-5 w-5" />
-                  {siteConfig.email}
-                </a>
-                <a href={telHref} className={`${contactButton} bg-brand-green`}>
-                  <NamedIcon name="phone" className="h-5 w-5" />
-                  {siteConfig.phone}
-                </a>
-              </div>
+              <ContactActions />
             </div>
             <figure className="flex flex-col items-center md:items-end">
               <ProfileCardIllustration />

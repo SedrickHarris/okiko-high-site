@@ -8,6 +8,7 @@ import { PageSection } from "@/components/sections/PageSection";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { ButtonLink } from "@/components/ui/ButtonLink";
+import { ContactActions } from "@/components/ui/ContactActions";
 import { NamedIcon } from "@/components/ui/icons";
 import { QuickAnswer } from "@/components/ui/QuickAnswer";
 import { SourceLinks } from "@/components/ui/SourceLinks";
@@ -31,7 +32,6 @@ import {
   trackList,
   workflowGroups,
 } from "@/content/services/sms-email-automation";
-import { siteConfig } from "@/data/site";
 import {
   absoluteUrl,
   breadcrumbListNode,
@@ -79,15 +79,7 @@ const structuredData = graph([
 
 const accents = ["border-t-brand-blue", "border-t-brand-green", "border-t-brand-yellow"] as const;
 
-const contactButton =
-  "font-heading inline-flex min-h-11 items-center justify-center gap-2 rounded-md px-5 py-2.5 text-base font-semibold text-brand-ink hover:brightness-95 hover:shadow-md motion-safe:transition-[transform,box-shadow,filter] motion-safe:duration-150 motion-safe:hover:-translate-y-px motion-safe:active:translate-y-0";
-
-const telHref = `tel:+1${siteConfig.phone.replace(/\D/g, "")}`;
-
 const linkClass = "text-brand-blue-strong underline underline-offset-2";
-
-const tbdBox =
-  "mt-6 rounded-lg border-2 border-dashed border-neutral-600 bg-white p-4 text-sm font-medium text-neutral-800";
 
 function Cta() {
   return (
@@ -360,10 +352,6 @@ export default function Page() {
             </Link>
             .
           </p>
-          <p className={tbdBox}>
-            [APPROVED CONFIGURATION SCREENSHOTS AND TEST RECORDS - TBD. Add real,
-            redacted examples once approved. No fabricated screenshots.]
-          </p>
           <SourceLinks sources={[sources.missedCall, sources.mailchimpJourneys]} />
           <p className="mt-1 text-sm text-neutral-600">
             These show what platforms can do, not what OKIKO HIGH has delivered. Our
@@ -437,16 +425,9 @@ export default function Page() {
               </p>
             </div>
           </div>
-          <p className={tbdBox}>
-            [REPLY COVERAGE AND ESCALATION PROCESS - TBD. Owner to confirm whether
-            OKIKO HIGH or the client&apos;s team handles replies, and how failures are
-            escalated. No implied staffed support until approved.]
-          </p>
           <SourceLinks sources={[sources.missedCall]} />
           <p className="mt-1 text-sm text-neutral-600">
             HighLevel warns that repeated missed calls can trigger repeated messages.
-            A demonstration of a reply stopping a sequence and creating a staff task
-            will be added once approved.
           </p>
         </PageSection>
 
@@ -586,12 +567,6 @@ export default function Page() {
               </p>
             </div>
           </div>
-          <p className={tbdBox}>
-            [PRICING, OWNERSHIP, EXPORT, SUPPORT, CANCELLATION, AND USAGE-LIMIT TERMS
-            - TBD. Owner to confirm before launch. No price, &quot;starting at,&quot;
-            package, or retainer language until approved. Verified integration list
-            also pending.]
-          </p>
         </PageSection>
 
         {/* I. Permission and opt-outs */}
@@ -673,16 +648,7 @@ export default function Page() {
                 promotional messages.
               </p>
               <p className="mt-6 text-neutral-700">Prefer to reach out directly?</p>
-              <div className="mt-3 flex flex-wrap gap-3">
-                <a href={`mailto:${siteConfig.email}`} className={`${contactButton} bg-brand-yellow`}>
-                  <NamedIcon name="mail" className="h-5 w-5" />
-                  {siteConfig.email}
-                </a>
-                <a href={telHref} className={`${contactButton} bg-brand-green`}>
-                  <NamedIcon name="phone" className="h-5 w-5" />
-                  {siteConfig.phone}
-                </a>
-              </div>
+              <ContactActions />
             </div>
             <figure className="flex flex-col items-center md:items-end">
               <FollowUpPathsIllustration />
