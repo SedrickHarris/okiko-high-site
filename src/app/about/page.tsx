@@ -148,10 +148,9 @@ export default function Page() {
             <>
               <p>
                 OKIKO HIGH Digital Marketing Agency provides digital marketing,
-                marketing automation, and SaaS solutions powered by GoHighLevel and its
-                ecosystem. Our approach combines marketing strategy with automation to
-                help entrepreneurs spend less time managing repetitive tasks and more
-                time growing their businesses.
+                marketing automation, and SaaS solutions. Our approach combines
+                marketing strategy with automation to help entrepreneurs spend less
+                time managing repetitive tasks and more time growing their businesses.
               </p>
               <p>
                 We value collaboration with ambitious agency owners, entrepreneurs, and

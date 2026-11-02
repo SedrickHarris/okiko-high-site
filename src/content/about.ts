@@ -85,7 +85,7 @@ export const faqs: Faq[] = [
   {
     question: "What is OKIKO HIGH Digital Marketing Agency?",
     answer:
-      "OKIKO HIGH Digital Marketing Agency provides digital marketing, marketing automation, and Software as a Service (SaaS) solutions powered by GoHighLevel and its ecosystem. It combines marketing strategy with automation to help businesses connect with customers and simplify marketing and customer-management tasks.",
+      "OKIKO HIGH Digital Marketing Agency provides digital marketing, marketing automation, and Software as a Service (SaaS) solutions. It combines marketing strategy with automation to help businesses connect with customers and simplify marketing and customer-management tasks.",
   },
   {
     question: "What services does OKIKO HIGH offer?",
@@ -97,9 +97,9 @@ export const faqs: Faq[] = [
     answer: "OKIKO HIGH was founded on May 3, 2026.",
   },
   {
-    question: "What does \"powered by GoHighLevel\" mean?",
+    question: "Can OKIKO HIGH work with the website and software I already use?",
     answer:
-      "OKIKO HIGH describes its marketing automation and SaaS solutions as powered by GoHighLevel and its ecosystem. GoHighLevel is a third-party platform. OKIKO HIGH is not an official GoHighLevel product, and this site does not claim a partner relationship. What a platform can do does not decide what a project includes: the scope for your business is written down and confirmed before work begins.",
+      "Possibly. Compatibility depends on the actual systems, platforms, and permissions involved, so it is checked when your project is scoped rather than assumed. The scope for your business is written down and confirmed before work begins.",
   },
   {
     question: "Who does OKIKO HIGH work with?",
