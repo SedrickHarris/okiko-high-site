@@ -10,7 +10,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { NamedIcon } from "@/components/ui/icons";
-import { allFaqs, faqGroups, faqPage as page } from "@/content/faq";
+import { allFaqs, faqGroups, faqPage as page, type FaqGroup } from "@/content/faq";
 import { hubServices } from "@/content/services/hub";
 import { siteConfig } from "@/data/site";
 import {
@@ -46,6 +46,14 @@ const structuredData = graph([
 
 const accents = ["border-t-brand-blue", "border-t-brand-green", "border-t-brand-yellow"] as const;
 
+// Logo colors as fills with brand-ink text (docs/05). Stage numbers and labels carry
+// the meaning, never color alone.
+const tones = ["bg-brand-blue", "bg-brand-green", "bg-brand-yellow"] as const;
+
+const workingGroupId = "faq-working-together";
+const journeyGroups = faqGroups.filter((group) => group.id !== workingGroupId);
+const workingGroup = faqGroups.find((group) => group.id === workingGroupId);
+
 const linkClass =
   "font-semibold text-brand-blue-strong underline underline-offset-2 hover:text-brand-ink";
 
@@ -53,6 +61,23 @@ const contactButton =
   "font-heading inline-flex min-h-11 items-center justify-center gap-2 rounded-md px-5 py-2.5 text-base font-semibold text-brand-ink hover:brightness-95 hover:shadow-md motion-safe:transition-[transform,box-shadow,filter] motion-safe:duration-150 motion-safe:hover:-translate-y-px motion-safe:active:translate-y-0";
 
 const telHref = `tel:+1${siteConfig.phone.replace(/\D/g, "")}`;
+
+function GroupIntro({ group }: { group: FaqGroup }) {
+  return (
+    <p>
+      {group.intro} Full detail:{" "}
+      {group.more.map((link, index) => (
+        <span key={link.href}>
+          {index > 0 && (index === group.more.length - 1 ? " and " : ", ")}
+          <Link href={link.href} className={linkClass}>
+            {link.label}
+          </Link>
+        </span>
+      ))}
+      .
+    </p>
+  );
+}
 
 export default function Page() {
   return (
@@ -62,8 +87,13 @@ export default function Page() {
 
       <div className="mt-8 space-y-16">
         {/* A. Hero */}
-        <header className="grid items-center gap-10 lg:grid-cols-[1fr_auto]">
+        <header className="grid items-center gap-10 rounded-xl border border-brand-blue/20 bg-linear-to-br from-surface-muted via-white to-white p-6 sm:p-10 lg:grid-cols-[1fr_auto]">
           <div>
+            <div aria-hidden="true" className="mb-5 flex h-1.5 w-28 overflow-hidden rounded-full">
+              <span className="flex-1 bg-brand-blue" />
+              <span className="flex-1 bg-brand-green" />
+              <span className="flex-1 bg-brand-yellow" />
+            </div>
             <h1 className="hero-in-h1 max-w-3xl text-4xl font-extrabold tracking-tight sm:text-5xl">
               {page.h1}
             </h1>
@@ -99,21 +129,34 @@ export default function Page() {
               <p className="mb-4 text-xs font-semibold uppercase tracking-wider text-neutral-600">
                 Jump to a topic
               </p>
-              <ul className="divide-y divide-neutral-200">
-                {faqGroups.map((group) => (
+              <ol className="divide-y divide-neutral-200">
+                {faqGroups.map((group, index) => (
                   <li key={group.id}>
                     <a
                       href={`#${group.id}`}
-                      className="flex min-h-11 items-center justify-between gap-3 py-2 font-semibold text-neutral-900 hover:text-brand-blue-strong"
+                      className="group flex min-h-11 items-center gap-3 py-2 font-semibold text-neutral-900 hover:text-brand-blue-strong"
                     >
-                      {group.label}
-                      <span aria-hidden="true" className="text-brand-blue-strong">
+                      <span
+                        aria-hidden="true"
+                        className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-md font-heading text-sm font-bold text-brand-ink ${tones[index % tones.length]}`}
+                      >
+                        {group.id === workingGroupId ? (
+                          <NamedIcon name="clipboard" className="h-5 w-5" />
+                        ) : (
+                          index + 1
+                        )}
+                      </span>
+                      <span className="flex-1">{group.label}</span>
+                      <span
+                        aria-hidden="true"
+                        className="text-brand-blue-strong motion-safe:transition-transform motion-safe:duration-150 group-hover:translate-y-0.5"
+                      >
                         &darr;
                       </span>
                     </a>
                   </li>
                 ))}
-              </ul>
+              </ol>
             </div>
           </figure>
         </header>
@@ -148,29 +191,51 @@ export default function Page() {
           </ul>
         </PageSection>
 
-        {/* C. FAQ groups, each in two columns */}
-        {faqGroups.map((group) => (
-          <FaqSection
-            key={group.id}
-            id={group.id}
-            heading={group.heading}
-            intro={
-              <p>
-                {group.intro} Full detail:{" "}
-                {group.more.map((link, index) => (
-                  <span key={link.href}>
-                    {index > 0 && (index === group.more.length - 1 ? " and " : ", ")}
-                    <Link href={link.href} className={linkClass}>
-                      {link.label}
-                    </Link>
-                  </span>
-                ))}
-                .
-              </p>
-            }
-            faqs={group.faqs}
+        {/* C. Customer-journey FAQ groups, each in two columns, joined by a stage path */}
+        <div className="relative space-y-16 lg:pl-10">
+          <span
+            aria-hidden="true"
+            className="absolute bottom-12 left-3.5 top-3.5 hidden w-0.5 bg-neutral-300 lg:block"
           />
-        ))}
+          {journeyGroups.map((group, index) => (
+            <div key={group.id} className="relative">
+              <span
+                aria-hidden="true"
+                className={`absolute -left-10 top-0 z-10 hidden h-7 w-7 items-center justify-center rounded-full font-heading text-xs font-bold text-brand-ink ring-4 ring-white lg:flex ${tones[index % tones.length]}`}
+              >
+                {index + 1}
+              </span>
+              <p
+                className={`mb-4 inline-block rounded-full px-3 py-1 font-heading text-xs font-bold uppercase tracking-wider text-brand-ink ${tones[index % tones.length]}`}
+              >
+                Stage {index + 1} of {journeyGroups.length}
+              </p>
+              <FaqSection
+                id={group.id}
+                heading={group.heading}
+                intro={<GroupIntro group={group} />}
+                faqs={group.faqs}
+              />
+            </div>
+          ))}
+        </div>
+
+        {/* C2. Questions that apply across every stage, set apart in a branded panel */}
+        {workingGroup && (
+          <div className="rounded-xl border-2 border-brand-blue bg-surface-muted p-6 sm:p-10">
+            <p className="mb-4 inline-flex items-center gap-2 rounded-full bg-brand-green px-3 py-1 font-heading text-xs font-bold uppercase tracking-wider text-brand-ink">
+              <NamedIcon name="clipboard" className="h-4 w-4" />
+              Applies to all five stages
+            </p>
+            <FaqSection
+              id={workingGroup.id}
+              heading={workingGroup.heading}
+              intro={<GroupIntro group={workingGroup} />}
+              columnClassName="bg-white"
+              faqs={workingGroup.faqs}
+            />
+          </div>
+        )}
 
         <RelatedIndustries
           twoColumns

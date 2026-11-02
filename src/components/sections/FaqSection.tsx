@@ -9,12 +9,15 @@ export function FaqSection({
   id,
   heading,
   intro,
+  columnClassName = "",
   faqs,
 }: {
   id: string;
   heading: string;
   // Optional lead-in under the heading, for pages that split FAQs into topic groups.
   intro?: ReactNode;
+  // Extra classes for each FAQ column, e.g. a white fill when the section sits on a tinted panel.
+  columnClassName?: string;
   faqs: ReadonlyArray<Faq>;
 }) {
   const half = Math.ceil(faqs.length / 2);
@@ -26,7 +29,7 @@ export function FaqSection({
         {columns.map((column, i) => (
           <div
             key={i}
-            className="divide-y divide-neutral-200 rounded-lg border border-neutral-200"
+            className={`divide-y divide-neutral-200 rounded-lg border border-neutral-200 ${columnClassName}`.trim()}
           >
             {column.map((faq) => (
               <details key={faq.question} className="group p-5">
