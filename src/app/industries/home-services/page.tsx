@@ -47,7 +47,7 @@ import {
 } from "@/lib/schema";
 import { HeroJumpCard } from "@/components/sections/HeroJumpCard";
 import { PageHero } from "@/components/sections/PageHero";
-import { accents } from "@/lib/brand";
+import { accents, fillAt } from "@/lib/brand";
 
 // Home Services is a currently served audience (docs/01). The owner approved indexing on
 // 2026-10-11, so the page is indexable and listed in src/app/sitemap.ts. Keep the copy free of
@@ -149,7 +149,7 @@ export default function Page() {
                 >
                   <span
                     aria-hidden="true"
-                    className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-surface-muted text-brand-blue-strong"
+                    className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-md ${fillAt(i)}`}
                   >
                     <NamedIcon name={step.icon} className="h-6 w-6" />
                   </span>

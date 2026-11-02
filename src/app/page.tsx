@@ -23,7 +23,7 @@ import {
   websiteNode,
 } from "@/lib/schema";
 import { PageHero } from "@/components/sections/PageHero";
-import { accents } from "@/lib/brand";
+import { accents, fillAt } from "@/lib/brand";
 
 export const metadata: Metadata = {
   title: page.title,
@@ -115,7 +115,7 @@ export default function Page() {
                     <div className="flex items-center gap-3">
                       <span
                         aria-hidden="true"
-                        className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-surface-muted text-brand-blue-strong"
+                        className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-md ${fillAt(i)}`}
                       >
                         <NamedIcon name={step.icon} className="h-6 w-6" />
                       </span>
