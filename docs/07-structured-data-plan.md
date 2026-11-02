@@ -108,7 +108,7 @@ Do not add breadcrumbs to the homepage or create artificial hierarchy for pages 
 - Approved logo asset URL
 - Verified social profile URLs
 - Current availability and page scope for each service
-- Confirmation of founding date for publication
+- Founding date: published on `/about` (visible text and `foundingDate` on the `Organization` node) from the owner-supplied value; reconfirm if it changes
 - Contact-action and booking details
 - Customer-facing status of the Plano location
 - Approved ratings, reviews, and case-study permissions

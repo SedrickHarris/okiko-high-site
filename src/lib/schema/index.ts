@@ -17,13 +17,18 @@ type JsonLdNode = Record<string, unknown>;
  * Minimal Organization node. Only verified facts are included. No logo, sameAs,
  * address, hours or LocalBusiness subtype until the owner confirms them.
  * `withContact` adds the public email and phone; use it only on a page that shows both.
+ * `foundingDate` (ISO date, e.g. 2026-05-03) is for a page that shows the date visibly.
  */
-export function organizationNode({ withContact = false }: { withContact?: boolean } = {}): JsonLdNode {
+export function organizationNode({
+  withContact = false,
+  foundingDate,
+}: { withContact?: boolean; foundingDate?: string } = {}): JsonLdNode {
   return {
     "@type": "Organization",
     "@id": organizationId,
     name: siteConfig.name,
     url: base,
+    ...(foundingDate ? { foundingDate } : {}),
     ...(withContact
       ? {
           email: siteConfig.email,

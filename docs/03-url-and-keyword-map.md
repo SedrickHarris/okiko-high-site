@@ -21,7 +21,7 @@ Assign each planned page a clear URL, target keyword, and search purpose. Use th
 | Page | Proposed URL | Target keyword |
 |---|---|---|
 | Home | `/` | digital marketing and automation agency (page built; see keyword map entry below) |
-| About | `/about/` | TBD |
+| About | `/about/` | None forced (brand-led; page built; see the About entry below) |
 | Services hub | `/services/` | digital marketing services for local businesses (page built; see keyword map entry below) |
 | Industries hub | `/industries/` | TBD (page built: hero, cards for the four published audience pages in a 2 by 2 grid with no status pills, six service cards linking to the service pages, a how-to-start section, and a two-column FAQ of ten questions; schema is `Organization`, `CollectionPage` with an `ItemList` of the audience pages, `BreadcrumbList`, and `FAQPage` matching the visible FAQ) |
 | Case Studies | `/case-studies/` | TBD |
@@ -32,6 +32,21 @@ Assign each planned page a clear URL, target keyword, and search purpose. Use th
 | Terms of Service | `/terms-of-service/` | Not a search-target page |
 
 ### Core page keyword map entries
+
+#### About
+
+| Field | Entry |
+|---|---|
+| Page name | About |
+| URL | `/about/` |
+| Page type | Core (`AboutPage`) |
+| Target keyword | None forced. The page is brand-led; the title and H1 use "About OKIKO HIGH Digital Marketing Agency", so it serves brand and navigational searches without competing with the Home ("digital marketing and automation agency") or Services hub keywords. |
+| Search intent | Brand and commercial investigation: a prospect, partner, or answer engine checking who OKIKO HIGH is, what it does, who it serves, and how it works before getting in touch |
+| Supporting keyword clusters | OKIKO HIGH Digital Marketing Agency; digital marketing strategy with automation; marketing automation and SaaS solutions; powered by GoHighLevel. Question clusters: what the agency is; what services it offers; when it was founded; what "powered by GoHighLevel" means; who it works with; whether it serves clients outside the US; who is behind it; whether results or reviews are published; whether results are guaranteed; how to get started |
+| Parent page | `/` |
+| Internal links | Links out to all six service pages (cards imported from `src/content/services/hub.ts`), `/services/`, the four published audience pages (cards imported from `src/content/industries/hub.ts`), `/faq/`, `/contact/`, `/privacy-policy/`. Linked from the header navigation. |
+| Status | Built (indexable, in sitemap) |
+| Notes | Copy lives in `src/content/about.ts`; the visible FAQ and the `FAQPage` JSON-LD read from the same objects. Sections: hero with a three-step approach panel, Who We Are (mission, an "at a glance" list, and a GoHighLevel platform note), three approach cards, six service cards, audience cards with no status pills, a two-column FAQ of ten questions, and a closing CTA with the confirmed email and phone. Uses the owner-supplied About copy (2026-11-02) with hyphens instead of em dashes. States Home Services as the only audience currently served, and describes the other audience pages as a proposed approach. Founding date (May 3, 2026) is shown visibly and added as `foundingDate: 2026-05-03` on the `Organization` node. GoHighLevel is described only as the platform the solutions are powered by, with a visible note that OKIKO HIGH is not an official GoHighLevel product and no partner relationship is claimed; no GoHighLevel logos. No named owner or team (none planned), prices, timelines, results, testimonials, ratings, tested integrations, the Plano address, hours, social links, or the report's unverified differentiators (workflow-first delivery, human handoffs, ongoing care). Schema is `Organization` (with `email`, `telephone`, `foundingDate`), `AboutPage` (with the organization as `mainEntity`), `BreadcrumbList`, and `FAQPage`; no `LocalBusiness`, address, hours, `sameAs`, `areaServed`, ratings, or reviews. The primary CTA ("Discuss your business needs") points to `/contact/`, whose contact action is still TBD in `docs/01`. |
 
 #### Contact
 

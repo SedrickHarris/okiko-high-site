@@ -39,7 +39,7 @@ There is no default city, state, country, or regional page hierarchy. Okiko High
 | Page | Purpose | Notes |
 |---|---|---|
 | Home | Introduce the agency, clarify its value, and guide visitors to services or contact. | Base claims on confirmed services and proof. |
-| About | Explain the agency’s approach, mission, and business identity. | Use agency identity; no individual owner/team profile is planned. |
+| About | Explain the agency’s approach, mission, and business identity. | **Built.** Uses agency identity; no individual owner/team profile is planned. Shows the mission, approach, six service cards, audience cards, and a two-column FAQ. |
 | Services | Summarize confirmed offerings and direct visitors to service pages. | Publish only services confirmed as currently available. |
 | Industries / Who We Help | Introduce the planned audience groups. | Clearly distinguish currently served audiences from future opportunities. |
 | Case Studies | Present approved client work and outcomes. | Launch when approved examples are available; do not invent or anonymize as if verified. |
