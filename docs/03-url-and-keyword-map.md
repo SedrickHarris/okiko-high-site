@@ -20,7 +20,7 @@ Assign each planned page a clear URL, target keyword, and search purpose. Use th
 
 | Page | Proposed URL | Target keyword |
 |---|---|---|
-| Home | `/` | TBD |
+| Home | `/` | digital marketing and automation agency (page built; see keyword map entry below) |
 | About | `/about/` | TBD |
 | Services hub | `/services/` | digital marketing services for local businesses (page built; see keyword map entry below) |
 | Industries hub | `/industries/` | TBD (page built: cards for the three audience pages with currently served or planned labels, no FAQ) |
@@ -51,6 +51,21 @@ These pages are candidates until the owner confirms current service availability
 Confirm whether GBP optimization and GBP automation are distinct offers with distinct search intent. If not, consider covering them on one service page to avoid overlap.
 
 ### Keyword map entries
+
+#### Home
+
+| Field | Entry |
+|---|---|
+| Page name | Home |
+| URL | `/` |
+| Page type | Core |
+| Target keyword | digital marketing and automation agency |
+| Search intent | Brand and commercial investigation: a local or service-based business owner (or someone who has heard of OKIKO HIGH) deciding what the agency does, who it serves, and which page to read next |
+| Supporting keyword clusters | digital marketing strategy with automation; marketing automation for local businesses; connected customer follow-up; website, Google Business Profile, review, AI chat, AI receptionist, and text and email services. Question clusters: what the agency does; who it works with; whether it works outside the US; whether all six services are needed; whether automation replaces a team; whether prices are published; whether rankings or leads are guaranteed; how to get started |
+| Parent page | None (site root) |
+| Internal links | Links out to all six service pages, `/services/`, `/industries/`, `/industries/home-services/`, `/industries/professional-services/`, `/industries/property-management-real-estate/`, `/industries/healthcare/`, `/contact/`, `/privacy-policy/`. |
+| Status | Built |
+| Notes | Keyword is an intent-based recommendation, not a validated search-volume finding; confirm before treating it as final. It is deliberately brand-led and distinct from the Services hub keyword ("digital marketing services for local businesses"). The H1 ("Connect Your Marketing. Simplify Your Next Steps.") and the supporting paragraph follow the Home research report's draft direction (2026-11-02) and are not owner-approved final copy. The primary CTA label ("Discuss Your Marketing Workflow") is the report's candidate and points to `/contact/`, whose contact action is TBD in `docs/01`; `/contact/` is still a placeholder page. Service cards and the "How a project starts" steps are imported from `src/content/services/hub.ts`, so they stay in sync with the Services hub. Audience cards come from `src/content/industries/hub.ts`; all four published audience pages now have cards (Home Services is currently served; the other three are planned audiences), shown in a 2 by 2 grid. The hero figure is an "example workflow" labeled as a proposed approach, not a package or client work. No prices, timelines, results, testimonials, partnerships, or GoHighLevel claims. Schema is `Organization`, `WebSite`, `WebPage`, and `FAQPage` matching the 8 visible FAQs; no breadcrumb, `Service` node, logo, `sameAs`, address, hours, ratings, or `LocalBusiness`. |
 
 #### Services Hub
 
