@@ -50,6 +50,7 @@ import {
   organizationNode,
   serviceNode,
 } from "@/lib/schema";
+import { PageHero } from "@/components/sections/PageHero";
 
 // Availability confirmed by the owner (2026-10-11): indexable and listed in
 // src/app/sitemap.ts.
@@ -109,7 +110,7 @@ export default function Page() {
 
       <div className="mt-8 space-y-16">
         {/* 1. Hero: outcome and scope */}
-        <header className="grid items-center gap-10 lg:grid-cols-[1fr_auto]">
+        <PageHero layout="grid items-center gap-10 lg:grid-cols-[1fr_auto]">
           <div>
             <h1 className="hero-in-h1 max-w-3xl text-4xl font-extrabold tracking-tight sm:text-5xl">
               {page.h1}
@@ -138,7 +139,7 @@ export default function Page() {
           <figure className="hero-in hero-delay-3 mx-auto w-full max-w-md lg:mx-0 lg:w-[26rem] lg:max-w-none">
             <ReviewWorkflowIllustration />
           </figure>
-        </header>
+        </PageHero>
 
         {/* 2. Owner questions */}
         <PageSection

@@ -20,6 +20,8 @@ import {
   pageNode,
   websiteNode,
 } from "@/lib/schema";
+import { PageHero } from "@/components/sections/PageHero";
+import { accents } from "@/lib/brand";
 
 export const metadata: Metadata = {
   title: page.title,
@@ -43,7 +45,6 @@ const structuredData = graph([
   faqPageNode(pageUrl, faqs),
 ]);
 
-const accents = ["border-t-brand-blue", "border-t-brand-green", "border-t-brand-yellow"] as const;
 
 const linkClass =
   "font-semibold text-brand-blue-strong underline underline-offset-2 hover:text-brand-ink";
@@ -64,7 +65,7 @@ export default function Page() {
 
       <div className="space-y-16">
         {/* A. Hero */}
-        <header className="grid items-center gap-10 lg:grid-cols-[1fr_auto]">
+        <PageHero layout="grid items-center gap-10 lg:grid-cols-[1fr_auto]">
           <div>
             <p className="hero-in-h1 font-heading text-sm font-bold uppercase tracking-wider text-brand-blue-strong">
               {page.eyebrow}
@@ -128,7 +129,7 @@ export default function Page() {
               </p>
             </div>
           </figure>
-        </header>
+        </PageHero>
 
         {/* B. Service cards */}
         <PageSection
@@ -231,7 +232,20 @@ export default function Page() {
         </PageSection>
 
         {/* E. FAQs */}
-        <FaqSection id="faq" heading="OKIKO HIGH Questions, Answered" faqs={faqs} />
+        <FaqSection
+          id="faq"
+          heading="OKIKO HIGH Questions, Answered"
+          intro={
+            <p>
+              Want more answers? See{" "}
+              <Link href="/faq" className={linkClass}>
+                all frequently asked questions
+              </Link>
+              , grouped by the customer journey.
+            </p>
+          }
+          faqs={faqs}
+        />
 
         {/* F. Final CTA */}
         <section

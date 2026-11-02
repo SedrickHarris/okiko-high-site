@@ -3,6 +3,7 @@ import { IconCardHeading } from "@/components/cards/IconCardHeading";
 import { FaqSection } from "@/components/sections/FaqSection";
 import { PageSection } from "@/components/sections/PageSection";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { PageHero } from "@/components/sections/PageHero";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { AccordionList, AnswerExampleBlock, BarCharts, CallFlowDiagram, RuleCardGrid, NumberedList, DataTableView, PhoneWireframeFigure, StatTiles, StructureCards } from "@/components/combos/ComboVisuals";
 import { ButtonLink } from "@/components/ui/ButtonLink";
@@ -24,8 +25,8 @@ import {
   organizationNode,
   pageNode,
 } from "@/lib/schema";
+import { accents, fillAt } from "@/lib/brand";
 
-const accents = ["border-t-brand-blue", "border-t-brand-green", "border-t-brand-yellow"] as const;
 const chipTones = ["optional", "included", "default"] as const;
 
 const linkClass =
@@ -282,7 +283,7 @@ export function ComboPage({ content }: { content: ComboContent }) {
       />
 
       <div className="mt-8 space-y-16">
-        <header className={content.heroAside ? "grid gap-10 lg:grid-cols-[1.4fr_1fr] lg:items-start" : ""}>
+        <PageHero layout={content.heroAside ? "grid gap-10 lg:grid-cols-[1.4fr_1fr] lg:items-start" : ""}>
           <div>
             <h1 className="hero-in-h1 max-w-4xl text-4xl font-extrabold tracking-tight sm:text-5xl">
               {content.h1}
@@ -308,7 +309,7 @@ export function ComboPage({ content }: { content: ComboContent }) {
           {content.heroAside && (
             <aside
               aria-label="Quick answer"
-              className="hero-in hero-delay-2 rounded-xl border border-brand-blue/30 bg-surface-muted p-6"
+              className="hero-in hero-delay-2 rounded-xl border border-brand-blue/30 bg-white p-6"
             >
               <p className="font-heading text-xs font-bold uppercase tracking-wider text-brand-blue-strong">
                 Quick answer
@@ -321,7 +322,7 @@ export function ComboPage({ content }: { content: ComboContent }) {
                     <span
                       aria-hidden="true"
                       className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full font-heading font-extrabold ${
-                        ["bg-brand-blue text-white", "bg-brand-green text-brand-ink", "bg-brand-yellow text-brand-ink"][index % 3]
+                        fillAt(index)
                       }`}
                     >
                       {index + 1}
@@ -332,7 +333,7 @@ export function ComboPage({ content }: { content: ComboContent }) {
               </ol>
             </aside>
           )}
-        </header>
+        </PageHero>
 
         {content.sections.map((section) => (
           <Section key={section.id} section={section} />

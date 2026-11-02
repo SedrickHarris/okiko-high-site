@@ -21,6 +21,9 @@ import {
   organizationNode,
   pageNode,
 } from "@/lib/schema";
+import { HeroJumpCard } from "@/components/sections/HeroJumpCard";
+import { PageHero } from "@/components/sections/PageHero";
+import { accents, fillAt } from "@/lib/brand";
 
 export const metadata: Metadata = {
   title: page.title,
@@ -44,15 +47,6 @@ const structuredData = graph([
   faqPageNode(pageUrl, allFaqs),
 ]);
 
-const accents = ["border-t-brand-blue", "border-t-brand-green", "border-t-brand-yellow"] as const;
-
-// Logo colors as fills (docs/05): white text on the blue fill, brand-ink text on the
-// green and yellow fills. Stage numbers and labels carry the meaning, never color alone.
-const tones = [
-  "bg-brand-blue text-white",
-  "bg-brand-green text-brand-ink",
-  "bg-brand-yellow text-brand-ink",
-] as const;
 
 const workingGroupId = "faq-working-together";
 const journeyGroups = faqGroups.filter((group) => group.id !== workingGroupId);
@@ -91,13 +85,8 @@ export default function Page() {
 
       <div className="mt-8 space-y-16">
         {/* A. Hero */}
-        <header className="grid items-center gap-10 rounded-xl border border-brand-blue/20 bg-linear-to-br from-surface-muted via-white to-white p-6 sm:p-10 lg:grid-cols-[1fr_auto]">
+        <PageHero>
           <div>
-            <div aria-hidden="true" className="mb-5 flex h-1.5 w-28 overflow-hidden rounded-full">
-              <span className="flex-1 bg-brand-blue" />
-              <span className="flex-1 bg-brand-green" />
-              <span className="flex-1 bg-brand-yellow" />
-            </div>
             <h1 className="hero-in-h1 max-w-3xl text-4xl font-extrabold tracking-tight sm:text-5xl">
               {page.h1}
             </h1>
@@ -129,41 +118,15 @@ export default function Page() {
             </div>
           </div>
           <figure className="hero-in hero-delay-3 mx-auto w-full max-w-md lg:mx-0 lg:w-[26rem] lg:max-w-none">
-            <div className="rounded-xl border border-neutral-200 bg-white p-6 shadow-lg">
-              <p className="mb-4 text-xs font-semibold uppercase tracking-wider text-neutral-600">
-                Jump to a topic
-              </p>
-              <ol className="divide-y divide-neutral-200">
-                {faqGroups.map((group, index) => (
-                  <li key={group.id}>
-                    <a
-                      href={`#${group.id}`}
-                      className="group flex min-h-11 items-center gap-3 py-2 font-semibold text-neutral-900 hover:text-brand-blue-strong"
-                    >
-                      <span
-                        aria-hidden="true"
-                        className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-md font-heading text-sm font-bold ${tones[index % tones.length]}`}
-                      >
-                        {group.id === workingGroupId ? (
-                          <NamedIcon name="clipboard" className="h-5 w-5" />
-                        ) : (
-                          index + 1
-                        )}
-                      </span>
-                      <span className="flex-1">{group.label}</span>
-                      <span
-                        aria-hidden="true"
-                        className="text-brand-blue-strong motion-safe:transition-transform motion-safe:duration-150 group-hover:translate-y-0.5"
-                      >
-                        &darr;
-                      </span>
-                    </a>
-                  </li>
-                ))}
-              </ol>
-            </div>
+            <HeroJumpCard
+              items={faqGroups.map((group) => ({
+                href: `#${group.id}`,
+                label: group.label,
+                icon: group.id === workingGroupId ? "clipboard" : undefined,
+              }))}
+            />
           </figure>
-        </header>
+        </PageHero>
 
         {/* B. Service cards */}
         <PageSection
@@ -205,12 +168,12 @@ export default function Page() {
             <div key={group.id} className="relative">
               <span
                 aria-hidden="true"
-                className={`absolute -left-10 top-0 z-10 hidden h-7 w-7 items-center justify-center rounded-full font-heading text-xs font-bold ring-4 ring-white lg:flex ${tones[index % tones.length]}`}
+                className={`absolute -left-10 top-0 z-10 hidden h-7 w-7 items-center justify-center rounded-full font-heading text-xs font-bold ring-4 ring-white lg:flex ${fillAt(index)}`}
               >
                 {index + 1}
               </span>
               <p
-                className={`mb-4 inline-block rounded-full px-3 py-1 font-heading text-xs font-bold uppercase tracking-wider ${tones[index % tones.length]}`}
+                className={`mb-4 inline-block rounded-full px-3 py-1 font-heading text-xs font-bold uppercase tracking-wider ${fillAt(index)}`}
               >
                 Stage {index + 1} of {journeyGroups.length}
               </p>

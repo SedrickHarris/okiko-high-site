@@ -28,6 +28,8 @@ import {
   graph,
   organizationNode,
 } from "@/lib/schema";
+import { PageHero } from "@/components/sections/PageHero";
+import { accents, fillAt } from "@/lib/brand";
 
 export const metadata: Metadata = {
   title: page.title,
@@ -71,12 +73,9 @@ const structuredData = graph([
   faqPageNode(pageUrl, faqs),
 ]);
 
-const accents = ["border-t-brand-blue", "border-t-brand-green", "border-t-brand-yellow"] as const;
 
 // Logo colors as icon-chip fills with white glyphs on blue and brand-ink glyphs on lime and yellow (docs/05 contrast rules).
 // Meaning comes from the icon and the row text, never from color alone.
-const chipTones = ["bg-brand-blue text-white", "bg-brand-green text-brand-ink", "bg-brand-yellow text-brand-ink"] as const;
-
 const linkClass =
   "font-semibold text-brand-blue-strong underline underline-offset-2 hover:text-brand-ink";
 
@@ -84,7 +83,7 @@ function SituationChip({ icon, index }: { icon: IconName; index: number }) {
   return (
     <span
       aria-hidden="true"
-      className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-md ${chipTones[index % chipTones.length]}`}
+      className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-md ${fillAt(index)}`}
     >
       <NamedIcon name={icon} className="h-6 w-6" />
     </span>
@@ -130,7 +129,7 @@ export default function Page() {
 
       <div className="mt-8 space-y-16">
         {/* A. Hero */}
-        <header className="grid items-center gap-10 lg:grid-cols-[1fr_auto]">
+        <PageHero layout="grid items-center gap-10 lg:grid-cols-[1fr_auto]">
           <div>
             <h1 className="hero-in-h1 max-w-3xl text-4xl font-extrabold tracking-tight sm:text-5xl">
               {page.h1}
@@ -191,7 +190,7 @@ export default function Page() {
               </p>
             </div>
           </figure>
-        </header>
+        </PageHero>
 
         {/* B. Service cards */}
         <PageSection
@@ -408,7 +407,20 @@ export default function Page() {
         />
 
         {/* D. FAQs */}
-        <FaqSection id="faq" heading="Services Questions, Answered" faqs={faqs} />
+        <FaqSection
+          id="faq"
+          heading="Services Questions, Answered"
+          intro={
+            <p>
+              Want more answers? See{" "}
+              <Link href="/faq" className={linkClass}>
+                all frequently asked questions
+              </Link>
+              , grouped by the customer journey.
+            </p>
+          }
+          faqs={faqs}
+        />
 
         {/* E. Final CTA */}
         <section
