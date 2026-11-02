@@ -46,9 +46,13 @@ const structuredData = graph([
 
 const accents = ["border-t-brand-blue", "border-t-brand-green", "border-t-brand-yellow"] as const;
 
-// Logo colors as fills with brand-ink text (docs/05). Stage numbers and labels carry
-// the meaning, never color alone.
-const tones = ["bg-brand-blue", "bg-brand-green", "bg-brand-yellow"] as const;
+// Logo colors as fills (docs/05): white text on the blue fill, brand-ink text on the
+// green and yellow fills. Stage numbers and labels carry the meaning, never color alone.
+const tones = [
+  "bg-brand-blue text-white",
+  "bg-brand-green text-brand-ink",
+  "bg-brand-yellow text-brand-ink",
+] as const;
 
 const workingGroupId = "faq-working-together";
 const journeyGroups = faqGroups.filter((group) => group.id !== workingGroupId);
@@ -138,7 +142,7 @@ export default function Page() {
                     >
                       <span
                         aria-hidden="true"
-                        className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-md font-heading text-sm font-bold text-brand-ink ${tones[index % tones.length]}`}
+                        className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-md font-heading text-sm font-bold ${tones[index % tones.length]}`}
                       >
                         {group.id === workingGroupId ? (
                           <NamedIcon name="clipboard" className="h-5 w-5" />
@@ -201,12 +205,12 @@ export default function Page() {
             <div key={group.id} className="relative">
               <span
                 aria-hidden="true"
-                className={`absolute -left-10 top-0 z-10 hidden h-7 w-7 items-center justify-center rounded-full font-heading text-xs font-bold text-brand-ink ring-4 ring-white lg:flex ${tones[index % tones.length]}`}
+                className={`absolute -left-10 top-0 z-10 hidden h-7 w-7 items-center justify-center rounded-full font-heading text-xs font-bold ring-4 ring-white lg:flex ${tones[index % tones.length]}`}
               >
                 {index + 1}
               </span>
               <p
-                className={`mb-4 inline-block rounded-full px-3 py-1 font-heading text-xs font-bold uppercase tracking-wider text-brand-ink ${tones[index % tones.length]}`}
+                className={`mb-4 inline-block rounded-full px-3 py-1 font-heading text-xs font-bold uppercase tracking-wider ${tones[index % tones.length]}`}
               >
                 Stage {index + 1} of {journeyGroups.length}
               </p>
