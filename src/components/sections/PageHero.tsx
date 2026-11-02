@@ -2,7 +2,8 @@ import type { ReactNode } from "react";
 
 // Shared page hero: a soft blue-tinted panel that fades to white, with the
 // logo-color stripe (blue, lime, yellow) above the content. Decorative only, so
-// the stripe is hidden from assistive technology. Pass the page's existing grid
+// the stripe is hidden from assistive technology. A layered, blue-tinted shadow lifts
+// the panel off the page. Pass the page's existing grid
 // classes as `layout` so each hero keeps its own column arrangement.
 export function PageHero({
   children,
@@ -12,7 +13,7 @@ export function PageHero({
   layout?: string;
 }) {
   return (
-    <header className="rounded-xl border border-brand-blue/20 bg-linear-to-br from-surface-muted via-white to-white p-6 sm:p-10">
+    <header className="rounded-xl border border-brand-blue/20 bg-linear-to-br from-surface-muted via-white to-white p-6 shadow-[0_1px_2px_rgb(23_26_34/0.06),0_14px_36px_-10px_rgb(20_104_255/0.28)] sm:p-10">
       <div aria-hidden="true" className="mb-5 flex h-1.5 w-28 overflow-hidden rounded-full">
         <span className="flex-1 bg-brand-blue" />
         <span className="flex-1 bg-brand-green" />
