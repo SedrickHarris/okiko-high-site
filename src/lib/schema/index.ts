@@ -1,7 +1,7 @@
 import { siteConfig } from "@/data/site";
 
-// Entity IDs use siteConfig.url. The canonical host (www vs apex) is still TBD,
-// so these IDs must be revisited once it is confirmed (see docs/07).
+// Entity IDs use siteConfig.url, whose default is the confirmed apex host
+// (https://okikohigh.com, see docs/07).
 const base = siteConfig.url.replace(/\/$/, "");
 
 export const organizationId = `${base}/#organization`;
@@ -16,13 +16,20 @@ type JsonLdNode = Record<string, unknown>;
 /**
  * Minimal Organization node. Only verified facts are included. No logo, sameAs,
  * address, hours or LocalBusiness subtype until the owner confirms them.
+ * `withContact` adds the public email and phone; use it only on a page that shows both.
  */
-export function organizationNode(): JsonLdNode {
+export function organizationNode({ withContact = false }: { withContact?: boolean } = {}): JsonLdNode {
   return {
     "@type": "Organization",
     "@id": organizationId,
     name: siteConfig.name,
     url: base,
+    ...(withContact
+      ? {
+          email: siteConfig.email,
+          telephone: `+1-${siteConfig.phone.replace(/\D/g, "").replace(/^(\d{3})(\d{3})(\d{4})$/, "$1-$2-$3")}`,
+        }
+      : {}),
   };
 }
 

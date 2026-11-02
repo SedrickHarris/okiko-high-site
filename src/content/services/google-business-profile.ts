@@ -327,12 +327,6 @@ export const suspensionAvoid = [
   "Submitting the same appeal repeatedly",
 ] as const;
 
-export const proofSlots = [
-  { title: "Redacted audit or information correction", body: "Before and after, with what changed, why, when, and who approved it." },
-  { title: "Approval and monitoring workflow", body: "An example of the path from approval to publication to failure monitoring." },
-  { title: "Approved case study", body: "Business model, baseline, work done, period, outcome, and confounding factors." },
-] as const;
-
 export const tellUs = [
   "Your business model: service-area, storefront or hybrid, or multiple locations",
   "Your profile status: active, unverified, suspended, or none yet",

@@ -27,9 +27,26 @@ Assign each planned page a clear URL, target keyword, and search purpose. Use th
 | Case Studies | `/case-studies/` | TBD |
 | FAQ | `/faq/` | local business marketing automation FAQs (page built; see Notes in the FAQ entry below) |
 | Resources | `/resources/` | TBD |
-| Contact | `/contact/` | TBD |
+| Contact | `/contact/` | Not a keyword target (page built; see the Contact entry below) |
 | Privacy Policy | `/privacy-policy/` | Not a search-target page |
 | Terms of Service | `/terms-of-service/` | Not a search-target page |
+
+### Core page keyword map entries
+
+#### Contact
+
+| Field | Entry |
+|---|---|
+| Page name | Contact |
+| URL | `/contact/` |
+| Page type | Core (`ContactPage`) |
+| Target keyword | None assigned. This is a navigational page; the title and H1 use the brand name and "contact", and no search keyword is forced onto it. |
+| Search intent | Navigational and transactional: a prospect or existing contact who wants to call or email OKIKO HIGH, or who wants to know what to include in a first message |
+| Supporting keyword clusters | contact OKIKO HIGH; contact a digital marketing agency. Question clusters: how to contact OKIKO HIGH; whether OKIKO HIGH works with clients outside the US; what to include in a first message; whether to send sensitive or health information; which services to ask about |
+| Parent page | `/` |
+| Internal links | Links out to the six service pages, `/services/`, and `/privacy-policy/`. Linked from the header navigation and from the CTAs on the service, hub, and audience pages. |
+| Status | Built (indexable, in sitemap) |
+| Notes | Shows only the confirmed public email and phone and the statement that OKIKO HIGH serves clients worldwide. No form, booking link, Plano address, hours, or response-time promise, because the primary contact action, form provider, consent wording, and those facts are TBD in `docs/01`. Schema is `ContactPage`, `BreadcrumbList`, and `FAQPage` matching the visible five-question FAQ, with `email` and `telephone` on the `Organization` node because both are shown on the page. No `LocalBusiness`, address, hours, `ContactPoint` hours, `areaServed`, ratings, or reviews. The page sets its own Open Graph title, description, and URL. Add a form or booking link only after the owner confirms the contact action and consent wording. |
 
 Choose target keywords after confirming page focus and reviewing search intent. Do not force a keyword onto a page where it doesn’t fit.
 
@@ -81,7 +98,7 @@ Confirm whether GBP optimization and GBP automation are distinct offers with dis
 | Parent page | `/` |
 | Internal links | Links out to all six service pages (`/services/website-design/`, `/services/google-business-profile-optimization/`, `/services/reputation-management/`, `/services/ai-chatbots/`, `/services/ai-receptionist/`, `/services/sms-email-automation/`), `/contact/`, `/privacy-policy/`. Each service page already links back to `/services/`. |
 | Status | Published-ready (indexable, in sitemap; all six services listed in the `ItemList`) |
-| Notes | Keyword is an intent-based recommendation, not a validated search-volume finding; confirm before treating it as final. Card copy and FAQ answers restate the service pages and `docs/01`; no prices, timelines, results, or partnerships are stated. The cards show all six services, and the owner confirmed all six pages on 2026-10-11, so every `published` flag in `src/content/services/hub.ts` is true and the page's `ItemList` structured data names all six (`docs/07`). Pricing, ownership and exit terms, and tested integrations remain unconfirmed and are not stated. The FAQ "What kinds of businesses are these services for?" relies on Home Services being listed as currently served in `docs/01`. Sections: hero, six service cards, situation-to-service guide, example service combinations (not packages), links to the fictional samples already on five service pages plus the Google Business Profile review checklist (not client proof; the GBP proof section is still placeholders), a short "what to expect" section limited to what the service pages already state, FAQs, and a closing CTA. Deliberately left out until the owner confirms the facts: commercial model (one-time vs recurring, ongoing support), ownership and cancellation terms, software and usage charges, client proof or case studies, and a strategy-call form. |
+| Notes | Keyword is an intent-based recommendation, not a validated search-volume finding; confirm before treating it as final. Card copy and FAQ answers restate the service pages and `docs/01`; no prices, timelines, results, or partnerships are stated. The cards show all six services, and the owner confirmed all six pages on 2026-10-11, so every `published` flag in `src/content/services/hub.ts` is true and the page's `ItemList` structured data names all six (`docs/07`). Pricing, ownership and exit terms, and tested integrations remain unconfirmed and are not stated. The FAQ "What kinds of businesses are these services for?" relies on Home Services being listed as currently served in `docs/01`. Sections: hero, six service cards, situation-to-service guide, example service combinations (not packages), links to the fictional samples already on five service pages plus the Google Business Profile review checklist (not client proof; the GBP page no longer has a proof section), a short "what to expect" section limited to what the service pages already state, FAQs, and a closing CTA. Deliberately left out until the owner confirms the facts: commercial model (one-time vs recurring, ongoing support), ownership and cancellation terms, software and usage charges, client proof or case studies, and a strategy-call form. |
 
 #### FAQ
 
@@ -110,8 +127,8 @@ Confirm whether GBP optimization and GBP automation are distinct offers with dis
 | Supporting keyword clusters | small business website design; local business web design services; service business website design; custom small business websites; conversion-focused web design; website redesign services; SEO-friendly website design; small business website cost |
 | Parent page | `/services/` |
 | Internal links | Links out to `/services/`, `/privacy-policy/`, `/contact/`. Add links to GBP optimization, reputation management, AI chatbot, AI receptionist, SMS and email automation, and audience pages when those pages are published and substantive. |
-| Status | Built |
-| Notes | Keywords are intent-based recommendations, not validated search-volume findings. Agency pricing, delivery range, ownership terms, platform stack, review offer, and proof are unconfirmed, so the page makes no claims about them. `docs/01` still lists website design availability as TBD. |
+| Status | Published-ready (owner confirmed availability 2026-10-11; indexable, in sitemap, `Service` schema included) |
+| Notes | Keywords are intent-based recommendations, not validated search-volume findings. Agency pricing, delivery range, ownership terms, platform stack, review offer, and proof are unconfirmed, so the page makes no claims about them. The owner confirmed availability on 2026-10-11 (`docs/01`), so the page is indexable and listed in `src/app/sitemap.ts`. |
 
 #### Reputation Management
 
@@ -141,7 +158,7 @@ Confirm whether GBP optimization and GBP automation are distinct offers with dis
 | Parent page | `/services/` |
 | Internal links | Links out to `/services/`, `/services/website-design/`, `/services/ai-chatbots/`, `/services/ai-receptionist/`, `/services/sms-email-automation/`, `/contact/`, `/privacy-policy/`. Add a link to reputation management and from the other service pages (they currently mention the profile without linking) once this page is published. |
 | Status | Published-ready (owner approved availability and scope; indexable, in sitemap, `Service` schema included) |
-| Notes | Keywords are intent-based recommendations, not validated search-volume findings. Scope, pricing, client-ownership and exit policy, suspension and verification assistance, proof assets, and the form destination are unconfirmed, so the page makes no claims about them and shows `[OWNER TO CONFIRM]`, `[PRICING PENDING]`, and `[PROOF PENDING]` placeholders. The HighLevel documentation link describes what that platform documents, not a tested OKIKO HIGH configuration; no HighLevel logos or partnership language. The page publishes no ranking, lead, or review-removal guarantees and no performance figures. No `LocalBusiness` markup, Plano address, or hours. Distinct from reputation management (reviews) and SMS and email automation (follow-up). |
+| Notes | Keywords are intent-based recommendations, not validated search-volume findings. Scope, pricing, client-ownership and exit policy, suspension and verification assistance, proof assets, and the form destination are unconfirmed, so the page makes no claims about them. The visible `[OWNER TO CONFIRM]`, `[PRICING PENDING]`, and `[PROOF PENDING]` placeholder blocks and the proof-slot section were removed, so the page shows no placeholder text; add those sections back only with approved content. The HighLevel documentation link describes what that platform documents, not a tested OKIKO HIGH configuration; no HighLevel logos or partnership language. The page publishes no ranking, lead, or review-removal guarantees and no performance figures. No `LocalBusiness` markup, Plano address, or hours. Distinct from reputation management (reviews) and SMS and email automation (follow-up). |
 
 #### AI Receptionist
 

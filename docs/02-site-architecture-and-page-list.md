@@ -16,8 +16,11 @@ Define the planned pages, their roles, and how they relate. This is a working bu
 ├── industries/
 │   ├── home-services/
 │   ├── professional-services/
+│   ├── property-management-real-estate/
+│   ├── healthcare/
 │   ├── education/
-│   ├── healthcare-wellness/
+│   ├── healthcare-wellness/   (reserved for a broader wellness audience; not planned)
+│   ├── {audience}/{service}/  (combo pages: documented pattern, none published)
 │   └── {parent}/{sub-audience}/
 ├── case-studies/
 │   └── {case-study}/
@@ -42,7 +45,7 @@ There is no default city, state, country, or regional page hierarchy. Okiko High
 | Case Studies | Present approved client work and outcomes. | Launch when approved examples are available; do not invent or anonymize as if verified. |
 | Resources | Publish useful educational material supporting services and audiences. | Include articles only when they provide substantive value. |
 | FAQ | Answer common questions in customer-journey order (getting found, inquiries, qualifying and booking, follow-up, feedback) plus a "Working With OKIKO HIGH" group for pricing, setup, support, ownership, privacy, and cancellation. | Links each group to the service pages that hold the full answers. Describes how workflows can be designed, not a promise that every service or integration fits every project. |
-| Contact | Give visitors clear ways to inquire. | Primary contact action and booking link are TBD. |
+| Contact | Give visitors clear ways to inquire. | **Built.** Shows the confirmed phone and email only. The primary contact action, form, and booking link are TBD, so there is no form or booking link. |
 | Privacy Policy | Explain data collection and use. | Must reflect actual forms, analytics, and integrations. |
 | Terms of Service | Publish applicable terms. | Content requires owner/legal review before publication. |
 
@@ -87,6 +90,10 @@ Create a separate sub-audience page only when it can provide distinct, useful ma
 - FAQs that are genuinely specific to that sub-audience
 
 If the content would mostly repeat the parent page with an industry name swapped in, keep it as a section on the parent page.
+
+## Audience x service combination pages
+
+A documented pattern, not a published set: `/industries/{audience}/{service}` pairs one built audience page with one built service page. It is for combinations with materially different workflows, intake, and questions, never for swapping a keyword. The code, registry, and rules are in `src/content/combos/` and `CLAUDE.md`. A combo page stays `noindex`, out of the sitemap, and out of every cross-link until the owner approves it. No combo URL is live, and none is listed in `03-url-and-keyword-map.md` as published.
 
 ## Case studies and resources
 

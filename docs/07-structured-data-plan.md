@@ -10,7 +10,7 @@ Use JSON-LD unless the implementation has a clear reason to use another format. 
 
 ## Entity identity
 
-Establish stable identifiers once the canonical domain is confirmed:
+Stable identifiers use the confirmed canonical domain, the apex `okikohigh.com`:
 
 - **Organization:** `https://{canonical-domain}/#organization`
 - **Website:** `https://{canonical-domain}/#website`
@@ -19,7 +19,7 @@ Establish stable identifiers once the canonical domain is confirmed:
 
 Use the same organization identifier when referencing Okiko High as a publisher, provider, or page subject.
 
-Canonical domain is still TBD. Do not finalize production identifiers until it is selected.
+The canonical domain is the apex, `https://okikohigh.com`, confirmed by the owner (`www` redirects to it). For example, the organization `@id` is `https://okikohigh.com/#organization`.
 
 ## Schema by page type
 
@@ -42,7 +42,7 @@ Canonical domain is still TBD. Do not finalize production identifiers until it i
 Add suitable properties only when confirmed and accurate:
 
 - `name`: OKIKO HIGH Digital Marketing Agency
-- `url`: canonical website URL after it is confirmed
+- `url`: canonical website URL, `https://okikohigh.com`
 - `description`: approved business description
 - `logo`: absolute URL to the approved logo asset
 - `email`: `okikohigh@gmail.com`, if published
@@ -105,7 +105,6 @@ Do not add breadcrumbs to the homepage or create artificial hierarchy for pages 
 
 ## Open items
 
-- Canonical domain and final entity IDs
 - Approved logo asset URL
 - Verified social profile URLs
 - Current availability and page scope for each service

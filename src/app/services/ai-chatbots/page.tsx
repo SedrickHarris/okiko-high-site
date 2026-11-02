@@ -9,6 +9,7 @@ import { PageSection } from "@/components/sections/PageSection";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { ButtonLink } from "@/components/ui/ButtonLink";
+import { ContactActions } from "@/components/ui/ContactActions";
 import { MessageIcon, NamedIcon } from "@/components/ui/icons";
 import { SourceLinks } from "@/components/ui/SourceLinks";
 import {
@@ -31,7 +32,6 @@ import {
   simplerMayDo,
   sources,
 } from "@/content/services/ai-chatbots";
-import { siteConfig } from "@/data/site";
 import {
   absoluteUrl,
   breadcrumbListNode,
@@ -85,11 +85,6 @@ const rowTiles = [
   "bg-brand-blue text-white",
   "bg-brand-green text-brand-ink",
 ] as const;
-
-const contactButton =
-  "font-heading inline-flex min-h-11 items-center justify-center gap-2 rounded-md px-5 py-2.5 text-base font-semibold text-brand-ink hover:brightness-95 hover:shadow-md motion-safe:transition-[transform,box-shadow,filter] motion-safe:duration-150 motion-safe:hover:-translate-y-px motion-safe:active:translate-y-0";
-
-const telHref = `tel:+1${siteConfig.phone.replace(/\D/g, "")}`;
 
 function Cta({ className = "" }: { className?: string }) {
   return (
@@ -554,16 +549,7 @@ export default function Page() {
             </p>
             <Cta />
             <p className="mt-6 text-neutral-700">Prefer to reach out directly?</p>
-            <div className="mt-3 flex flex-wrap gap-3">
-              <a href={`mailto:${siteConfig.email}`} className={`${contactButton} bg-brand-yellow`}>
-                <NamedIcon name="mail" className="h-5 w-5" />
-                {siteConfig.email}
-              </a>
-              <a href={telHref} className={`${contactButton} bg-brand-green`}>
-                <NamedIcon name="phone" className="h-5 w-5" />
-                {siteConfig.phone}
-              </a>
-            </div>
+            <ContactActions />
             </div>
             <figure className="flex flex-col items-center md:items-end">
               <ChatHandoffIllustration />

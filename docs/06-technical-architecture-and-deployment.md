@@ -48,7 +48,7 @@ Use the actual repository conventions if they differ. Avoid creating abstraction
 - Define a consistent approach for page titles, descriptions, canonical URLs, Open Graph metadata, and social sharing images.
 - Generate a sitemap and robots directives based on the actual published route set.
 - Prevent private, preview, or unfinished routes from being accidentally indexed.
-- Set the canonical host after the owner confirms `www` versus apex.
+- The canonical host is the apex, `https://okikohigh.com`. It is the default in `src/data/site.ts` (override with `NEXT_PUBLIC_SITE_URL`), and canonicals, sitemap URLs, Open Graph URLs, and schema `@id` values are built from it.
 - Redirect the alternate host and any retired URLs once domain configuration is known.
 
 ## Structured data
@@ -90,7 +90,8 @@ Document the selected Cloudflare deployment method and its settings here when co
 - Environment variables: TBD
 - Preview deployment behavior: TBD
 - Custom-domain and DNS setup: TBD
-- Redirect rules: TBD
+- Redirect rules: `www.okikohigh.com` to `https://okikohigh.com` must be a Cloudflare-side setting on the zone (a Redirect Rule or Bulk Redirect). The owner configures this; it is not part of the repository and is not yet verified.
+- Non-indexable Pages hosts: `public/_headers` sends `X-Robots-Tag: noindex` for `https://:project.pages.dev/*` and `https://:version.:project.pages.dev/*` (Cloudflare Pages host-scoped syntax). It is copied to `out/_headers` by the build. The rules name only `pages.dev` hosts, so they must not apply to `okikohigh.com`; verify this at launch (see `08-launch-checklist.md`).
 
 Verify that the build succeeds in Cloudflare’s environment and that the configured output matches the selected Next.js deployment approach.
 
@@ -115,7 +116,6 @@ Document the exact commands after the repository is initialized. Expected workfl
 
 ## Open technical decisions
 
-- Canonical host: `www` or apex
 - Cloudflare deployment product and Next.js compatibility approach
 - Build and output settings
 - Primary contact action, form provider, and submission endpoint

@@ -72,7 +72,6 @@ The Plano address, customer-facing status, hours, and Google Business Profile co
 
 ## Open items
 
-- Canonical domain format: `www` or apex.
 - Website-ready logo asset and exact logo color values.
 - Current availability of each service.
 - Specific education subcategories.
