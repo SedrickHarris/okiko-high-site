@@ -2,7 +2,7 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #171a22;
 }
 
 @theme inline {
@@ -13,25 +13,28 @@
 }
 
 /*
- * Brand colors. See docs/05-brand-and-design-system.md for provenance.
- * Sampled values come from the logo image the owner supplied on 2026-10-10.
- * Derived values are accessible shades computed from the sampled blue.
- * The sampled colors fail 4.5:1 against white, so use them for fills and
- * accents with brand-ink text, never as text on white.
+ * Brand colors. See docs/05-brand-and-design-system.md for provenance and the
+ * measured contrast table.
+ * Sampled values come from the logo pack in public/images/brand/logos/ (owner
+ * decision, 2026-11-02). Derived values are shades computed from the logo blue.
+ * Pairings: blue fills take white text (4.72:1; ink on blue is only 3.69:1).
+ * Lime and yellow fills take brand-ink text. Lime and yellow are decorative
+ * only on white (about 2:1 and 1.6:1). The logo blue passes 4.5:1 on white but
+ * not on surface-muted, so small blue text uses brand-blue-strong.
  */
 @theme {
   /* Sampled from the logo */
-  --color-brand-blue: #0098fd;
-  --color-brand-green: #00d002;
-  --color-brand-yellow: #ffc503;
-  /* Text on brand fills (same as --foreground) */
-  --color-brand-ink: #171717;
-  /* Derived: links, focus rings, small text (5.76:1 on white) */
-  --color-brand-blue-strong: #0068b5;
-  /* Derived: button hover (7.31:1 with brand-ink text) */
-  --color-brand-blue-hover: #33adff;
+  --color-brand-blue: #1468ff;
+  --color-brand-green: #78c900;
+  --color-brand-yellow: #f2c900;
+  /* Sampled from the logo: text on lime and yellow fills (same as --foreground) */
+  --color-brand-ink: #171a22;
+  /* Derived: links, focus rings, small text (6.86:1 on white, 6.34:1 on surface-muted) */
+  --color-brand-blue-strong: #0f4fd1;
+  /* Derived: button hover, darker than the blue so white text stays readable (6.32:1) */
+  --color-brand-blue-hover: #0f55d9;
   /* Derived: very light blue tint for alternate sections */
-  --color-surface-muted: #f2f9ff;
+  --color-surface-muted: #f2f6ff;
 }
 
 body {
@@ -134,7 +137,7 @@ button:focus-visible {
   .card-lift:hover,
   .card-lift:focus-within {
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgb(23 23 23 / 0.08);
+    box-shadow: 0 8px 20px rgb(23 26 34 / 0.08);
   }
 }
 
