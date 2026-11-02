@@ -10,7 +10,7 @@ Use this checklist to catch practical issues before and after launch. It is a wo
 
 - [x] Canonical domain format decided: apex (`okikohigh.com`), 2026-10-18.
 - [ ] Set `NEXT_PUBLIC_SITE_URL=https://okikohigh.com` in the Cloudflare production environment and rebuild.
-- [ ] Confirm the approved website logo file and logo color values.
+- [ ] Confirm the approved website logo file and logo color values. (Logo pack and colors are in `docs/05`; the owner confirmed the logo colors as authoritative on 2026-11-02, so only the final logo file approval remains.)
 - [ ] Confirm which services are currently available.
 - [ ] Confirm audience descriptions and the education subcategories before publishing those details.
 - [ ] Confirm the agency’s operating model and whether the Plano address is customer-facing.

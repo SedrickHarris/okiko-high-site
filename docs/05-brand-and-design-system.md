@@ -12,8 +12,8 @@ Define the visual foundation and reusable interface patterns for the OKIKO HIGH 
 - **Theme:** Light
 - **Primary foundation:** White
 - **Color source:** The approved OKIKO HIGH logo
-- **Exact color values:** Recorded in the token table below. Sampled from the logo image the owner supplied on 2026-10-10 (yellow, blue, and green arrows). That image is not stored in this repository and its marks and wordmark are not used on the site; only the three colors are used.
-- **Logo asset:** Approved flat logo; website-ready file and repository location are TBD.
+- **Exact color values:** Recorded in the token table below. Sampled from the logo pack in `public/images/brand/logos/` (read from the SVG fills and listed in `public/images/brand/logos/source/README.txt`). The owner decided on 2026-11-02 that the logo colors are authoritative. They replace the values first sampled on 2026-10-10 from an older reference image, which did not match the logo in the header.
+- **Logo asset:** Logo pack stored under `public/images/brand/logos/` (see Logo use below).
 - **Descriptor:** “Digital Marketing Agency” may be used with the wordmark where space allows.
 
 The site should feel clear, confident, modern, approachable, and technology-forward. Keep the visual system distinctive to OKIKO HIGH. Do not use GoHighLevel brand assets or imply an official relationship.
@@ -26,39 +26,50 @@ Once the logo asset is available, define color tokens for:
 |---|---|---|
 | Token (in `src/app/globals.css`) | Use | Value | Origin |
 |---|---|---|---|
-| `brand-blue` | Primary CTA fill, accents | `#0098FD` | Sampled from logo |
-| `brand-green` | Supporting accents, secondary highlights | `#00D002` | Sampled from logo |
-| `brand-yellow` | Decorative accents (section bars) | `#FFC503` | Sampled from logo |
-| `brand-ink` | Text on brand fills, main text | `#171717` | Existing foreground |
-| `brand-blue-strong` | Links, focus ring, small colored text, numbered markers | `#0068B5` | Derived: darker shade of `brand-blue` |
-| `brand-blue-hover` | Primary button hover | `#33ADFF` | Derived: lighter shade of `brand-blue` |
+| `brand-blue` | Primary CTA fill, accents | `#1468FF` | Sampled from the logo pack |
+| `brand-green` | Supporting accents, secondary highlights (the logo's lime) | `#78C900` | Sampled from the logo pack |
+| `brand-yellow` | Decorative accents (section bars) | `#F2C900` | Sampled from the logo pack |
+| `brand-ink` | Main text; text on lime and yellow fills | `#171A22` | Sampled from the logo pack |
+| `brand-blue-strong` | Links, focus ring, small colored text, numbered markers | `#0F4FD1` | Derived: darker shade of `brand-blue` |
+| `brand-blue-hover` | Primary button hover (white text stays readable) | `#0F55D9` | Derived: darker shade of `brand-blue` |
 | `surface` | Main page background | `#FFFFFF` | Light theme foundation |
-| `surface-muted` | Alternate sections and subtle panels | `#F2F9FF` | Derived: faint tint of `brand-blue` |
+| `surface-muted` | Alternate sections and subtle panels | `#F2F6FF` | Derived: faint tint of `brand-blue` |
 | `text-muted` | Supporting copy | Tailwind `neutral-600` / `neutral-700` | Neutral |
 | `border` | Card borders, dividers | Tailwind `neutral-200`; `brand-blue` at 30% on muted panels | Neutral / derived |
 
+`--foreground` equals `brand-ink`. Non-brand colors kept on purpose: Tailwind `red-600` for negative states, Tailwind neutrals for text, borders and device outlines, and `#262626` plus light grays (`#D4D4D4`, `#E5E5E5`, `#F5F5F5`, `#A3A3A3`) as outline and placeholder tones inside illustrations.
+
 ### Contrast rules for the brand colors
 
-Measured against WCAG contrast ratios:
+Measured WCAG 2.x contrast ratios (2026-11-02). Text needs 4.5:1; large text and UI components need 3:1.
 
-| Pairing | Ratio | Rule |
-|---|---|---|
-| `brand-blue` on white | 3.04:1 | Passes 3:1 for UI components only. Never use as body or small text. |
-| `brand-green` on white | 2.10:1 | Decorative use only. Never as text or as the only indicator. |
-| `brand-yellow` on white | 1.60:1 | Decorative use only. Never as text. |
-| `brand-ink` on `brand-blue` | 5.90:1 | Use for text on blue fills. White text on blue fails. |
-| `brand-ink` on `brand-green` | 8.56:1 | Use for text on green fills. |
-| `brand-ink` on `brand-yellow` | 11.30:1 | Use for text on yellow fills. |
-| `brand-blue-strong` on white | 5.76:1 | Use for links and small colored text. |
-| `brand-blue-strong` on `surface-muted` | 5.42:1 | Safe on muted panels. |
+| Pairing | Old | New | Rule |
+|---|---|---|---|
+| `brand-blue` on white | 3.04 | 4.72 | Passes 4.5:1 on white. Prefer `brand-blue-strong` for small text. |
+| `brand-blue` on `surface-muted` | 2.86 | 4.36 | Fails 4.5:1. Use `brand-blue-strong` for text on muted panels. |
+| `brand-green` on white | 2.10 | 2.07 | Decorative only. Never as text or the only indicator. |
+| `brand-yellow` on white | 1.60 | 1.60 | Decorative only. Never as text. |
+| white on `brand-blue` | 3.04 | 4.72 | Use white text on blue fills (buttons, chips, pills, badges). |
+| `brand-ink` on `brand-blue` | 5.90 | 3.69 | Fails 4.5:1. Do not put ink text on blue fills. |
+| `brand-ink` on `brand-green` | 8.56 | 8.41 | Use ink text on lime fills. |
+| `brand-ink` on `brand-yellow` | 11.30 | 10.88 | Use ink text on yellow fills. |
+| white on `brand-green` / `brand-yellow` | 2.10 / 1.59 | 2.07 / 1.60 | Never. |
+| `brand-ink` on white | 17.93 | 17.39 | Main text. |
+| white on `brand-blue-hover` | 2.45 (ink 7.31) | 6.32 | Primary button hover keeps white text readable. |
+| white on `brand-blue-strong` | 5.76 | 6.86 | Numbered markers and badges on strong blue. |
+| `brand-blue-strong` on white | 5.76 | 6.86 | Links and small colored text. |
+| `brand-blue-strong` on `surface-muted` | 5.42 | 6.34 | Safe on muted panels. |
+| `surface-muted` against white | 1.06 | 1.08 | Background tint only; panels also use a border. |
+
+Focus ring: `brand-blue-strong` against white is 6.86:1, above the 3:1 needed for UI components.
 
 Keyboard focus uses a 3px `brand-blue-strong` outline with a 2px offset.
 
-Check all text and interactive states for accessible contrast on the light theme. Do not infer exact brand colors from a compressed screenshot if the source logo is available.
+Check all text and interactive states for accessible contrast on the light theme. Take brand colors from the logo SVG fills, not from screenshots.
 
 ## Logo use
 
-Organize approved logo assets under:
+The approved logo pack is stored under:
 
 ```text
 public/images/brand/
@@ -70,6 +81,8 @@ public/images/brand/
 ```
 
 Use the primary logo on white or light surfaces. Use a reversed logo only where a dark background requires it and an approved variant exists. Use the standalone mark for small placements such as a favicon or social avatar, if supplied.
+
+Contents: `source/` holds editable SVGs (primary, horizontal, icon; on white, reversed, and dark variants) and the pack README; `web/` holds WebP exports and favicon files; `social/` holds icon images. The root layout and contact page use `web/okiko-high-primary-on-white.webp` as the Open Graph image, and `src/app/icon.svg` and `src/app/apple-icon.png` are the favicons.
 
 Do not stretch, recolor, rearrange, or recreate the logo without approval. Preserve original source files.
 
@@ -135,7 +148,7 @@ Use consistent spacing, border radius, shadows, and icon treatments. Avoid unnec
 
 ## Open design decisions
 
-- Exact logo color values
-- Approved web and social logo assets
+- Owner to confirm that blue fills with white text, and a derived darker blue for links, are acceptable. The logo blue passes 4.5:1 only with white text and only on white.
+- Lime and yellow are decorative on white; confirm they stay accents only.
 - Final button, card, and form styles
 - Image direction for page types

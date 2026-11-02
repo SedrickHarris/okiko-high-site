@@ -72,8 +72,8 @@ The owner states that the same worldwide service coverage applies to each audien
 ## Logo and brand
 
 - **Approved logo:** Flat OKIKO HIGH logo.
-- **Logo asset file or direct image URL:** TBD.
-- **Brand color values:** Recorded in `docs/05-brand-and-design-system.md` (sampled from the logo image the owner supplied on 2026-10-10).
+- **Logo asset file or direct image URL:** Logo pack under `public/images/brand/logos/`.
+- **Brand color values:** Recorded in `docs/05-brand-and-design-system.md` (sampled from the logo pack; the owner decided on 2026-11-02 that the logo colors are authoritative).
 - **Website theme:** Light theme with a white foundation.
 - Do not use GoHighLevel logo assets or imply an official relationship.
 

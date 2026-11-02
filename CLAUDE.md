@@ -16,7 +16,7 @@ Commands: `npm run dev`, `npm run lint`, `npm run build`, `npm run check:combos`
 
 ## Rules
 
-- Light theme, white foundation; brand colors are recorded in `docs/05` and defined as tokens in `src/app/globals.css`. Use brand fills with `brand-ink` text, never as text on white. No dark mode.
+- Light theme, white foundation; brand colors are recorded in `docs/05` and defined as tokens in `src/app/globals.css`. Colors come from the logo pack (blue #1468FF, lime #78C900, yellow #F2C900, ink #171A22). Blue fills take white text (ink on blue is only 3.69:1); lime and yellow fills take `brand-ink` text. Lime and yellow are never text on white; small blue text uses `brand-blue-strong`. No dark mode.
 - Never use GoHighLevel logos or imply an official relationship.
 - Serves clients worldwide. Do not create city, state, country, or regional pages (no Las Vegas).
 - Never publish information belonging to Okiko High Landscaping.
