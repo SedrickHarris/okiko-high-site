@@ -6,7 +6,7 @@ import { PageSection } from "@/components/sections/PageSection";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { ButtonLink } from "@/components/ui/ButtonLink";
-import { audiences, hubPage as page, statusNote } from "@/content/industries/hub";
+import { audiences, hubPage as page, approachNote } from "@/content/industries/hub";
 import { absoluteUrl, breadcrumbListNode, graph, organizationNode } from "@/lib/schema";
 
 export const metadata: Metadata = {
@@ -62,18 +62,15 @@ export default function Page() {
         <PageSection
           id="industries"
           heading="Choose Your Industry"
-          intro={<p>{statusNote}</p>}
+          intro={<p>{approachNote}</p>}
         >
-          <ul className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <ul className="grid gap-6 md:grid-cols-2">
             {audiences.map((item, index) => (
               <li
                 key={item.path}
                 style={{ "--reveal-i": index % 3 } as CSSProperties}
                 className={`card-lift reveal-on-scroll flex flex-col rounded-lg border border-neutral-200 border-t-4 bg-white p-6 ${accents[index % accents.length]}`}
               >
-                <p className="mb-3 inline-block self-start rounded-full bg-brand-yellow px-2.5 py-0.5 font-heading text-xs font-bold text-brand-ink">
-                  {item.status}
-                </p>
                 <IconCardHeading icon={item.icon} title={item.title} />
                 <p className="mt-4 text-neutral-700">{item.description}</p>
                 <div className="mt-auto pt-6">

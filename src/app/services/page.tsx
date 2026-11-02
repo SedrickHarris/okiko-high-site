@@ -407,6 +407,7 @@ export default function Page() {
         </PageSection>
 
         <RelatedIndustries
+          twoColumns
           heading="See How the Services Fit Your Industry"
           intro="The six services apply differently depending on how your customers reach you. Choose your industry to see the proposed approach."
         />

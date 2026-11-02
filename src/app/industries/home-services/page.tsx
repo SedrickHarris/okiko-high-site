@@ -422,24 +422,10 @@ export default function Page() {
             </p>
           }
         >
-          <p className="mb-6 max-w-3xl text-sm text-neutral-700">
-            <span className="font-semibold">Status key: </span>
-            &ldquo;Needs review&rdquo; means it has not been checked. An item moves
-            to &ldquo;Confirmed&rdquo; once it is checked and agreed in writing.
-          </p>
           <ul className="grid gap-4 md:grid-cols-2">
             {compatibilityItems.map((item) => (
               <li key={item.title} className="rounded-lg border border-neutral-200 bg-white p-5">
-                <div className="flex items-start justify-between gap-3">
-                  <IconCardHeading icon={item.icon} title={item.title} />
-                  <span
-                    className={`shrink-0 rounded-full px-2.5 py-0.5 font-heading text-xs font-bold text-brand-ink ${
-                      item.status === "Confirmed" ? "bg-brand-green" : "bg-brand-yellow"
-                    }`}
-                  >
-                    {item.status}
-                  </span>
-                </div>
+                <IconCardHeading icon={item.icon} title={item.title} />
                 <p className="mt-3 text-neutral-700">{item.body}</p>
               </li>
             ))}

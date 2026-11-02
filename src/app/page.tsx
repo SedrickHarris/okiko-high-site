@@ -93,9 +93,8 @@ export default function Page() {
                 <NamedIcon name="globe" className="h-6 w-6" />
               </span>
               <p className="text-neutral-800">
-                OKIKO HIGH serves clients worldwide. Home service businesses are the
-                audience we currently serve, and what fits your business depends on
-                how your customers reach you today.
+                OKIKO HIGH serves clients worldwide. What fits your business depends
+                on how your customers reach you today.
               </p>
             </div>
           </div>
@@ -180,9 +179,8 @@ export default function Page() {
           className="xl:-mx-10"
           intro={
             <p>
-              Home service businesses are the audience OKIKO HIGH currently serves.
-              The other pages describe a proposed approach for planned audiences, not
-              client work or results.{" "}
+              Each audience page describes a proposed approach, not client work or
+              results.{" "}
               <Link href="/industries" className={linkClass}>
                 See all industries
               </Link>
@@ -197,9 +195,6 @@ export default function Page() {
                 style={{ "--reveal-i": index % 3 } as CSSProperties}
                 className={`card-lift reveal-on-scroll flex flex-col rounded-lg border border-neutral-200 border-t-4 bg-white p-6 ${accents[index % accents.length]}`}
               >
-                <p className="mb-3 inline-block self-start rounded-full bg-brand-yellow px-2.5 py-0.5 font-heading text-xs font-bold text-brand-ink">
-                  {item.status}
-                </p>
                 <IconCardHeading icon={item.icon} title={item.title} />
                 <p className="mt-4 text-neutral-700">{item.description}</p>
                 <div className="mt-auto pt-6">
