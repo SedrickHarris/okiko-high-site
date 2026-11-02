@@ -4,6 +4,7 @@
 // Nothing here adds a fact that is still TBD in docs/01.
 
 import type { IconName } from "@/components/ui/icons";
+import type { Faq } from "../shared";
 
 export type IndustryAudience = {
   path: string;
@@ -18,7 +19,7 @@ export const hubPage = {
   // The root layout appends " | OKIKO HIGH".
   title: "Industries We Help",
   description:
-    "See how OKIKO HIGH marketing and automation services fit home services, professional services, and property management and real estate businesses.",
+    "See how OKIKO HIGH marketing and automation services fit home services, professional services, property management and real estate, and healthcare, dental and med spa businesses.",
   h1: "Industries We Help",
 } as const;
 
@@ -59,3 +60,104 @@ export const audiences: ReadonlyArray<IndustryAudience> = [
 
 export const approachNote =
   "These pages describe a proposed approach, not client work or results, and the scope of each service is confirmed before any implementation.";
+
+export const heroPanel = [
+  {
+    icon: "globe",
+    stage: "Your industry",
+    body: "Start with the page written for how your customers reach you.",
+  },
+  {
+    icon: "clipboard",
+    stage: "The services that apply",
+    body: "Six services, applied differently in each industry.",
+  },
+  {
+    icon: "file",
+    stage: "A written scope",
+    body: "What is included is confirmed with you before any work begins.",
+  },
+] as const;
+
+// Proposed workflow framework from the research report (2026-11-02). It is an example
+// of how the services can connect, not a confirmed package or a client result.
+export const workflowSteps = [
+  { icon: "message", label: "Inquiry" },
+  { icon: "check", label: "Acknowledgment" },
+  { icon: "calendar", label: "Staff handoff or scheduling" },
+  { icon: "mail", label: "Follow-up" },
+  { icon: "star", label: "Genuine review request" },
+] as const;
+
+export const chooseSteps = [
+  {
+    icon: "search",
+    title: "Start with your industry",
+    body: "Open the page closest to your business to see where customers drop off and which services the proposed approach connects.",
+  },
+  {
+    icon: "check",
+    title: "Match a service to the gap",
+    body: "Each service page explains its scope and limits, so you can pick the one closest to the problem you want to fix.",
+  },
+  {
+    icon: "file",
+    title: "Confirm scope with us",
+    body: "Tell us how customers reach you today. A written scope names what is included before any work begins.",
+  },
+] as const;
+
+// Single source for the visible FAQ section and the FAQPage JSON-LD. Answers restate
+// docs/01 and the audience and service pages. Nothing here adds a fact that is TBD.
+export const faqs: Faq[] = [
+  {
+    question: "Which industries does OKIKO HIGH write about?",
+    answer:
+      "There are four industry pages: home services, professional services, property management and real estate, and healthcare, dental and med spa. Each one shows how the same marketing and automation services apply to the way that kind of business gets inquiries and follows up.",
+  },
+  {
+    question: "Which industry does OKIKO HIGH currently serve?",
+    answer:
+      "Home services is the audience OKIKO HIGH currently serves. That includes HVAC, plumbing, landscaping, general contracting, cleaning, and related businesses.",
+  },
+  {
+    question: "Do the pages for other industries describe client work?",
+    answer:
+      "No. Home services is the only audience OKIKO HIGH currently serves. The other industry pages describe a proposed approach, not client work, and do not report results. The scope of each service is confirmed with you before any implementation.",
+  },
+  {
+    question: "Are the services different for each industry?",
+    answer:
+      "The same six services apply across the industries: website design, Google Business Profile management, review management, AI website chatbots, an AI receptionist for inbound calls, and text and email automation. What changes is how they are used, such as which customer questions come first and who on your team handles the next step.",
+  },
+  {
+    question: "Should I start with an industry page or a service page?",
+    answer:
+      "Either works. An industry page is a good start if you want to see the proposed approach for a business like yours. A service page is a good start if you already know the problem you want to fix, such as missed calls or unanswered reviews.",
+  },
+  {
+    question: "What if my industry is not listed?",
+    answer:
+      "Describe your business and how customers reach you through the contact page. We can look at whether one of the six services fits, and what a realistic scope would be. Not having a dedicated industry page does not stop you from asking.",
+  },
+  {
+    question: "Does OKIKO HIGH work with businesses outside one city or country?",
+    answer:
+      "OKIKO HIGH states that it serves clients worldwide. How a service works can still depend on your region, for example which platform features are available and which consent rules apply to calls and texts, so those points are checked when your project is scoped.",
+  },
+  {
+    question: "Do the industry pages show client results or reviews?",
+    answer:
+      "No. The industry pages describe approaches and illustrative scenarios. They do not publish client results, ratings, or testimonials.",
+  },
+  {
+    question: "How much do these services cost?",
+    answer:
+      "OKIKO HIGH does not publish prices on this site. Cost depends on scope, such as the number of pages, locations, and platforms involved and which integrations are needed. Request a scoped quote through the contact page.",
+  },
+  {
+    question: "Can OKIKO HIGH guarantee rankings, leads, or review outcomes?",
+    answer:
+      "No. Google and other platforms control search results and reviews, and outcomes also depend on demand, competition, your offer, and how quickly inquiries are answered. Each service page states what it does and does not include.",
+  },
+];

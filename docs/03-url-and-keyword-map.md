@@ -23,7 +23,7 @@ Assign each planned page a clear URL, target keyword, and search purpose. Use th
 | Home | `/` | digital marketing and automation agency (page built; see keyword map entry below) |
 | About | `/about/` | TBD |
 | Services hub | `/services/` | digital marketing services for local businesses (page built; see keyword map entry below) |
-| Industries hub | `/industries/` | TBD (page built: cards for the three audience pages with currently served or planned labels, no FAQ) |
+| Industries hub | `/industries/` | TBD (page built: hero, cards for the four published audience pages in a 2 by 2 grid with no status pills, six service cards linking to the service pages, a how-to-start section, and a two-column FAQ of ten questions; schema is `Organization`, `CollectionPage` with an `ItemList` of the audience pages, `BreadcrumbList`, and `FAQPage` matching the visible FAQ) |
 | Case Studies | `/case-studies/` | TBD |
 | Resources | `/resources/` | TBD |
 | Contact | `/contact/` | TBD |
