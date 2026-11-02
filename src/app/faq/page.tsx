@@ -152,10 +152,13 @@ export default function Page() {
             className="absolute bottom-12 left-3.5 top-3.5 hidden w-0.5 bg-neutral-300 lg:block"
           />
           {journeyGroups.map((group, index) => (
-            <div key={group.id} className="relative">
+            <div
+              key={group.id}
+              className={`relative ${index % 2 === 1 ? "band lg:[--band-shift:1.25rem]" : ""}`}
+            >
               <span
                 aria-hidden="true"
-                className={`absolute -left-10 top-0 z-10 hidden h-7 w-7 items-center justify-center rounded-full font-heading text-xs font-bold ring-4 ring-white lg:flex ${fillAt(index)}`}
+                className={`absolute -left-10 top-0 z-10 hidden h-7 w-7 items-center justify-center rounded-full font-heading text-xs font-bold ring-4 lg:flex ${index % 2 === 1 ? "ring-surface-muted" : "ring-white"} ${fillAt(index)}`}
               >
                 {index + 1}
               </span>

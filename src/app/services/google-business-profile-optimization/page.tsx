@@ -146,7 +146,7 @@ export default function Page() {
         ]}
       />
 
-      <div className="mt-8 space-y-16">
+      <div className="band-flow mt-8 space-y-16">
         {/* Hero */}
         <PageHero layout="grid items-center gap-10 lg:grid-cols-[1fr_auto]">
           <div>
@@ -233,7 +233,6 @@ export default function Page() {
         <PageSection
           id="map-pack"
           heading="Why Your Business May Not Appear in the Map Pack"
-          muted
           intro={
             <p>
               Google says local results are based mainly on three things.
@@ -334,7 +333,6 @@ export default function Page() {
         <PageSection
           id="checklist"
           heading="What We Review on Your Profile"
-          muted
           intro={
             <p>
               The profile review checklist, grouped into information, customer
@@ -454,7 +452,6 @@ export default function Page() {
         <PageSection
           id="measure"
           heading="Measure Customer Actions, Not Just Profile Activity"
-          muted
           intro={
             <p>
               Google&apos;s profile numbers count interactions, not outcomes. A call is

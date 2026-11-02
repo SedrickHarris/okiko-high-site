@@ -118,7 +118,7 @@ export default function Page() {
         ]}
       />
 
-      <div className="mt-8 space-y-16">
+      <div className="band-flow mt-8 space-y-16">
         {/* Hero */}
         <PageHero layout="grid items-center gap-10 lg:grid-cols-[1fr_auto]">
           <div>
@@ -218,7 +218,6 @@ export default function Page() {
         <PageSection
           id="workflows"
           heading="Where Text and Email Automation Can Help"
-          muted
           intro={
             <p>
               These examples use home-service jobs, where quotes, missed calls, and
@@ -309,7 +308,6 @@ export default function Page() {
         <PageSection
           id="build"
           heading="How a Follow-Up Workflow Is Built"
-          muted
           intro={
             <p>
               The software sends the messages. The work is deciding who gets which
@@ -438,7 +436,6 @@ export default function Page() {
         <PageSection
           id="measure"
           heading="Measure Conversations and Completed Actions"
-          muted
           intro={
             <p>
               A fast automatic text is not a completed conversation, and a completed
@@ -576,7 +573,6 @@ export default function Page() {
         <PageSection
           id="permission"
           heading="Build Permission and Opt-Outs Into the Workflow"
-          muted
           intro={
             <p>
               This is a US-focused overview, not legal advice and not clearance for

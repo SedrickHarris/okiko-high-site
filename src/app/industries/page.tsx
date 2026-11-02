@@ -89,7 +89,7 @@ export default function Page() {
       <JsonLd data={structuredData} />
       <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Industries" }]} />
 
-      <div className="mt-8 space-y-16">
+      <div className="band-flow mt-8 space-y-16">
         {/* A. Hero */}
         <PageHero layout="grid items-center gap-10 lg:grid-cols-[1fr_auto]">
           <div>
@@ -184,8 +184,6 @@ export default function Page() {
         <PageSection
           id="services"
           heading="Services Used Across Every Industry"
-          muted
-          className="xl:-mx-10"
           intro={
             <p>
               Each industry page draws on the same six services. Open a service page

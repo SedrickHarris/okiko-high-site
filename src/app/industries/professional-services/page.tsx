@@ -118,7 +118,7 @@ export default function Page() {
         ]}
       />
 
-      <div className="mt-8 space-y-16">
+      <div className="band-flow mt-8 space-y-16">
         {/* A. Hero */}
         <PageHero layout="grid gap-10 lg:grid-cols-[1fr_22rem] lg:items-center">
           {/* Text comes first so the heading leads on mobile and for screen
@@ -202,8 +202,6 @@ export default function Page() {
         <PageSection
           id="intake-breakdowns"
           heading="Where Credibility and Inquiry Handling Break Down"
-          muted
-          className="xl:-mx-10"
           intro={
             <p>
               A strong reputation does not guarantee a smooth first contact. If
@@ -289,8 +287,6 @@ export default function Page() {
         <PageSection
           id="small-firm-scenarios"
           heading="What This Could Look Like in a Small Firm"
-          muted
-          className="xl:-mx-10"
           intro={
             <p>
               These five examples show practical next steps, not revenue gains.
@@ -394,8 +390,6 @@ export default function Page() {
         <PageSection
           id="existing-systems"
           heading="Start With the Systems Your Firm Already Uses"
-          muted
-          className="xl:-mx-10"
           intro={
             <p>
               Whether a connection works depends on the actions you need, not on
@@ -508,8 +502,6 @@ export default function Page() {
         <PageSection
           id="fit-and-scope"
           heading="Define Fit, Scope, and Useful Measures First"
-          muted
-          className="xl:-mx-10"
           intro={
             <p>
               Uncertainty about cost, responsibilities, and staff adoption is

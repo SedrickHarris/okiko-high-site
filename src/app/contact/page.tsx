@@ -69,7 +69,7 @@ export default function Page() {
       <JsonLd data={structuredData} />
       <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Contact" }]} />
 
-      <div className="mt-8 space-y-16">
+      <div className="band-flow mt-8 space-y-16">
         <PageHero layout="">
           <h1 className="max-w-3xl text-4xl font-extrabold tracking-tight sm:text-5xl">{page.h1}</h1>
           <p className="mt-6 max-w-3xl text-lg leading-relaxed text-neutral-700">{page.intro}</p>
@@ -86,7 +86,6 @@ export default function Page() {
         <PageSection
           id="what-to-include"
           heading="What to Include in Your Message"
-          muted
           intro={<p>A few details help us understand your situation from the first message.</p>}
         >
           <div className="grid gap-6 md:grid-cols-3">

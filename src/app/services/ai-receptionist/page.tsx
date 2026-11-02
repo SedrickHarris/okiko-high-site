@@ -103,7 +103,7 @@ export default function Page() {
         ]}
       />
 
-      <div className="mt-8 space-y-16">
+      <div className="band-flow mt-8 space-y-16">
         {/* Hero */}
         <PageHero layout="grid items-center gap-10 lg:grid-cols-[1fr_auto]">
           <div>
@@ -176,7 +176,6 @@ export default function Page() {
         <PageSection
           id="demonstration"
           heading="See How a Call Could Work"
-          muted
           intro={
             <p>
               Claims about voice quality are easy to make and hard to judge, so
@@ -287,7 +286,6 @@ export default function Page() {
         <PageSection
           id="workflow"
           heading="Connect Answering to Booking, Routing, and Follow-Up"
-          muted
           intro={
             <p>
               The voice is only part of the work. What matters just as much is
@@ -367,7 +365,6 @@ export default function Page() {
         <PageSection
           id="handoff"
           heading="When a Caller Needs a Person"
-          muted
           intro={
             <p>
               A configured transfer number does not mean someone is available. The
@@ -493,7 +490,6 @@ export default function Page() {
         <PageSection
           id="boundaries"
           heading="Clear Boundaries Before Calls Go Live"
-          muted
           intro={
             <>
               <p>
@@ -617,7 +613,6 @@ export default function Page() {
         <PageSection
           id="connected"
           heading="Calls Are One Step in the Customer Journey"
-          muted
           intro={
             <p>
               What a caller does before and after the phone rings also shapes the

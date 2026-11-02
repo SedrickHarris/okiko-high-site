@@ -83,7 +83,7 @@ function Section({ section }: { section: ComboSection }) {
   }
 
   return (
-    <PageSection id={section.id} heading={section.heading} intro={intro} muted={section.muted}>
+    <PageSection id={section.id} heading={section.heading} intro={intro}>
       {section.charts && <BarCharts group={section.charts} />}
       {section.stats && <StatTiles group={section.stats} />}
       {section.table && <DataTableView table={section.table} />}
@@ -282,7 +282,7 @@ export function ComboPage({ content }: { content: ComboContent }) {
         ]}
       />
 
-      <div className="mt-8 space-y-16">
+      <div className="band-flow mt-8 space-y-16">
         <PageHero layout={content.heroAside ? "grid gap-10 lg:grid-cols-[1.4fr_1fr] lg:items-start" : ""}>
           <div>
             <h1 className="hero-in-h1 max-w-4xl text-4xl font-extrabold tracking-tight sm:text-5xl">

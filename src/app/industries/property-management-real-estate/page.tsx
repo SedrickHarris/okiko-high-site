@@ -125,7 +125,7 @@ export default function Page() {
         ]}
       />
 
-      <div className="mt-8 space-y-16">
+      <div className="band-flow mt-8 space-y-16">
         {/* Hero: H1, short intro, both CTAs, and the four-stage journey */}
         <PageHero layout="grid gap-10 lg:grid-cols-[1fr_22rem] lg:items-center">
           {/* Text comes first so the heading leads on mobile and for screen
@@ -208,8 +208,6 @@ export default function Page() {
         <PageSection
           id="business-types"
           heading="Find the Workflow That Fits Your Business"
-          muted
-          className="xl:-mx-10"
           intro={
             <p>
               Residential managers, landlords, rental operators, and brokerages do
@@ -353,8 +351,6 @@ export default function Page() {
         <PageSection
           id="services"
           heading="Match the Service to the Gap"
-          muted
-          className="xl:-mx-10"
           intro={
             <p>
               Six services can support a property business, and you do not need all
@@ -472,8 +468,6 @@ export default function Page() {
         <PageSection
           id="existing-software"
           heading="Start With the Systems You Already Use"
-          muted
-          className="xl:-mx-10"
           intro={
             <p>
               Whether a connection works depends on the actions you need, not on the
@@ -573,8 +567,6 @@ export default function Page() {
         <PageSection
           id="fit-and-measurement"
           heading="Define the Gap Before Adding Another Tool"
-          muted
-          className="xl:-mx-10"
           intro={
             <p>
               Uncertainty about cost, responsibilities, and staff adoption is

@@ -130,7 +130,7 @@ export default function Page() {
         ]}
       />
 
-      <div className="mt-8 space-y-16">
+      <div className="band-flow mt-8 space-y-16">
         {/* Hero: H1, short intro, both CTAs, and the four-stage journey */}
         <PageHero layout="grid gap-10 lg:grid-cols-[1fr_22rem] lg:items-center">
           {/* Text comes first so the heading leads on mobile and for screen
@@ -233,8 +233,6 @@ export default function Page() {
         <PageSection
           id="practice-types"
           heading="Different Practices, Different Workflows"
-          muted
-          className="xl:-mx-10"
           intro={
             <p>
               Dental scheduling, med spa consultations, recurring-care visits, and
@@ -375,8 +373,6 @@ export default function Page() {
         <PageSection
           id="services"
           heading="A Proposed Service Stack for Your Practice"
-          muted
-          className="xl:-mx-10"
           intro={
             <p>
               Six services can support a practice, and you do not need all of them.
@@ -490,8 +486,6 @@ export default function Page() {
         <PageSection
           id="existing-software"
           heading="Start With the Software You Already Use"
-          muted
-          className="xl:-mx-10"
           intro={
             <p>
               Whether a connection works depends on the actions you need, not on the
@@ -587,8 +581,6 @@ export default function Page() {
         <PageSection
           id="fit-and-measurement"
           heading="Validate the Workflow Before Expanding It"
-          muted
-          className="xl:-mx-10"
           intro={
             <p>
               Uncertainty about cost, responsibilities, and staff adoption is

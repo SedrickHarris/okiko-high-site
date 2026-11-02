@@ -109,7 +109,7 @@ export default function Page() {
         ]}
       />
 
-      <div className="mt-8 space-y-16">
+      <div className="band-flow mt-8 space-y-16">
         {/* Hero */}
         <PageHero layout="grid items-center gap-10 lg:grid-cols-[1fr_auto]">
           <div>
@@ -169,7 +169,6 @@ export default function Page() {
         <PageSection
           id="journeys"
           heading="From a Website Question to a Useful Next Step"
-          muted
           intro={<p>Four situations a chatbot setup should handle well.</p>}
         >
           <ol className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -282,7 +281,6 @@ export default function Page() {
         <PageSection
           id="limits"
           heading="Clear Answers, Clear Limits, and Human Handoff"
-          muted
           intro={
             <p>
               AI can make mistakes. Approved knowledge improves relevance but does
@@ -381,7 +379,6 @@ export default function Page() {
         <PageSection
           id="connect"
           heading="Connect Website Chat to Your Customer Workflow"
-          muted
           intro={
             <p>
               The website widget is the core of the service. Each connection beyond
@@ -487,7 +484,6 @@ export default function Page() {
         <PageSection
           id="fit"
           heading="Is a Chatbot the Right Fit for Your Business?"
-          muted
           intro={
             <p>
               Look at inquiry volume, repeated questions, after-hours demand, and

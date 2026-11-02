@@ -113,7 +113,7 @@ export default function Page() {
         ]}
       />
 
-      <div className="mt-8 space-y-16">
+      <div className="band-flow mt-8 space-y-16">
         {/* A. Hero */}
         <PageHero layout="grid gap-10 lg:grid-cols-[1fr_22rem] lg:items-center">
           <div>
@@ -202,8 +202,6 @@ export default function Page() {
         <PageSection
           id="different-workflows"
           heading="Different Services Need Different Customer Workflows"
-          muted
-          className="xl:-mx-10"
           intro={
             <p>
               A home-service business is not one workflow. The follow-up that suits
@@ -305,8 +303,6 @@ export default function Page() {
         <PageSection
           id="workflows"
           heading="Practical Follow-Up From First Inquiry to the Next Visit"
-          muted
-          className="xl:-mx-10"
           intro={
             <p>
               Five proposed workflows. Open each one to see what starts it, what it
@@ -426,8 +422,6 @@ export default function Page() {
         <PageSection
           id="existing-systems"
           heading="Start With the Systems and Processes You Already Use"
-          muted
-          className="xl:-mx-10"
           intro={
             <p>
               Whether a connection works depends on the actions you need, not on the
@@ -482,8 +476,6 @@ export default function Page() {
         <PageSection
           id="customer-permission"
           heading="Build Customer Permission Into the Process"
-          muted
-          className="xl:-mx-10"
           intro={
             <p>
               Customer communication works better, and stays safer, when permission

@@ -137,7 +137,7 @@ export default function Page() {
         ]}
       />
 
-      <div className="mt-8 space-y-16">
+      <div className="band-flow mt-8 space-y-16">
         {/* A. Hero */}
         <PageHero layout="grid items-center gap-10 lg:grid-cols-[1fr_auto]">
           <div>
@@ -249,7 +249,6 @@ export default function Page() {
         <PageSection
           id="scope"
           heading="Know What Your Website Build Includes"
-          muted
           intro={
             <p>
               A clear scope removes surprises. Your written scope names what is
@@ -342,7 +341,6 @@ export default function Page() {
         <PageSection
           id="seo-migration"
           heading="SEO Foundations and a Careful Launch Plan"
-          muted
           intro={
             <>
               <p>
@@ -444,7 +442,6 @@ export default function Page() {
         <PageSection
           id="process"
           heading="From Website Review to Launch and Handover"
-          muted
           intro={
             <p>
               Timing depends on scope, content readiness, approvals, and
@@ -533,7 +530,6 @@ export default function Page() {
         <PageSection
           id="ownership"
           heading="Know What You Own and What Happens Next"
-          muted
           intro={
             <p>
               Who owns a website depends on the contract and the platform. Before you

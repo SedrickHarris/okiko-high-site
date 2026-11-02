@@ -168,3 +168,31 @@ button:focus-visible {
     }
   }
 }
+
+/* Section bands: on pages whose sections sit directly inside .band-flow, every second
+   section gets a full-width pale-blue band behind it (white, tinted, white, ...). The
+   band is a pseudo-element, so the content keeps its normal column. It reaches half the
+   16-unit gap (2rem) above and below the section, so adjacent sections never leave a
+   gap. The page's overflow-x is clipped on <body> because the band is 100vw wide. */
+.band-flow > section {
+  position: relative;
+}
+.band-flow > section:nth-of-type(even),
+.band {
+  position: relative;
+  padding-block: 0.5rem;
+}
+/* .band is the same band, set by hand on an element that is not a direct child of
+   .band-flow. If the element is offset sideways, set --band-shift to that offset's half. */
+.band-flow > section:nth-of-type(even)::before,
+.band::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset-block: -2rem;
+  left: calc(50% - var(--band-shift, 0rem));
+  width: 100vw;
+  transform: translateX(-50%);
+  background: var(--color-surface-muted);
+  border-block: 1px solid color-mix(in srgb, var(--color-brand-blue) 15%, transparent);
+}

@@ -46,7 +46,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${inter.variable} ${manrope.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col">
+      <body className="flex min-h-full flex-col overflow-x-clip">
         <SiteHeader />
         <main className="mx-auto w-full max-w-6xl flex-1 px-4 py-12">{children}</main>
         <SiteFooter />

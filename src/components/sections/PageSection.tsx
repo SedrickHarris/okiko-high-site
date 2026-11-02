@@ -4,14 +4,12 @@ export function PageSection({
   id,
   heading,
   intro,
-  muted = false,
   className = "",
   children,
 }: {
   id: string;
   heading: string;
   intro?: ReactNode;
-  muted?: boolean;
   // Extra classes for the section element, e.g. to widen one section on large screens.
   className?: string;
   children?: ReactNode;
@@ -19,11 +17,7 @@ export function PageSection({
   return (
     <section
       aria-labelledby={id}
-      className={`${
-        muted
-          ? "rounded-xl border border-brand-blue/30 bg-surface-muted p-6 sm:p-10"
-          : "py-2"
-      } ${className}`.trim()}
+      className={`py-2 ${className}`.trim()}
     >
       <span aria-hidden="true" className="mb-3 block h-1 w-12 rounded bg-brand-yellow" />
       <h2 id={id} className="text-2xl font-bold tracking-tight sm:text-3xl">

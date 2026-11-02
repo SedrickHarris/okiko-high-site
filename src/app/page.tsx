@@ -65,7 +65,7 @@ export default function Page() {
     <>
       <JsonLd data={structuredData} />
 
-      <div className="space-y-16">
+      <div className="band-flow space-y-16">
         {/* A. Hero */}
         <PageHero layout="grid items-center gap-10 lg:grid-cols-[1fr_auto]">
           <div>
@@ -166,8 +166,6 @@ export default function Page() {
         <PageSection
           id="industries"
           heading="Who OKIKO HIGH Works With"
-          muted
-          className="xl:-mx-10"
           intro={
             <p>
               Each audience page describes a proposed approach, not client work or

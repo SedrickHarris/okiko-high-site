@@ -110,7 +110,7 @@ export default function Page() {
         ]}
       />
 
-      <div className="mt-8 space-y-16">
+      <div className="band-flow mt-8 space-y-16">
         {/* 1. Hero: outcome and scope */}
         <PageHero layout="grid items-center gap-10 lg:grid-cols-[1fr_auto]">
           <div>
@@ -171,7 +171,6 @@ export default function Page() {
         <PageSection
           id="buyers"
           heading="What Local Buyers Report About Reviews"
-          muted
           intro={
             <p>
               Reviews are part of how many customers decide whom to contact.
@@ -264,7 +263,6 @@ export default function Page() {
         <PageSection
           id="scope"
           heading="What Is Included, What Is Not, and What Affects Cost"
-          muted
           intro={
             <div className="space-y-3">
               <p className="flex items-start gap-3">
@@ -422,7 +420,6 @@ export default function Page() {
         <PageSection
           id="approval"
           heading="Human Approval, Escalation, and Reporting"
-          muted
           intro={
             <p>
               A reply is public and permanent in practice. The workflow decides ahead
@@ -540,7 +537,6 @@ export default function Page() {
         <PageSection
           id="measurement"
           heading="How We Would Measure It, and What We Do Not Promise"
-          muted
           intro={
             <p>
               Reviews are one signal among several. We start with a baseline, then
@@ -715,7 +711,6 @@ export default function Page() {
         <PageSection
           id="fit"
           heading="Do You Need a Managed Service?"
-          muted
           intro={
             <p>
               Often the answer is that you can do this yourself. The real question is

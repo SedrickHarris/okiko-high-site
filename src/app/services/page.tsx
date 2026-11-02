@@ -129,7 +129,7 @@ export default function Page() {
       <JsonLd data={structuredData} />
       <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Services" }]} />
 
-      <div className="mt-8 space-y-16">
+      <div className="band-flow mt-8 space-y-16">
         {/* A. Hero */}
         <PageHero layout="grid items-center gap-10 lg:grid-cols-[1fr_auto]">
           <div>
@@ -216,8 +216,6 @@ export default function Page() {
         <PageSection
           id="choosing"
           heading="Which Service Fits Your Situation?"
-          muted
-          className="xl:-mx-10"
           intro={
             <p>
               Start with where customers drop off today. Some situations need more
@@ -337,7 +335,6 @@ export default function Page() {
         <PageSection
           id="examples"
           heading="See How the Services Work"
-          muted
           intro={
             <p>
               Each service page includes something you can look at before you get
