@@ -155,9 +155,12 @@ Use consistent spacing, border radius, shadows, and icon treatments. Avoid unnec
 - Do not rely on color alone to convey meaning.
 - Check text contrast, font sizing, and spacing on small screens.
 
+## Confirmed design decisions
+
+- Owner confirmed (2026-11-02): blue fills take white text, and small blue text uses the derived darker blue (`brand-blue-strong`). The logo blue passes 4.5:1 only with white text and only on white.
+- Owner confirmed (2026-11-02): lime and yellow are decorative fills only. They take `brand-ink` text and are never text or icon color on white.
+
 ## Open design decisions
 
-- Owner to confirm that blue fills with white text, and a derived darker blue for links, are acceptable. The logo blue passes 4.5:1 only with white text and only on white.
-- Lime and yellow are decorative on white; confirm they stay accents only.
 - Final button, card, and form styles
 - Image direction for page types
