@@ -8,8 +8,8 @@ type PlaceholderPath = "/case-studies" | "/resources" | "/privacy-policy" | "/te
 export const placeholderPages: Record<PlaceholderPath, { published: boolean }> = {
   "/case-studies": { published: false },
   "/resources": { published: false },
-  "/privacy-policy": { published: false },
-  "/terms-of-service": { published: false },
+  "/privacy-policy": { published: true },
+  "/terms-of-service": { published: true },
 };
 
 /** Spread into a page's `metadata`: noindex while unpublished, nothing once published. */

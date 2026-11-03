@@ -71,7 +71,7 @@ Use this checklist to catch practical issues before and after launch. It is a wo
 - [ ] Confirm preview or unfinished pages are not accidentally indexable.
 - [ ] Confirm `*.pages.dev` hosts return `X-Robots-Tag: noindex` (from `public/_headers`).
 - [ ] Confirm X-Robots-Tag behavior on pages.dev preview and absence on production.
-- [ ] Before launch, publish or keep noindex the placeholder pages (`/case-studies`, `/resources`, `/privacy-policy`, `/terms-of-service`): set `published: true` in `src/data/placeholder-pages.ts` once real content is approved.
+- [ ] Before launch, publish or keep noindex the placeholder pages (`/case-studies`, `/resources`, `/privacy-policy`, `/terms-of-service`): set `published: true` in `src/data/placeholder-pages.ts` once real content is approved. Privacy Policy and Terms of Service set to `published: true` (indexable, in the sitemap) on owner instruction 2026-11-03; the Terms is still a draft pending counsel review. `/case-studies` and `/resources` remain noindex.
 - [ ] Confirm the production domain `okikohigh.com` does NOT receive the `X-Robots-Tag: noindex` header (check the live response headers).
 - [ ] Check redirects for any changed or retired URLs.
 - [ ] Confirm Cloudflare behavior for trailing-slash URLs (for example /about/ versus /about) so the canonical no-slash form is the one served and indexed.
