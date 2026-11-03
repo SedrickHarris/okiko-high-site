@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "check:policy": "node scripts/check-policy.mjs",
     "check:combos": "node scripts/check-combos.mjs"
   },
   "dependencies": {
