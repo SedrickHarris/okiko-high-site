@@ -665,6 +665,10 @@ export const faqs: Faq[] = [
     question: "What could marketing and automation help our practice manage?",
     answer:
       "The proposed approach could connect website inquiries, administrative follow-up, reputation management, and selected communication workflows. It is intended to support your team, not replace clinical judgment or your practice-management software.",
+    links: [
+      { phrase: "website inquiries", href: "/services/website-design" },
+      { phrase: "reputation management", href: "/services/reputation-management" },
+    ],
   },
   {
     question: "Would we need to replace our existing software?",

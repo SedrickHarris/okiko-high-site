@@ -526,6 +526,7 @@ export const combo: ComboContent = {
       question: "Can an AI receptionist text customers after a call?",
       answer:
         "It can on some platforms, with rules. Stop words must be honored and processed within 10 business days, and US long-code texting needs A2P 10DLC registration through your provider. Outbound AI voice calls and callbacks are covered by the FCC's 2024 ruling that AI voices count as artificial voices under the TCPA.",
+      links: [{ phrase: "A2P 10DLC registration", href: "/services/sms-email-automation" }],
     },
     {
       question: "How do I decide which calls are emergencies and which are scheduled?",

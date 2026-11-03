@@ -509,6 +509,11 @@ export const faqs: Faq[] = [
     question: "Do we need every service?",
     answer:
       "No. Start with the identified problem; a clearer website and dependable human follow-up may be sufficient without chatbots, voice AI, or an additional CRM.",
+    links: [
+      { phrase: "clearer website", href: "/services/website-design" },
+      { phrase: "chatbots", href: "/services/ai-chatbots" },
+      { phrase: "voice AI", href: "/services/ai-receptionist" },
+    ],
   },
   {
     question: "Will this replace our existing practice-management or CRM software?",
@@ -538,6 +543,7 @@ export const faqs: Faq[] = [
     answer:
       "No. Google excludes online-only businesses from Business Profile eligibility and prohibits selectively requesting positive reviews; professional rules may add further restrictions.",
     sources: [sources.googleGbpEligibility, sources.googleReviewPolicy],
+    links: [{ phrase: "Business Profile", href: "/services/google-business-profile-optimization" }],
   },
   {
     question: "What does support from OKIKO HIGH cost?",

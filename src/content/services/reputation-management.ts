@@ -505,6 +505,7 @@ export const faqs: Faq[] = [
     answer:
       "Google says more reviews and positive ratings can help local ranking. Reviews are only part of the picture: relevance and distance also matter, and no review count guarantees a position.",
     sources: [sources.googleRanking],
+    links: [{ phrase: "local ranking", href: "/services/google-business-profile-optimization" }],
   },
   {
     question: "Is SMS or email better for review requests?",

@@ -432,6 +432,9 @@ export const faqs: Faq[] = [
     answer:
       "The scope should specify foundational SEO, including relevant page structure, internal links, indexability checks, and any migration work. Ongoing SEO, Google Business Profile management, and continued content development should not be assumed to be included.",
     sources: [sources.googleSiteMoves],
+    links: [
+      { phrase: "Google Business Profile management", href: "/services/google-business-profile-optimization" },
+    ],
   },
   {
     question: "Does my website need to be accessible?",

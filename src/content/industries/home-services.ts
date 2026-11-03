@@ -433,6 +433,7 @@ export const faqs: Faq[] = [
     answer:
       "A review-request workflow can be configured, but it must invite genuine feedback rather than selectively ask only satisfied customers. Google prohibits review incentives and selectively soliciting positive reviews.",
     sources: [sources.googleReviewPolicy],
+    links: [{ phrase: "review-request workflow", href: "/services/reputation-management" }],
   },
   {
     question: "How will we know whether the workflow is helping?",

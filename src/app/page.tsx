@@ -13,7 +13,7 @@ import { NamedIcon } from "@/components/ui/icons";
 import { faqs, heroWorkflow, homeAudiencePaths, homePage as page } from "@/content/home";
 import { audiences } from "@/content/industries/hub";
 import { expectSteps, hubServices } from "@/content/services/hub";
-import { siteConfig } from "@/data/site";
+import { emailHref, phoneHref, siteConfig } from "@/data/site";
 import {
   absoluteUrl,
   faqPageNode,
@@ -54,7 +54,6 @@ const linkClass =
 const contactButton =
   "font-heading inline-flex min-h-11 items-center justify-center gap-2 rounded-md px-5 py-2.5 text-base font-semibold text-brand-ink hover:brightness-95 hover:shadow-md motion-safe:transition-[transform,box-shadow,filter] motion-safe:duration-150 motion-safe:hover:-translate-y-px motion-safe:active:translate-y-0";
 
-const telHref = `tel:+1${siteConfig.phone.replace(/\D/g, "")}`;
 
 const homeAudiences = homeAudiencePaths
   .map((path) => audiences.find((audience) => audience.path === path))
@@ -265,11 +264,11 @@ export default function Page() {
               </div>
               <p className="mt-6 text-neutral-700">Prefer to reach out directly?</p>
               <div className="mt-3 flex flex-wrap gap-3">
-                <a href={`mailto:${siteConfig.email}`} className={`${contactButton} bg-brand-yellow`}>
+                <a href={emailHref} className={`${contactButton} bg-brand-yellow`}>
                   <NamedIcon name="mail" className="h-5 w-5" />
                   {siteConfig.email}
                 </a>
-                <a href={telHref} className={`${contactButton} bg-brand-green`}>
+                <a href={phoneHref} className={`${contactButton} bg-brand-green`}>
                   <NamedIcon name="phone" className="h-5 w-5" />
                   {siteConfig.phone}
                 </a>

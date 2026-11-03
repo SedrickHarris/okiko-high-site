@@ -595,6 +595,7 @@ export const faqs: Faq[] = [
     question: "Can rental prospects receive automated text follow-up?",
     answer:
       "Automated messaging needs a reviewed consent and compliance process appropriate to the message and technology. Permission should be recorded, opt-outs supported, and marketing separated from operational communication.",
+    links: [{ phrase: "Automated messaging", href: "/services/sms-email-automation" }],
   },
   {
     question: "Can every rental property have a Google Business Profile?",

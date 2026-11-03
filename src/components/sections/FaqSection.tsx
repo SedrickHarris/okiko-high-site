@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import type { Faq } from "@/content/shared";
 import { PageSection } from "./PageSection";
+import { LinkedText } from "../ui/LinkedText";
 import { SourceLinks } from "../ui/SourceLinks";
 
 // Native <details>/<summary>: keyboard and touch accessible without client JS.
@@ -43,7 +44,9 @@ export function FaqSection({
                   </span>
                 </summary>
                 <div className="mt-3 text-neutral-700">
-                  <p className="leading-relaxed">{faq.answer}</p>
+                  <p className="leading-relaxed">
+                    <LinkedText text={faq.answer} links={faq.links} />
+                  </p>
                   {faq.sources && <SourceLinks sources={faq.sources} />}
                 </div>
               </details>

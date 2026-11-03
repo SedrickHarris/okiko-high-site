@@ -37,6 +37,7 @@ import {
 } from "@/content/privacy-policy";
 import { hubServices } from "@/content/services/hub";
 import { placeholderRobots } from "@/data/placeholder-pages";
+import { EmailLink, PhoneLink } from "@/components/ui/ContactLinks";
 import { siteConfig } from "@/data/site";
 import {
   absoluteUrl,
@@ -350,10 +351,7 @@ export default function Page() {
                   {index === 0 ? (
                     <>
                       Email{" "}
-                      <a href={`mailto:${siteConfig.email}`} className={linkClass}>
-                        {siteConfig.email}
-                      </a>{" "}
-                      or call {siteConfig.phone}.
+                      <EmailLink className={linkClass} /> or call <PhoneLink className={linkClass} />.
                     </>
                   ) : (
                     step.body

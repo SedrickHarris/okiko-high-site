@@ -28,7 +28,14 @@
 // Style: hyphens, never em dashes (owner preference).
 
 import type { IconName } from "@/components/ui/icons";
-import type { Faq } from "./shared";
+import { emailHref, phoneHref, siteConfig } from "@/data/site";
+import type { Faq, FaqLink } from "./shared";
+
+// Phone and email links for FAQ answers that quote them. The text comes from siteConfig.
+const contactLinks: FaqLink[] = [
+  { phrase: siteConfig.email, href: emailHref },
+  { phrase: siteConfig.phone, href: phoneHref },
+];
 
 export const privacyPage = {
   path: "/privacy-policy",
@@ -254,7 +261,7 @@ export const rights = {
     {
       icon: "mail",
       title: "Reach out",
-      body: "Email info@okikohigh.com or call (469) 421-9832.",
+      body: `Email ${siteConfig.email} or call ${siteConfig.phone}.`,
     },
     {
       icon: "pen",
@@ -299,7 +306,8 @@ export const faqs: Faq[] = [
   {
     question: "What information does OKIKO HIGH collect when I call, email, or use the contact form?",
     answer:
-      "We collect what you choose to share, usually your name, contact details, business information, and what you want help with. The contact form asks for the services you are interested in, your first name, and your phone number, and lets you add your last name, email address, preferred way to be reached, and additional information. Form submissions are saved in our CRM software, GoHighLevel, and we use them to respond to your inquiry and manage our relationship with you. You can also call (469) 421-9832 or email info@okikohigh.com.",
+      `We collect what you choose to share, usually your name, contact details, business information, and what you want help with. The contact form asks for the services you are interested in, your first name, and your phone number, and lets you add your last name, email address, preferred way to be reached, and additional information. Form submissions are saved in our CRM software, GoHighLevel, and we use them to respond to your inquiry and manage our relationship with you. You can also call ${siteConfig.phone} or email ${siteConfig.email}.`,
+    links: contactLinks,
   },
   {
     question: "Does contacting OKIKO HIGH sign me up for marketing texts or emails?",
@@ -324,6 +332,7 @@ export const faqs: Faq[] = [
   {
     question: "How do I ask OKIKO HIGH to access, correct, or delete my information?",
     answer:
-      "Email info@okikohigh.com or call (469) 421-9832 and describe your request. Depending on where you live, you may have rights to access, correct, or delete your information, or to limit how it is used. We may need to confirm your identity first, and we respond as applicable law requires. If your request concerns information we handle for one of our clients, we may need to coordinate with that client.",
+      `Email ${siteConfig.email} or call ${siteConfig.phone} and describe your request. Depending on where you live, you may have rights to access, correct, or delete your information, or to limit how it is used. We may need to confirm your identity first, and we respond as applicable law requires. If your request concerns information we handle for one of our clients, we may need to coordinate with that client.`,
+    links: contactLinks,
   },
 ];

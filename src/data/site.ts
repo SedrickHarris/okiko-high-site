@@ -11,6 +11,11 @@ export const siteConfig = {
   phone: "(469) 421-9832",
 } as const;
 
+// Contact hrefs derive from the one phone and email above so formats never drift.
+// The tel: href is E.164 (+1 and ten digits); the display text stays as written.
+export const phoneHref = `tel:+1${siteConfig.phone.replace(/\D/g, "")}`;
+export const emailHref = `mailto:${siteConfig.email}`;
+
 export const navLinks = [
   { href: "/services", label: "Services" },
   { href: "/industries", label: "Industries" },

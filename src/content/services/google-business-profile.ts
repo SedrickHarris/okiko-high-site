@@ -346,6 +346,10 @@ export const faqs: Faq[] = [
     question: "What does Google Business Profile management include?",
     answer:
       "Management commonly includes maintaining business information, optimizing categories and services, publishing approved content, monitoring the profile, and reporting customer actions. Website work, citations, review-request campaigns, call tracking, and suspension assistance may be separate, so the agreed scope should list them explicitly.",
+    links: [
+      { phrase: "Website work", href: "/services/website-design" },
+      { phrase: "review-request campaigns", href: "/services/reputation-management" },
+    ],
   },
   {
     question: "Why am I not appearing in the Google map pack?",

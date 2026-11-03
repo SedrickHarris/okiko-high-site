@@ -74,11 +74,13 @@ export const faqs: Faq[] = [
     question: "What does OKIKO HIGH Digital Marketing Agency do?",
     answer:
       "OKIKO HIGH provides digital marketing, marketing automation, and software-as-a-service solutions for local and service-based businesses. The work is organized into six services: website design, Google Business Profile management, review management, AI website chatbots, an AI receptionist for inbound calls, and text and email automation. Each has its own page explaining scope and limits.",
+    links: [{ phrase: "six services", href: "/services" }],
   },
   {
     question: "Who does OKIKO HIGH work with?",
     answer:
       "OKIKO HIGH currently serves four kinds of business, and each has its own page: home service businesses, such as HVAC, plumbing, landscaping, general contracting, and cleaning companies; professional services firms; property management and real estate businesses; and healthcare, dental, and med spa practices. Each page describes a proposed approach, not client work or results.",
+    links: [{ phrase: "four kinds of business", href: "/industries" }],
   },
   {
     question: "Does OKIKO HIGH work with businesses outside the United States?",
@@ -94,6 +96,11 @@ export const faqs: Faq[] = [
     question: "Will automation replace my team?",
     answer:
       "The services are described as supporting your team, not replacing it. The chatbot helps visitors reach your team, the AI receptionist can route a caller to a person, and text and email workflows keep real conversations connected to a person. Your written scope names what is included, and your information, messages, and settings are reviewed with you and approved before they are used.",
+    links: [
+      { phrase: "chatbot", href: "/services/ai-chatbots" },
+      { phrase: "AI receptionist", href: "/services/ai-receptionist" },
+      { phrase: "text and email workflows", href: "/services/sms-email-automation" },
+    ],
   },
   {
     question: "Does OKIKO HIGH publish prices?",
@@ -109,5 +116,6 @@ export const faqs: Faq[] = [
     question: "How do I get started with OKIKO HIGH?",
     answer:
       "Use the contact page to describe your business, how customers reach you today, and what you want to improve. We use that to look at which service, if any, fits and to define the scope before any work begins.",
+    links: [{ phrase: "contact page", href: "/contact" }],
   },
 ];

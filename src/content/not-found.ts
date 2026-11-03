@@ -47,6 +47,7 @@ export const faqs: Faq[] = [
     question: "What does OKIKO HIGH do?",
     answer:
       "OKIKO HIGH is a digital marketing agency with six service areas: website design, Google Business Profile management, review management, AI website chatbots, an AI receptionist for inbound calls, and text and email automation. Each has its own page explaining how the work is set up and where its limits are.",
+    links: [{ phrase: "six service areas", href: "/services" }],
   },
   {
     question: "Which service should I look at first?",
@@ -57,11 +58,13 @@ export const faqs: Faq[] = [
     question: "Which kinds of businesses does OKIKO HIGH work with?",
     answer:
       "OKIKO HIGH currently serves four kinds of business, each with its own industry page: home services, professional services, property management and real estate, and healthcare, dental and med spa.",
+    links: [{ phrase: "four kinds of business", href: "/industries" }],
   },
   {
     question: "How do I reach OKIKO HIGH about a broken link or a question?",
     answer:
       "Use the contact page. Describe your business, how customers reach you today, and what you want to improve, or tell us which link did not work. Scope for any service is confirmed with you before work begins.",
+    links: [{ phrase: "contact page", href: "/contact" }],
   },
   {
     question: "Does OKIKO HIGH work with businesses outside one city or country?",

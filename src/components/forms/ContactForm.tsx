@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useRef, useState, type FormEvent, type ReactNode } from "react";
 import { CheckCircleIcon, WarningIcon } from "@/components/ui/icons";
 import { contactForm as copy } from "@/content/contact";
-import { siteConfig } from "@/data/site";
+import { EmailLink, PhoneLink } from "@/components/ui/ContactLinks";
 import {
   OTHER_SERVICE,
   contactMethods,
@@ -477,13 +477,7 @@ export function ContactForm({
               <WarningIcon className="mt-0.5 h-5 w-5 shrink-0 text-red-600" />
               <p>
                 {copy.failure} Call{" "}
-                <a href={`tel:+1${siteConfig.phone.replace(/\D/g, "")}`} className="font-semibold text-brand-blue-strong underline underline-offset-2">
-                  {siteConfig.phone}
-                </a>{" "}
-                or email{" "}
-                <a href={`mailto:${siteConfig.email}`} className="font-semibold text-brand-blue-strong underline underline-offset-2">
-                  {siteConfig.email}
-                </a>
+                <PhoneLink /> or email <EmailLink />
                 .
               </p>
             </div>

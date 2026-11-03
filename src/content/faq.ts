@@ -52,6 +52,10 @@ export const faqGroups: ReadonlyArray<FaqGroup> = [
         question: "How can you help customers find and understand our business online?",
         answer:
           "Two services work on this step. A website explains what you do and how to get in touch, and a Google Business Profile keeps the details customers see on Google Search and Maps accurate. Which one to start with depends on where customers drop off today. Neither guarantees rankings or leads.",
+        links: [
+          { phrase: "A website", href: "/services/website-design" },
+          { phrase: "Google Business Profile", href: "/services/google-business-profile-optimization" },
+        ],
       },
       {
         question: "Do we need a new website, or can we improve the one we have?",
@@ -105,6 +109,7 @@ export const faqGroups: ReadonlyArray<FaqGroup> = [
         question: "Can we keep our existing business phone number?",
         answer:
           "Possibly. Forwarding an existing number is one way calls can reach an AI receptionist, but compatibility depends on your carrier, phone setup, and routing. The full call path, including voicemail and timeouts, is tested before launch and not assumed.",
+        links: [{ phrase: "AI receptionist", href: "/services/ai-receptionist" }],
       },
       {
         question: "What happens when the assistant cannot answer a question or someone wants a person?",
@@ -247,11 +252,13 @@ export const faqGroups: ReadonlyArray<FaqGroup> = [
         question: "What types of businesses does OKIKO HIGH work with?",
         answer:
           "OKIKO HIGH currently serves four kinds of business: home-service businesses, such as HVAC, plumbing, landscaping, general contracting, and cleaning companies; professional services firms; property management and real estate businesses; and healthcare, dental, and med spa practices. Each has its own industry page, and those pages describe a proposed approach, not client work or results. Other industries are evaluated separately.",
+        links: [{ phrase: "four kinds of business", href: "/industries" }],
       },
       {
         question: "Which service should I start with, and do I need all six?",
         answer:
           "You do not need all six. Start where customers drop off today: Google Business Profile management if they cannot find you, website design if they do not contact you, the AI receptionist if calls are missed, text and email automation if inquiries go quiet, and review management if reviews are thin. One clearly defined workflow is a sound starting point.",
+        links: [{ phrase: "all six", href: "/services" }],
       },
       {
         question: "Does OKIKO HIGH work with businesses outside one city or country?",
@@ -272,6 +279,7 @@ export const faqGroups: ReadonlyArray<FaqGroup> = [
         question: "How does getting started work, and what information is needed?",
         answer:
           "Use the contact page to describe the customer-management task you want to improve, how your team handles it today, the website, phone, calendar, and software involved, who approves customer communication, and what should happen when a request needs a person. We use that to define a written scope before any work begins.",
+        links: [{ phrase: "contact page", href: "/contact" }],
       },
       {
         question: "What support does OKIKO HIGH provide after launch?",
@@ -287,6 +295,7 @@ export const faqGroups: ReadonlyArray<FaqGroup> = [
         question: "How is customer and business information handled?",
         answer:
           "A workflow should collect only what it needs, and access, retention, and vendor data use are reviewed when the project is scoped. Sensitive details may need a separate secure channel. See the Privacy Policy for how information sent through this site is used.",
+        links: [{ phrase: "Privacy Policy", href: "/privacy-policy" }],
       },
       {
         question: "What happens if I stop working with OKIKO HIGH?",

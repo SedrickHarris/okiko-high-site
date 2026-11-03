@@ -439,6 +439,7 @@ export const faqs: Faq[] = [
     answer:
       "Platforms support text actions and follow-up workflows. Messages still need appropriate consent, opt-out handling, and any applicable sender registration. An inbound call should not be treated as blanket permission for promotional texts.",
     sources: [sources.highlevelVoice],
+    links: [{ phrase: "follow-up workflows", href: "/services/sms-email-automation" }],
   },
   {
     question: "Will I receive transcripts and call summaries?",

@@ -388,6 +388,7 @@ export const faqs: Faq[] = [
     question: "Can a website conversation continue by text?",
     answer:
       "Supported systems can route follow-up into messaging workflows. Customer permission, message purpose, and applicable legal and provider requirements must be checked before sending.",
+    links: [{ phrase: "messaging workflows", href: "/services/sms-email-automation" }],
   },
   {
     question: "Can it connect to my CRM and calendar?",

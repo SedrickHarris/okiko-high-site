@@ -125,6 +125,7 @@ export const faqs: Faq[] = [
     question: "Are the services different for each industry?",
     answer:
       "The same six services apply across the industries: website design, Google Business Profile management, review management, AI website chatbots, an AI receptionist for inbound calls, and text and email automation. What changes is how they are used, such as which customer questions come first and who on your team handles the next step.",
+    links: [{ phrase: "six services", href: "/services" }],
   },
   {
     question: "Should I start with an industry page or a service page?",
@@ -135,6 +136,7 @@ export const faqs: Faq[] = [
     question: "What if my industry is not listed?",
     answer:
       "Describe your business and how customers reach you through the contact page. We can look at whether one of the six services fits, and what a realistic scope would be. Not having a dedicated industry page does not stop you from asking.",
+    links: [{ phrase: "contact page", href: "/contact" }],
   },
   {
     question: "Does OKIKO HIGH work with businesses outside one city or country?",

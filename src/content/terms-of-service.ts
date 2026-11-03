@@ -298,6 +298,7 @@ export const faqs: Faq[] = [
     question: "Can OKIKO HIGH guarantee rankings, leads, bookings, or review removal?",
     answer:
       "No. Google and other platforms control search results and decide whether a review is removed, and outcomes also depend on demand, competition, your offer, and how quickly inquiries are answered. No provider can responsibly guarantee them. Each service page states what it does and does not include.",
+    links: [{ phrase: "service page", href: "/services" }],
   },
   {
     question: "Who is responsible for permission to text, email, or call my customers?",

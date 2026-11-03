@@ -6,6 +6,7 @@
 // src/lib/contact-form.ts), so the FAQ below changes with it to stay accurate.
 
 import { contactFormEndpoint } from "@/lib/contact-form";
+import { emailHref, phoneHref, siteConfig } from "@/data/site";
 import type { Faq } from "./shared";
 
 export const contactPage = {
@@ -81,8 +82,12 @@ export const faqs: Faq[] = [
   {
     question: "How can I contact OKIKO HIGH?",
     answer: contactFormEndpoint
-      ? "You can use the contact form on this page, call (469) 421-9832, or email info@okikohigh.com. The phone number and email are listed under Ways to Reach Us."
-      : "You can call (469) 421-9832 or email info@okikohigh.com. Both are listed under Ways to Reach Us on this page. There is no contact form on the site at this time.",
+      ? `You can use the contact form on this page, call ${siteConfig.phone}, or email ${siteConfig.email}. The phone number and email are listed under Ways to Reach Us.`
+      : `You can call ${siteConfig.phone} or email ${siteConfig.email}. Both are listed under Ways to Reach Us on this page. There is no contact form on the site at this time.`,
+    links: [
+      { phrase: siteConfig.phone, href: phoneHref },
+      { phrase: siteConfig.email, href: emailHref },
+    ],
   },
   {
     question: "Does OKIKO HIGH work with clients outside the US?",
@@ -104,10 +109,12 @@ export const faqs: Faq[] = [
     question: "Which services can I ask OKIKO HIGH about?",
     answer:
       "You can ask about website design, Google Business Profile management, review management, AI website chatbots, an AI receptionist for inbound calls, and text and email automation. Each has its own page with details.",
+    links: [{ phrase: "Each has its own page", href: "/services" }],
   },
   {
     question: "Which industries does OKIKO HIGH serve?",
     answer:
       "OKIKO HIGH serves home services, professional services, property management and real estate, and healthcare, dental and med spa businesses. Each industry has its own page that shows how the services apply.",
+    links: [{ phrase: "Each industry has its own page", href: "/industries" }],
   },
 ];

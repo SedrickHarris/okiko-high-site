@@ -95,6 +95,7 @@ export const faqs: Faq[] = [
     question: "What services does OKIKO HIGH offer?",
     answer:
       "There are six services: website design, Google Business Profile management, review management, AI website chatbots, an AI receptionist for inbound calls, and text and email automation. Each has its own page that explains its scope and limits. Which ones fit your business is confirmed when your project is scoped.",
+    links: [{ phrase: "six services", href: "/services" }],
   },
   {
     question: "When was OKIKO HIGH founded?",
@@ -109,6 +110,7 @@ export const faqs: Faq[] = [
     question: "Who does OKIKO HIGH work with?",
     answer:
       "OKIKO HIGH currently serves four kinds of business: home-service businesses, such as HVAC, plumbing, landscaping, general contracting, and cleaning companies; professional services firms; property management and real estate businesses; and healthcare, dental, and med spa practices. Each has its own page. The pages describe a proposed approach and illustrative scenarios, not client work or results.",
+    links: [{ phrase: "four kinds of business", href: "/industries" }],
   },
   {
     question: "Does OKIKO HIGH work with clients outside the United States?",
@@ -134,5 +136,6 @@ export const faqs: Faq[] = [
     question: "How do I get started with OKIKO HIGH?",
     answer:
       "Use the contact page to describe your business, how customers reach you today, and what you want to improve. A written scope is confirmed with you before any work begins. Prices are not published on this site because cost depends on scope.",
+    links: [{ phrase: "contact page", href: "/contact" }],
   },
 ];

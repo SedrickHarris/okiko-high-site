@@ -319,10 +319,12 @@ export const faqs: Faq[] = [
     question: "What kinds of businesses are these services for?",
     answer:
       "The service pages are written for local and service-based businesses. OKIKO HIGH currently serves four kinds of business, each with its own industry page: home services, professional services, property management and real estate, and healthcare, dental and med spa.",
+    links: [{ phrase: "four kinds of business", href: "/industries" }],
   },
   {
     question: "How do I get started?",
     answer:
       "Use the contact page to describe your business, how customers reach you today, and what you want to improve. We use that to look at which service, if any, fits and to define the scope before any work begins.",
+    links: [{ phrase: "contact page", href: "/contact" }],
   },
 ];
