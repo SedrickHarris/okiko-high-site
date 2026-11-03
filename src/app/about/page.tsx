@@ -171,7 +171,7 @@ export default function Page() {
           </div>
 
           <h3 className="mt-10 text-xl font-semibold">OKIKO HIGH at a glance</h3>
-          <dl className="mt-4 grid gap-4 sm:grid-cols-3">
+          <dl className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {glance.map((item, index) => (
               <div
                 key={item.label}
