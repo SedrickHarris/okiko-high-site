@@ -70,6 +70,8 @@ Use this checklist to catch practical issues before and after launch. It is a wo
 - [ ] Verify sitemap and robots behavior.
 - [ ] Confirm preview or unfinished pages are not accidentally indexable.
 - [ ] Confirm `*.pages.dev` hosts return `X-Robots-Tag: noindex` (from `public/_headers`).
+- [ ] Confirm X-Robots-Tag behavior on pages.dev preview and absence on production.
+- [ ] Before launch, publish or keep noindex the placeholder pages (`/case-studies`, `/resources`, `/privacy-policy`, `/terms-of-service`): set `published: true` in `src/data/placeholder-pages.ts` once real content is approved.
 - [ ] Confirm the production domain `okikohigh.com` does NOT receive the `X-Robots-Tag: noindex` header (check the live response headers).
 - [ ] Check redirects for any changed or retired URLs.
 - [ ] Verify the live deployment after publishing.

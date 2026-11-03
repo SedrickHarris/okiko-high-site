@@ -38,6 +38,7 @@ import {
   websiteUse,
 } from "@/content/terms-of-service";
 import { hubServices } from "@/content/services/hub";
+import { placeholderRobots } from "@/data/placeholder-pages";
 import { siteConfig } from "@/data/site";
 import {
   absoluteUrl,
@@ -57,6 +58,7 @@ export const metadata: Metadata = {
   title: page.title,
   description: page.description,
   alternates: { canonical: page.path },
+  ...placeholderRobots("/terms-of-service"),
   openGraph: {
     title: `${page.title} | ${siteConfig.shortName}`,
     description: page.description,

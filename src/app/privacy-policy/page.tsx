@@ -36,6 +36,7 @@ import {
   useNote,
 } from "@/content/privacy-policy";
 import { hubServices } from "@/content/services/hub";
+import { placeholderRobots } from "@/data/placeholder-pages";
 import { siteConfig } from "@/data/site";
 import {
   absoluteUrl,
@@ -55,6 +56,7 @@ export const metadata: Metadata = {
   title: page.title,
   description: page.description,
   alternates: { canonical: page.path },
+  ...placeholderRobots("/privacy-policy"),
   openGraph: {
     title: `${page.title} | ${siteConfig.shortName}`,
     description: page.description,

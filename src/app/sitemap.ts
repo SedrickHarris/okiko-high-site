@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { comboPath, publishedCombos } from "@/content/combos/registry";
+import { isSitemapPath } from "@/data/placeholder-pages";
 import { siteConfig } from "@/data/site";
 
 // Core routes plus built service pages. Add industry, resource and case-study
@@ -32,5 +33,6 @@ export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const comboRoutes = publishedCombos().map((c) => comboPath(c.audience, c.service));
-  return [...routes, ...comboRoutes].map((path) => ({ url: `${siteConfig.url}${path}` }));
+  // Placeholder pages (src/data/placeholder-pages.ts) are left out until published.
+  return [...routes, ...comboRoutes].filter(isSitemapPath).map((path) => ({ url: `${siteConfig.url}${path}` }));
 }

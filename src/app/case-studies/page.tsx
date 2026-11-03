@@ -1,10 +1,14 @@
 import type { Metadata } from "next";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { placeholderRobots } from "@/data/placeholder-pages";
 import { absoluteUrl, breadcrumbListNode, graph, organizationNode, pageNode } from "@/lib/schema";
 
+// Noindex until real content is approved. Remove this and restore the sitemap entry when published.
+// (Both are driven by `published` in src/data/placeholder-pages.ts.)
 export const metadata: Metadata = {
   title: "Case Studies",
   alternates: { canonical: "/case-studies" },
+  ...placeholderRobots("/case-studies"),
 };
 
 const pageUrl = absoluteUrl("/case-studies");

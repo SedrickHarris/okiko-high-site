@@ -19,7 +19,7 @@ Record the technical approach for building, maintaining, and deploying the OKIKO
 - **www redirect:** `www.okikohigh.com` must permanently (301) redirect to `https://okikohigh.com`. Cloudflare Pages `_redirects` cannot match on host, so create this as a zone-level Redirect Rule (Rules, Redirect Rules) in the Cloudflare dashboard.
 - **Development indexing:** `public/_headers` sends `X-Robots-Tag: noindex` for `*.pages.dev` hosts only, so the development site is not indexed as a duplicate. It does not apply to the launch domain.
 
-Confirm the Cloudflare deployment method and build settings before configuring production. Do not assume static export or a specific Cloudflare adapter until the deployment approach is selected.
+Confirm the Cloudflare deployment method and build settings before configuring production. The project uses static export (`output: "export"` in `next.config.ts`): `next build` writes the site to `out/`, and `robots.ts` and `sitemap.ts` use `dynamic = "force-static"`. Do not assume a specific Cloudflare adapter; the Cloudflare product, build settings, and production branch are still to be confirmed below.
 
 ## Application structure
 
