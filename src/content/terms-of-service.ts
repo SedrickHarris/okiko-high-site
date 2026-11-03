@@ -29,7 +29,7 @@ export const termsPage = {
     "The terms for using the OKIKO HIGH website and working with OKIKO HIGH: how services are scoped, what we do not guarantee, and what clients are responsible for.",
   h1: "OKIKO HIGH Terms of Service",
   intro:
-    "These Terms of Service explain how you may use the OKIKO HIGH website and set general expectations for the services we offer. They are written to be read, so each section says what it covers and what it leaves to a written scope for your project.",
+    "These terms explain how use of the OKIKO HIGH website is governed and set general expectations for our services. Any paid service is described in the applicable proposal or service agreement, including the agreed scope, responsibilities, fees, and service-specific conditions.",
   primaryCta: { label: "Contact us with a question", href: "/contact" },
   secondaryCta: { label: "See terms for each service", href: "#services" },
 } as const;
@@ -73,7 +73,7 @@ export const glanceCards: ReadonlyArray<{ icon: IconName; title: string; body: s
 
 export const scopeCoverage = [
   "OKIKO HIGH Digital Marketing Agency (OKIKO HIGH, we, or us) provides digital marketing, marketing automation, and Software as a Service (SaaS) solutions for businesses. These terms apply when you visit our website at okikohigh.com, contact us, or ask us to work on a project.",
-  "By using this website, you agree to these terms. If you do not agree, please do not use the website. Using the website is not the same as hiring us: a project begins only when we have agreed a scope with you.",
+  "By using this website, you agree to these terms. If you do not agree, please do not use the website. Using the website, sending an inquiry, or booking an introductory call is not the same as hiring us: a paid project begins only when we have agreed a scope with you. Agreeing to these terms is also not consent to receive marketing texts, emails, or calls.",
 ] as const;
 
 export const scopeCards: ReadonlyArray<{ icon: IconName; title: string; body: ReadonlyArray<string> }> = [
@@ -103,6 +103,7 @@ export const websiteUse = {
     "Not interfere with, overload, or disrupt the website or the way others can use it",
     "Not pretend to be another person or business when you contact us",
     "Give accurate details when you contact us about a service",
+    "Send us only information and materials you have the right to share",
   ],
   contentNote:
     "The text, layout, graphics, and other content on this website belong to OKIKO HIGH or its licensors. You may read it and share a link to it. Please do not copy it, resell it, or present it as your own without our written permission. The OKIKO HIGH name and logo are ours, and you may not use them in a way that suggests we endorse you.",
@@ -134,7 +135,7 @@ export const serviceDescriptions: Record<string, string> = {
   "google-business-profile-optimization":
     "This work runs through authorized access to your Google Business Profile and content you approve. Google's rules decide what appears, and we cannot promise placement, a restored listing after a suspension, or that a review will be removed.",
   "reputation-management":
-    "Review requests are neutral, honest, and sent only through channels where you have documented consent. We do not offer incentives for reviews, filter who is asked, or promise to remove reviews, and difficult replies go to a named person at your business.",
+    "Review requests are neutral, honest, and sent only through channels where you have documented consent. We do not write fake reviews, offer incentives for reviews, filter who is asked, or promise to remove reviews, and difficult replies go to a named person at your business.",
   "ai-chatbots":
     "A chatbot answers from information you approve and gives visitors a route to a person. It can be wrong or incomplete, so you review transcripts and approved answers, and who owns conversation records and what can be exported is settled when the project is scoped.",
   "ai-receptionist":
@@ -181,7 +182,7 @@ export const responsibilityItems = [
 ] as const;
 
 export const responsibilityNote =
-  "We build workflows around consent and opt-outs, but the permissions to contact your customers are yours. Rules differ by country, state, and industry, so they are checked when your project is scoped.";
+  "We build workflows around consent and opt-outs, but the permissions to contact your customers are yours, and agreeing to these terms does not replace the consent your customers need to give. Rules differ by country, state, and industry, so they are checked when your project is scoped.";
 
 export const industryCards: ReadonlyArray<{
   icon: IconName;
@@ -326,7 +327,7 @@ export const faqs: Faq[] = [
   {
     question: "Does OKIKO HIGH serve clients worldwide, and do local laws still apply?",
     answer:
-      "OKIKO HIGH states that it serves clients worldwide. Local laws and platform rules still apply to you and your customers, for example which consent rules cover calls and texts, so those points are checked when your project is scoped.",
+      "OKIKO HIGH states that it serves clients worldwide. Whether a particular service can be offered still depends on your country, the platforms and features available there, and our capacity, and it is confirmed when your project is scoped. Local laws and platform rules also still apply to you and your customers, for example which consent rules cover calls and texts.",
   },
   {
     question: "How will I know if these terms change?",
