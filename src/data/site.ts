@@ -7,7 +7,7 @@ export const siteConfig = {
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://okikohigh.com",
   description:
     "OKIKO HIGH Digital Marketing Agency provides digital marketing, marketing automation, and SaaS solutions powered by GoHighLevel and its ecosystem.",
-  email: "okikohigh@gmail.com",
+  email: "info@okikohigh.com",
   phone: "(469) 421-9832",
 } as const;
 

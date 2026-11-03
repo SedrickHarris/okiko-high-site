@@ -45,7 +45,7 @@ Add suitable properties only when confirmed and accurate:
 - `url`: canonical website URL, `https://okikohigh.com`
 - `description`: approved business description
 - `logo`: absolute URL to the approved logo asset
-- `email`: `okikohigh@gmail.com`, if published
+- `email`: `info@okikohigh.com`, if published
 - `telephone`: `(469) 421-9832`, if published
 - `sameAs`: verified official social and business profile URLs
 - `foundingDate`: `2026-05-03`, only if the owner confirms this should be publicly represented

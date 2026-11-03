@@ -18,7 +18,7 @@ This document records verified Okiko High business information for use across th
 
 ## Contact and profiles
 
-- **Public email:** `okikohigh@gmail.com`
+- **Public email:** `info@okikohigh.com`
 - **Public phone:** `(469) 421-9832`
 - **Official social profiles:** TBD — obtain full URLs for Facebook, Instagram, LinkedIn, and YouTube before publishing or adding to structured data.
 - **Google Business Profile:** One agency profile exists. Public profile URL and exact represented service area are TBD.

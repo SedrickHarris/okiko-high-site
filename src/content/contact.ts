@@ -51,7 +51,7 @@ export const faqs: Faq[] = [
   {
     question: "How can I contact OKIKO HIGH?",
     answer:
-      "You can call (469) 421-9832 or email okikohigh@gmail.com. Both are listed under Ways to Reach Us on this page. There is no contact form on the site at this time.",
+      "You can call (469) 421-9832 or email info@okikohigh.com. Both are listed under Ways to Reach Us on this page. There is no contact form on the site at this time.",
   },
   {
     question: "Does OKIKO HIGH work with clients outside the US?",
