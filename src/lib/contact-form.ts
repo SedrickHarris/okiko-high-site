@@ -1,17 +1,26 @@
 // Contact form helpers: endpoint, field types, validation, and the request payload.
 //
-// The site is a static export, so there is no server route to receive a submission.
-// The form posts JSON to an external endpoint (form provider or automation webhook)
-// set in NEXT_PUBLIC_CONTACT_FORM_ENDPOINT at build time. The provider is still TBD
-// (docs/06). Until the variable is set, /contact does not render the form, so the
-// site never shows a form that cannot submit. If the chosen provider needs different
-// field names, change buildPayload only.
+// The site is a static export, so Next.js has no server route to receive a submission.
+// The form posts JSON to the endpoint set in NEXT_PUBLIC_CONTACT_FORM_ENDPOINT at
+// build time. The chosen setup is the Cloudflare Pages Function in
+// functions/api/contact.ts (endpoint "/api/contact"), which holds the GoHighLevel
+// Private Integration token server-side (docs/06). An absolute https URL also works
+// for a public webhook. Until the variable is set, /contact does not render the
+// form, so the site never shows a form that cannot submit. If the receiving side
+// needs different field names, change buildPayload and the function together.
 
 const rawEndpoint = process.env.NEXT_PUBLIC_CONTACT_FORM_ENDPOINT?.trim();
 
-/** The submission endpoint, or undefined when it is not set or is not an https URL. */
+/**
+ * The submission endpoint, or undefined when it is not set or is not valid: an
+ * absolute https URL, or a same-site path such as /api/contact.
+ */
 export const contactFormEndpoint =
-  rawEndpoint && rawEndpoint.startsWith("https://") ? rawEndpoint : undefined;
+  rawEndpoint &&
+  (rawEndpoint.startsWith("https://") ||
+    (rawEndpoint.startsWith("/") && !rawEndpoint.startsWith("//")))
+    ? rawEndpoint
+    : undefined;
 
 /** Value of the "Other" service pill. */
 export const OTHER_SERVICE = "Other";

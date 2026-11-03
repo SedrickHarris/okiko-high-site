@@ -49,7 +49,8 @@ Use this checklist to catch practical issues before and after launch. It is a wo
 - [ ] Test primary navigation and footer links.
 - [ ] Test contact forms, email links, phone links, and booking links.
 - [ ] Confirm form submission produces the expected confirmation or response.
-- [ ] Contact form: choose the provider, set `NEXT_PUBLIC_CONTACT_FORM_ENDPOINT` in the production Cloudflare Pages environment, confirm the provider accepts cross-origin JSON POSTs and receives every field (see `docs/06`), then send a real test submission.
+- [ ] Contact form: set `NEXT_PUBLIC_CONTACT_FORM_ENDPOINT=/api/contact`, `GHL_PRIVATE_TOKEN` (secret), and `GHL_LOCATION_ID` in the production Cloudflare Pages environment, redeploy, send a real test submission, and confirm the GoHighLevel contact (tag, source, phone format) and its note are correct (see `docs/06`).
+- [ ] Add a Cloudflare WAF rate limiting rule for `/api/contact`.
 - [ ] If the contact form goes live, update the Privacy Policy (`src/content/privacy-policy.ts`): its "What we collect" card and "Information you give us" section describe calls and emails only, and its header comment records that the site had no active forms. Update the "Last updated" date with the change.
 - [ ] Check mobile and desktop layouts.
 - [ ] Check keyboard navigation, visible focus, form labels, and color contrast.

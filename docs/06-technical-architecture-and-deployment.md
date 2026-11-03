@@ -66,14 +66,17 @@ Structured data is a core project requirement. Keep JSON-LD generation maintaina
 
 - **Preferred primary contact action:** TBD.
 - **Booking URL:** TBD.
-- **Form provider and submission endpoint:** TBD (provider not chosen).
+- **Form provider and submission endpoint:** GoHighLevel via a Private Integration, called from a Cloudflare Pages Function at `/api/contact` (see Contact form below). Owner chose this on 2026-11-03.
 - **Analytics and consent requirements:** TBD.
 
 ### Contact form (built, gated on an endpoint)
 
 - **Component:** `src/components/forms/ContactForm.tsx` (client component). Step 1 is service pills (the six confirmed services plus Other, multi-select). Step 2 collects first name (required), last name, phone (required), email, preferred contact method (text, call, or email), and additional information. Email becomes required only if the visitor picks email as the preferred method.
 - **Helpers:** `src/lib/contact-form.ts` holds the endpoint, validation, and `buildPayload`. Copy is in `src/content/contact.ts` (`contactForm`).
-- **Submission:** the site is a static export, so there is no server route. The form POSTs JSON to the URL in `NEXT_PUBLIC_CONTACT_FORM_ENDPOINT` (https only), set per Cloudflare Pages environment and applied at build time. The value is public, so use a webhook or form URL meant to be public and never a secret. If the chosen provider needs different field names, change `buildPayload` only. The provider must also allow cross-origin POSTs from the site.
+- **Submission:** the site is a static export, so Next.js has no server route. The form POSTs JSON to the value of `NEXT_PUBLIC_CONTACT_FORM_ENDPOINT`, set per Cloudflare Pages environment and applied at build time. Set it to `/api/contact`. The value is public, so it must never be a secret. An absolute https URL for a public webhook is also accepted.
+- **Server side:** `functions/api/contact.ts` is a Cloudflare Pages Function (Pages picks up the root `functions/` folder automatically; it does not run under `next dev`). It validates the submission, rejects cross-origin posts, upserts the contact in GoHighLevel (`POST /contacts/upsert`, tagged `website-contact-form`, source `okikohigh.com contact form`), then adds a note with the services, preferred method, and message. If the note fails after the contact is saved, it logs the status and still reports success so the visitor does not resubmit. It logs only status codes, never submission data.
+- **Secrets (Cloudflare Pages, Settings, Variables and Secrets):** `GHL_PRIVATE_TOKEN` (encrypted secret) and `GHL_LOCATION_ID`. Neither uses the `NEXT_PUBLIC_` prefix. Use a `.dev.vars` file (git-ignored) for `wrangler pages dev`. Private Integration scopes: contact write only, plus contact read only if the upsert needs it. Rotate the token if it is ever exposed.
+- **Not built:** rate limiting. Add a Cloudflare WAF rate limiting rule on `/api/contact` at launch.
 - **Gating:** `/contact` renders the form only when the endpoint is set, so the site never shows a form that cannot submit. The first contact FAQ answer changes with it.
 - **Spam:** a hidden honeypot field; a filled honeypot shows the success message and sends nothing. There is no CAPTCHA and no added dependency.
 - **Not decided:** response-time promises (none are shown), confirmation emails, and analytics events.
