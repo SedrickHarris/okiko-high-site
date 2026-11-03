@@ -96,8 +96,9 @@ export const faqs: Faq[] = [
   },
   {
     question: "Should I send sensitive or health information when I contact OKIKO HIGH?",
-    answer:
-      "No. Do not send card numbers, passwords, sensitive personal information, or health or patient information by phone or email. A short description of your business and goals is enough to start.",
+    answer: contactFormEndpoint
+      ? "No. Do not send card numbers, passwords, sensitive personal information, or health or patient information by phone, email, or the contact form. A short description of your business and goals is enough to start."
+      : "No. Do not send card numbers, passwords, sensitive personal information, or health or patient information by phone or email. A short description of your business and goals is enough to start.",
   },
   {
     question: "Which services can I ask OKIKO HIGH about?",

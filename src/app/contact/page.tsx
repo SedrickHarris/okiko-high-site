@@ -150,8 +150,9 @@ export default function Page() {
           heading="What Not to Send"
           intro={
             <p>
-              Please keep these out of calls and emails. We use what you send to
-              respond to your inquiry; see our{" "}
+              Please keep these out of{" "}
+              {contactFormEndpoint ? "calls, emails, and the contact form" : "calls and emails"}.
+              We use what you send to respond to your inquiry; see our{" "}
               <Link href="/privacy-policy" className={linkClass}>
                 Privacy Policy
               </Link>{" "}

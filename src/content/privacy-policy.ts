@@ -2,18 +2,28 @@
 // Sources: docs/01 (business description, public email and phone, worldwide coverage,
 // services), the Privacy Policy research reports (2026-11-02: scope and structure, and
 // the client / agency responsibility split), and statements the site already makes on
-// /contact and on the service and industry pages (no active form, no sensitive
-// information by phone or email, inquiries are not marketing permission).
+// /contact and on the service and industry pages (no sensitive information by phone,
+// email, or form, inquiries are not marketing permission).
 //
-// Facts checked in the repository at build time: the site has no analytics, advertising
-// pixels, cookies, embeds, or active forms, so the policy says so and nothing more.
+// Facts checked in the repository (2026-11-03): the site has no analytics, advertising
+// pixels, cookies, browser storage, or third-party scripts, so the policy says so and
+// nothing more. It does have a contact form on /contact (src/components/forms/
+// ContactForm.tsx). The form posts to our own /api/contact Pages Function
+// (functions/api/contact.ts), which creates or updates a contact in our GoHighLevel
+// account and adds a note with the services, preferred method, and message. The
+// contact is tagged "website-contact-form". The function logs only status codes,
+// rejects cross-origin posts, and uses a hidden honeypot field that collects nothing
+// from real visitors. The form only renders when NEXT_PUBLIC_CONTACT_FORM_ENDPOINT is
+// set (docs/06), but this policy describes it outright, so set that variable in
+// production before the policy goes live (docs/08).
 //
 // Intentionally NOT stated, because the research marks them unconfirmed: the legal
 // entity name, a mailing address, retention periods, whether OKIKO HIGH sends its own
-// marketing, call recording or AI use on the agency's own operations, whether data is
-// sold or shared for advertising, named subprocessors beyond the GoHighLevel platform
-// the business description already names, and any "compliant" or "never share" claim.
-// If any of those change, update this file and `lastUpdated` together.
+// marketing or automated messages after a form submission, call recording or AI use on
+// the agency's own operations, whether data is sold or shared for advertising, response
+// times, named subprocessors beyond the GoHighLevel platform (described only as software
+// we use, never as a partner), and any "secure", "encrypted", "compliant", or "never
+// share" claim. If any of those change, update this file and `lastUpdated` together.
 //
 // Style: hyphens, never em dashes (owner preference).
 
@@ -34,7 +44,7 @@ export const privacyPage = {
 } as const;
 
 // Shown visibly under the intro and used for `dateModified` in the page's JSON-LD.
-export const lastUpdated = { iso: "2026-11-02", display: "November 2, 2026" } as const;
+export const lastUpdated = { iso: "2026-11-03", display: "November 3, 2026" } as const;
 
 export const jumpItems: ReadonlyArray<{ href: string; label: string }> = [
   { href: "#roles", label: "Our two roles" },
@@ -51,7 +61,7 @@ export const glanceCards: ReadonlyArray<{ icon: IconName; title: string; body: s
   {
     icon: "file",
     title: "What we collect",
-    body: "What you share when you call or email us, plus standard technical details that our website hosting handles to deliver the site.",
+    body: "What you share when you call or email us or send our contact form, plus standard technical details that our website hosting handles to deliver the site.",
   },
   {
     icon: "shield",
@@ -71,7 +81,7 @@ export const glanceCards: ReadonlyArray<{ icon: IconName; title: string; body: s
 ];
 
 export const coverage = [
-  "OKIKO HIGH Digital Marketing Agency (OKIKO HIGH, we, or us) provides digital marketing, marketing automation, and Software as a Service (SaaS) solutions for businesses. This policy applies to our website at okikohigh.com, to inquiries you make to us by phone or email, and to our relationships with clients and prospective clients.",
+  "OKIKO HIGH Digital Marketing Agency (OKIKO HIGH, we, or us) provides digital marketing, marketing automation, and Software as a Service (SaaS) solutions for businesses. This policy applies to our website at okikohigh.com, to inquiries you make to us by phone, email, or our contact form, and to our relationships with clients and prospective clients.",
   "It does not replace the privacy notice that a client gives its own customers. The next section explains how that works when we handle information for a client.",
 ] as const;
 
@@ -107,12 +117,14 @@ export const collectCards: ReadonlyArray<{
     icon: "mail",
     tone: "default",
     title: "Information you give us",
-    intro: "When you call or email us, we receive what you choose to share.",
+    intro:
+      "When you call or email us or send our contact form, we receive what you choose to share. Contact form submissions are saved in our customer relationship management (CRM) software, GoHighLevel, and we use them to respond to your inquiry and manage our relationship with you.",
     items: [
       "Your name and contact details, such as an email address and phone number",
       "Your business name and type, and the service you are considering",
       "The content of your message and what you tell us about your needs",
       "Details about your current tools and processes that you share while we scope a project",
+      "From the contact form: the services you are interested in (with a short description if you choose Other), your first name and phone number, and, if you choose to add them, your last name, email address (needed only if you choose email as your preferred way to be reached), preferred way to be reached (text, call, or email), and additional information",
     ],
   },
   {
@@ -144,7 +156,7 @@ export const collectCards: ReadonlyArray<{
 
 export const doNotSend = {
   heading: "Please do not send sensitive information",
-  body: "A short description of your business and goals is enough to start. Please do not send any of the following by phone, email, or text:",
+  body: "A short description of your business and goals is enough to start. Please do not send any of the following by phone, email, text, or the contact form:",
   items: [
     "Credit or debit card numbers",
     "Passwords or login codes",
@@ -174,7 +186,7 @@ export const trackingPoints = [
 
 export const communicationPoints = [
   "We use the contact details you give us to respond to your inquiry.",
-  "Contacting us does not by itself give us permission to send you marketing texts or make automated marketing calls. If we send marketing messages in the future, we will follow the rules that apply and include a way to opt out.",
+  "Contacting us, including by sending the contact form, does not by itself give us permission to send you marketing texts or make automated marketing calls. If we send marketing messages in the future, we will follow the rules that apply and include a way to opt out.",
   "Messages that clients send through our services are sent for the client, under the client's instructions and the permissions the client has collected. If you receive one and want it to stop, follow the opt-out instructions in the message or contact the client.",
 ] as const;
 
@@ -203,7 +215,7 @@ export const servicesNote =
   "These descriptions summarize what each service page already explains. For how information is handled in a particular project, ask us when we scope it.";
 
 export const sharingItems = [
-  "Service providers that help us run our business and deliver services, such as hosting, communications, and software platforms. Some of our services are delivered with third-party platforms, including GoHighLevel and its ecosystem, which handle information under their own terms.",
+  "Service providers that help us run our business and deliver services, such as hosting, communications, and software platforms. For example, contact form submissions are saved in GoHighLevel, a CRM and marketing software platform we use. Some of our services are also delivered with third-party platforms, including GoHighLevel and its ecosystem, which handle information under their own terms.",
   "Our clients, when we handle information on their behalf.",
   "Professional advisers, when we need their help with our business.",
   "Authorities or other parties, when the law requires it or when needed to protect rights, safety, or security.",
@@ -224,7 +236,7 @@ export const handlingCards: ReadonlyArray<{ icon: IconName; title: string; body:
   {
     icon: "shield",
     title: "How we protect it",
-    body: "We take reasonable steps to protect the information we handle. No method of storage or transmission is completely secure, so we cannot guarantee absolute security. Please avoid sending sensitive information by phone or email.",
+    body: "We take reasonable steps to protect the information we handle. No method of storage or transmission is completely secure, so we cannot guarantee absolute security. Please avoid sending sensitive information by phone, email, or the contact form.",
   },
 ];
 
@@ -285,14 +297,14 @@ export const faqs: Faq[] = [
       "At the time of this update, the OKIKO HIGH website does not use analytics tools, advertising pixels, or advertising cookies. Our hosting provider may still process standard technical information, such as an IP address, to deliver the site and keep it secure. If we add analytics or advertising tools, we will update this policy and, where the law requires it, ask for your consent first.",
   },
   {
-    question: "What information does OKIKO HIGH collect when I call or email?",
+    question: "What information does OKIKO HIGH collect when I call, email, or use the contact form?",
     answer:
-      "We collect what you choose to share, usually your name, contact details, business information, and what you want help with. We use it to respond to your inquiry and discuss which service, if any, fits. The website has no active contact form at this time, so you can call (469) 421-9832 or email info@okikohigh.com.",
+      "We collect what you choose to share, usually your name, contact details, business information, and what you want help with. The contact form asks for the services you are interested in, your first name, and your phone number, and lets you add your last name, email address, preferred way to be reached, and additional information. Form submissions are saved in our CRM software, GoHighLevel, and we use them to respond to your inquiry and manage our relationship with you. You can also call (469) 421-9832 or email info@okikohigh.com.",
   },
   {
     question: "Does contacting OKIKO HIGH sign me up for marketing texts or emails?",
     answer:
-      "No. We use the details you send to respond to your inquiry. Contacting us does not by itself give us permission to send marketing texts or make automated marketing calls. If we send marketing messages in the future, we will follow the rules that apply and include a way to opt out.",
+      "No. We use the details you send, by phone, email, or the contact form, to respond to your inquiry. Contacting us, including by sending the contact form, does not by itself give us permission to send marketing texts or make automated marketing calls. If we send marketing messages in the future, we will follow the rules that apply and include a way to opt out.",
   },
   {
     question: "How does OKIKO HIGH handle my customers' information when it works for my business?",
@@ -302,12 +314,12 @@ export const faqs: Faq[] = [
   {
     question: "Which software platforms handle information for OKIKO HIGH services?",
     answer:
-      "Some of our services are delivered with third-party software platforms, including GoHighLevel and its ecosystem. Information handled through a service may be processed by the platform and its own providers under their terms. Which providers apply depends on the service and the scope, so ask us if you want to know for your situation.",
+      "We use GoHighLevel, a CRM and marketing software platform, to store contact form submissions. Some of our services are also delivered with third-party software platforms, including GoHighLevel and its ecosystem. Information handled through a service may be processed by the platform and its own providers under their terms. Which providers apply depends on the service and the scope, so ask us if you want to know for your situation.",
   },
   {
     question: "Should I send health, payment, or other sensitive information when I contact OKIKO HIGH?",
     answer:
-      "No. Please do not send card numbers, passwords, government ID numbers, health or patient information, or confidential client, case, or financial details by phone, email, or text. A short description of your business and goals is enough to start.",
+      "No. Please do not send card numbers, passwords, government ID numbers, health or patient information, or confidential client, case, or financial details by phone, email, text, or the contact form. A short description of your business and goals is enough to start.",
   },
   {
     question: "How do I ask OKIKO HIGH to access, correct, or delete my information?",

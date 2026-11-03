@@ -51,7 +51,8 @@ Use this checklist to catch practical issues before and after launch. It is a wo
 - [ ] Confirm form submission produces the expected confirmation or response.
 - [ ] Contact form: set `NEXT_PUBLIC_CONTACT_FORM_ENDPOINT=/api/contact`, `GHL_PRIVATE_TOKEN` (secret), and `GHL_LOCATION_ID` in the production Cloudflare Pages environment, redeploy, send a real test submission, and confirm the GoHighLevel contact (tag, source, phone format) and its note are correct (see `docs/06`).
 - [ ] Add a Cloudflare WAF rate limiting rule for `/api/contact`.
-- [ ] If the contact form goes live, update the Privacy Policy (`src/content/privacy-policy.ts`): its "What we collect" card and "Information you give us" section describe calls and emails only, and its header comment records that the site had no active forms. Update the "Last updated" date with the change.
+- [x] If the contact form goes live, update the Privacy Policy (`src/content/privacy-policy.ts`). Done 2026-11-03: the "What we collect" card, "Information you give us", sharing, security, and FAQs now cover the form and its storage in GoHighLevel, and "Last updated" is 2026-11-03. The policy describes the form outright, so set `NEXT_PUBLIC_CONTACT_FORM_ENDPOINT=/api/contact` in production before the updated policy goes live (the item above).
+- [ ] Contact form and the Privacy Policy, owner to confirm: whether any GoHighLevel workflow sends automated texts, emails, or calls after a submission (the policy says nothing about this, and says contacting us is not marketing consent); how long CRM contacts and notes are kept; who has access to the GoHighLevel account; and whether form data is used for marketing or shared beyond GoHighLevel. Update the policy if any answer changes what it says.
 - [ ] Check mobile and desktop layouts.
 - [ ] Check keyboard navigation, visible focus, form labels, and color contrast.
 - [ ] Confirm informative images have useful alt text and decorative images have empty alt text.
