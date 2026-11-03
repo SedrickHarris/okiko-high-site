@@ -37,13 +37,13 @@ import {
   suspensionSteps,
   tellUs,
 } from "@/content/services/google-business-profile";
+import { hubServiceName } from "@/content/services/hub";
 import {
   absoluteUrl,
   breadcrumbListNode,
   faqPageNode,
   graph,
   organizationId,
-  organizationNode,
 } from "@/lib/schema";
 import { PageHero } from "@/components/sections/PageHero";
 import { accents } from "@/lib/brand";
@@ -59,7 +59,6 @@ const pageUrl = absoluteUrl(page.path);
 const serviceId = `${pageUrl}#service`;
 
 const structuredData = graph([
-  organizationNode(),
   {
     "@type": "WebPage",
     "@id": `${pageUrl}#webpage`,
@@ -72,7 +71,7 @@ const structuredData = graph([
   {
     "@type": "Service",
     "@id": serviceId,
-    name: "Google Business Profile optimization and management",
+    name: hubServiceName(page.path),
     serviceType: page.serviceType,
     description: page.description,
     provider: { "@id": organizationId },

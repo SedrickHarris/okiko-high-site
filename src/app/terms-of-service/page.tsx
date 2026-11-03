@@ -45,7 +45,6 @@ import {
   breadcrumbListNode,
   faqPageNode,
   graph,
-  organizationNode,
   pageNode,
 } from "@/lib/schema";
 import { accents } from "@/lib/brand";
@@ -76,12 +75,11 @@ export const metadata: Metadata = {
   },
 };
 
-// Verified facts only (docs/07). The email and phone on the Organization node are
+// Verified facts only (docs/07). The email and phone in the shared Organization node are
 // shown on this page (closing section), and `dateModified` matches the visible
 // "Last updated" date. The FAQPage node reads the same objects as the visible FAQ.
 // No LocalBusiness, address, hours, sameAs, areaServed, or ratings.
 const structuredData = graph([
-  organizationNode({ withContact: true }),
   {
     ...pageNode(pageUrl, { type: "WebPage", name: page.h1, description: page.description }),
     dateModified: lastUpdated.iso,

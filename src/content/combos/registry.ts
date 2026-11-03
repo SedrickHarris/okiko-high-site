@@ -9,6 +9,12 @@
 // - true: the page is indexable, listed in the sitemap, and linked from related pages.
 // Set it to true only after the owner approves the page.
 
+import { aiChatbotsPage } from "../services/ai-chatbots";
+import { aiReceptionistPage } from "../services/ai-receptionist";
+import { gbpPage } from "../services/google-business-profile";
+import { reputationManagementPage } from "../services/reputation-management";
+import { smsEmailPage } from "../services/sms-email-automation";
+import { websiteDesignPage } from "../services/website-design";
 import { combo as homeServicesAiReceptionist } from "./home-services/ai-receptionist";
 import { combo as homeServicesWebsiteDesign } from "./home-services/website-design";
 import {
@@ -32,16 +38,17 @@ export const audienceInfo: Record<AudienceSlug, { name: string; path: string }> 
   healthcare: { name: "Healthcare, Dental & Med Spa", path: "/industries/healthcare" },
 };
 
-export const serviceInfo: Record<ServiceSlug, { name: string; path: string }> = {
-  "website-design": { name: "Website Design", path: "/services/website-design" },
-  "ai-chatbots": { name: "AI Chatbots", path: "/services/ai-chatbots" },
-  "ai-receptionist": { name: "AI Receptionist", path: "/services/ai-receptionist" },
-  "reputation-management": { name: "Reputation Management", path: "/services/reputation-management" },
+export const serviceInfo: Record<ServiceSlug, { name: string; path: string; serviceType: string }> = {
+  "website-design": { name: "Website Design", path: "/services/website-design", serviceType: websiteDesignPage.serviceType },
+  "ai-chatbots": { name: "AI Chatbots", path: "/services/ai-chatbots", serviceType: aiChatbotsPage.serviceType },
+  "ai-receptionist": { name: "AI Receptionist", path: "/services/ai-receptionist", serviceType: aiReceptionistPage.serviceType },
+  "reputation-management": { name: "Reputation Management", path: "/services/reputation-management", serviceType: reputationManagementPage.serviceType },
   "google-business-profile": {
     name: "Google Business Profile",
     path: "/services/google-business-profile-optimization",
+    serviceType: gbpPage.serviceType,
   },
-  "sms-email-automation": { name: "SMS and Email Automation", path: "/services/sms-email-automation" },
+  "sms-email-automation": { name: "SMS and Email Automation", path: "/services/sms-email-automation", serviceType: smsEmailPage.serviceType },
 };
 
 type ComboEntry = { content: ComboContent; published: boolean };

@@ -5,6 +5,7 @@
 
 import type { IconName } from "@/components/ui/icons";
 import type { Faq } from "../shared";
+import { aiChatbotsPage } from "./ai-chatbots";
 
 export const hubPage = {
   path: "/services",
@@ -33,6 +34,8 @@ export type HubService = {
   slug: string;
   path: string;
   title: string;
+  // Schema name when the card title is not visible on the service page itself.
+  serviceName?: string;
   icon: IconName;
   description: string;
   buttonLabel: string;
@@ -84,6 +87,8 @@ export const hubServices: ReadonlyArray<HubService> = [
     slug: "ai-chatbots",
     path: "/services/ai-chatbots",
     title: "AI Website Chatbots",
+    // "AI Website Chatbots" is not shown on the service page; its H1 is.
+    serviceName: aiChatbotsPage.h1,
     icon: "message",
     description:
       "A website chatbot that answers routine questions, collects inquiry details, and helps visitors request a quote, book, or reach your team, built around your approved information and a real route to a person.",
@@ -114,6 +119,16 @@ export const hubServices: ReadonlyArray<HubService> = [
     journey: [4],
   },
 ];
+
+/**
+ * The one display name for a service, from the hub data. The hub ItemList and each
+ * service page's Service node both read it, so they cannot differ.
+ */
+export function hubServiceName(path: string): string {
+  const service = hubServices.find((item) => item.path === path);
+  if (!service) throw new Error(`No hub service for path ${path}`);
+  return service.serviceName ?? service.title;
+}
 
 // "If this is your situation, look at this service" guide. Each row maps to the
 // problem the linked service page itself is written around.

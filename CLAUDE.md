@@ -6,7 +6,7 @@ Guidance for working on the OKIKO HIGH Digital Marketing Agency website.
 
 Next.js App Router, TypeScript, Tailwind CSS v4, `src/` directory, `@/*` import alias. Deploys to Cloudflare; source on GitHub. Read `AGENTS.md` first: this Next.js version has breaking changes, so check `node_modules/next/dist/docs/` before writing framework code.
 
-Commands: `npm run dev`, `npm run lint`, `npm run build`, `npm run check:combos`.
+Commands: `npm run dev`, `npm run lint`, `npm run build`, `npm run check:policy`, `npm run check:combos`.
 
 ## Source of truth
 
@@ -32,4 +32,5 @@ Commands: `npm run dev`, `npm run lint`, `npm run build`, `npm run check:combos`
 - Types, registry, and content live in `src/content/combos/` (`types.ts`, `registry.ts`, `{audience}/{service}.ts`). Content files use `import type` only. The template is `src/components/combos/ComboPage.tsx`.
 - URLs are `/industries/{audience}/{service}` (no trailing slash, matching the rest of the site). The route is enabled at `src/app/industries/[audience]/[service]`; only combos in `registry.ts` are built.
 - `published: false` builds the page as noindex and keeps it out of the sitemap and all cross-links. Set it to `true` only after owner approval.
-- Run `npm run check:combos` before committing combo copy. It fails on duplicate titles, descriptions, H1s, keywords, or FAQ questions, em dashes in copy, and the banned caption.
+- Run `npm run check:combos` before committing combo copy. It also checks the built JSON-LD, so run `npm run build` first (or pass `--no-schema` to skip the schema checks). `check:combos` is a local/pre-push check. It fails on duplicate titles, descriptions, H1s, keywords, or FAQ questions, em dashes in copy, and the banned caption.
+- Contact form guard: `npm run check:policy` (no build needed; `check:combos` runs it too) fails if `NEXT_PUBLIC_CONTACT_FORM_ENDPOINT` is set while `privacyDescribesContactForm` in `src/content/privacy-policy.ts` is `false`. The contact form is live in production and the constant is `true`; the policy describes the form and GoHighLevel storage. If the form is switched off, change the policy, the constant, and the `/contact` copy together. The guard also fails the reverse case, but only on the Cloudflare production build (`CF_PAGES_BRANCH=main`, constant `true`, variable unset); local and preview builds are not checked. Confirm in the dashboard that the build command runs `npm run check:policy` first. The recommended Cloudflare build command is `npm run check:policy && npm run build`; confirm what the dashboard actually uses (not verified from the repo), and note the variable must be set at build time. Do not change remote settings without the owner.

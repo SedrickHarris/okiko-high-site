@@ -19,6 +19,7 @@ import {
   expectSteps,
   faqs,
   hubPage as page,
+  hubServiceName,
   hubServices,
   startingPoints,
 } from "@/content/services/hub";
@@ -28,7 +29,6 @@ import {
   breadcrumbListNode,
   faqPageNode,
   graph,
-  organizationNode,
 } from "@/lib/schema";
 import { PageHero } from "@/components/sections/PageHero";
 import { accents, fillAt } from "@/lib/brand";
@@ -47,7 +47,6 @@ const pageUrl = absoluteUrl(page.path);
 const publishedServices = hubServices.filter((service) => service.published);
 
 const structuredData = graph([
-  organizationNode(),
   {
     "@type": "CollectionPage",
     "@id": `${pageUrl}#webpage`,
@@ -64,7 +63,7 @@ const structuredData = graph([
     itemListElement: publishedServices.map((service, index) => ({
       "@type": "ListItem",
       position: index + 1,
-      name: service.title,
+      name: hubServiceName(service.path),
       url: absoluteUrl(service.path),
     })),
   },

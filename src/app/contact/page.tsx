@@ -28,7 +28,6 @@ import {
   breadcrumbListNode,
   faqPageNode,
   graph,
-  organizationNode,
   pageNode,
 } from "@/lib/schema";
 import { PageHero } from "@/components/sections/PageHero";
@@ -58,11 +57,10 @@ export const metadata: Metadata = {
   },
 };
 
-// Verified facts only (docs/07): the email and phone added to the Organization node
+// Verified facts only (docs/07). The email and phone in the shared Organization node
 // are shown on this page. No LocalBusiness, address, hours, ContactPoint hours,
 // areaServed, ratings, or reviews. The FAQ node matches the visible FAQ section.
 const structuredData = graph([
-  organizationNode({ withContact: true }),
   pageNode(pageUrl, { type: "ContactPage", name: page.h1, description: page.description }),
   breadcrumbListNode(pageUrl, [
     { name: "Home", path: "/" },

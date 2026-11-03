@@ -27,10 +27,6 @@ export const aboutPage = {
   secondaryCta: { label: "Explore our services", href: "#services" },
 } as const;
 
-// ISO date for the Organization node. The full date is visible in the FAQ ("When was
-// OKIKO HIGH founded?"); the "at a glance" list shows the year only.
-export const foundingDateIso = "2026-05-03";
-
 export const heroPanel: ReadonlyArray<{ icon: IconName; stage: string; body: string }> = [
   {
     icon: "search",

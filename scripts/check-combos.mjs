@@ -8,6 +8,10 @@
 // - a combo file missing from src/content/combos/registry.ts
 // - an em dash in any combo copy
 // - the banned caption (owner instruction, 2026-10-11) anywhere under src/
+// - the contact form endpoint being set while the privacy policy has the no-form wording
+//   (scripts/check-policy.mjs, also `npm run check:policy`)
+// - JSON-LD problems in the built site, see scripts/check-schema.mjs (needs `npm run build`
+//   first; pass --no-schema to skip)
 //
 // Combo content files may only use `import type`, because they are executed here
 // without a module resolver.
@@ -17,6 +21,8 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import vm from "node:vm";
 import ts from "typescript";
+import { checkPolicy } from "./check-policy.mjs";
+import { checkSchema } from "./check-schema.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const srcDir = path.join(root, "src");
@@ -139,9 +145,21 @@ for (const file of comboFiles) {
   }
 }
 
+// 3a. Contact form / privacy policy guard (shared with `npm run check:policy`).
+checkPolicy(root, fail);
+
+// 3. JSON-LD in the built site (out/). Needs `npm run build` first; skip with --no-schema.
+let schemaPages = 0;
+const schemaSkipped = process.argv.includes("--no-schema");
+if (!schemaSkipped) schemaPages = checkSchema(path.join(root, "out"), fail);
+
 if (errors.length) {
   console.error(`check-combos: ${errors.length} problem(s)\n`);
   for (const message of errors) console.error(`  - ${message}`);
   process.exit(1);
 }
-console.log(`check-combos: OK (${comboFiles.length} combo file(s), banned caption not found under src/)`);
+console.log(
+  `check-combos: OK (${comboFiles.length} combo file(s), banned caption not found under src/, ` +
+    (schemaSkipped ? "schema checks skipped" : `JSON-LD checked on ${schemaPages} indexable page(s)`) +
+    ")",
+);

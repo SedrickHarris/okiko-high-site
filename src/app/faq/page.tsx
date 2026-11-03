@@ -17,7 +17,6 @@ import {
   breadcrumbListNode,
   faqPageNode,
   graph,
-  organizationNode,
   pageNode,
 } from "@/lib/schema";
 import { HeroJumpCard } from "@/components/sections/HeroJumpCard";
@@ -37,7 +36,6 @@ const pageUrl = absoluteUrl(page.path);
 // address, or LocalBusiness properties. FAQ markup is not expected to produce a
 // rich result.
 const structuredData = graph([
-  organizationNode(),
   pageNode(pageUrl, { type: "WebPage", name: page.h1, description: page.description }),
   breadcrumbListNode(pageUrl, [
     { name: "Home", path: "/" },

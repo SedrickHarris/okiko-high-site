@@ -27,7 +27,6 @@ import {
   breadcrumbListNode,
   faqPageNode,
   graph,
-  organizationNode,
 } from "@/lib/schema";
 import { PageHero } from "@/components/sections/PageHero";
 import { accents, fillAt } from "@/lib/brand";
@@ -46,7 +45,6 @@ const pageUrl = absoluteUrl(page.path);
 // industry pages are published and in the sitemap; the service cards link to
 // service pages that the services hub already lists.
 const structuredData = graph([
-  organizationNode(),
   {
     "@type": "CollectionPage",
     "@id": `${pageUrl}#webpage`,

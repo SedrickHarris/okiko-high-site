@@ -50,13 +50,13 @@ import {
   websiteDesignPage as page,
   wireframeAnnotations,
 } from "@/content/services/website-design";
+import { hubServiceName } from "@/content/services/hub";
 import {
   absoluteUrl,
   breadcrumbListNode,
   faqPageNode,
   graph,
   organizationId,
-  organizationNode,
 } from "@/lib/schema";
 import { HeroJumpCard } from "@/components/sections/HeroJumpCard";
 import { PageHero } from "@/components/sections/PageHero";
@@ -71,7 +71,6 @@ const pageUrl = absoluteUrl(page.path);
 const serviceId = `${pageUrl}#service`;
 
 const structuredData = graph([
-  organizationNode(),
   {
     "@type": "WebPage",
     "@id": `${pageUrl}#webpage`,
@@ -84,7 +83,7 @@ const structuredData = graph([
   {
     "@type": "Service",
     "@id": serviceId,
-    name: "Website design for local businesses",
+    name: hubServiceName(page.path),
     serviceType: page.serviceType,
     description:
       "Website design and builds for local and service-based businesses, organized around calls, quote requests, and bookings.",

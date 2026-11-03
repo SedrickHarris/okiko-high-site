@@ -52,7 +52,6 @@ import {
   breadcrumbListNode,
   faqPageNode,
   graph,
-  organizationNode,
 } from "@/lib/schema";
 import { HeroJumpCard } from "@/components/sections/HeroJumpCard";
 import { PageHero } from "@/components/sections/PageHero";
@@ -76,7 +75,6 @@ const pageUrl = absoluteUrl(page.path);
 // No Service node until the offerings and scope are confirmed, and no prices,
 // ratings, areaServed, address, or LocalBusiness properties (docs/07).
 const structuredData = graph([
-  organizationNode(),
   {
     "@type": "WebPage",
     "@id": `${pageUrl}#webpage`,

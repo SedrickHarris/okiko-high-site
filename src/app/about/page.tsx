@@ -17,7 +17,6 @@ import {
   approach,
   approachLimits,
   faqs,
-  foundingDateIso,
   glance,
   heroPanel,
   mission,
@@ -31,7 +30,6 @@ import {
   faqPageNode,
   graph,
   organizationId,
-  organizationNode,
   pageNode,
 } from "@/lib/schema";
 import { accents, fillAt } from "@/lib/brand";
@@ -61,13 +59,12 @@ export const metadata: Metadata = {
   },
 };
 
-// Verified facts only (docs/07). The email and phone on the Organization node are
-// shown in the closing section, and the founding date is shown in the FAQ (the
-// "At a glance" list shows the year only).
+// Verified facts only (docs/07). The Organization node (built once in @/lib/schema) is
+// the page's mainEntity; the founding date is shown in the FAQ (the "At a glance" list
+// shows the year only).
 // The FAQPage node reads the same objects as the visible FAQ. No LocalBusiness,
 // address, hours, sameAs, areaServed, ratings, or reviews.
 const structuredData = graph([
-  organizationNode({ withContact: true, foundingDate: foundingDateIso }),
   {
     ...pageNode(pageUrl, { type: "AboutPage", name: page.h1, description: page.description }),
     mainEntity: { "@id": organizationId },

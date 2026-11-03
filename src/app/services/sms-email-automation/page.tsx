@@ -35,12 +35,12 @@ import {
   trackList,
   workflowGroups,
 } from "@/content/services/sms-email-automation";
+import { hubServiceName } from "@/content/services/hub";
 import {
   absoluteUrl,
   breadcrumbListNode,
   faqPageNode,
   graph,
-  organizationNode,
   serviceNode,
 } from "@/lib/schema";
 import { PageHero } from "@/components/sections/PageHero";
@@ -59,7 +59,6 @@ const pageUrl = absoluteUrl(page.path);
 // Verified facts only (docs/07): no prices, ratings, areaServed, address, or
 // LocalBusiness properties. Every FAQ node matches the visible FAQ section.
 const structuredData = graph([
-  organizationNode(),
   {
     "@type": "WebPage",
     "@id": `${pageUrl}#webpage`,
@@ -70,7 +69,7 @@ const structuredData = graph([
     mainEntity: { "@id": `${pageUrl}#service` },
   },
   serviceNode(pageUrl, {
-    name: "Text and email automation for customer follow-up",
+    name: hubServiceName(page.path),
     serviceType: page.serviceType,
     description: page.description,
   }),

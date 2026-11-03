@@ -15,9 +15,17 @@ Stable identifiers use the confirmed canonical domain, the apex `okikohigh.com`:
 - **Organization:** `https://{canonical-domain}/#organization`
 - **Website:** `https://{canonical-domain}/#website`
 - **Web pages:** each page’s canonical URL, optionally with a fragment such as `#webpage`
-- **Services:** stable identifiers based on the canonical service page URL, such as `https://{canonical-domain}/services/{slug}/#service`
+- **Services:** the canonical page URL plus `#service`, with no extra slash (the site uses no trailing slashes), such as `https://{canonical-domain}/services/{slug}#service`. Combo pages follow the same rule: `https://{canonical-domain}/industries/{audience}/{service}#service`.
+- **Home page nodes:** the home URL has no trailing slash, so its fragment IDs are written `https://{canonical-domain}/#webpage` and `/#faq`, matching `/#organization` and `/#website`.
 
 Use the same organization identifier when referencing Okiko High as a publisher, provider, or page subject.
+
+**Conventions (implemented in `src/lib/schema/index.ts`):**
+
+- `graph()` adds the `Organization` and `WebSite` nodes to every page, so callers never add them. Because the site is a static export, each page document carries both, and the `Organization` is identical on every page (name, url, `logo`), built from `siteConfig` in `src/data/site.ts`. The same `@id` never carries different properties.
+- `WebSite` (`/#website`) has the Organization as `publisher`, and every page node (`WebPage`, `AboutPage`, `ContactPage`, `CollectionPage`) has `isPartOf` pointing to it.
+- The home `WebPage` has `about` pointing to `/#organization`.
+- Noindex pages carry no JSON-LD. Re-add it when a page becomes indexable.
 
 The canonical domain is the apex, `https://okikohigh.com`, confirmed by the owner (`www` redirects to it). For example, the organization `@id` is `https://okikohigh.com/#organization`.
 
@@ -45,10 +53,10 @@ Add suitable properties only when confirmed and accurate:
 - `url`: canonical website URL, `https://okikohigh.com`
 - `description`: approved business description
 - `logo`: absolute URL to the approved logo asset
-- `email`: `info@okikohigh.com`, if published
-- `telephone`: `(469) 421-9832`, if published
+- `email`: `info@okikohigh.com`, only if visible on every page (currently not emitted; see Open items)
+- `telephone`: `(469) 421-9832`, only if visible on every page (currently not emitted; see Open items)
 - `sameAs`: verified official social and business profile URLs
-- `foundingDate`: `2026-05-03`, only if the owner confirms this should be publicly represented
+- `foundingDate`: `2026-05-03`, only on pages where the date is visible (currently not emitted; see Open items)
 
 Do not set a `LocalBusiness` subtype or publish a street address and hours until the owner confirms the Plano address is a real customer-facing location. Do not use local business markup to imply a location merely because an address was supplied.
 
@@ -105,10 +113,11 @@ Do not add breadcrumbs to the homepage or create artificial hierarchy for pages 
 
 ## Open items
 
-- Approved logo asset URL
+- Logo: `logo` uses `/images/brand/logos/web/okiko-high-primary-on-white.webp` (1600x867); owner to confirm it is the preferred file
 - Verified social profile URLs
 - Current availability and page scope for each service
-- Founding date: published on `/about` (visible text and `foundingDate` on the `Organization` node) from the owner-supplied value; reconfirm if it changes
+- Email and telephone: visible as text in the body of 18 of 20 indexable pages, but not in the header or footer and not on the two combo pages, so they are not on the shared `Organization` node. Add them back only if the footer shows them on every page; the check fails if they are present on a page that does not show them.
+- Founding date: shown on `/about` only, so `foundingDate` is not on the shared `Organization` node (it would be non-visible on every other page). Add it back only if the date becomes visible on every page; `npm run check:combos` fails if `foundingDate` is present on a page that does not show it
 - Contact-action and booking details
 - Customer-facing status of the Plano location
 - Approved ratings, reviews, and case-study permissions

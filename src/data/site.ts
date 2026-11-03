@@ -6,9 +6,11 @@ export const siteConfig = {
   // https://okikohigh.com) and rebuild. The www host redirects to the apex.
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://okikohigh.com",
   description:
-    "OKIKO HIGH Digital Marketing Agency provides digital marketing, marketing automation, and SaaS solutions powered by GoHighLevel and its ecosystem.",
+    "OKIKO HIGH Digital Marketing Agency provides digital marketing, marketing automation, and SaaS solutions for local and service-based businesses.",
   email: "info@okikohigh.com",
   phone: "(469) 421-9832",
+  // Approved primary full-color logo (docs/01). Dimensions are the file's own pixel size.
+  logo: { path: "/images/brand/logos/web/okiko-high-primary-on-white.webp", width: 1600, height: 867 },
 } as const;
 
 // Contact hrefs derive from the one phone and email above so formats never drift.

@@ -18,9 +18,8 @@ import {
   absoluteUrl,
   faqPageNode,
   graph,
-  organizationNode,
+  organizationId,
   pageNode,
-  websiteNode,
 } from "@/lib/schema";
 import { PageHero } from "@/components/sections/PageHero";
 import { accents, fillAt } from "@/lib/brand";
@@ -33,17 +32,18 @@ export const metadata: Metadata = {
 
 const pageUrl = absoluteUrl(page.path);
 
-// Home page schema per docs/07: Organization, WebSite, WebPage, plus FAQPage
-// matching the visible FAQ. No logo, sameAs, address, hours, LocalBusiness,
-// ratings, or Service nodes until the owner supplies and confirms them.
+// Home page schema per docs/07: WebPage (about the Organization) plus FAQPage matching
+// the visible FAQ; `graph` adds the shared Organization and WebSite. No sameAs, address,
+// hours, LocalBusiness, ratings, or Service nodes until the owner confirms them.
 const structuredData = graph([
-  organizationNode(),
-  websiteNode(),
-  pageNode(pageUrl, {
-    name: siteConfig.name,
-    description: page.description,
-    breadcrumb: false,
-  }),
+  {
+    ...pageNode(pageUrl, {
+      name: siteConfig.name,
+      description: page.description,
+      breadcrumb: false,
+    }),
+    about: { "@id": organizationId },
+  },
   faqPageNode(pageUrl, faqs),
 ]);
 

@@ -22,10 +22,11 @@ import type { ComboContent, ComboSection } from "@/content/combos/types";
 import {
   absoluteUrl,
   breadcrumbListNode,
+  entityId,
   faqPageNode,
   graph,
-  organizationNode,
   pageNode,
+  serviceNode,
 } from "@/lib/schema";
 import { accents, fillAt } from "@/lib/brand";
 
@@ -34,13 +35,25 @@ const chipTones = ["optional", "included", "default"] as const;
 const linkClass =
   "font-semibold text-brand-blue-strong underline underline-offset-2 hover:text-brand-ink";
 
-/** Organization, WebPage, BreadcrumbList, and FAQPage (matching the visible FAQ). */
+/**
+ * WebPage, Service, BreadcrumbList, and FAQPage (matching the visible FAQ). The Service
+ * reads this page's own h1 and description plus the audience name shown in its
+ * breadcrumb; `graph` adds the shared Organization and WebSite.
+ */
 export function comboStructuredData(content: ComboContent) {
   const path = comboPath(content.audience, content.service);
   const pageUrl = absoluteUrl(path);
   return graph([
-    organizationNode(),
-    pageNode(pageUrl, { name: content.h1, description: content.description }),
+    {
+      ...pageNode(pageUrl, { name: content.h1, description: content.description }),
+      mainEntity: { "@id": entityId(pageUrl, "service") },
+    },
+    serviceNode(pageUrl, {
+      name: content.h1,
+      serviceType: serviceInfo[content.service].serviceType,
+      description: content.description,
+      audience: audienceInfo[content.audience].name,
+    }),
     breadcrumbListNode(pageUrl, [
       { name: "Home", path: "/" },
       { name: "Industries", path: "/industries" },
