@@ -79,45 +79,71 @@ export default function Page() {
         </PageHero>
 
         {/* Rendered only when a submission endpoint is configured (src/lib/contact-form.ts),
-            so the site never shows a form that cannot submit. */}
+            so the site never shows a form that cannot submit. Two columns on large screens:
+            the form on the left, phone, email, and what to include on the right. When the
+            form is on, the sidebar replaces the two standalone sections below. */}
         {contactFormEndpoint ? (
           <PageSection
             id={contactForm.id}
             heading={contactForm.heading}
             intro={<p>{contactForm.intro}</p>}
           >
-            <div className="max-w-3xl">
+            <div className="grid items-start gap-8 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)]">
               <ContactForm
                 endpoint={contactFormEndpoint}
                 services={contactServices.map((service) => service.name)}
               />
+
+              <aside aria-label="Other ways to reach us and what to include" className="space-y-6">
+                <div className="rounded-xl border border-brand-blue/30 bg-surface-muted p-6">
+                  <h3 className="text-lg font-semibold">Prefer to call or email?</h3>
+                  <p className="mt-2 text-neutral-800">
+                    Use the details below. OKIKO HIGH serves clients worldwide.
+                  </p>
+                  <ContactActions />
+                </div>
+
+                <div className="rounded-xl border border-t-4 border-neutral-200 border-t-brand-green bg-white p-6">
+                  <h3 className="text-lg font-semibold">What to include</h3>
+                  <ul className="mt-4 space-y-4">
+                    {includeItems.map((item) => (
+                      <li key={item.title}>
+                        <p className="font-semibold">{item.title}</p>
+                        <p className="mt-1 text-neutral-800">{item.body}</p>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </aside>
             </div>
           </PageSection>
-        ) : null}
+        ) : (
+          <>
+            <PageSection
+              id="ways-to-reach-us"
+              heading="Ways to Reach Us"
+              intro={<p>Call or email using the details below. OKIKO HIGH serves clients worldwide.</p>}
+            >
+              <ContactActions />
+            </PageSection>
 
-        <PageSection
-          id="ways-to-reach-us"
-          heading="Ways to Reach Us"
-          intro={<p>Call or email using the details below. OKIKO HIGH serves clients worldwide.</p>}
-        >
-          <ContactActions />
-        </PageSection>
-
-        <PageSection
-          id="what-to-include"
-          heading="What to Include in Your Message"
-          muted
-          intro={<p>A few details help us understand your situation from the first message.</p>}
-        >
-          <div className="grid gap-6 md:grid-cols-3">
-            {includeItems.map((item) => (
-              <div key={item.title} className="rounded-lg border border-neutral-200 bg-white p-5">
-                <h3 className="text-lg font-semibold">{item.title}</h3>
-                <p className="mt-2 text-neutral-800">{item.body}</p>
+            <PageSection
+              id="what-to-include"
+              heading="What to Include in Your Message"
+              muted
+              intro={<p>A few details help us understand your situation from the first message.</p>}
+            >
+              <div className="grid gap-6 md:grid-cols-3">
+                {includeItems.map((item) => (
+                  <div key={item.title} className="rounded-lg border border-neutral-200 bg-white p-5">
+                    <h3 className="text-lg font-semibold">{item.title}</h3>
+                    <p className="mt-2 text-neutral-800">{item.body}</p>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
-        </PageSection>
+            </PageSection>
+          </>
+        )}
 
         <PageSection
           id="what-not-to-send"
