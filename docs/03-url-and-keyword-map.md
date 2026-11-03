@@ -29,7 +29,7 @@ Assign each planned page a clear URL, target keyword, and search purpose. Use th
 | Resources | `/resources/` | TBD |
 | Contact | `/contact/` | Not a keyword target (page built; see the Contact entry below) |
 | Privacy Policy | `/privacy-policy/` | Not a search-target page (page built and indexable: unique title and description, one H1, six service cards linking to the service pages, a two-column FAQ of seven questions; schema is `Organization` with the public email and phone, `WebPage` with `dateModified`, `BreadcrumbList`, and `FAQPage` matching the visible FAQ) |
-| Terms of Service | `/terms-of-service/` | Not a search-target page |
+| Terms of Service | `/terms-of-service/` | Not a search-target page (page built and indexable, draft pending owner and legal review: unique title and description, one H1, six service cards linking to the service pages, three industry cards linking to the Professional Services, Home Services, and Property Management and Real Estate pages, a two-column FAQ of twelve questions; schema is `Organization` with the public email and phone, `WebPage` with `dateModified`, `BreadcrumbList`, and `FAQPage` matching the visible FAQ) |
 
 ### Core page keyword map entries
 
