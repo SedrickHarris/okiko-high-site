@@ -222,7 +222,11 @@ export default function Page() {
           muted
           intro={
             <p>
-              These examples use home-service jobs, where quotes, missed calls, and
+              These examples use{" "}
+              <Link href="/industries/home-services" className={linkClass}>
+                home-service jobs
+              </Link>
+              , where quotes, missed calls, and
               service visits are common, but the same building blocks apply to other
               local businesses. Each card shows what starts it, why it sends, who
               owns the next step, and when it stops. Timing is set with you and
@@ -566,8 +570,15 @@ export default function Page() {
             <div className="rounded-lg border border-neutral-200 p-5">
               <IconCardHeading icon="integrations" title="Where inquiries come from" />
               <p className="mt-3 text-neutral-800">
-                Follow-up works best when every inquiry source feeds it, including
-                your website and your Google Business Profile.
+                Follow-up works best when every inquiry source feeds it, including{" "}
+                <Link href="/services/website-design" className={linkClass}>
+                  your website
+                </Link>{" "}
+                and{" "}
+                <Link href="/services/google-business-profile-optimization" className={linkClass}>
+                  your Google Business Profile
+                </Link>
+                .
               </p>
             </div>
           </div>

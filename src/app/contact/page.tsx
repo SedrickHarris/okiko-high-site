@@ -14,6 +14,7 @@ import {
   faqs,
   includeItems,
 } from "@/content/contact";
+import { audiences } from "@/content/industries/hub";
 import { siteConfig } from "@/data/site";
 import { contactFormEndpoint } from "@/lib/contact-form";
 import {
@@ -190,7 +191,16 @@ export default function Page() {
               <Link href="/services" className={linkClass}>
                 digital marketing services for local businesses
               </Link>{" "}
-              page.
+              page. Industry pages show how the services apply:{" "}
+              {audiences.map((audience, index) => (
+                <span key={audience.path}>
+                  {index > 0 && (index === audiences.length - 1 ? ", and " : ", ")}
+                  <Link href={audience.path} className={linkClass}>
+                    {audience.title}
+                  </Link>
+                </span>
+              ))}
+              .
             </p>
           }
         >

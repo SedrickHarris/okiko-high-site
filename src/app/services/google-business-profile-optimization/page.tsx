@@ -6,6 +6,7 @@ import { StepBadge } from "@/components/ui/StepBadge";
 import { ProfileCardIllustration } from "@/components/illustrations/ProfileCardIllustration";
 import { ProfileWorkflowIllustration } from "@/components/illustrations/ProfileWorkflowIllustration";
 import { FaqSection } from "@/components/sections/FaqSection";
+import { LinkedText } from "@/components/ui/LinkedText";
 import { RelatedIndustries } from "@/components/sections/RelatedIndustries";
 import { PageSection } from "@/components/sections/PageSection";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -30,6 +31,7 @@ import {
   scopeColumns,
   setupTypes,
   sources,
+  specialCaseLinks,
   specialCases,
   suspensionAvoid,
   suspensionSteps,
@@ -306,7 +308,9 @@ export default function Page() {
                 className={`rounded-lg border border-neutral-200 border-t-4 p-5 ${accents[index % accents.length]}`}
               >
                 <IconCardHeading icon={type.icon} tone={type.tone} title={type.title} />
-                <p className="mt-3 text-neutral-800">{type.body}</p>
+                <p className="mt-3 text-neutral-800">
+                  <LinkedText text={type.body} links={"links" in type ? type.links : undefined} />
+                </p>
               </div>
             ))}
             <div className="rounded-lg border border-neutral-200 border-t-4 border-t-brand-yellow p-5">
@@ -321,7 +325,11 @@ export default function Page() {
           <div className="mt-6 rounded-lg border border-neutral-200 p-5">
             <IconCardHeading icon="search" tone="muted" title="Cases that need individual assessment" />
             <ul className="mt-4 list-disc space-y-2 pl-5 text-neutral-800">
-              {specialCases.map((item) => <li key={item}>{item}</li>)}
+              {specialCases.map((item) => (
+                <li key={item}>
+                  <LinkedText text={item} links={specialCaseLinks} />
+                </li>
+              ))}
             </ul>
           </div>
           <p className="mt-4 text-sm text-neutral-600">

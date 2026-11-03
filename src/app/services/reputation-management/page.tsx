@@ -514,7 +514,11 @@ export default function Page() {
           intro={
             <p>
               The right moment to ask depends on the kind of job. These are the three
-              patterns we start from for home-service businesses.
+              patterns we start from for{" "}
+              <Link href="/industries/home-services" className="font-semibold text-brand-blue-strong underline underline-offset-2 hover:text-brand-ink">
+                home-service businesses
+              </Link>
+              .
             </p>
           }
         >

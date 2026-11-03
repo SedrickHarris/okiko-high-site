@@ -237,8 +237,18 @@ export const setupSteps = [
 export const connections = [
   { icon: "integrations", title: "CRM", note: "Each action checked individually" },
   { icon: "calendar", title: "Calendar", note: "Booking confirmed only on success" },
-  { icon: "mail", title: "SMS follow-up", note: "Needs permission and channel compliance" },
-  { icon: "pin", title: "Google Business Profile", note: "SMS or WhatsApp contact options, where eligible" },
+  {
+    icon: "mail",
+    title: "SMS follow-up",
+    note: "Needs permission and channel compliance",
+    link: { href: "/services/sms-email-automation", label: "Text and email automation" },
+  },
+  {
+    icon: "pin",
+    title: "Google Business Profile",
+    note: "SMS or WhatsApp contact options, where eligible",
+    link: { href: "/services/google-business-profile-optimization", label: "Google Business Profile management" },
+  },
 ] as const;
 
 export const connectionNotes = [

@@ -413,6 +413,13 @@ export default function Page() {
                 <li key={item.title} className="rounded-lg border border-neutral-200 bg-white p-4">
                   <IconCardHeading icon={item.icon} title={item.title} />
                   <p className="mt-3 text-sm text-neutral-700">{item.note}</p>
+                  {"link" in item && (
+                    <p className="mt-3 text-sm">
+                      <Link href={item.link.href} className="font-semibold text-brand-blue-strong underline underline-offset-2 hover:text-brand-ink">
+                        {item.link.label}
+                      </Link>
+                    </p>
+                  )}
                   <span className="mt-3 inline-block rounded-full border-[1.5px] border-dashed border-neutral-600 px-2.5 py-px text-xs font-semibold text-neutral-800">
                     Subject to verification
                   </span>

@@ -200,6 +200,7 @@ export const setupTypes = [
     tone: "default",
     title: "Service-area business",
     body: "You travel to customers, as a home-service business typically does. If customers are not served at your address, Google directs you to hide it, and a genuine operating location is used for verification.",
+    links: [{ phrase: "home-service business", href: "/industries/home-services" }],
   },
   {
     icon: "pin",
@@ -212,7 +213,12 @@ export const setupTypes = [
   tone: "default" | "included" | "optional";
   title: string;
   body: string;
+  links?: ReadonlyArray<{ phrase: string; href: string }>;
 }>;
+
+export const specialCaseLinks = [
+  { phrase: "Leasing offices and property managers", href: "/industries/property-management-real-estate" },
+] as const;
 
 export const specialCases = [
   "Service areas: Google permits up to 20 entries and generally advises an overall boundary within about two hours' driving time, with exceptions. They are not radius settings.",

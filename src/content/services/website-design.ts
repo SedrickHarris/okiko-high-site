@@ -381,6 +381,7 @@ export const customerJourney = [
     icon: "headset",
     stage: "Reception",
     body: "An AI receptionist can handle calls after a visitor taps to call.",
+    links: [{ phrase: "AI receptionist", href: "/services/ai-receptionist" }],
   },
   {
     icon: "mail",

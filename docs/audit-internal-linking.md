@@ -204,3 +204,47 @@ All other pages are unchanged. No page lost a link (compared against the pre-cha
 - The new "related industries" section appears once per service page (`id="related-industries"` is unique on each).
 
 **Still open:** recommendations 5 to 17 (medium and low), including links inside FAQ answers, which need a component change so the visible answer and the FAQPage JSON-LD stay identical. Doc 03 still writes core, service, and audience URLs with trailing slashes while the site uses none; the Internal links rows edited for this step keep that style.
+
+## 9. Resolved (medium priority) (2026-11-02)
+
+Recommendations 5 to 11, 13, and 14 are applied. Recommendation 12 is deferred (below). Low-priority items (15 to 17) are untouched. FAQ answer text, JSON-LD, robots tags, H1 counts, and the 18-URL sitemap are unchanged (JSON-LD is byte-identical on all 24 built pages against the pre-change build). Nothing was pushed.
+
+| Rec | Link applied | Source file | Anchor | Destination |
+|---|---|---|---|---|
+| 5 | Website design to reputation management | `src/app/services/website-design/page.tsx` | "Reputation management" (existing sentence) | `/services/reputation-management` |
+| 6 | Website design to AI receptionist | `src/content/services/website-design.ts` (`links` on the Reception stage), rendered by the new `LinkedText` | "AI receptionist" (existing words) | `/services/ai-receptionist` |
+| 7 | SMS to website design and GBP | `src/app/services/sms-email-automation/page.tsx` | "your website", "your Google Business Profile" (existing words) | `/services/website-design`, `/services/google-business-profile-optimization` |
+| 8 | Chatbots to SMS and GBP | `src/content/services/ai-chatbots.ts` (`link` on two connection cards), rendered in `src/app/services/ai-chatbots/page.tsx` | "Text and email automation", "Google Business Profile management" (new link labels) | `/services/sms-email-automation`, `/services/google-business-profile-optimization` |
+| 9 | GBP to two audience pages | `src/content/services/google-business-profile.ts` (`links`, `specialCaseLinks`), rendered by `LinkedText` | "home-service business", "Leasing offices and property managers" (existing words) | `/industries/home-services`, `/industries/property-management-real-estate` |
+| 10 | Reputation to Home Services | `src/app/services/reputation-management/page.tsx` | "home-service businesses" (existing words) | `/industries/home-services` |
+| 11 | SMS to Home Services | `src/app/services/sms-email-automation/page.tsx` | "home-service jobs" (existing words) | `/industries/home-services` |
+| 13 | Footer navigation | `src/data/site.ts` `footerLinks` (rendered by `SiteFooter.tsx`) | "Services", "Industries", "About", "Contact" | `/services`, `/industries`, `/about`, `/contact` |
+| 14 | Contact to the four audience pages | `src/app/contact/page.tsx`, "Services You Can Ask About" intro, built from `audiences` in `src/content/industries/hub.ts` | the audience titles ("Home Services", "Professional Services", "Property Management and Real Estate", "Healthcare, Dental & Med Spa") | the four audience pages |
+
+A small shared helper, `src/components/ui/LinkedText.tsx`, turns the first occurrence of a phrase in a plain string into a link and leaves the visible text unchanged. It is used for recommendations 6 and 9.
+
+**Deviation from the report:** for recommendation 8 the report named the sentence "Eligible SMS or WhatsApp contact options are a different route" and the card note. Neither contains the words "Google Business Profile", and a bare "SMS" anchor is weak, so the two connection cards on the chatbot page each got a link line that follows the existing pattern on the website design page's journey cards.
+
+**Deferred**
+
+- **Recommendation 12** (links inside the overview FAQ answers on home, About, Contact, Services hub, and Industries hub): `Faq.answer` is one plain string shared by the visible FAQ and the FAQPage JSON-LD. Linking inside it needs a component change so the visible markup and the JSON-LD text stay identical. A separate step.
+
+**New counts (distinct indexable pages linking in by body copy; total body links out, distinct destinations in brackets). Unlisted pages are unchanged.**
+
+| Page | Inbound contextual (before -> after) | Outbound contextual (before -> after) |
+|---|---|---|
+| `/services/website-design` | 17 -> 17 | 16 (12) -> 18 (14) |
+| `/services/google-business-profile-optimization` | 14 -> 16 | 17 (13) -> 19 (13) |
+| `/services/ai-chatbots` | 15 -> 15 | 13 (10) -> 15 (12) |
+| `/services/ai-receptionist` | 15 -> 16 | 16 (13) -> 16 (13) |
+| `/services/reputation-management` | 14 -> 15 | 15 (12) -> 16 (12) |
+| `/services/sms-email-automation` | 15 -> 16 | 17 (12) -> 20 (13) |
+| `/contact` | 17 -> 17 | 10 (10) -> 14 (14) |
+| `/industries/home-services` | 16 -> 17 | 18 (16) -> 18 (16) |
+| `/industries/professional-services` | 14 -> 15 | 21 (14) -> 21 (14) |
+| `/industries/property-management-real-estate` | 14 -> 15 | 26 (14) -> 26 (14) |
+| `/industries/healthcare` | 14 -> 15 | 32 (14) -> 32 (14) |
+
+Sitewide: every page now has 15 header and footer links (the footer gained Services, Industries, About, and Contact). No page lost a link, no new link has a trailing slash, and no new link points to a noindex page.
+
+**New copy added:** one sentence on the contact page ("Industry pages show how the services apply:" followed by the audience links) and two link labels on the chatbot page ("Text and email automation", "Google Business Profile management"). Everything else links existing words.

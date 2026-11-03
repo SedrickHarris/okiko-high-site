@@ -74,6 +74,7 @@ Use this checklist to catch practical issues before and after launch. It is a wo
 - [ ] Before launch, publish or keep noindex the placeholder pages (`/case-studies`, `/resources`, `/privacy-policy`, `/terms-of-service`): set `published: true` in `src/data/placeholder-pages.ts` once real content is approved.
 - [ ] Confirm the production domain `okikohigh.com` does NOT receive the `X-Robots-Tag: noindex` header (check the live response headers).
 - [ ] Check redirects for any changed or retired URLs.
+- [ ] Confirm Cloudflare behavior for trailing-slash URLs (for example /about/ versus /about) so the canonical no-slash form is the one served and indexed.
 - [ ] Verify the live deployment after publishing.
 
 ## Search setup and follow-up

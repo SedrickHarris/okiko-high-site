@@ -7,6 +7,7 @@ import { StepBadge } from "@/components/ui/StepBadge";
 import { CapabilityGrid } from "@/components/sections/CapabilityGrid";
 import { PublishedComboLinks } from "@/components/combos/PublishedComboLinks";
 import { FaqSection } from "@/components/sections/FaqSection";
+import { LinkedText } from "@/components/ui/LinkedText";
 import { RelatedIndustries } from "@/components/sections/RelatedIndustries";
 import { PageSection } from "@/components/sections/PageSection";
 import { PhoneWireframe } from "@/components/sections/PhoneWireframe";
@@ -599,7 +600,9 @@ export default function Page() {
             {customerJourney.map((item) => (
               <li key={item.stage} className="rounded-lg border border-neutral-200 p-4">
                 <IconCardHeading icon={item.icon} title={item.stage} />
-                <p className="mt-3 text-sm text-neutral-700">{item.body}</p>
+                <p className="mt-3 text-sm text-neutral-700">
+                  <LinkedText text={item.body} links={"links" in item ? item.links : undefined} />
+                </p>
                 {"link" in item && (
                   <p className="mt-3 text-sm">
                     <Link
@@ -614,7 +617,10 @@ export default function Page() {
             ))}
           </ol>
           <p className="mt-8 max-w-3xl text-neutral-700">
-            Reputation management supports the trust your website relies on. A website
+            <Link href="/services/reputation-management" className="font-semibold text-brand-blue-strong underline underline-offset-2 hover:text-brand-ink">
+              Reputation management
+            </Link>{" "}
+            supports the trust your website relies on. A website
             inquiry is not blanket permission for automated marketing calls or
             messages: the FCC has confirmed that AI-generated voices fall under the
             TCPA&apos;s artificial or prerecorded voice rules, so consent, revocation,
