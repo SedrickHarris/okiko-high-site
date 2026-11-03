@@ -53,7 +53,7 @@ type ComboEntry = { content: ComboContent; published: boolean };
 // first combo was added: with `output: "export"`, Next fails the build when
 // generateStaticParams returns nothing, so it must not be routed while this list is empty.
 const entries: ReadonlyArray<ComboEntry> = [
-  { content: homeServicesWebsiteDesign, published: false },
+  { content: homeServicesWebsiteDesign, published: true },
   { content: homeServicesAiReceptionist, published: true },
 ];
 

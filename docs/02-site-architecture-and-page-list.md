@@ -20,7 +20,7 @@ Define the planned pages, their roles, and how they relate. This is a working bu
 │   ├── healthcare/
 │   ├── education/
 │   ├── healthcare-wellness/   (reserved for a broader wellness audience; not planned)
-│   ├── {audience}/{service}/  (combo pages: documented pattern, none published)
+│   ├── {audience}/{service}/  (combo pages: two published)
 │   └── {parent}/{sub-audience}/
 ├── case-studies/
 │   └── {case-study}/
@@ -94,7 +94,7 @@ If the content would mostly repeat the parent page with an industry name swapped
 
 ## Audience x service combination pages
 
-A documented pattern, not a published set: `/industries/{audience}/{service}` pairs one built audience page with one built service page. It is for combinations with materially different workflows, intake, and questions, never for swapping a keyword. The code, registry, and rules are in `src/content/combos/` and `CLAUDE.md`. A combo page stays `noindex`, out of the sitemap, and out of every cross-link until the owner approves it. No combo URL is live, and none is listed in `03-url-and-keyword-map.md` as published.
+A documented pattern: `/industries/{audience}/{service}` pairs one built audience page with one built service page. It is for combinations with materially different workflows, intake, and questions, never for swapping a keyword. The code, registry, and rules are in `src/content/combos/` and `CLAUDE.md`. A new combo page stays `noindex`, out of the sitemap, and out of every cross-link until the owner approves it. Two combo pages are live and published, both indexable, in the sitemap, and cross-linked: `/industries/home-services/ai-receptionist` (owner approved 2026-10-18) and `/industries/home-services/website-design` (owner approved 2026-11-02). Both are listed in `03-url-and-keyword-map.md`.
 
 ## Case studies and resources
 
