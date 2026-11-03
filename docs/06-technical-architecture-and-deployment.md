@@ -66,8 +66,17 @@ Structured data is a core project requirement. Keep JSON-LD generation maintaina
 
 - **Preferred primary contact action:** TBD.
 - **Booking URL:** TBD.
-- **Form provider and submission endpoint:** TBD.
+- **Form provider and submission endpoint:** TBD (provider not chosen).
 - **Analytics and consent requirements:** TBD.
+
+### Contact form (built, gated on an endpoint)
+
+- **Component:** `src/components/forms/ContactForm.tsx` (client component). Step 1 is service pills (the six confirmed services plus Other, multi-select). Step 2 collects first name (required), last name, phone (required), email, preferred contact method (text, call, or email), and additional information. Email becomes required only if the visitor picks email as the preferred method.
+- **Helpers:** `src/lib/contact-form.ts` holds the endpoint, validation, and `buildPayload`. Copy is in `src/content/contact.ts` (`contactForm`).
+- **Submission:** the site is a static export, so there is no server route. The form POSTs JSON to the URL in `NEXT_PUBLIC_CONTACT_FORM_ENDPOINT` (https only), set per Cloudflare Pages environment and applied at build time. The value is public, so use a webhook or form URL meant to be public and never a secret. If the chosen provider needs different field names, change `buildPayload` only. The provider must also allow cross-origin POSTs from the site.
+- **Gating:** `/contact` renders the form only when the endpoint is set, so the site never shows a form that cannot submit. The first contact FAQ answer changes with it.
+- **Spam:** a hidden honeypot field; a filled honeypot shows the success message and sends nothing. There is no CAPTCHA and no added dependency.
+- **Not decided:** response-time promises (none are shown), confirmation emails, and analytics events.
 
 Keep credentials and private endpoints out of source files. Use environment variables for any secrets or environment-specific settings. Do not create nonfunctional form or booking links.
 

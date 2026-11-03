@@ -1,7 +1,11 @@
 // Content for /contact. Only confirmed facts (docs/01): the public email and phone,
-// worldwide service coverage, and the six services confirmed on 2026-10-11. No form,
-// booking link, address, hours, or response-time promise: those are TBD in docs/01.
+// worldwide service coverage, and the six services confirmed on 2026-10-11. No booking
+// link, address, hours, or response-time promise: those are TBD in docs/01.
+//
+// The contact form appears only when NEXT_PUBLIC_CONTACT_FORM_ENDPOINT is set (see
+// src/lib/contact-form.ts), so the FAQ below changes with it to stay accurate.
 
+import { contactFormEndpoint } from "@/lib/contact-form";
 import type { Faq } from "./shared";
 
 export const contactPage = {
@@ -13,6 +17,32 @@ export const contactPage = {
   h1: "Contact OKIKO HIGH",
   intro:
     "Call or email OKIKO HIGH to ask about website design, Google Business Profile management, review management, AI chatbots, an AI receptionist, or text and email automation. Tell us about your business and what you want to fix.",
+} as const;
+
+/** Copy for the two-step contact form. Shown only when the form endpoint is set. */
+export const contactForm = {
+  id: "contact-form",
+  heading: "Tell Us What You Need",
+  intro: "Choose the service you are interested in, then tell us how to reach you. It takes two short steps.",
+  serviceStep: {
+    title: "Which service are you interested in?",
+    hint: "Choose all that apply.",
+    otherLabel: "What do you have in mind?",
+    otherHint: "Optional. A few words is enough.",
+  },
+  contactStep: {
+    title: "How can we reach you?",
+    methodLegend: "Preferred way to reach you",
+    messageLabel: "Additional information",
+    messageHint: "Optional. Tell us about your business and what you want to fix.",
+    messageSafety:
+      "Please do not include card numbers, passwords, government ID numbers, or health information.",
+  },
+  success: {
+    body: "We will use the details you gave to follow up on your inquiry.",
+  },
+  failure:
+    "Something went wrong and your message was not sent. Please try again, or contact us by phone or email.",
 } as const;
 
 export const includeItems = [
@@ -50,8 +80,9 @@ export const contactServices = [
 export const faqs: Faq[] = [
   {
     question: "How can I contact OKIKO HIGH?",
-    answer:
-      "You can call (469) 421-9832 or email info@okikohigh.com. Both are listed under Ways to Reach Us on this page. There is no contact form on the site at this time.",
+    answer: contactFormEndpoint
+      ? "You can use the contact form on this page, call (469) 421-9832, or email info@okikohigh.com. The phone number and email are listed under Ways to Reach Us."
+      : "You can call (469) 421-9832 or email info@okikohigh.com. Both are listed under Ways to Reach Us on this page. There is no contact form on the site at this time.",
   },
   {
     question: "Does OKIKO HIGH work with clients outside the US?",

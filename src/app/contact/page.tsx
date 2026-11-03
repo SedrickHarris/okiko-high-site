@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ContactForm } from "@/components/forms/ContactForm";
 import { FaqSection } from "@/components/sections/FaqSection";
 import { PageSection } from "@/components/sections/PageSection";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { ContactActions } from "@/components/ui/ContactActions";
 import {
+  contactForm,
   contactPage as page,
   contactServices,
   doNotSend,
@@ -13,6 +15,7 @@ import {
   includeItems,
 } from "@/content/contact";
 import { siteConfig } from "@/data/site";
+import { contactFormEndpoint } from "@/lib/contact-form";
 import {
   absoluteUrl,
   breadcrumbListNode,
@@ -74,6 +77,23 @@ export default function Page() {
           <h1 className="max-w-3xl text-4xl font-extrabold tracking-tight sm:text-5xl">{page.h1}</h1>
           <p className="mt-6 max-w-3xl text-lg leading-relaxed text-neutral-700">{page.intro}</p>
         </PageHero>
+
+        {/* Rendered only when a submission endpoint is configured (src/lib/contact-form.ts),
+            so the site never shows a form that cannot submit. */}
+        {contactFormEndpoint ? (
+          <PageSection
+            id={contactForm.id}
+            heading={contactForm.heading}
+            intro={<p>{contactForm.intro}</p>}
+          >
+            <div className="max-w-3xl">
+              <ContactForm
+                endpoint={contactFormEndpoint}
+                services={contactServices.map((service) => service.name)}
+              />
+            </div>
+          </PageSection>
+        ) : null}
 
         <PageSection
           id="ways-to-reach-us"
