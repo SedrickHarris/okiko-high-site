@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import type { CSSProperties } from "react";
+import { IconCardHeading } from "@/components/cards/IconCardHeading";
 import { ServiceCard } from "@/components/cards/ServiceCard";
 import { ContactForm } from "@/components/forms/ContactForm";
 import { FaqSection } from "@/components/sections/FaqSection";
 import { PageSection } from "@/components/sections/PageSection";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
+import { ButtonLink } from "@/components/ui/ButtonLink";
 import { ContactActions } from "@/components/ui/ContactActions";
 import {
   contactForm,
@@ -18,6 +21,7 @@ import {
 import { audiences } from "@/content/industries/hub";
 import { hubServices } from "@/content/services/hub";
 import { siteConfig } from "@/data/site";
+import { accents } from "@/lib/brand";
 import { contactFormEndpoint } from "@/lib/contact-form";
 import {
   absoluteUrl,
@@ -193,22 +197,31 @@ export default function Page() {
               <Link href="/services" className={linkClass}>
                 digital marketing services for local businesses
               </Link>{" "}
-              page. Industry pages show how the services apply:{" "}
-              {audiences.map((audience, index) => (
-                <span key={audience.path}>
-                  {index > 0 && (index === audiences.length - 1 ? ", and " : ", ")}
-                  <Link href={audience.path} className={linkClass}>
-                    {audience.title}
-                  </Link>
-                </span>
-              ))}
-              .
+              page. The industry pages below show how the services apply.
             </p>
           }
         >
-          <ul className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <ul aria-label="Services" className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {hubServices.map((service, index) => (
               <ServiceCard key={service.slug} service={service} index={index} />
+            ))}
+          </ul>
+
+          <ul aria-label="Industries" className="mt-6 grid gap-6 md:grid-cols-2">
+            {audiences.map((item, index) => (
+              <li
+                key={item.path}
+                style={{ "--reveal-i": index % 3 } as CSSProperties}
+                className={`card-lift reveal-on-scroll flex flex-col rounded-lg border border-neutral-200 border-t-4 bg-white p-6 ${accents[index % accents.length]}`}
+              >
+                <IconCardHeading icon={item.icon} title={item.title} />
+                <p className="mt-4 text-neutral-700">{item.description}</p>
+                <div className="mt-auto pt-6">
+                  <ButtonLink href={item.path} variant="secondary">
+                    {item.buttonLabel}
+                  </ButtonLink>
+                </div>
+              </li>
             ))}
           </ul>
         </PageSection>
