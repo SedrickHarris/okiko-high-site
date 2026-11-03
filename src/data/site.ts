@@ -21,6 +21,5 @@ export const emailHref = `mailto:${siteConfig.email}`;
 export const navLinks = [
   { href: "/services", label: "Services" },
   { href: "/industries", label: "Industries" },
-  { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ] as const;
