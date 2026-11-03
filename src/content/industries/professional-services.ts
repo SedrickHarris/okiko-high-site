@@ -1,7 +1,7 @@
 // Content for /industries/professional-services (audience page).
 // Source: the "Audience Page - Professional Services" brief and its research pack.
-// Publication gate: docs/01 lists Professional Services as a FUTURE opportunity, not a
-// current client category, and the services named here are still TBD or only partly
+// Publication gate: docs/01 lists Professional Services as currently served (owner
+// confirmed 2026-11-02), but the services named here are only partly
 // confirmed (only Google Business Profile support is marked available). No pricing,
 // delivery scope, tested integrations, professional-services experience,
 // demonstration, or client proof exists yet. The page therefore describes a proposed

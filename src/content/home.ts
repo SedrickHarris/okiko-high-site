@@ -8,8 +8,8 @@
 // and exit terms, tested integrations, results, testimonials, trade-specific
 // experience, partnerships, and any claim about GoHighLevel. The H1 and supporting
 // copy follow the research report's draft direction and are not owner-approved
-// final copy. The audience pages are described as proposed approaches only, not
-// client work or results (docs/01).
+// final copy. All four audiences are currently served (owner confirmed 2026-11-02). The audience
+// pages are described as proposed approaches only, not client work or results (docs/01).
 
 import type { IconName } from "@/components/ui/icons";
 import type { Faq } from "./shared";
@@ -78,7 +78,7 @@ export const faqs: Faq[] = [
   {
     question: "Who does OKIKO HIGH work with?",
     answer:
-      "OKIKO HIGH has a page for each of four audiences: home service businesses, such as HVAC, plumbing, landscaping, general contracting, and cleaning companies; professional services firms; property management and real estate businesses; and healthcare, dental, and med spa practices. Each page describes a proposed approach, not client work or results.",
+      "OKIKO HIGH currently serves four kinds of business, and each has its own page: home service businesses, such as HVAC, plumbing, landscaping, general contracting, and cleaning companies; professional services firms; property management and real estate businesses; and healthcare, dental, and med spa practices. Each page describes a proposed approach, not client work or results.",
   },
   {
     question: "Does OKIKO HIGH work with businesses outside the United States?",

@@ -26,12 +26,13 @@ Search and visibility goals include SEO, GEO, AEO, local-intent search where app
 
 ## Initial audience focus
 
-The planned primary audience groups are:
+The primary audience groups are:
 
 - **Home Services** — currently served.
-- **Professional Services** — future opportunity.
-- **Education** — future opportunity; exact subcategories TBD.
-- **Healthcare and Wellness** — future opportunity.
+- **Professional Services** — currently served (owner confirmed 2026-11-02).
+- **Property Management and Real Estate** — currently served (owner confirmed 2026-11-02).
+- **Healthcare, Dental and Med Spa** — currently served (owner confirmed 2026-11-02).
+- **Education** — not built; status and subcategories TBD.
 
 Create a separate sub-audience page only when it can provide distinct, useful content. Avoid thin or duplicated pages.
 

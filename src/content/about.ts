@@ -104,7 +104,7 @@ export const faqs: Faq[] = [
   {
     question: "Who does OKIKO HIGH work with?",
     answer:
-      "Home-service businesses, such as HVAC, plumbing, landscaping, general contracting, and cleaning companies, are the group OKIKO HIGH currently serves. The pages for professional services, property management and real estate, and healthcare, dental and med spa describe a proposed approach, not client work.",
+      "OKIKO HIGH currently serves four kinds of business: home-service businesses, such as HVAC, plumbing, landscaping, general contracting, and cleaning companies; professional services firms; property management and real estate businesses; and healthcare, dental, and med spa practices. Each has its own page. The pages describe a proposed approach and illustrative scenarios, not client work or results.",
   },
   {
     question: "Does OKIKO HIGH work with clients outside the United States?",

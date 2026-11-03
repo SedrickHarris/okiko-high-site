@@ -318,7 +318,7 @@ export const faqs: Faq[] = [
   {
     question: "What kinds of businesses are these services for?",
     answer:
-      "The service pages are written for local and service-based businesses. Home service businesses, such as HVAC, plumbing, landscaping, general contracting, and cleaning companies, are the group OKIKO HIGH currently serves.",
+      "The service pages are written for local and service-based businesses. OKIKO HIGH currently serves four kinds of business, each with its own industry page: home services, professional services, property management and real estate, and healthcare, dental and med spa.",
   },
   {
     question: "How do I get started?",

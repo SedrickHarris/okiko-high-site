@@ -244,9 +244,9 @@ export default function Page() {
           heading="Who We Work With"
           intro={
             <p>
-              Home-service businesses are the group OKIKO HIGH currently serves. The
-              other industry pages describe a proposed approach, not client work, and do
-              not report results. OKIKO HIGH states that it serves clients worldwide.
+              OKIKO HIGH currently serves four kinds of business, each with its own
+              page. The pages describe a proposed approach, not client work, and do not
+              report results. OKIKO HIGH states that it serves clients worldwide.
             </p>
           }
         >

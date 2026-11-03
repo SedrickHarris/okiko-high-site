@@ -1,9 +1,8 @@
 // Content for /industries/property-management-real-estate.
 // Source: the Property Management and Real Estate research pack and the updated
 // "Audience Page - Property Management and Real Estate" brief. Publication gate:
-// docs/01 lists Professional Services (which includes real estate) as a FUTURE
-// opportunity, not a current client category, and all six services named here are
-// still TBD or only partly confirmed. No pricing, delivery scope, tested
+// docs/01 lists Property Management and Real Estate as currently served (owner
+// confirmed 2026-11-02), but the six services named here are only partly confirmed. No pricing, delivery scope, tested
 // integrations, property or real estate experience, demonstration, or client proof
 // exists yet. The page therefore describes a proposed approach, not a package, and
 // makes no availability, pricing, results, compatibility, or specialist-experience
@@ -145,7 +144,7 @@ export const businessTypes: ReadonlyArray<BusinessType> = [
 
 export const businessTypesNote = {
   scopeLabel: "Scope being confirmed",
-  body: "These are the business types this page is written for. Property management and real estate are planned audiences, and OKIKO HIGH confirms which workflows it can responsibly offer before any implementation. Existing page links are shown only for services that have their own page.",
+  body: "These are the business types this page is written for. Property management and real estate are audiences OKIKO HIGH serves, and it confirms which workflows it can responsibly offer before any implementation. Existing page links are shown only for services that have their own page.",
 };
 
 export const businessTypesQuickAnswer = {

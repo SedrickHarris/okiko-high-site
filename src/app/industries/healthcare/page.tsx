@@ -61,8 +61,8 @@ import { HeroJumpCard } from "@/components/sections/HeroJumpCard";
 import { PageHero } from "@/components/sections/PageHero";
 import { accents } from "@/lib/brand";
 
-// Healthcare and Wellness is a FUTURE opportunity in docs/01, not a current client
-// category, and every service this page describes is still TBD or only partly
+// Healthcare, Dental and Med Spa is a currently served audience in docs/01 (owner
+// confirmed 2026-11-02), but every service this page describes is only partly
 // confirmed. The page states no availability, pricing, tested integrations, results,
 // BAA readiness, HIPAA compliance, or experience: keep it that way until docs/01
 // confirms those facts. The owner approved publication on 2026-10-12, so the page is

@@ -59,7 +59,7 @@ const structuredData = graph([
   {
     "@type": "ItemList",
     "@id": `${pageUrl}#industries-list`,
-    name: "Industries OKIKO HIGH writes about",
+    name: "Industries OKIKO HIGH works with",
     itemListElement: audiences.map((item, index) => ({
       "@type": "ListItem",
       position: index + 1,

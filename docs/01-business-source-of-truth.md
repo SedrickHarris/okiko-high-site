@@ -55,11 +55,14 @@ Individual service pages are planned. Confirm current availability before presen
 | Audience | Current status | Notes |
 |---|---|---|
 | Home Services | Currently served | Includes HVAC, plumbing, landscaping, general contracting, cleaning, and related businesses. |
-| Professional Services | Future opportunity | Includes legal, finance, and real estate businesses. |
-| Education | Future opportunity | Exact subcategories are TBD. The supplied phrase “people and pet care” needs clarification. |
-| Healthcare and Wellness | Future opportunity | Treat as future audience unless the owner confirms current service experience. |
+| Professional Services | Currently served (owner confirmed 2026-11-02) | Law, accounting, consulting, financial advice, and similar firms. Audience page built. |
+| Property Management and Real Estate | Currently served (owner confirmed 2026-11-02) | Property managers, landlords, rental operators, and real estate teams. Audience page built. |
+| Healthcare, Dental and Med Spa | Currently served (owner confirmed 2026-11-02) | Healthcare, dental, and med spa practices. Audience page built. A broader Healthcare and Wellness audience is not built. |
+| Education | Not built; status TBD | Exact subcategories are TBD. The supplied phrase “people and pet care” needs clarification. Do not describe as currently served until the owner confirms. |
 
 The owner states that the same worldwide service coverage applies to each audience. Do not create audience-specific geographic claims without supporting information.
+
+Current-audience status does not change the proof rules below: client work, case studies, results, and testimonials are still TBD, so audience pages must not present client work or report results.
 
 ## Proof and publishing permissions
 

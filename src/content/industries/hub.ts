@@ -1,6 +1,7 @@
 // Content for /industries (the industries hub) and the "other industries" strips on
 // the audience pages and the services hub.
-// The audience pages describe a proposed approach, not client work or results.
+// All four audiences are currently served (owner confirmed 2026-11-02). The audience
+// pages describe a proposed approach and illustrative scenarios, not client work or results.
 // Nothing here adds a fact that is still TBD in docs/01.
 
 import type { IconName } from "@/components/ui/icons";
@@ -111,19 +112,14 @@ export const chooseSteps = [
 // docs/01 and the audience and service pages. Nothing here adds a fact that is TBD.
 export const faqs: Faq[] = [
   {
-    question: "Which industries does OKIKO HIGH write about?",
+    question: "Which industries does OKIKO HIGH work with?",
     answer:
-      "There are four industry pages: home services, professional services, property management and real estate, and healthcare, dental and med spa. Each one shows how the same marketing and automation services apply to the way that kind of business gets inquiries and follows up.",
+      "OKIKO HIGH currently serves four kinds of business: home services, professional services, property management and real estate, and healthcare, dental and med spa. Each has its own industry page showing how the same marketing and automation services apply to the way that kind of business gets inquiries and follows up.",
   },
   {
-    question: "Which industry does OKIKO HIGH currently serve?",
+    question: "Which businesses are included in each industry?",
     answer:
-      "Home services is the audience OKIKO HIGH currently serves. That includes HVAC, plumbing, landscaping, general contracting, cleaning, and related businesses.",
-  },
-  {
-    question: "Do the pages for other industries describe client work?",
-    answer:
-      "No. Home services is the only audience OKIKO HIGH currently serves. The other industry pages describe a proposed approach, not client work, and do not report results. The scope of each service is confirmed with you before any implementation.",
+      "Home services covers HVAC, plumbing, landscaping, general contracting, cleaning, and related businesses. Professional services covers law, accounting, consulting, financial advice, and similar firms of about 1 to 25 people. Property management and real estate covers property managers, landlords, rental operators, and real estate teams. Healthcare, dental and med spa covers practices of about 1 to 10 providers.",
   },
   {
     question: "Are the services different for each industry?",

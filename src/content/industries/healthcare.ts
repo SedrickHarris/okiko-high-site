@@ -1,8 +1,8 @@
 // Content for /industries/healthcare.
 // Source: the Healthcare, Dental and Med Spa research pack and the "Audience Page -
 // Healthcare, Dental & Med Spa Practices" brief. Publication gate: docs/01 lists
-// Healthcare and Wellness as a FUTURE opportunity, not a current client category, and
-// all six services named here are still TBD or only partly confirmed. No pricing,
+// Healthcare, Dental and Med Spa as currently served (owner confirmed 2026-11-02), but
+// the six services named here are still only partly confirmed. No pricing,
 // delivery scope, tested integrations, healthcare experience, BAA readiness,
 // demonstration, or client proof exists yet. The page therefore describes a proposed
 // approach, not a package, and makes no availability, pricing, results, compatibility,
@@ -104,7 +104,7 @@ export const scopeAndLimits: ReadonlyArray<{ icon: IconName; label: string; body
   {
     icon: "flag",
     label: "Offering status",
-    body: "Healthcare services are being evaluated. Availability, scope, and integrations must be confirmed.",
+    body: "OKIKO HIGH serves healthcare, dental, and med spa practices. Scope and integrations are confirmed with each practice before any implementation.",
   },
   {
     icon: "shield",
@@ -206,7 +206,7 @@ export const practiceTypes: ReadonlyArray<PracticeType> = [
 
 export const practiceTypesNote = {
   scopeLabel: "Scope being confirmed",
-  body: "These are the practice types this page is written for. Healthcare, dental, and med spa practices are a planned audience, and OKIKO HIGH confirms which workflows it can responsibly offer, and for which specialties, before any implementation. Links are shown only for services that have their own page.",
+  body: "These are the practice types this page is written for. Healthcare, dental, and med spa practices are an audience OKIKO HIGH serves, and it confirms which workflows it can responsibly offer, and for which specialties, before any implementation. Links are shown only for services that have their own page.",
 };
 
 // Section 3: shared problems, different consequences.
@@ -659,7 +659,7 @@ export const faqs: Faq[] = [
   {
     question: "Does OKIKO HIGH currently serve healthcare practices?",
     answer:
-      "Healthcare, dental, and med spa practices are being evaluated as a future audience. Service availability, scope, integrations, and support arrangements must be confirmed before an engagement is proposed.",
+      "Yes. Healthcare, dental, and med spa practices are one of the audiences OKIKO HIGH currently serves. Service scope, integrations, and support arrangements are confirmed with each practice before an engagement is proposed.",
   },
   {
     question: "What could marketing and automation help our practice manage?",
@@ -707,6 +707,6 @@ export const faqs: Faq[] = [
   {
     question: "How much would this cost?",
     answer:
-      "OKIKO HIGH's pricing for this proposed audience is not established. Any future proposal should identify the confirmed scope and applicable implementation, software, usage, and integration costs.",
+      "OKIKO HIGH does not publish prices on this site. Any proposal should identify the confirmed scope and applicable implementation, software, usage, and integration costs.",
   },
 ];

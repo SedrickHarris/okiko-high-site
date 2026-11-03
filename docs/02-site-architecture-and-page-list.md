@@ -41,7 +41,7 @@ There is no default city, state, country, or regional page hierarchy. Okiko High
 | Home | Introduce the agency, clarify its value, and guide visitors to services or contact. | Base claims on confirmed services and proof. |
 | About | Explain the agency’s approach, mission, and business identity. | **Built.** Uses agency identity; no individual owner/team profile is planned. Shows the mission, approach, six service cards, audience cards, and a two-column FAQ. |
 | Services | Summarize confirmed offerings and direct visitors to service pages. | Publish only services confirmed as currently available. |
-| Industries / Who We Help | Introduce the planned audience groups. | Clearly distinguish currently served audiences from future opportunities. |
+| Industries / Who We Help | Introduce the audience groups. | Clearly distinguish currently served audiences from future opportunities. |
 | Case Studies | Present approved client work and outcomes. | Launch when approved examples are available; do not invent or anonymize as if verified. |
 | Resources | Publish useful educational material supporting services and audiences. | Include articles only when they provide substantive value. |
 | FAQ | Answer common questions in customer-journey order (getting found, inquiries, qualifying and booking, follow-up, feedback) plus a "Working With OKIKO HIGH" group for pricing, setup, support, ownership, privacy, and cancellation. | Links each group to the service pages that hold the full answers. Describes how workflows can be designed, not a promise that every service or integration fits every project. |
@@ -66,14 +66,15 @@ The owner confirmed availability for the six built service pages on 2026-10-11. 
 
 ## Audience pages
 
-Four primary audience groups have been identified:
+Four primary audience groups are built and currently served (owner confirmed 2026-11-02). Education is not built:
 
 | Audience page | Current status | Planning notes |
 |---|---|---|
 | Home Services | Currently served | Includes HVAC, plumbing, landscaping, general contracting, cleaning, and related businesses. |
-| Professional Services | Future opportunity | Broad page may cover legal, finance, and real estate when there is enough relevant content. |
-| Education | Future opportunity | Clarify what “people and pet care” means before defining sub-audiences. |
-| Healthcare and Wellness | Future opportunity | Keep planned, but do not position as currently served unless confirmed. |
+| Professional Services | Currently served | Built. Law, accounting, consulting, financial advice, and similar firms. |
+| Property Management and Real Estate | Currently served | Built. Property managers, landlords, rental operators, and real estate teams. |
+| Healthcare, Dental and Med Spa | Currently served | Built. Healthcare, dental, and med spa practices. A broader Healthcare and Wellness audience is not built. |
+| Education | Not built; TBD | Clarify what “people and pet care” means before defining sub-audiences. Do not position as currently served unless confirmed. |
 
 Audience pages should explain the relevant business needs and how confirmed Okiko High services address them. Avoid presenting future audiences as current clients or areas of expertise.
 

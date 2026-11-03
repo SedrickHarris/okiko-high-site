@@ -58,9 +58,9 @@ import { HeroJumpCard } from "@/components/sections/HeroJumpCard";
 import { PageHero } from "@/components/sections/PageHero";
 import { accents } from "@/lib/brand";
 
-// Property management and real estate is a FUTURE opportunity in docs/01 (real
-// estate sits under Professional Services), not a current client category, and
-// every service this page describes is still TBD or only partly confirmed. The page
+// Property management and real estate is a currently served audience in docs/01
+// (owner confirmed 2026-11-02), but every service this page describes is only
+// partly confirmed. The page
 // states no availability, pricing, tested integrations, results, or experience:
 // keep it that way until docs/01 confirms those facts. The owner approved
 // indexing on 2026-10-11, so the page is indexable and listed in src/app/sitemap.ts.
