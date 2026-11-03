@@ -7,6 +7,7 @@ import { ChatHandoffIllustration } from "@/components/illustrations/ChatHandoffI
 import { ChatWidgetIllustration } from "@/components/illustrations/ChatWidgetIllustration";
 import { PhoneChat } from "@/components/illustrations/PhoneChat";
 import { FaqSection } from "@/components/sections/FaqSection";
+import { RelatedIndustries } from "@/components/sections/RelatedIndustries";
 import { PageSection } from "@/components/sections/PageSection";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
@@ -529,6 +530,12 @@ export default function Page() {
           </div>
           <Cta />
         </PageSection>
+
+        <RelatedIndustries
+          twoColumns
+          heading="Where Website Chat Fits by Industry"
+          intro="Choose your industry to see how a website chatbot fits the way your customers ask questions."
+        />
 
         <FaqSection id="faq" heading="Questions About Website Chatbots" faqs={faqs} intro={<FaqIntro related={[{ href: "/services/website-design", label: "Website Design" }, { href: "/services/ai-receptionist", label: "AI receptionist" }]} />} />
 

@@ -215,7 +215,11 @@ export default function Page() {
           <p className="mt-8 text-neutral-700">
             We do not publish prices or timelines on this site. Setup, recurring costs,
             third-party software, and ongoing support are defined in your scope before
-            pricing is given.
+            pricing is given. You can also read about{" "}
+            <Link href="/about" className={linkClass}>
+              OKIKO HIGH&apos;s approach and mission
+            </Link>
+            .
           </p>
         </PageSection>
 

@@ -6,6 +6,7 @@ import { StepBadge } from "@/components/ui/StepBadge";
 import { FollowUpPathsIllustration } from "@/components/illustrations/FollowUpPathsIllustration";
 import { FollowUpPhones } from "@/components/illustrations/FollowUpPhones";
 import { FaqSection } from "@/components/sections/FaqSection";
+import { RelatedIndustries } from "@/components/sections/RelatedIndustries";
 import { PageSection } from "@/components/sections/PageSection";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
@@ -621,6 +622,12 @@ export default function Page() {
             sources={[sources.twilio, sources.ctia, sources.canSpam, sources.googleSender, sources.googleReviewPolicy, sources.cfr]}
           />
         </PageSection>
+
+        <RelatedIndustries
+          twoColumns
+          heading="Where Follow-Up Automation Fits by Industry"
+          intro="Choose your industry to see how text and email automation fits the way your customers inquire."
+        />
 
         <FaqSection id="faq" heading="Questions About Text and Email Automation" faqs={faqs} intro={<FaqIntro related={[{ href: "/services/ai-receptionist", label: "AI receptionist" }, { href: "/services/reputation-management", label: "reputation management" }]} />} />
 

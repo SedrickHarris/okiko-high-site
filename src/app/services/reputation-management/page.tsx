@@ -6,6 +6,7 @@ import { StepBadge } from "@/components/ui/StepBadge";
 import { ReviewGapMapIllustration } from "@/components/illustrations/ReviewGapMapIllustration";
 import { ReviewWorkflowIllustration } from "@/components/illustrations/ReviewWorkflowIllustration";
 import { FaqSection } from "@/components/sections/FaqSection";
+import { RelatedIndustries } from "@/components/sections/RelatedIndustries";
 import { PageSection } from "@/components/sections/PageSection";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
@@ -794,6 +795,12 @@ export default function Page() {
         </PageSection>
 
         {/* 12. FAQs and final CTA */}
+        <RelatedIndustries
+          twoColumns
+          heading="Where Review Management Fits by Industry"
+          intro="Choose your industry to see how review management fits the way your customers choose a business."
+        />
+
         <FaqSection id="faq" heading="Review Management Questions, Answered" faqs={faqs} intro={<FaqIntro related={[{ href: "/services/google-business-profile-optimization", label: "Google Business Profile management" }, { href: "/services/sms-email-automation", label: "text and email automation" }]} />} />
 
         <section

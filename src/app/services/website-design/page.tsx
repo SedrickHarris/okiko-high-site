@@ -7,6 +7,7 @@ import { StepBadge } from "@/components/ui/StepBadge";
 import { CapabilityGrid } from "@/components/sections/CapabilityGrid";
 import { PublishedComboLinks } from "@/components/combos/PublishedComboLinks";
 import { FaqSection } from "@/components/sections/FaqSection";
+import { RelatedIndustries } from "@/components/sections/RelatedIndustries";
 import { PageSection } from "@/components/sections/PageSection";
 import { PhoneWireframe } from "@/components/sections/PhoneWireframe";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -634,6 +635,12 @@ export default function Page() {
         </PageSection>
 
         {/* K. FAQs and final CTA */}
+        <RelatedIndustries
+          twoColumns
+          heading="Where Website Design Fits by Industry"
+          intro="Choose your industry to see how website design fits the way your customers find and contact you."
+        />
+
         <FaqSection id="faq" heading="Website Design Questions, Answered" faqs={faqs} intro={<FaqIntro related={[{ href: "/services/google-business-profile-optimization", label: "Google Business Profile management" }, { href: "/services/ai-chatbots", label: "AI chatbots" }]} />} />
 
         <PublishedComboLinks

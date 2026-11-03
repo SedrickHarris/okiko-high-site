@@ -6,6 +6,7 @@ import { StepBadge } from "@/components/ui/StepBadge";
 import { ProfileCardIllustration } from "@/components/illustrations/ProfileCardIllustration";
 import { ProfileWorkflowIllustration } from "@/components/illustrations/ProfileWorkflowIllustration";
 import { FaqSection } from "@/components/sections/FaqSection";
+import { RelatedIndustries } from "@/components/sections/RelatedIndustries";
 import { PageSection } from "@/components/sections/PageSection";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
@@ -589,6 +590,12 @@ export default function Page() {
             </div>
           </div>
         </PageSection>
+
+        <RelatedIndustries
+          twoColumns
+          heading="Where Profile Management Fits by Industry"
+          intro="Choose your industry to see how Google Business Profile management fits the way your customers find you."
+        />
 
         <FaqSection id="faq" heading="Questions About Google Business Profile Management" faqs={faqs} intro={<FaqIntro related={[{ href: "/services/website-design", label: "Website Design" }, { href: "/services/reputation-management", label: "reputation management" }]} />} />
 

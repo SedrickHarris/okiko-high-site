@@ -244,8 +244,11 @@ export default function Page() {
           heading="Who We Work With"
           intro={
             <p>
-              OKIKO HIGH currently serves four kinds of business, each with its own
-              page. The pages describe a proposed approach, not client work, and do not
+              OKIKO HIGH currently serves{" "}
+              <Link href="/industries" className={linkClass}>
+                four kinds of business
+              </Link>
+              , each with its own page. The pages describe a proposed approach, not client work, and do not
               report results. OKIKO HIGH states that it serves clients worldwide.
             </p>
           }

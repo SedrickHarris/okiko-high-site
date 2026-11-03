@@ -99,6 +99,11 @@ export default function Page() {
                   <h3 className="text-lg font-semibold">Prefer to call or email?</h3>
                   <p className="mt-2 text-neutral-800">
                     Use the details below. OKIKO HIGH serves clients worldwide.
+                    You can also read{" "}
+                    <Link href="/about" className={linkClass}>
+                      about OKIKO HIGH and how it works
+                    </Link>
+                    .
                   </p>
                   <ContactActions />
                 </div>
@@ -122,7 +127,16 @@ export default function Page() {
             <PageSection
               id="ways-to-reach-us"
               heading="Ways to Reach Us"
-              intro={<p>Call or email using the details below. OKIKO HIGH serves clients worldwide.</p>}
+              intro={
+                <p>
+                  Call or email using the details below. OKIKO HIGH serves clients worldwide.
+                  You can also read{" "}
+                  <Link href="/about" className={linkClass}>
+                    about OKIKO HIGH and how it works
+                  </Link>
+                  .
+                </p>
+              }
             >
               <ContactActions />
             </PageSection>

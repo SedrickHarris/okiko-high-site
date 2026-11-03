@@ -8,6 +8,7 @@ import { CallFlowDiagram } from "@/components/illustrations/CallFlowDiagram";
 import { CallRoutingIllustration } from "@/components/illustrations/CallRoutingIllustration";
 import { PublishedComboLinks } from "@/components/combos/PublishedComboLinks";
 import { FaqSection } from "@/components/sections/FaqSection";
+import { RelatedIndustries } from "@/components/sections/RelatedIndustries";
 import { PageSection } from "@/components/sections/PageSection";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
@@ -644,6 +645,12 @@ export default function Page() {
         </PageSection>
 
         {/* 10. FAQ and conversion */}
+        <RelatedIndustries
+          twoColumns
+          heading="Where Call Handling Fits by Industry"
+          intro="Choose your industry to see how an AI receptionist fits the way your customers call."
+        />
+
         <FaqSection id="faq" heading="Questions About AI Call Handling" faqs={faqs} intro={<FaqIntro related={[{ href: "/services/ai-chatbots", label: "AI chatbots" }, { href: "/services/sms-email-automation", label: "text and email automation" }]} />} />
 
         <PublishedComboLinks

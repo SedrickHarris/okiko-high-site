@@ -235,6 +235,7 @@ export const faqGroups: ReadonlyArray<FaqGroup> = [
     more: [
       { href: "/services", label: "All services" },
       { href: "/industries", label: "Industries" },
+      { href: "/about", label: "About OKIKO HIGH" },
     ],
     faqs: [
       {
