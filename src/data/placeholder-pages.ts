@@ -3,9 +3,13 @@
 // Set it to true once real content is approved: indexing and the sitemap entry return
 // together.
 
-type PlaceholderPath = "/case-studies" | "/resources" | "/privacy-policy" | "/terms-of-service";
+import { publishedPosts } from "./blog";
+
+type PlaceholderPath = "/blog" | "/case-studies" | "/resources" | "/privacy-policy" | "/terms-of-service";
 
 export const placeholderPages: Record<PlaceholderPath, { published: boolean }> = {
+  // The blog hub is indexable only once it lists at least one published post.
+  "/blog": { published: publishedPosts().length > 0 },
   "/case-studies": { published: false },
   "/resources": { published: false },
   "/privacy-policy": { published: true },

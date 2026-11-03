@@ -20,6 +20,7 @@ const routes = [
   "/industries/home-services",
   "/industries/professional-services",
   "/industries/property-management-real-estate",
+  "/blog",
   "/case-studies",
   "/resources",
   "/faq",

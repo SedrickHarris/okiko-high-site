@@ -25,6 +25,8 @@ Define the planned pages, their roles, and how they relate. This is a working bu
 ├── case-studies/
 │   └── {case-study}/
 ├── resources/
+├── blog/
+│   └── {slug}/   (posts: none approved yet)
 ├── faq/
 │   └── {article}/
 ├── contact/
@@ -44,6 +46,7 @@ There is no default city, state, country, or regional page hierarchy. Okiko High
 | Industries / Who We Help | Introduce the audience groups. | Clearly distinguish currently served audiences from future opportunities. |
 | Case Studies | Present approved client work and outcomes. | Launch when approved examples are available; do not invent or anonymize as if verified. |
 | Resources | Publish useful educational material supporting services and audiences. | Include articles only when they provide substantive value. |
+| Blog | Dated articles on digital marketing, marketing automation, and SaaS topics, listed by publish date. Resources holds evergreen educational material; the blog is the chronological article index. | **Built (hub only; proposed role, not defined by the owner).** Listing is driven by `src/data/blog.ts`, which is empty: no approved posts exist, so the hub shows an empty state with links to Services, Industries, Resources, and Contact, is noindex, and stays out of the sitemap. It becomes indexable automatically when the first post is marked published. Individual posts (`/blog/{slug}`) are not built. No FAQ: `docs/01` supports no blog-specific answers. |
 | FAQ | Answer common questions in customer-journey order (getting found, inquiries, qualifying and booking, follow-up, feedback) plus a "Working With OKIKO HIGH" group for pricing, setup, support, ownership, privacy, and cancellation. | Links each group to the service pages that hold the full answers. Describes how workflows can be designed, not a promise that every service or integration fits every project. |
 | Contact | Give visitors clear ways to inquire. | **Built.** Shows the confirmed phone and email. A two-step contact form (service, then contact details) is built but appears only when `NEXT_PUBLIC_CONTACT_FORM_ENDPOINT` is set (see `docs/06`). The primary contact action and booking link are TBD, so there is no booking link. |
 | Privacy Policy | Explain data collection and use. | **Built (draft; needs legal review before launch).** Content is in `src/content/privacy-policy.ts`. Reflects the site as it is: no analytics, pixels, or advertising cookies, and the contact form on `/contact` (saved to GoHighLevel, described in "Information you give us", sharing, and the FAQs). Separates OKIKO HIGH's own use of information from information it handles for clients. Shows six service cards (reusing `ServiceCard` with privacy-focused copy) and a two-column FAQ. Update the file and its "Last updated" date whenever a form, analytics tool, or integration is added. |

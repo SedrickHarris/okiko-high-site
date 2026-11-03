@@ -24,15 +24,3 @@ export const navLinks = [
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ] as const;
-
-export const footerLinks = [
-  { href: "/services", label: "Services" },
-  { href: "/industries", label: "Industries" },
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
-  { href: "/case-studies", label: "Case Studies" },
-  { href: "/resources", label: "Resources" },
-  { href: "/faq", label: "FAQ" },
-  { href: "/privacy-policy", label: "Privacy Policy" },
-  { href: "/terms-of-service", label: "Terms of Service" },
-] as const;
