@@ -46,7 +46,7 @@ There is no default city, state, country, or regional page hierarchy. Okiko High
 | Resources | Publish useful educational material supporting services and audiences. | Include articles only when they provide substantive value. |
 | FAQ | Answer common questions in customer-journey order (getting found, inquiries, qualifying and booking, follow-up, feedback) plus a "Working With OKIKO HIGH" group for pricing, setup, support, ownership, privacy, and cancellation. | Links each group to the service pages that hold the full answers. Describes how workflows can be designed, not a promise that every service or integration fits every project. |
 | Contact | Give visitors clear ways to inquire. | **Built.** Shows the confirmed phone and email only. The primary contact action, form, and booking link are TBD, so there is no form or booking link. |
-| Privacy Policy | Explain data collection and use. | Must reflect actual forms, analytics, and integrations. |
+| Privacy Policy | Explain data collection and use. | **Built (draft; needs legal review before launch).** Content is in `src/content/privacy-policy.ts`. Reflects the site as it is: no analytics, pixels, advertising cookies, or active form. Separates OKIKO HIGH's own use of information from information it handles for clients. Shows six service cards (reusing `ServiceCard` with privacy-focused copy) and a two-column FAQ. Update the file and its "Last updated" date whenever a form, analytics tool, or integration is added. |
 | Terms of Service | Publish applicable terms. | Content requires owner/legal review before publication. |
 
 ## Service pages

@@ -54,6 +54,7 @@ Use this checklist to catch practical issues before and after launch. It is a wo
 - [ ] Confirm informative images have useful alt text and decorative images have empty alt text.
 - [ ] Check image loading, page speed, and broken links.
 - [ ] Confirm legal pages reflect the actual forms, analytics, and integrations in use.
+- [ ] Privacy Policy (`/privacy-policy`, draft built 2026-11-02): have counsel review it before launch, and confirm with the owner: the legal entity name, whether any Cloudflare analytics or other tool is enabled in production (the policy says none is used), whether OKIKO HIGH sends its own marketing texts or emails, whether any personal information is sold or shared for advertising, and the retention approach. Update `src/content/privacy-policy.ts` and its "Last updated" date with any change.
 
 ## Technical and deployment
 
