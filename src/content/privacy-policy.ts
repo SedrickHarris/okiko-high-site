@@ -14,8 +14,11 @@
 // contact is tagged "website-contact-form". The function logs only status codes,
 // rejects cross-origin posts, and uses a hidden honeypot field that collects nothing
 // from real visitors. The form only renders when NEXT_PUBLIC_CONTACT_FORM_ENDPOINT is
-// set (docs/06), but this policy describes it outright, so set that variable in
-// production before the policy goes live (docs/08).
+// set (docs/06). The form is now live in production (NEXT_PUBLIC_CONTACT_FORM_ENDPOINT,
+// GHL_PRIVATE_TOKEN and GHL_LOCATION_ID are set), so this policy describes it outright
+// and `privacyDescribesContactForm` below is `true`. If the form is ever switched off,
+// the policy and the /contact copy must be changed together (the /contact copy follows
+// the variable automatically; this file does not).
 //
 // Intentionally NOT stated, because the research marks them unconfirmed: the legal
 // entity name, a mailing address, retention periods, whether OKIKO HIGH sends its own
@@ -49,6 +52,12 @@ export const privacyPage = {
   primaryCta: { label: "Contact us with a privacy question", href: "/contact" },
   secondaryCta: { label: "See your privacy choices", href: "#your-choices" },
 } as const;
+
+// Single source of truth for the contact-form guard (scripts/check-policy.mjs). `true`
+// means this policy has the contact form and GoHighLevel storage wording, which is live.
+// `npm run check:policy` fails if NEXT_PUBLIC_CONTACT_FORM_ENDPOINT is set while this is
+// `false`. Keep it a plain `true` or `false` literal: the check reads it as text.
+export const privacyDescribesContactForm = true;
 
 // Shown visibly under the intro and used for `dateModified` in the page's JSON-LD.
 export const lastUpdated = { iso: "2026-11-03", display: "November 3, 2026" } as const;
@@ -222,7 +231,7 @@ export const servicesNote =
   "These descriptions summarize what each service page already explains. For how information is handled in a particular project, ask us when we scope it.";
 
 export const sharingItems = [
-  "Service providers that help us run our business and deliver services, such as hosting, communications, and software platforms. For example, contact form submissions are saved in GoHighLevel, a CRM and marketing software platform we use. Some of our services are also delivered with third-party platforms, including GoHighLevel and its ecosystem, which handle information under their own terms.",
+  "Service providers that help us run our business and deliver services, such as hosting, communications, and software platforms. For example, contact form submissions are saved in GoHighLevel, a CRM and marketing software platform we use. Some of our services are also delivered with third-party platforms, including GoHighLevel and the tools that connect to it, which handle information under their own terms.",
   "Our clients, when we handle information on their behalf.",
   "Professional advisers, when we need their help with our business.",
   "Authorities or other parties, when the law requires it or when needed to protect rights, safety, or security.",
@@ -322,7 +331,7 @@ export const faqs: Faq[] = [
   {
     question: "Which software platforms handle information for OKIKO HIGH services?",
     answer:
-      "We use GoHighLevel, a CRM and marketing software platform, to store contact form submissions. Some of our services are also delivered with third-party software platforms, including GoHighLevel and its ecosystem. Information handled through a service may be processed by the platform and its own providers under their terms. Which providers apply depends on the service and the scope, so ask us if you want to know for your situation.",
+      "We use GoHighLevel, a CRM and marketing software platform, to store contact form submissions. Some of our services are also delivered with third-party software platforms, including GoHighLevel and the tools that connect to it. Information handled through a service may be processed by the platform and its own providers under their terms. Which providers apply depends on the service and the scope, so ask us if you want to know for your situation.",
   },
   {
     question: "Should I send health, payment, or other sensitive information when I contact OKIKO HIGH?",

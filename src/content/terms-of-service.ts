@@ -228,7 +228,7 @@ export const platformCards: ReadonlyArray<{ icon: IconName; title: string; body:
   {
     icon: "server",
     title: "Third-party platforms",
-    body: "Some of our services are delivered with third-party software platforms, including GoHighLevel and its ecosystem. These platforms are not operated by OKIKO HIGH and set their own terms. Features can change or be withdrawn by the platform.",
+    body: "Some of our services are delivered with third-party software platforms, including GoHighLevel and the tools that connect to it. These platforms are not operated by OKIKO HIGH and set their own terms. Features can change or be withdrawn by the platform.",
   },
   {
     icon: "pin",

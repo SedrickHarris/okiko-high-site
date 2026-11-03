@@ -8,7 +8,7 @@
 
 ## Business description
 
-OKIKO HIGH helps businesses strengthen their online presence, connect with customers, and build systems that support growth. Its approach combines digital marketing strategy with software and automation tools powered by GoHighLevel and its ecosystem.
+OKIKO HIGH helps businesses strengthen their online presence, connect with customers, and build systems that support growth. Its approach combines digital marketing strategy with software and automation tools built on GoHighLevel.
 
 **Mission:** Make marketing smarter, business operations easier, and growth more achievable.
 
