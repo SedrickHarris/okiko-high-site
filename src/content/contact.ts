@@ -105,4 +105,9 @@ export const faqs: Faq[] = [
     answer:
       "You can ask about website design, Google Business Profile management, review management, AI website chatbots, an AI receptionist for inbound calls, and text and email automation. Each has its own page with details.",
   },
+  {
+    question: "Which industries does OKIKO HIGH serve?",
+    answer:
+      "OKIKO HIGH serves home services, professional services, property management and real estate, and healthcare, dental and med spa businesses. Each industry has its own page that shows how the services apply.",
+  },
 ];

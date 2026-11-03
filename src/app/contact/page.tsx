@@ -197,7 +197,7 @@ export default function Page() {
               <Link href="/services" className={linkClass}>
                 digital marketing services for local businesses
               </Link>{" "}
-              page. The industry pages below show how the services apply.
+              page.
             </p>
           }
         >
@@ -207,7 +207,12 @@ export default function Page() {
             ))}
           </ul>
 
-          <ul aria-label="Industries" className="mt-6 grid gap-6 md:grid-cols-2">
+          <h3 id="industries-we-serve" className="mt-12 text-xl font-bold tracking-tight">
+            Industries We Serve
+          </h3>
+          <p className="mt-2 text-neutral-700">See how these services apply to your industry.</p>
+
+          <ul aria-labelledby="industries-we-serve" className="mt-6 grid gap-6 md:grid-cols-2">
             {audiences.map((item, index) => (
               <li
                 key={item.path}
