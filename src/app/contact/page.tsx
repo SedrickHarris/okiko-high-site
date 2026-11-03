@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ServiceCard } from "@/components/cards/ServiceCard";
 import { ContactForm } from "@/components/forms/ContactForm";
 import { FaqSection } from "@/components/sections/FaqSection";
 import { PageSection } from "@/components/sections/PageSection";
@@ -15,6 +16,7 @@ import {
   includeItems,
 } from "@/content/contact";
 import { audiences } from "@/content/industries/hub";
+import { hubServices } from "@/content/services/hub";
 import { siteConfig } from "@/data/site";
 import { contactFormEndpoint } from "@/lib/contact-form";
 import {
@@ -204,13 +206,9 @@ export default function Page() {
             </p>
           }
         >
-          <ul className="grid gap-3 sm:grid-cols-2">
-            {contactServices.map((service) => (
-              <li key={service.path}>
-                <Link href={service.path} className={`${linkClass} font-semibold`}>
-                  {service.name}
-                </Link>
-              </li>
+          <ul className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {hubServices.map((service, index) => (
+              <ServiceCard key={service.slug} service={service} index={index} />
             ))}
           </ul>
         </PageSection>
