@@ -295,17 +295,6 @@ export const faqs: Faq[] = [
       "Cancellation and exit terms are not stated on this website. They are confirmed in writing when your project is scoped, so ask what happens to your accounts, content, and records if you stop.",
   },
   {
-    question: "Can OKIKO HIGH guarantee rankings, leads, bookings, or review removal?",
-    answer:
-      "No. Google and other platforms control search results and decide whether a review is removed, and outcomes also depend on demand, competition, your offer, and how quickly inquiries are answered. No provider can responsibly guarantee them. Each service page states what it does and does not include.",
-    links: [{ phrase: "service page", href: "/services" }],
-  },
-  {
-    question: "Who is responsible for permission to text, email, or call my customers?",
-    answer:
-      "You are. Messages sent through our services go out under your instructions and the permissions you have collected. We build workflows around consent and opt-outs, and an opt-out stops messages across every workflow, but rules differ by country, state, and industry, so they are checked when your project is scoped.",
-  },
-  {
     question: "Does OKIKO HIGH give legal, medical, or other professional advice?",
     answer:
       "No. The website is general information about our services. Pages that mention laws, such as texting, recording, fair housing, or health privacy rules, are a starting point and not legal advice. Please check what applies to you with a qualified adviser.",
@@ -321,18 +310,8 @@ export const faqs: Faq[] = [
       "Google and other platforms set and enforce their own rules and can change them. OKIKO HIGH does not control those decisions, so we cannot promise that a profile will not be limited, that a review will be removed, or that a platform feature will stay available.",
   },
   {
-    question: "Can I send sensitive information when I contact OKIKO HIGH?",
-    answer:
-      "No. Please do not send card numbers, passwords, government ID numbers, health or patient information, or confidential client, case, or financial details by phone, email, or text. A short description of your business and goals is enough to start. If a project will involve sensitive information, the written scope says how it will be handled first.",
-  },
-  {
-    question: "Does OKIKO HIGH serve clients worldwide, and do local laws still apply?",
-    answer:
-      "OKIKO HIGH states that it serves clients worldwide. Whether a particular service can be offered still depends on your country, the platforms and features available there, and our capacity, and it is confirmed when your project is scoped. Local laws and platform rules also still apply to you and your customers, for example which consent rules cover calls and texts.",
-  },
-  {
     question: "How will I know if these terms change?",
     answer:
-      "We update this page and the date near the top shows when it was last updated. We may change these terms as our services or the law change. A signed agreement for your project is not rewritten by a change to this page.",
+      "We update this page and the date near the top shows when it was last updated. We may change these terms as our services change. A signed agreement for your project is not rewritten by a change to this page.",
   },
 ];

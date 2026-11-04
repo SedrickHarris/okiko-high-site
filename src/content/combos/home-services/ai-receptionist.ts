@@ -13,9 +13,6 @@
 // - Widely quoted figures with no traceable study are deliberately left out (callers who
 //   will not call back, voicemail abandonment, "62% of HVAC calls after hours", annual
 //   revenue lost to missed calls).
-// - Compliance content is a summary of cited sources, not legal advice. To confirm
-//   before launch: the revoke-all delay date on fcc.gov, the Twilio A2P 10DLC page
-//   (carried an end-of-life notice), Maine statute scope, and a live SERP review.
 //
 // Keyword note: "AI receptionist for home services" moves here from the Home Services
 // audience page. /services/ai-receptionist keeps "AI receptionist for small business".
@@ -40,41 +37,9 @@ const sources = {
     label: "Gartner, 2024 survey on customers and AI in customer service",
     href: "https://www.gartner.com/en/newsroom/press-releases/2024-07-09-gartner-survey-finds-64-percent-of-customers-would-prefer-that-companies-didnt-use-ai-for-customer-service",
   },
-  fcc2417: {
-    label: "FCC, Declaratory Ruling FCC 24-17 (AI voices and the TCPA)",
-    href: "https://docs.fcc.gov/public/attachments/FCC-24-17A1.pdf",
-  },
-  fcc2484: {
-    label: "Federal Register, FCC proposal on AI and unwanted robocalls (September 2024)",
-    href: "https://www.federalregister.gov/documents/2024/09/10/2024-19028/implications-of-artificial-intelligence-technologies-on-protecting-consumers-from-unwanted-robocalls",
-  },
-  tcpaworld: {
-    label: "TCPAWorld, FCC consent revocation rule: new effective date January 31, 2027",
-    href: "https://tcpaworld.com/2026/01/07/breaking-fcc-pushes-back-tcpa-consent-revocation-rule-new-effective-date-now-january-31-2027/",
-  },
-  justia: {
-    label: "Justia, 50-state survey: recording phone calls and conversations",
-    href: "https://www.justia.com/50-state-surveys/recording-phone-calls-and-conversations/",
-  },
-  zwillgen: {
-    label: "ZwillGen, Ambriz v. Google: customer-service AI class action proceeds",
-    href: "https://www.zwillgen.com/privacy/federal-judge-allows-google-customer-service-ai-class-action-to-proceed/",
-  },
-  maine: {
-    label: "Maine Revised Statutes, 10 MRS section 1500-DD",
-    href: "https://legislature.maine.gov/statutes/10/title10sec1500-DD.html",
-  },
   phmsa: {
     label: "PHMSA, emergency response guidance for gas leaks",
     href: "https://primis.phmsa.dot.gov/stakeholder-comms/emergencyresponse",
-  },
-  twilio: {
-    label: "Twilio Docs, A2P 10DLC registration",
-    href: "https://www.twilio.com/docs/messaging/compliance/a2p-10dlc",
-  },
-  convoso: {
-    label: "Convoso, FCC delays the TCPA cross-channel consent revocation provision to January 31, 2027",
-    href: "https://www.convoso.com/news/fcc-extends-tcpa-consent-revocation-rule-to-2027/",
   },
   highlevelVoice: {
     label: "HighLevel Support, how to create Voice AI agents",
@@ -92,13 +57,13 @@ export const combo: ComboContent = {
   // The root layout appends " | OKIKO HIGH".
   title: "AI Receptionist for Home Services",
   description:
-    "Plan how an AI receptionist could answer home-service calls, route emergencies to a person, and book estimates, plus the call rules to check.",
+    "Plan how an AI receptionist could answer home-service calls, route emergencies to a person, and book estimates.",
   h1: "AI Receptionist for Home-Service Businesses",
   primaryKeyword: "AI receptionist for home services",
   tagline:
     "Answer the call, sort urgent from scheduled, and keep a person at the end of the line.",
   intro: [
-    "This page is for owners and office managers of home-service businesses whose phone rings while the team is on a job. It describes a proposed approach to planning an AI receptionist: what it should do on each kind of call, when it must hand off to a person, and which call rules to check before you turn it on.",
+    "This page is for owners and office managers of home-service businesses whose phone rings while the team is on a job. It describes a proposed approach to planning an AI receptionist: what it should do on each kind of call and when it must hand off to a person.",
     "It is a proposed approach, not a package, a price list, or a record of past client work. No result is promised.",
   ],
   heroAside: {
@@ -290,16 +255,6 @@ export const combo: ComboContent = {
         note: "Brackets are for your own facts. The words are an illustration to adapt, not a tested script.",
         notes: [
           {
-            title: "Tell callers it is an AI",
-            body: "Some places require it and some callers will ask. Maine's statute covers chatbots used in trade, including voice, when a reasonable consumer could be misled. Saying so up front is simple and avoids the question.",
-            source: sources.maine,
-          },
-          {
-            title: "Add a recording notice where required",
-            body: "Federal law needs one party's consent, but several states need every party's. Check the states your callers are in before you record or transcribe.",
-            source: sources.justia,
-          },
-          {
             title: "Do not improvise safety advice",
             body: "For a gas smell, public guidance is to leave, call 911 from a safe place, and avoid phones and switches near the leak. The receptionist should say that and nothing more.",
             source: sources.phmsa,
@@ -324,7 +279,7 @@ export const combo: ComboContent = {
         formTitle: "What was captured",
         fields: ["Caller name", "Address", "Problem in the caller's words", "Best time to call"],
         submitLabel: "Mark as handled",
-        trustFacts: ["[AI-handled]", "[Recording notice given]"],
+        trustFacts: ["[AI-handled]"],
         panels: [
           {
             title: "What every call summary should hold",
@@ -333,7 +288,6 @@ export const combo: ComboContent = {
               "The problem in the caller's own words",
               "Urgency label and who was alerted",
               "Whether the caller asked for a person",
-              "A link to the recording or transcript, if you keep one and the caller was told",
             ],
           },
           {
@@ -346,73 +300,6 @@ export const combo: ComboContent = {
         ],
       },
       sources: [sources.jobber],
-    },
-    {
-      kind: "prose",
-      id: "call-rules",
-      heading: "Call Rules to Check Before You Turn It On",
-      muted: true,
-      intro: [
-        "The rules below are a summary of the sources cited, not legal advice. They change, and they differ by state. Ask a lawyer what applies to your business.",
-      ],
-      ruleCards: {
-        items: [
-          {
-            icon: "mic",
-            tone: "blue",
-            title: "Recording consent",
-            body: "Federal law needs one party's consent. Justia's survey (reviewed September 2024) labels California, Florida, Maryland, Massachusetts, New Hampshire, Pennsylvania, and Washington as all-party states, and describes Illinois and Montana as generally all-party. It notes ambiguity or extra conditions in Delaware, Michigan, Nevada, and Connecticut.",
-            checkWith: "A lawyer, for the states your callers are in",
-          },
-          {
-            icon: "headset",
-            tone: "green",
-            title: "AI disclosure",
-            body: "No federal rule was found for AI answering inbound calls. Maine's statute covers chatbots used in trade. Utah requires disclosure when a consumer clearly asks, and proactive disclosure for high-risk uses in regulated occupations. California's bot law is written for online communication and does not mention phone calls.",
-            checkWith: "A lawyer, and the current state statutes",
-          },
-          {
-            icon: "call",
-            tone: "yellow",
-            title: "AI voice on outbound calls and callbacks",
-            body: "The FCC ruled in February 2024 that AI-generated voices count as an artificial voice under the TCPA, so outbound calls need prior express consent (written for telemarketing). The FCC's 2024 proposal on AI call disclosure is aimed at outbound calls, and no final rule was found.",
-            checkWith: "A lawyer, before any outbound AI calling",
-          },
-          {
-            icon: "message",
-            tone: "blue",
-            title: "Text follow-up",
-            body: "Stop words must be honored and processed within 10 business days. The wider revoke-all rule was delayed to January 31, 2027, as reported by TCPAWorld and Convoso (FCC order DA 26-12). US long-code texting needs A2P 10DLC registration through your provider.",
-            checkWith: "Your messaging provider and a lawyer",
-          },
-          {
-            icon: "shield",
-            tone: "green",
-            title: "Third-party AI vendors",
-            body: "In Ambriz v. Google (N.D. Cal., February 2025), a motion to dismiss was denied on a wiretap claim about a vendor's AI listening to customer calls. That is a ruling on a motion, not a finding of liability.",
-            checkWith: "A lawyer, and your vendor's data terms",
-          },
-          {
-            icon: "warning",
-            tone: "red",
-            title: "Emergencies",
-            body: "For a gas smell, PHMSA guidance is to leave, call 911 from a safe place, and avoid phones and switches near the leak. An AI receptionist is not an emergency service.",
-            checkWith: "Your gas utility and local authorities",
-          },
-        ],
-        note: "Not legal advice. The revoke-all date comes from two trade reports of an FCC order, and some state rules were read from summaries, so confirm them on the official sites before you rely on them.",
-      },
-      sources: [
-        sources.justia,
-        sources.maine,
-        sources.fcc2417,
-        sources.fcc2484,
-        sources.tcpaworld,
-        sources.convoso,
-        sources.twilio,
-        sources.zwillgen,
-        sources.phmsa,
-      ],
     },
     {
       kind: "prose",
@@ -513,25 +400,9 @@ export const combo: ComboContent = {
         "It should tell the caller to leave and call 911, alert a person, and give no repair or safety instructions of its own. PHMSA's public guidance for a gas leak is to leave, call 911 from a safe place, and avoid phones and switches near the leak. An AI receptionist is not an emergency service.",
     },
     {
-      question: "Do I have to tell callers they are talking to an AI?",
-      answer:
-        "It depends on where the caller is. No federal rule was found for AI answering inbound calls, but Maine's statute covers chatbots used in trade when a reasonable consumer could be misled, and Utah requires disclosure when a consumer clearly asks. Saying it up front is simple. Ask a lawyer what applies to you.",
-    },
-    {
-      question: "Is it legal to record calls an AI receptionist answers?",
-      answer:
-        "Federal law needs one party's consent, but several states need every party's, including California, Florida, Maryland, Massachusetts, New Hampshire, Pennsylvania, and Washington, and a few others have qualifications. Check the states your callers are in. This is not legal advice.",
-    },
-    {
-      question: "Can an AI receptionist text customers after a call?",
-      answer:
-        "It can on some platforms, with rules. Stop words must be honored and processed within 10 business days, and US long-code texting needs A2P 10DLC registration through your provider. Outbound AI voice calls and callbacks are covered by the FCC's 2024 ruling that AI voices count as artificial voices under the TCPA.",
-      links: [{ phrase: "A2P 10DLC registration", href: "/services/sms-email-automation" }],
-    },
-    {
       question: "How do I decide which calls are emergencies and which are scheduled?",
       answer:
-        "You write the rule. Start with danger (a gas smell, smoke, sparking, anyone at risk), then urgent (an active leak, no heat or cooling), then scheduled. No sourced share of home-service calls falls into each group, so test the rule on your own calls and adjust it.",
+        "You write the rule. Start with danger (a gas smell, smoke, sparking, anyone at risk), then urgent (an active leak, no heat or cooling), then scheduled. Test the rule on your own calls and adjust it.",
     },
     {
       question: "How many home-service calls come in after hours?",

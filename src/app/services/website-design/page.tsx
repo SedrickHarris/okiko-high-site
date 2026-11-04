@@ -38,7 +38,6 @@ import {
   costRows,
   customerJourney,
   faqs,
-  healthPrivacyNote,
   inquiryFlow,
   migrationChecklist,
   ownershipRows,
@@ -426,9 +425,8 @@ export default function Page() {
             ))}
           </div>
           <p className="mt-8 max-w-3xl text-neutral-700">
-            These are testing targets. They are not guarantees of rankings, revenue,
-            or legal immunity, and an automated scan or accessibility widget alone
-            does not establish conformance. Your project scope states which checks
+            These are testing targets. They are not guarantees of rankings or
+            revenue. Your project scope states which checks
             apply.
           </p>
           <SourceLinks
@@ -436,7 +434,6 @@ export default function Page() {
               sources.brightLocalStats,
               sources.googleCwv,
               sources.webDevVitals,
-              sources.wcag22,
             ]}
           />
         </PageSection>
@@ -619,19 +616,8 @@ export default function Page() {
             <Link href="/services/reputation-management" className="font-semibold text-brand-blue-strong underline underline-offset-2 hover:text-brand-ink">
               Reputation management
             </Link>{" "}
-            supports the trust your website relies on. A website
-            inquiry is not blanket permission for automated marketing calls or
-            messages: the FCC has confirmed that AI-generated voices fall under the
-            TCPA&apos;s artificial or prerecorded voice rules, so consent, revocation,
-            and recording language need review for each workflow.
+            supports the trust your website relies on.
           </p>
-          <SourceLinks sources={[sources.fcc]} />
-          <QuickAnswer
-            icon="shield"
-            lead={healthPrivacyNote.lead}
-            detail={healthPrivacyNote.detail}
-            source={healthPrivacyNote.source}
-          />
           <p className="mt-6">
             <Link href="/services" className="font-semibold text-brand-blue-strong underline underline-offset-2 hover:text-brand-ink">
               See all OKIKO HIGH services

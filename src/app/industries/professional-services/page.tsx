@@ -35,7 +35,6 @@ import {
   professionalServicesPage as page,
   scenarioNote,
   scenarios,
-  segmentNote,
   segments,
   serviceCards,
   softwareNote,
@@ -129,7 +128,7 @@ export default function Page() {
             </p>
             <p className="hero-in hero-delay-1 mt-6 max-w-3xl text-lg leading-relaxed text-neutral-700">
               This page is for owners, managing partners, and operations leads at
-              professional firms of about 1 to 25 people, including {audienceProfessions}.
+              professional firms, including {audienceProfessions}.
               It follows a prospective client from first hearing about your firm to
               the next step. Credibility, a clear way to make contact, and
               dependable follow-up are connected needs, and the right starting point
@@ -237,14 +236,14 @@ export default function Page() {
           heading="Different Professions Need Different Workflows"
           intro={
             <p>
-              Law, accounting, consulting, financial advice, insurance, and
-              engineering are not interchangeable. Buyer questions, qualification,
+              Law, accounting, consulting, and financial advice are not
+              interchangeable. Buyer questions, qualification,
               proof, and approval requirements all change. Fit by profession is a
               question for discovery, not something this page assumes.
             </p>
           }
         >
-          <ul className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <ul className="grid gap-6 md:grid-cols-2">
             {segments.map((segment, index) => (
               <li
                 key={segment.title}
@@ -265,21 +264,17 @@ export default function Page() {
                     </li>
                   ))}
                 </ul>
-                <h4 className="mt-5 font-heading text-sm font-bold uppercase tracking-wider text-neutral-700">
-                  Example workflow (illustrative)
-                </h4>
-                <p className="mt-2 text-neutral-700">
-                  {segment.workflow ??
-                    "No example is given here. Producer licensing and carrier approvals need their own review first, and financial-advisor compliance language should not be reused."}
-                </p>
+                {segment.workflow && (
+                  <>
+                    <h4 className="mt-5 font-heading text-sm font-bold uppercase tracking-wider text-neutral-700">
+                      Example workflow (illustrative)
+                    </h4>
+                    <p className="mt-2 text-neutral-700">{segment.workflow}</p>
+                  </>
+                )}
               </li>
             ))}
           </ul>
-          <QuickAnswer
-            lead={segmentNote.lead}
-            detail={segmentNote.detail}
-            sources={[segmentNote.source, segmentNote.extraSource]}
-          />
         </PageSection>
 
         {/* E. Scenarios */}
@@ -290,7 +285,7 @@ export default function Page() {
           className="xl:-mx-10"
           intro={
             <p>
-              These five examples show practical next steps, not revenue gains.
+              These three examples show practical next steps, not revenue gains.
               Each keeps a person in charge of the inquiry. Select one to read it.
             </p>
           }
@@ -449,8 +444,7 @@ export default function Page() {
             <p>
               Any automation here is administrative. Initial contact collects only
               the information needed, unsupported requests and failed transfers
-              reach a monitored person, and regulated content gets the review it
-              needs. These are proposed boundaries, not confirmed terms.
+              reach a monitored person. These are proposed boundaries, not confirmed terms.
             </p>
           }
         >
@@ -497,7 +491,7 @@ export default function Page() {
           <QuickAnswer
             lead={handoffNote.lead}
             detail={handoffNote.detail}
-            sources={[handoffNote.source, handoffNote.extraSource]}
+            source={handoffNote.source}
           />
         </PageSection>
 

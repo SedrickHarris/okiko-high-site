@@ -1,19 +1,18 @@
 import type { Metadata } from "next";
 import { ServiceCard } from "@/components/cards/ServiceCard";
 import { IconCardHeading } from "@/components/cards/IconCardHeading";
-import { FaqSection } from "@/components/sections/FaqSection";
 import { PageHero } from "@/components/sections/PageHero";
 import { PageSection } from "@/components/sections/PageSection";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { accents } from "@/lib/brand";
 import { audiences } from "@/content/industries/hub";
-import { faqs, notFoundPage as page } from "@/content/not-found";
+import { notFoundPage as page } from "@/content/not-found";
 import { hubServices } from "@/content/services/hub";
 import type { CSSProperties } from "react";
 
 // Next.js returns HTTP 404 for unmatched URLs and injects a noindex robots tag, so this
 // page stays out of search results and out of the sitemap. No canonical and no JSON-LD:
-// it is an error page, and the FAQ is visible content only.
+// it is an error page.
 export const metadata: Metadata = {
   title: page.title,
   description: page.description,
@@ -92,12 +91,6 @@ export default function NotFound() {
         </ul>
       </PageSection>
 
-      <FaqSection
-        id="faq"
-        heading={page.faqHeading}
-        intro={<p>{page.faqIntro}</p>}
-        faqs={faqs}
-      />
     </div>
   );
 }

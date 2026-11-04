@@ -88,12 +88,6 @@ export const faqs: Faq[] = [
       "OKIKO HIGH Digital Marketing Agency provides digital marketing, marketing automation, and Software as a Service (SaaS) solutions. It combines marketing strategy with automation to help businesses connect with customers and simplify marketing and customer-management tasks.",
   },
   {
-    question: "What services does OKIKO HIGH offer?",
-    answer:
-      "There are six services: website design, Google Business Profile management, review management, AI website chatbots, an AI receptionist for inbound calls, and text and email automation. Each has its own page that explains its scope and limits. Which ones fit your business is confirmed when your project is scoped.",
-    links: [{ phrase: "six services", href: "/services" }],
-  },
-  {
     question: "When was OKIKO HIGH founded?",
     answer: "OKIKO HIGH was founded on May 3, 2026.",
   },
@@ -101,17 +95,6 @@ export const faqs: Faq[] = [
     question: "Can OKIKO HIGH work with the website and software I already use?",
     answer:
       "Possibly. Compatibility depends on the actual systems, platforms, and permissions involved, so it is checked when your project is scoped rather than assumed. The scope for your business is written down and confirmed before work begins.",
-  },
-  {
-    question: "Who does OKIKO HIGH work with?",
-    answer:
-      "OKIKO HIGH currently serves four kinds of business: home-service businesses, such as HVAC, plumbing, landscaping, general contracting, and cleaning companies; professional services firms; property management and real estate businesses; and healthcare, dental, and med spa practices. Each has its own page. The pages describe a proposed approach and illustrative scenarios, not client work or results.",
-    links: [{ phrase: "four kinds of business", href: "/industries" }],
-  },
-  {
-    question: "Does OKIKO HIGH work with clients outside the United States?",
-    answer:
-      "OKIKO HIGH states that it serves clients worldwide, and the same coverage applies to every audience. How a service works can still depend on your region, for example which platform features are available and which consent rules apply to calls and texts, so those points are checked when your project is scoped.",
   },
   {
     question: "Who is behind OKIKO HIGH?",
@@ -122,11 +105,6 @@ export const faqs: Faq[] = [
     question: "Can I see client results, case studies, or reviews?",
     answer:
       "Not on this site yet. OKIKO HIGH does not currently publish client results, testimonials, or ratings here. The service pages include clearly labeled illustrative examples that use fictional businesses; they are not client work.",
-  },
-  {
-    question: "Does OKIKO HIGH guarantee search rankings or results?",
-    answer:
-      "No. Google and other platforms control search results and reviews, and outcomes also depend on demand, competition, your offer, and how quickly inquiries are answered. Each service page states what it does and does not include.",
   },
   {
     question: "How do I get started with OKIKO HIGH?",

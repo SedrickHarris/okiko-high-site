@@ -38,7 +38,7 @@ export const audiences: ReadonlyArray<IndustryAudience> = [
     title: "Professional Services",
     icon: "file",
     description:
-      "Law, accounting, consulting, financial advice, and similar firms of about 1 to 25 people. A credible website, discreet intake, and dependable follow-up.",
+      "Law, accounting, consulting, financial advice, and similar firms. A credible website, discreet intake, and dependable follow-up.",
     buttonLabel: "Explore Professional Services",
   },
   {
@@ -54,7 +54,7 @@ export const audiences: ReadonlyArray<IndustryAudience> = [
     title: "Healthcare, Dental and Med Spa",
     icon: "shield",
     description:
-      "Healthcare, dental, and med spa practices of about 1 to 10 providers. Clearer contact paths and administrative follow-up, with clinical questions staying with your team.",
+      "Healthcare, dental, and med spa practices. Clearer contact paths and administrative follow-up, with clinical questions staying with your team.",
     buttonLabel: "Explore Healthcare, Dental and Med Spa",
   },
 ];
@@ -119,7 +119,7 @@ export const faqs: Faq[] = [
   {
     question: "Which businesses are included in each industry?",
     answer:
-      "Home services covers HVAC, plumbing, landscaping, general contracting, cleaning, and related businesses. Professional services covers law, accounting, consulting, financial advice, and similar firms of about 1 to 25 people. Property management and real estate covers property managers, landlords, rental operators, and real estate teams. Healthcare, dental and med spa covers practices of about 1 to 10 providers.",
+      "Home services covers HVAC, plumbing, landscaping, general contracting, cleaning, and related businesses. Professional services covers law, accounting, consulting, financial advice, and similar firms. Property management and real estate covers property managers, landlords, rental operators, and real estate teams. Healthcare, dental and med spa covers healthcare, dental, and med spa practices.",
   },
   {
     question: "Are the services different for each industry?",
@@ -139,23 +139,13 @@ export const faqs: Faq[] = [
     links: [{ phrase: "contact page", href: "/contact" }],
   },
   {
-    question: "Does OKIKO HIGH work with businesses outside one city or country?",
+    question: "Does the same worldwide coverage apply to every industry?",
     answer:
-      "OKIKO HIGH states that it serves clients worldwide. How a service works can still depend on your region, for example which platform features are available and which consent rules apply to calls and texts, so those points are checked when your project is scoped.",
+      "Yes. OKIKO HIGH states that it serves clients worldwide, and the same coverage applies to each of the four industries. The industry pages do not describe different regions.",
   },
   {
     question: "Do the industry pages show client results or reviews?",
     answer:
       "No. The industry pages describe approaches and illustrative scenarios. They do not publish client results, ratings, or testimonials.",
-  },
-  {
-    question: "How much do these services cost?",
-    answer:
-      "OKIKO HIGH does not publish prices on this site. Cost depends on scope, such as the number of pages, locations, and platforms involved and which integrations are needed. Request a scoped quote through the contact page.",
-  },
-  {
-    question: "Can OKIKO HIGH guarantee rankings, leads, or review outcomes?",
-    answer:
-      "No. Google and other platforms control search results and reviews, and outcomes also depend on demand, competition, your offer, and how quickly inquiries are answered. Each service page states what it does and does not include.",
   },
 ];

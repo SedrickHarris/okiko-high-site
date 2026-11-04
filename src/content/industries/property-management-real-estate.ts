@@ -46,14 +46,6 @@ export const sources = {
     label: "Reddit r/PropertyManagement, property manager calls (operator discussion)",
     href: "https://www.reddit.com/r/PropertyManagement/comments/13zl3o0/property_manager_calls/",
   },
-  hudFairHousing: {
-    label: "HUD, Fair Housing Act overview",
-    href: "https://www.hud.gov/helping-americans/fair-housing-act-overview",
-  },
-  texasPropertyCode92: {
-    label: "Texas Property Code, chapter 92 (example of a state landlord-tenant statute)",
-    href: "https://statutes.capitol.texas.gov/Docs/PR/htm/PR.92.htm",
-  },
   googleGbpEligibility: {
     label: "Google, Business Profile eligibility",
     href: "https://support.google.com/business/answer/13763036?hl=en",
@@ -285,7 +277,7 @@ export const serviceCards: ReadonlyArray<PropertyServiceCard> = [
     icon: "mail",
     layer: "Foundation",
     description:
-      "Inquiry assignment, permitted acknowledgment, tour reminders, and follow-up that does not depend on someone remembering. Messages go out only under consent rules you have approved.",
+      "Inquiry assignment, acknowledgment, tour reminders, and follow-up that does not depend on someone remembering.",
     buttonLabel: "Explore Text and Email Automation",
   },
   {
@@ -363,7 +355,7 @@ export const scenarios: ReadonlyArray<Scenario> = [
     icon: "clipboard",
     title: "75-unit residential manager",
     gap: "Owner inquiries and renter inquiries share one path and one follow-up.",
-    next: "Separate owner and renter forms with their own follow-up, and neutral review requests under the same rules.",
+    next: "Separate owner and renter forms with their own follow-up, and neutral review requests.",
     measure: "Owner consultations and tours, reported separately.",
   },
   {
@@ -447,20 +439,6 @@ export const failedTransfer = {
   body: "A caller asks for a person, but the transfer does not connect. The workflow creates a monitored callback task for a named person, so the caller is not left on an unanswered line. An answered call is not the same as a completed human handoff, so this path is tested before launch.",
 };
 
-export const handoffNote = {
-  lead: "Say when it is AI, and always offer a person.",
-  detail:
-    "The Fair Housing Act prohibits housing discrimination on listed protected grounds, so scripts and advertising for housing contacts should be reviewed for steering and unequal information. This is a US federal baseline, local rules differ, and this page is not legal advice.",
-  source: sources.hudFairHousing,
-};
-
-export const noticesNote = {
-  lead: "Automated messages do not replace legally required landlord-tenant notices.",
-  detail:
-    "Notice, recording, transcription, and consent rules vary by jurisdiction. Texas Property Code chapter 92 is one example of a state statute that governs landlord-tenant duties. Workflows are reviewed against the rules where your business and contacts are located.",
-  source: sources.texasPropertyCode92,
-};
-
 // Section 8: fit and measurement. Recommended evaluation approach only.
 export const measureGroups: ReadonlyArray<{
   icon: IconName;
@@ -503,7 +481,7 @@ export const processSteps: ReadonlyArray<{ icon: IconName; title: string; body: 
   {
     icon: "clipboard",
     title: "Audit",
-    body: "Review your website, profiles, existing software, consent records, and staff handoffs.",
+    body: "Review your website, profiles, existing software, and staff handoffs.",
   },
   {
     icon: "check",
@@ -532,9 +510,6 @@ export const exclusions: ReadonlyArray<string> = [
   "Guaranteed occupancy or rankings",
   "Untested integration promises",
 ];
-
-export const processNote =
-  "Worldwide service coverage does not mean every workflow is permitted or available in every country. Messaging, calling, recording, and housing rules are reviewed for the places your business and contacts are actually located.";
 
 // Final conversion section. The brief's inquiry form is not built (contact path and
 // consent wording are TBD in docs/01); this list tells the visitor what to include.
@@ -590,12 +565,6 @@ export const faqs: Faq[] = [
     question: "Can AI make decisions about maintenance emergencies?",
     answer:
       "AI should not independently diagnose an emergency or decide that a situation is safe. Any proposed intake workflow should follow operator-approved escalation instructions and provide a staffed backup route.",
-  },
-  {
-    question: "Can rental prospects receive automated text follow-up?",
-    answer:
-      "Automated messaging needs a reviewed consent and compliance process appropriate to the message and technology. Permission should be recorded, opt-outs supported, and marketing separated from operational communication.",
-    links: [{ phrase: "Automated messaging", href: "/services/sms-email-automation" }],
   },
   {
     question: "Can every rental property have a Google Business Profile?",

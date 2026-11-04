@@ -26,8 +26,6 @@ import {
   needsConfirming,
   needsPerson,
   openRatesNote,
-  permissionNotes,
-  permissionSteps,
   problems,
   smsEmailPage as page,
   sources,
@@ -558,15 +556,6 @@ export default function Page() {
           </div>
           <div className="mt-6 grid gap-6 md:grid-cols-2">
             <div className="rounded-lg border border-neutral-200 p-5">
-              <IconCardHeading icon="globe" title="Worldwide does not mean everywhere" />
-              <p className="mt-3 text-neutral-800">
-                OKIKO HIGH serves clients worldwide, but that does not make every
-                workflow available or lawful in every country. Consent, privacy,
-                sender registration, and number availability are confirmed per
-                project.
-              </p>
-            </div>
-            <div className="rounded-lg border border-neutral-200 p-5">
               <IconCardHeading icon="integrations" title="Where inquiries come from" />
               <p className="mt-3 text-neutral-800">
                 Follow-up works best when every inquiry source feeds it, including{" "}
@@ -581,56 +570,6 @@ export default function Page() {
               </p>
             </div>
           </div>
-        </PageSection>
-
-        {/* I. Permission and opt-outs */}
-        <PageSection
-          id="permission"
-          heading="Build Permission and Opt-Outs Into the Workflow"
-          muted
-          intro={
-            <p>
-              This is a US-focused overview, not legal advice and not clearance for
-              any country. Rules depend on the message purpose, the recipient, and
-              the technology, and they change. A program should be reviewed by a
-              lawyer before launch.
-            </p>
-          }
-        >
-          <ol className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {permissionSteps.map((step, index) => (
-              <li
-                key={step.title}
-                className={`rounded-lg border border-neutral-200 border-t-4 bg-white p-5 ${accents[index % 2 === 0 ? 0 : 1]}`}
-              >
-                <StepBadge index={index} className="mb-2" />
-                <div className="mt-2">
-                  <IconCardHeading icon={step.icon} tone={step.tone} title={step.title} />
-                </div>
-                <ul className="mt-3 list-disc space-y-2 pl-5 text-neutral-800">
-                  {step.items.map((item) => <li key={item}>{item}</li>)}
-                </ul>
-              </li>
-            ))}
-          </ol>
-          <div className="mt-6 grid gap-6 md:grid-cols-3">
-            {permissionNotes.map((note) => (
-              <div key={note.title} className="rounded-lg border border-neutral-200 bg-white p-5">
-                <IconCardHeading icon={note.icon} tone={note.tone} title={note.title} />
-                <p className="mt-3 text-neutral-800">{note.body}</p>
-              </div>
-            ))}
-          </div>
-          <Callout icon="shield">
-            <strong className="text-brand-ink">Page boundaries:</strong> workflow
-            scope depends on your systems, permissions, and requirements. Results
-            vary. Messaging requirements vary by purpose and recipient location.
-            Final consent wording reflects the real workflow and receives legal and
-            provider review.
-          </Callout>
-          <SourceLinks
-            sources={[sources.twilio, sources.ctia, sources.canSpam, sources.googleSender, sources.googleReviewPolicy, sources.cfr]}
-          />
         </PageSection>
 
         <RelatedIndustries

@@ -36,18 +36,6 @@ export const sources = {
     label: "Invoca, Home Services Lead Conversion Benchmarks Report (2026)",
     href: "https://www.invoca.com/reports/the-invoca-home-services-lead-conversion-benchmarks-report-2026",
   },
-  euAiTransparency: {
-    label: "European Commission, Guidelines on AI transparency obligations",
-    href: "https://digital-strategy.ec.europa.eu/en/policies/guidelines-ai-transparency-obligations",
-  },
-  rcfp: {
-    label: "Reporters Committee, Introduction to the reporter's recording guide",
-    href: "https://www.rcfp.org/introduction-to-reporters-recording-guide/",
-  },
-  fccRuling: {
-    label: "FCC, Declaratory Ruling FCC 24-17 (2024)",
-    href: "https://docs.fcc.gov/public/attachments/FCC-24-17A1.pdf",
-  },
   smithPricing: {
     label: "Smith.ai, live receptionist pricing",
     href: "https://smith.ai/pricing/receptionists",
@@ -341,9 +329,7 @@ export const boundaryColumns = [
     heading: "Requires approval",
     note: "Reviewed before calls go live.",
     items: [
-      "Recording and transcription wording, with a consent step where required",
       "Retention, access, and correction responsibilities",
-      "Consent for any text follow-up",
       "Emergency instruction wording",
       "Any use involving health information",
     ],
@@ -394,12 +380,6 @@ export const keepDistinct = [
 // Section 10: single source for the visible FAQ section and the FAQPage JSON-LD.
 export const faqs: Faq[] = [
   {
-    question: "Will callers know they are speaking with AI?",
-    answer:
-      "The recommended setup includes a clear opening disclosure that the caller is speaking with an AI assistant. The aim is helpful, transparent call handling, not pretending to be a person. Applicable EU transparency rules also require disclosure in relevant circumstances.",
-    sources: [sources.euAiTransparency],
-  },
-  {
     question: "Can an AI receptionist book into my calendar?",
     answer:
       "Voice AI platform documentation describes appointment booking through a connected calendar. Your calendar, appointment types, availability rules, time zones, and capacity need to be checked and tested before live booking is enabled.",
@@ -409,12 +389,6 @@ export const faqs: Faq[] = [
     question: "What happens if someone calls about an emergency?",
     answer:
       "The assistant should follow an approved escalation flow rather than make its own emergency decisions. Urgent service requests can be routed to an agreed contact, while immediate danger or a medical emergency calls for an instruction to contact the appropriate emergency service. The assistant should not promise diagnosis or dispatch.",
-  },
-  {
-    question: "Is recording customer calls legal?",
-    answer:
-      "Recording can be lawful, but consent requirements depend on the jurisdiction and the circumstances. Recording, transcription, disclosures, and calls that cross state lines should be reviewed before activation instead of being treated as automatically permitted.",
-    sources: [sources.rcfp],
   },
   {
     question: "Can it answer only after hours or when we are busy?",
@@ -435,30 +409,15 @@ export const faqs: Faq[] = [
     sources: [sources.highlevelVoice],
   },
   {
-    question: "Can it send a text after the call?",
-    answer:
-      "Platforms support text actions and follow-up workflows. Messages still need appropriate consent, opt-out handling, and any applicable sender registration. An inbound call should not be treated as blanket permission for promotional texts.",
-    sources: [sources.highlevelVoice],
-    links: [{ phrase: "follow-up workflows", href: "/services/sms-email-automation" }],
-  },
-  {
     question: "Will I receive transcripts and call summaries?",
     answer:
-      "Platforms provide call logs with transcripts and summaries. Whether these are enabled, who can access them, and how long they are kept should be defined for the implementation, particularly when calls contain sensitive information.",
+      "Call logs with transcripts and summaries can be part of a voice AI setup, depending on the platform. Whether they are enabled, who can access them, and how long they are kept should be defined for the implementation, particularly when calls contain sensitive information.",
     sources: [sources.highlevelVoice],
   },
   {
     question: "How much will OKIKO HIGH's AI receptionist service cost?",
     answer:
-      "Pricing and service packages have not been confirmed yet. Setup, recurring service, usage, telephony, integrations, maintenance, and any human-backup costs need to be defined before pricing is published.",
+      "OKIKO HIGH does not publish prices for this service on this site. Cost depends on scope, such as setup, recurring service, usage, telephony, integrations, maintenance, and any human-backup needs. Request a scoped quote through the contact page.",
+    links: [{ phrase: "contact page", href: "/contact" }],
   },
 ];
-
-// Quick fact for the boundaries section. The FCC ruling is the source; reading it
-// as a limit on outbound calls rather than inbound answering is this page's own scoping.
-export const aiVoiceRuleNote = {
-  lead: "The FCC has confirmed that AI-generated voices count as an \"artificial or prerecorded voice\" under the TCPA.",
-  detail:
-    "Covered calls need the called party's prior express consent. That ruling concerns covered outbound calls and is not a ban on answering inbound calls with AI, but callbacks and other outbound workflows need their own review.",
-  sources: [sources.fccRuling],
-};

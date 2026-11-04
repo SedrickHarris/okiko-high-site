@@ -369,15 +369,9 @@ export const faqs: Faq[] = [
       "Yes, managing the profile directly through Google is an option. A management service is worth considering when updates, monitoring, approved publishing, or reporting are repeatedly neglected or require more time than your team can give them.",
   },
   {
-    question: "Is automating Google Business Profile posts safe?",
-    answer:
-      "Scheduling through a supported integration can be appropriate when the owner specifically authorizes the workflow and the content follows Google's policies. Automation does not guarantee publication or rankings, so rejected posts and connection problems still need monitoring.",
-    sources: [sources.apiPolicies],
-  },
-  {
     question: "Do regular posts improve local rankings?",
     answer:
-      "Posts can help customers find current information, offers, and events. The research did not establish a universal ranking improvement from posting on a particular schedule, so posting frequency should not be sold as a ranking guarantee.",
+      "Posts can help customers find current information, offers, and events. Posting on a schedule should not be sold as a ranking guarantee, because Google controls local rankings.",
   },
   {
     question: "My profile has been suspended. What should I do?",

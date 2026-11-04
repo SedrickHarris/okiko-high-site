@@ -44,14 +44,6 @@ export const sources = {
     label: "Google Search Central, Spam policies",
     href: "https://developers.google.com/search/docs/essentials/spam-policies",
   },
-  wcag22: {
-    label: "W3C, WCAG 2.2",
-    href: "https://www.w3.org/TR/WCAG22/",
-  },
-  adaGuidance: {
-    label: "ADA.gov, Guidance on Web Accessibility and the ADA",
-    href: "https://www.ada.gov/resources/web-guidance/",
-  },
   wixExport: {
     label: "Wix Help, Exporting or embedding your site elsewhere",
     href: "https://support.wix.com/en/article/exporting-or-embedding-your-wix-site-elsewhere",
@@ -63,14 +55,6 @@ export const sources = {
   gruffyGoat: {
     label: "GruffyGoat, Small Business Website Costs (published 2025, updated September 2026)",
     href: "https://gruffygoat.com/blog/small-business-website-cost",
-  },
-  fcc: {
-    label: "FCC, TCPA applies to AI technologies that generate human voices (2024)",
-    href: "https://www.fcc.gov/document/fcc-confirms-tcpa-applies-ai-technologies-generate-human-voices",
-  },
-  hhs: {
-    label: "HHS, HIPAA and online tracking technologies",
-    href: "https://www.hhs.gov/hipaa/for-professionals/privacy/guidance/hipaa-online-tracking/index.html",
   },
 } satisfies Record<string, SourceLink>;
 
@@ -229,7 +213,7 @@ export const qualityChecks = [
   {
     icon: "accessibility",
     heading: "Accessibility scope",
-    body: "Testing is defined against WCAG 2.2 AA: keyboard operation, visible focus, forms, contrast, zoom, and target size. Automated scans are paired with manual checks.",
+    body: "Automated scans are paired with manual checks.",
   },
   {
     icon: "plug",
@@ -386,19 +370,13 @@ export const customerJourney = [
   {
     icon: "mail",
     stage: "Follow-up",
-    body: "Text and email workflows follow up under appropriate consent and communication rules.",
+    body: "Text and email workflows follow up.",
   },
 ] as const;
 
 
 // Single source for the visible FAQ section and the FAQPage JSON-LD.
 export const faqs: Faq[] = [
-  {
-    question: "How much should a business website cost?",
-    answer:
-      "GruffyGoat's 2026-updated vendor guide suggests a $4,000-$15,000 planning range for many professionally built local-service websites. That is not a universal market average and not an OKIKO HIGH price. Your quote should identify pages, copy, integrations, migration, testing, and recurring costs.",
-    sources: [sources.gruffyGoat],
-  },
   {
     question: "Should I redesign my website or build a new one?",
     answer:
@@ -437,12 +415,6 @@ export const faqs: Faq[] = [
     ],
   },
   {
-    question: "Does my website need to be accessible?",
-    answer:
-      "The U.S. Department of Justice explains that accessibility obligations extend to the online offerings of covered public accommodations. WCAG 2.2 AA is a useful technical target, but testing and implementation do not guarantee protection from legal claims.",
-    sources: [sources.adaGuidance, sources.wcag22],
-  },
-  {
     question: "What happens if I stop working with my agency?",
     answer:
       "The agreement should explain cancellation, account access, migration assistance, and which subscriptions or licenses stop. Domain transfer and website portability are separate issues; a transferable domain does not guarantee a transferable website.",
@@ -464,10 +436,3 @@ export const coreWebVitalsNote = {
   sources: [sources.googleCwv, sources.webDevVitals],
 };
 
-// The closing sentence is existing page copy; the HHS page supports the rest.
-export const healthPrivacyNote = {
-  lead: "A website that handles health information needs a separate privacy review for forms, scheduling tools, chat, and tracking.",
-  detail:
-    "HHS guidance says regulated entities must not use tracking technologies in ways that cause impermissible disclosures of protected health information, and a cookie banner or privacy notice does not replace a HIPAA authorization. No website is \"HIPAA certified\" by design.",
-  source: sources.hhs,
-};

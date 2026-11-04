@@ -30,30 +30,6 @@ export const healthcarePage = {
 } as const;
 
 export const sources = {
-  hhsPrivacyRule: {
-    label: "HHS, HIPAA Privacy Rule summary",
-    href: "https://www.hhs.gov/hipaa/for-professionals/privacy/laws-regulations/index.html",
-  },
-  hhsBusinessAssociates: {
-    label: "HHS, Business Associates guidance",
-    href: "https://www.hhs.gov/hipaa/for-professionals/privacy/guidance/business-associates/index.html",
-  },
-  hhsAppointmentReminders: {
-    label: "HHS, appointment reminders under HIPAA (FAQ)",
-    href: "https://www.hhs.gov/hipaa/for-professionals/faq/are-appointment-reminders-allowed-under-hipaa-without-authorization/index.html",
-  },
-  hhsNewVision: {
-    label: "HHS OCR, New Vision Dental settlement (2022)",
-    href: "https://www.hhs.gov/hipaa/for-professionals/compliance-enforcement/agreements/new-vision/index.html",
-  },
-  highLevelHipaa: {
-    label: "HighLevel Support, HIPAA compliance with HighLevel",
-    href: "https://help.gohighlevel.com/support/solutions/articles/48000983084-hipaa-compliance-with-highlevel",
-  },
-  fccAiVoices: {
-    label: "FCC, TCPA and AI-generated human voices",
-    href: "https://www.fcc.gov/document/fcc-confirms-tcpa-applies-ai-technologies-generate-human-voices",
-  },
   cochraneReminders: {
     label: "Cochrane review, appointment reminder systems (2013)",
     href: "https://pubmed.ncbi.nlm.nih.gov/24310741/",
@@ -121,15 +97,7 @@ export const scopeAndLimits: ReadonlyArray<{ icon: IconName; label: string; body
     label: "Compatibility boundary",
     body: "Naming a software product does not establish an existing integration.",
   },
-  {
-    icon: "file",
-    label: "Privacy boundary",
-    body: "No part of the agency, and no connected feature, is described here as HIPAA compliant. This page primarily addresses U.S. practices, and it is not legal advice.",
-  },
 ];
-
-export const scopeWorldwideNote =
-  "OKIKO HIGH serves clients worldwide, but worldwide service coverage does not mean every workflow is legally or operationally available in every country. Privacy, communications, and advertising rules are reviewed for the places your practice and patients are located.";
 
 // Section 2: practice types. Links go only to pages that exist today.
 export type PracticeType = {
@@ -315,7 +283,7 @@ export const serviceLayers: ReadonlyArray<{ layer: ServiceLayer; summary: string
   },
   {
     layer: "Follow-up and trust",
-    summary: "One consent-reviewed administrative workflow, plus careful public communication.",
+    summary: "One administrative workflow, plus careful public communication.",
   },
   {
     layer: "Inquiry assistance",
@@ -351,7 +319,7 @@ export const serviceCards: ReadonlyArray<HealthcareServiceCard> = [
     icon: "mail",
     layer: "Follow-up and trust",
     description:
-      "A bounded first workflow: acknowledgments, callback queues, and follow-up that respect the consent rules you approve. Reminders already in your software are used first where they work.",
+      "A bounded first workflow: acknowledgments, callback queues, and follow-up. Reminders already in your software are used first where they work.",
     buttonLabel: "Explore Text and Email Automation",
   },
   {
@@ -381,7 +349,7 @@ export const serviceCards: ReadonlyArray<HealthcareServiceCard> = [
     icon: "headset",
     layer: "Inquiry assistance",
     description:
-      "Considered last, as overflow rather than a replacement for staff. It needs tested consent, recording, scheduling, and escalation behavior, and it does not handle clinical questions or emergencies.",
+      "Considered last, as overflow rather than a replacement for staff. It needs tested scheduling and escalation behavior, and it does not handle clinical questions or emergencies.",
     buttonLabel: "Explore the AI Receptionist",
   },
 ];
@@ -445,7 +413,7 @@ export const scenarios: ReadonlyArray<Scenario> = [
 export const compatibilityChecks: ReadonlyArray<{ title: string; body: string }> = [
   {
     title: "Dental practice-management software",
-    body: "Examples to evaluate: Dentrix, Eaglesoft, and Open Dental. Confirm the exact edition and authorized access first, and do not treat Dentrix Core and Ascend as the same product. Open Dental documents an API with patient and appointment resources and advises developer BAAs, which describes the product, not an OKIKO HIGH integration.",
+    body: "Examples to evaluate: Dentrix, Eaglesoft, and Open Dental. Confirm the exact edition and authorized access first, and do not treat Dentrix Core and Ascend as the same product. Open Dental documents an API with patient and appointment resources, which describes the product, not an OKIKO HIGH integration.",
   },
   {
     title: "Medical records and scheduling systems",
@@ -457,7 +425,7 @@ export const compatibilityChecks: ReadonlyArray<{ title: string; body: string }>
   },
   {
     title: "Before compatibility is promised",
-    body: "Verify the exact version, permissions, which data has to move, whether the workflow sends an appointment request or books directly, how bookings are reconciled, who is alerted when a sync fails, and which vendors need a BAA.",
+    body: "Verify the exact version, permissions, which data has to move, whether the workflow sends an appointment request or books directly, how bookings are reconciled, and who is alerted when a sync fails.",
   },
 ];
 
@@ -469,7 +437,7 @@ export const existingFirstNote = {
 export const softwareNote = {
   lead: "Replacing your EHR or practice-management software is not the goal.",
   detail:
-    "Open Dental publishes an appointment API and advises developer BAAs, and Jane describes an approval-based partner program that is still evolving. Those describe the products, not an OKIKO HIGH integration. If direct booking cannot be done safely, the workflow collects an appointment request for staff to confirm.",
+    "Open Dental publishes an appointment API, and Jane describes an approval-based partner program that is still evolving. Those describe the products, not an OKIKO HIGH integration. If direct booking cannot be done safely, the workflow collects an appointment request for staff to confirm.",
   sources: [sources.openDentalApi, sources.janePartners],
 };
 
@@ -479,7 +447,7 @@ export const canHandle: ReadonlyArray<string> = [
   "Sharing practice-approved administrative information, such as locations and how to reach the office",
   "Capturing an appointment or consultation request for staff to confirm",
   "Routing an inquiry by location, provider, and purpose",
-  "Sending approved acknowledgments and reminders under consent rules you have reviewed",
+  "Sending approved acknowledgments and reminders",
   "Creating a monitored callback task for a named person",
 ];
 
@@ -497,24 +465,12 @@ export const insuranceExample = {
   body: "A visitor asks what their plan will cover. The workflow shares only practice-approved general information, or collects a secure request for billing staff, and never states what insurance will pay. An answered question is not the same as a verified answer, so this path is tested before launch.",
 };
 
-export const privacyNote = {
-  lead: "Whether HIPAA applies depends on the organization, not on its label.",
-  detail:
-    "HIPAA protects identifiable health information held or transmitted by covered entities and business associates. A practice, an agency, and each connected vendor need their own review, and a name alone is not automatically protected health information in every context. This page is not legal advice.",
-  source: sources.hhsPrivacyRule,
-};
-
 // Section 8: implementation. Six steps from the brief, no fixed timeline.
 export const processSteps: ReadonlyArray<{ icon: IconName; title: string; body: string }> = [
   {
     icon: "search",
     title: "Map the practice",
     body: "List providers, locations, appointment types, capacity, inquiry sources, software, and current communication tools.",
-  },
-  {
-    icon: "shield",
-    title: "Review privacy and permissions",
-    body: "Determine HIPAA applicability, data flows, business associate agreements, communication consent, and recording rules.",
   },
   {
     icon: "pin",
@@ -541,20 +497,12 @@ export const processSteps: ReadonlyArray<{ icon: IconName; title: string; body: 
 export const proposedInclusions =
   "A proposed engagement could include agreed setup, documented workflows, staff training, monitoring, and reporting. Which of these OKIKO HIGH can deliver is still being confirmed.";
 
-export const highLevelNote = {
-  lead: "HighLevel says its accounts are not HIPAA compliant by default.",
-  detail:
-    "Its documentation describes an optional HIPAA package that requires a signed business associate agreement and location-level enablement. The practice, the agency, and each connected vendor still have their own obligations, so every connected feature is reviewed for the actual deployment. This describes the vendor's documentation, not an OKIKO HIGH assurance.",
-  sources: [sources.highLevelHipaa, sources.hhsBusinessAssociates],
-};
-
 export const exclusions: ReadonlyArray<string> = [
   "Clinical decision-making, diagnosis, or treatment recommendations",
   "Emergency triage by an unconstrained AI model",
   "Individual insurance coverage guarantees",
   "Guaranteed bookings, rankings, or ratings",
   "Replacing your EHR or practice-management software",
-  "Blanket HIPAA-compliance assurances",
   "Unrestricted handling of patient information",
   "Untested integration promises",
 ];
@@ -609,41 +557,7 @@ export const privacyRules: ReadonlyArray<{ icon: IconName; title: string; body: 
     title: "Neutral review requests",
     body: "Invitations must not depend on positive private feedback. No incentives, no selective solicitation of positive reviews, and no patient information in public replies.",
   },
-  {
-    icon: "message",
-    title: "Consent for contact and messages",
-    body: "A request for contact is kept separate from optional promotional text or email consent. Channel-specific consent language and withdrawal handling need legal review.",
-  },
-  {
-    icon: "headset",
-    title: "Calls, recording, and AI disclosure",
-    body: "Recording and transcription notices are reviewed by jurisdiction, AI-generated voice calls are reviewed under TCPA, and applicable AI disclosure rules are checked.",
-  },
-  {
-    icon: "tag",
-    title: "Advertising and health claims",
-    body: "Health claims, testimonials, before-and-after imagery, and med spa advertising need substantiation and a licensing review for the places you operate.",
-  },
-  {
-    icon: "globe",
-    title: "Worldwide is not the same as everywhere",
-    body: "This page primarily addresses U.S. practices. A practice elsewhere needs country-specific privacy, communications, and advertising review first.",
-  },
 ];
-
-export const reviewReplyNote = {
-  lead: "Replying to a review with patient details has led to a federal settlement.",
-  detail:
-    "In 2022, HHS announced a $23,000 settlement with a dental practice after disclosures in replies to online reviews. That is one enforcement case, not a typical penalty or an expected cost. A reviewer's own disclosure does not permit the practice to confirm it.",
-  source: sources.hhsNewVision,
-};
-
-export const remindersLawNote = {
-  lead: "HIPAA permission for reminders does not settle every messaging rule.",
-  detail:
-    "HHS says appointment reminders can be treatment communications that do not need HIPAA authorization. The FCC applies TCPA restrictions to AI-generated voices, and consent depends on the call, so marketing, reminders, and inbound assistance are reviewed separately.",
-  sources: [sources.hhsAppointmentReminders, sources.fccAiVoices],
-};
 
 // Final conversion section. The brief's inquiry form is not built (contact path and
 // consent wording are TBD in docs/01); this list tells the visitor what to include.
@@ -676,12 +590,6 @@ export const faqs: Faq[] = [
       "Replacement is not the proposed objective. The first step should be reviewing your existing features and confirming whether an additional workflow solves a genuine gap without creating duplicate work.",
   },
   {
-    question: "Is GoHighLevel HIPAA compliant?",
-    answer:
-      "HighLevel says its accounts are not HIPAA compliant by default and offers an optional HIPAA package requiring a BAA and configuration. Your practice, the agency, and connected vendors still have responsibilities that must be reviewed for the actual deployment.",
-    sources: [sources.highLevelHipaa, sources.hhsBusinessAssociates],
-  },
-  {
     question: "Can an AI receptionist or chatbot answer medical questions?",
     answer:
       "Clinical advice, diagnosis, and individualized treatment recommendations are outside the proposed scope. Clinical questions should move to your practice's approved human or clinical communication pathway.",
@@ -701,12 +609,6 @@ export const faqs: Faq[] = [
     question: "Can automation answer insurance questions?",
     answer:
       "It could provide practice-approved general information or route a secure inquiry to staff. Individual eligibility, coverage, and payment responsibility should not be presented as guaranteed.",
-  },
-  {
-    question: "How should a practice respond to negative reviews?",
-    answer:
-      "Use an approved, neutral response that does not disclose or confirm patient information and provides a private contact route. A reviewer's own disclosure does not remove the practice's privacy obligations.",
-    sources: [sources.hhsNewVision],
   },
   {
     question: "How much would this cost?",

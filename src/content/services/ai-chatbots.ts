@@ -240,7 +240,7 @@ export const connections = [
   {
     icon: "mail",
     title: "SMS follow-up",
-    note: "Needs permission and channel compliance",
+    note: "Needs permission",
     link: { href: "/services/sms-email-automation", label: "Text and email automation" },
   },
   {
@@ -262,7 +262,7 @@ export const connectionNotes = [
   },
   {
     title: "Worldwide does not mean everywhere",
-    body: "OKIKO HIGH serves clients worldwide, but that does not make every channel available or lawful in every country. Channels are confirmed per project.",
+    body: "OKIKO HIGH serves clients worldwide, but that does not make every channel available in every country. Channels are confirmed per project.",
   },
 ] as const;
 
@@ -387,7 +387,7 @@ export const faqs: Faq[] = [
   {
     question: "Can a website conversation continue by text?",
     answer:
-      "Supported systems can route follow-up into messaging workflows. Customer permission, message purpose, and applicable legal and provider requirements must be checked before sending.",
+      "Supported systems can route follow-up into messaging workflows. The message purpose and the customer's permission need to be agreed before anything is sent.",
     links: [{ phrase: "messaging workflows", href: "/services/sms-email-automation" }],
   },
   {

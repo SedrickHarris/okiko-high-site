@@ -39,10 +39,6 @@ export const sources = {
     label: "Google, Prohibited and restricted content for reviews",
     href: "https://support.google.com/contributionpolicy/answer/7400114?hl=en",
   },
-  twilioCompliance: {
-    label: "Twilio, SMS compliance and A2P 10DLC in the US",
-    href: "https://help.twilio.com/articles/4408675845019-SMS-Compliance-and-A2P-10DLC-in-the-US",
-  },
 } satisfies Record<string, SourceLink>;
 
 // A. Hero journey strip.
@@ -354,33 +350,11 @@ export const reportTiles: ReadonlyArray<{ icon: IconName; label: string; meaning
 export const measurementNote =
   "Compare outcomes with a baseline, or with a holdout group where that is practical. An open, a send, or a platform-attributed conversion is activity, not a business result.";
 
-// I. Responsible customer communication.
-export const permissionSteps: ReadonlyArray<{ icon: IconName; title: string; body: string }> = [
-  { icon: "shield", title: "Permission", body: "Match permission to the purpose of the message." },
-  { icon: "clock", title: "Appropriate timing", body: "Check registration, timing, and frequency requirements." },
-  { icon: "message", title: "Useful message", body: "Send something relevant to what the customer asked for." },
-  { icon: "exit", title: "Reply or opt-out", body: "Make it easy to respond or to stop." },
-];
-
-export const permissionPoints: ReadonlyArray<string> = [
-  "Review registration, timing, and opt-out requirements for each type of message.",
-  "Check historical customer lists before any reactivation. An old record does not automatically authorize a promotional text.",
-  "Request honest reviews without incentives or positive-only filtering.",
-];
-
-export const permissionFact = {
-  lead: "Being able to send a message is not the same as having permission to send it.",
-  detail:
-    "Texting requirements depend on the purpose of the message, consent, jurisdiction, and opt-out handling, and carrier policies apply as well.",
-  sources: [sources.twilioCompliance],
-};
-
 // Page-level limits (visible disclaimers required by the brief).
 export const limits: ReadonlyArray<string> = [
   "Specific service scope and integrations require confirmation for your business.",
   "Workflow examples on this page are illustrative unless supported by an approved deployment.",
   "Automation does not guarantee bookings, sales, attendance, or inbox placement.",
-  "Messaging requirements vary by purpose and by the recipient's jurisdiction.",
   "OKIKO HIGH serves clients worldwide, but that does not mean every workflow is available in every country.",
 ];
 
@@ -407,26 +381,9 @@ export const faqs: Faq[] = [
       "They can if they are unwanted, repetitive, poorly timed, or continue after a response. Use appropriate permissions, useful content, sensible frequency limits, and stopping rules that reflect the customer's next action.",
   },
   {
-    question: "What happens when a customer replies?",
-    answer:
-      "The workflow should pause or branch and route the reply to the appropriate person. Staff ownership, response expectations, and escalation responsibilities need to be agreed before launch.",
-  },
-  {
     question: "Can automation handle urgent service requests?",
     answer:
       "A workflow can acknowledge an inquiry or route it according to approved rules, but it should not be presented as emergency dispatch. Any urgent-request process needs confirmed routing, staff coverage, and clear boundaries.",
-  },
-  {
-    question: "Is it legal to text customers about appointments or services?",
-    answer:
-      "It can be, but requirements depend on message purpose, technology, consent, jurisdiction, and opt-out handling. Carrier policies also apply, so technical ability to send a message is not the same as permission to send it.",
-    sources: [sources.twilioCompliance],
-  },
-  {
-    question: "Can we reconnect with past customers?",
-    answer:
-      "Potentially, after checking permissions, suppression records, data quality, and the relevance of the message. An old customer record does not automatically authorize every promotional text.",
-    sources: [sources.twilioCompliance],
   },
   {
     question: "Can review requests be automated?",
@@ -439,10 +396,5 @@ export const faqs: Faq[] = [
     question: "How will we know whether the workflow is helping?",
     answer:
       "Measure substantive responses, accepted quotes, appointments, completed jobs, staff workload, and opt-outs. Compare against a baseline where practical rather than treating every message, open, or platform-attributed conversion as a business result.",
-  },
-  {
-    question: "What does it cost, and what happens if I leave?",
-    answer:
-      "OKIKO HIGH's pricing and exit terms have not been finalized or published yet. Before agreeing to work, confirm setup and usage costs, support responsibilities, ownership of websites, accounts, and phone numbers, and data-export arrangements.",
   },
 ];

@@ -79,6 +79,7 @@ Do not mark up proposed services as active offers before the owner confirms avai
 - Keep the JSON-LD question and answer text synchronized with the on-page FAQ.
 - Do not mark up hidden, invented, or duplicated FAQs.
 - FAQ markup does not guarantee a search feature.
+- FAQ remediation (2026-11-03): FAQ items removed from a page are removed from the same content array that feeds the visible FAQ and `faqPageNode()`, so markup stays in step. The 404 page no longer has an FAQ (it never carried FAQPage markup). All other FAQ pages keep their FAQPage node.
 
 ## Reviews and ratings
 

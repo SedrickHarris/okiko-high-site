@@ -46,10 +46,6 @@ export const sources = {
     label: "ABA, Formal Opinion 512",
     href: "https://www.americanbar.org/content/dam/aba/administrative/professional_responsibility/ethics-opinions/aba-formal-opinion-512.pdf",
   },
-  secMarketing: {
-    label: "SEC, Investment adviser marketing compliance guide",
-    href: "https://www.sec.gov/resources-small-businesses/small-business-compliance-guides/investment-adviser-marketing",
-  },
   highlevelVoice: {
     label: "HighLevel Support, How to create Voice AI agents",
     href: "https://help.gohighlevel.com/support/solutions/articles/155000004107-how-to-create-voice-ai-agents",
@@ -67,7 +63,7 @@ export const sources = {
 // Section A: professions the page addresses. Listing a profession is not a claim of
 // experience with it.
 export const audienceProfessions =
-  "law, accounting and bookkeeping, HR and consulting, financial advice, insurance, architecture, and engineering";
+  "law, accounting, consulting, and financial advice";
 
 // Section B: buyer questions mapped to website content.
 export const buyerMap: ReadonlyArray<{ icon: IconName; question: string; content: string; body: string }> = [
@@ -81,7 +77,7 @@ export const buyerMap: ReadonlyArray<{ icon: IconName; question: string; content
     icon: "shield",
     question: "Why trust you?",
     content: "Credentials",
-    body: "Approved credentials and evidence that is accurate and permitted. Nothing is invented or implied.",
+    body: "Approved credentials and evidence that is accurate. Nothing is invented or implied.",
   },
   {
     icon: "flag",
@@ -94,7 +90,7 @@ export const buyerMap: ReadonlyArray<{ icon: IconName; question: string; content
 export const buyerPoints: ReadonlyArray<string> = [
   "A referral can start a buying journey without finishing it. The prospect still wants to understand your services, credentials, fit, and how to engage you.",
   "Website content should reduce uncertainty with specific, accurate information instead of promotional language.",
-  "Where consideration is longer, helpful and permitted follow-up can keep the conversation moving.",
+  "Where consideration is longer, helpful follow-up can keep the conversation moving.",
 ];
 
 export const buyerStat = {
@@ -138,14 +134,12 @@ export const problems: ReadonlyArray<{
 export const problemsStat = {
   lead: "US law-firm research: in Clio's 2024 study of 500 US law firms, 40% answered the call and 33% responded to the email.",
   detail:
-    "This is legal-sector evidence from one study year. It does not describe accounting, consulting, financial, insurance, architecture, or engineering firms, and it does not show how many clients were lost.",
+    "This is legal-sector evidence from one study year. It does not describe accounting, consulting, or financial firms, and it does not show how many clients were lost.",
   source: sources.clioTrends,
 };
 
 // Section D: six segment cards. Needs come from the research pack; example workflows
-// are illustrative. Insurance shows needs only: its producer-licensing and carrier
-// rules need their own review before any example is given. No card links to a
-// dedicated page, because none exists.
+// are illustrative. No card links to a dedicated page, because none exists.
 export type Segment = {
   icon: IconName;
   title: string;
@@ -160,27 +154,24 @@ export const segments: ReadonlyArray<Segment> = [
     needs: [
       "Discreet first contact that asks for minimal detail",
       "Practice-specific urgency, such as after-hours inquiries",
-      "Confidentiality, conflict checks, and supervision kept with attorneys",
-      "State-specific advertising and solicitation review",
     ],
     workflow:
       "A referred prospect requests a callback through a short form. A named intake lead follows up and the attorney decides next steps.",
   },
   {
     icon: "clipboard",
-    title: "Accounting and bookkeeping",
+    title: "Accounting",
     needs: [
       "Recurring-client fit rather than one-off requests",
       "Seasonal demand that strains response times",
       "Referral validation: clear services and credentials",
       "Clear onboarding boundaries",
     ],
-    workflow:
-      "Inquiry routing separates ongoing bookkeeping from tax questions and sends an approved next-step message that states what onboarding involves.",
+    workflow: null,
   },
   {
     icon: "calendar",
-    title: "HR and consulting",
+    title: "Consulting",
     needs: [
       "Longer consideration periods",
       "Authority content that shows how the firm thinks",
@@ -194,44 +185,12 @@ export const segments: ReadonlyArray<Segment> = [
     icon: "shield",
     title: "Financial advisors",
     needs: [
-      "Marketing review that depends on the firm's registration",
-      "Controls on testimonials and endorsements",
       "Approval workflows before content or messages are released",
     ],
     workflow:
-      "Website content and client communications pass the firm's approval process before release. Testimonials are used only after registration-specific review.",
-  },
-  {
-    icon: "key",
-    title: "Insurance agencies",
-    needs: [
-      "Producer licensing that varies by person and place",
-      "Carrier approvals for marketing material",
-      "A clear line between quote requests and advice",
-    ],
-    workflow: null,
-  },
-  {
-    icon: "pen",
-    title: "Architecture and engineering",
-    needs: [
-      "Portfolios and project examples",
-      "Qualifications and licensing",
-      "RFP and proposal follow-up",
-      "Project-fit information: type, location, and timing",
-    ],
-    workflow:
-      "Prospects review credentials and relevant projects, then submit project type, location, and timing. Qualified opportunities enter a monitored proposal pipeline.",
+      "Website content and client communications pass the firm's approval process before release.",
   },
 ];
-
-export const segmentNote = {
-  lead: "Rules differ by profession, and this page does not claim equivalent rules across them.",
-  detail:
-    "ABA Formal Opinion 512 addresses confidentiality and supervision for lawyers using AI tools. SEC guidance addresses registration-specific review of adviser testimonials. Neither applies to the other professions listed, which need their own board, insurance-department, or professional review.",
-  source: sources.abaOpinion512,
-  extraSource: sources.secMarketing,
-};
 
 // Section E: illustrative scenarios. Labeled as examples, not client stories.
 export type Scenario = {
@@ -246,31 +205,19 @@ export const scenarios: ReadonlyArray<Scenario> = [
     icon: "file",
     title: "Solo estate-planning attorney",
     summary: "Minimal callback intake after a referral",
-    body: "A referred prospect visits after hours. The site explains fit and process, and a minimal form requests a callback without soliciting a detailed confidential narrative. Attorney advertising, solicitation, and confidentiality rules are set by each state and need review before anything goes live.",
-  },
-  {
-    icon: "clipboard",
-    title: "Four-person bookkeeping firm",
-    summary: "Inquiry routing and approved follow-up",
-    body: "Inquiry routing separates ongoing bookkeeping from tax questions and sends an approved next-step message. Existing clients receive neutral review invitations after eligible milestones.",
+    body: "A referred prospect visits after hours. The site explains fit and process, and a minimal form requests a callback without soliciting a detailed confidential narrative.",
   },
   {
     icon: "calendar",
-    title: "Eight-person HR consultancy",
+    title: "Consultancy",
     summary: "Qualification and relevant, opted-in communication",
     body: "A prospect downloads an approved guide and opts into relevant follow-up. Scheduling routes a qualified inquiry to the correct consultant rather than forcing an immediate sales call.",
   },
   {
     icon: "shield",
-    title: "Twelve-person financial-advisory firm",
+    title: "Financial-advisory firm",
     summary: "Content approval before release",
-    body: "Website content and communications pass the firm's approval process before release. Testimonials are used only after registration-specific review, because SEC, state, and broker-dealer situations differ.",
-  },
-  {
-    icon: "pen",
-    title: "Twenty-person architecture and engineering firm",
-    summary: "Credentials and project-fit intake",
-    body: "Prospects review credentials and relevant projects, then submit project type, location, and timing. Qualified opportunities enter a monitored proposal pipeline. Voice AI is optional here, not central.",
+    body: "Website content and communications pass the firm's approval process before release.",
   },
 ];
 
@@ -307,7 +254,7 @@ export const serviceCards: ReadonlyArray<ProfessionalServiceCard> = [
     icon: "mail",
     need: "Inquiries wait because follow-up depends on memory",
     description:
-      "Supports permitted follow-up and reminders: inquiry assignment, acknowledgment, and consultation reminders, sent only under rules and consent your firm has approved.",
+      "Supports follow-up and reminders: inquiry assignment, acknowledgment, and consultation reminders.",
     linkLabel: "Inquiry follow-up and messaging automation",
   },
   {
@@ -317,7 +264,7 @@ export const serviceCards: ReadonlyArray<ProfessionalServiceCard> = [
     icon: "star",
     need: "Public evidence is thin or hard to find",
     description:
-      "Neutral review requests and careful replies that help authentic public evidence build over time, within platform and professional rules. No gating, incentives, or promises about ratings.",
+      "Neutral review requests and careful replies that help authentic public evidence build over time. No gating, incentives, or promises about ratings.",
     linkLabel: "Reputation management",
   },
   {
@@ -357,7 +304,7 @@ export const stackNote = {
     "You do not need every service, and AI chat and voice are optional tools, not prerequisites. Start with the problem you can name.",
   scopeLabel: "Confirm scope",
   scopeNote:
-    "Availability and scope of each service are being confirmed with OKIKO HIGH. This is a way to match needs to services, not a package or a delivery order. A call-heavy firm may need intake coverage before a redesign, and an RFP-driven practice may gain more from credentials and proposal follow-up than from voice AI.",
+    "Availability and scope of each service are being confirmed with OKIKO HIGH. This is a way to match needs to services, not a package or a delivery order. A call-heavy firm may need intake coverage before a redesign.",
   lead: "Google excludes online-only businesses from Business Profile eligibility.",
   detail:
     "Whether Business Profile support applies depends on each firm's actual operating model. Voice-agent capabilities documented by a platform vendor also do not establish what OKIKO HIGH offers or how it is scoped.",
@@ -426,11 +373,10 @@ export const canHandle: ReadonlyArray<string> = [
 ];
 
 export const mustEscalate: ReadonlyArray<string> = [
-  "Legal, financial, tax, insurance, architectural, or engineering advice",
+  "Legal, financial, or tax advice",
   "Conflict decisions and other professional judgment",
   "Unsupported questions the assistant has no approved answer for",
   "Detailed confidential or sensitive information, which may need a separate secure channel",
-  "Regulated content that has not been approved and reviewed",
 ];
 
 export const failedTransfer = {
@@ -440,10 +386,8 @@ export const failedTransfer = {
 
 export const handoffNote = {
   lead: "Supervision stays with qualified people.",
-  detail:
-    "ABA Formal Opinion 512 addresses confidentiality, communication, and supervision when lawyers use AI tools, and HighLevel's voice-agent deployment guidance calls for testing fallback behavior. Identifying an AI assistant and offering a human route is a recommended practice here, not a universal legal requirement.",
-  source: sources.abaOpinion512,
-  extraSource: sources.highlevelVoice,
+  detail: "HighLevel's voice-agent deployment guidance calls for testing fallback behavior.",
+  source: sources.highlevelVoice,
 };
 
 // Section I: discovery checklist and an illustrative measurement framework. No
@@ -452,7 +396,7 @@ export const discoveryChecklist: ReadonlyArray<string> = [
   "Identify the bottleneck: where do inquiries actually stall today?",
   "Establish a baseline before anything changes",
   "Define what a suitable inquiry looks like for your firm",
-  "Map existing software, jurisdictions, and approval requirements",
+  "Map existing software and approval requirements",
   "Write down the selected services, exclusions, responsibilities, and costs before work begins",
   "Test normal use and exceptions before launch, including escalation and failed handoffs",
   "Define staff training, monitoring, account ownership, and support responsibilities",
@@ -485,14 +429,14 @@ export const measurementNote =
   "Compare results with your own baseline, not a general benchmark. No universal performance benchmark or approved OKIKO HIGH results are available, and none are shown here. Rankings, inquiry counts, and automated messages alone do not demonstrate profitable client acquisition.";
 
 export const boundariesNote =
-  "This page does not promise legal compliance, rankings, revenue, or uninterrupted handling. Worldwide service coverage does not mean every workflow is permitted in every country: messaging, calling, recording, and data handling are reviewed for the places your firm and prospects are actually located. Pricing is not published here and is defined in the written proposal.";
+  "This page does not promise rankings, revenue, or uninterrupted handling. Pricing is not published here and is defined in the written proposal.";
 
 // Single source for the visible FAQ section and the FAQPage JSON-LD.
 export const faqs: Faq[] = [
   {
     question: "Which professional firms is this page for?",
     answer:
-      "This page addresses the needs of law, accounting and bookkeeping, HR and consulting, financial-advisory, insurance, architecture, and engineering firms. Inclusion here does not establish that OKIKO HIGH has served every profession; relevant experience and service fit should be confirmed directly.",
+      "This page addresses the needs of law, accounting, consulting, and financial-advisory firms, and similar professional services firms. Inclusion here does not establish that OKIKO HIGH has served every profession; relevant experience and service fit should be confirmed directly.",
   },
   {
     question: "Can marketing help a firm that grows through referrals?",
@@ -541,13 +485,13 @@ export const faqs: Faq[] = [
   {
     question: "Can every firm use Google Business Profile and automated review requests?",
     answer:
-      "No. Google excludes online-only businesses from Business Profile eligibility and prohibits selectively requesting positive reviews; professional rules may add further restrictions.",
+      "No. Google excludes online-only businesses from Business Profile eligibility and prohibits selectively requesting positive reviews.",
     sources: [sources.googleGbpEligibility, sources.googleReviewPolicy],
     links: [{ phrase: "Business Profile", href: "/services/google-business-profile-optimization" }],
   },
   {
     question: "What does support from OKIKO HIGH cost?",
     answer:
-      "OKIKO HIGH's pricing model is TBD. Before approval, a proposal should identify the selected scope and any implementation, software, usage, integration, or ongoing-support costs.",
+      "OKIKO HIGH does not publish prices on this site. Any proposal should identify the selected scope and any implementation, software, usage, integration, or ongoing-support costs.",
   },
 ];

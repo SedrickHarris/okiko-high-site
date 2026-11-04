@@ -429,17 +429,7 @@ export default function Page() {
               <IconCardHeading icon="bell" tone="optional" title="Do weekly posts improve rankings?" />
               <p className="mt-3 text-neutral-800">
                 Posts help customers find current information, offers, and events.
-                We did not find a verified, universal ranking improvement from
-                posting on any particular schedule, so we do not sell posting
-                frequency as a ranking tactic.
-              </p>
-            </div>
-            <div className="rounded-lg border border-neutral-200 p-5">
-              <IconCardHeading icon="shield" title="Two kinds of consent" />
-              <p className="mt-3 text-neutral-800">
-                Google requires prior, specific, express consent for automated
-                profile actions. That is separate from consent to send texts or
-                emails or to record calls, which have their own rules.
+                We do not sell posting frequency as a ranking tactic.
               </p>
             </div>
           </div>
@@ -512,9 +502,7 @@ export default function Page() {
             Inquiries only turn into work when the page they land on is clear, which
             is where{" "}
             <Link href="/services/website-design" className={linkClass}>website design and development</Link>{" "}
-            fits. Following up on those inquiries by text or email is a separate
-            service with its own consent requirements, described under{" "}
-            <Link href="/services/sms-email-automation" className={linkClass}>consent-aware follow-up</Link>.
+            fits.
           </p>
           <SourceLinks sources={[sources.metrics, sources.contactGuidelines]} />
         </PageSection>

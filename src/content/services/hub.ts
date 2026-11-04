@@ -303,7 +303,7 @@ export const faqs: Faq[] = [
   {
     question: "Can these services work together?",
     answer:
-      "Yes. They can connect along the customer path: a Google Business Profile helps customers find you, your website explains the offer, a chatbot can answer questions before an inquiry, an AI receptionist can handle calls, and text and email workflows follow up. These connections are optional, scoped separately, and depend on platform compatibility and applicable consent rules.",
+      "Yes. They can connect along the customer path: a Google Business Profile helps customers find you, your website explains the offer, a chatbot can answer questions before an inquiry, an AI receptionist can handle calls, and text and email workflows follow up. These connections are optional, scoped separately, and depend on platform compatibility.",
   },
   {
     question: "Can OKIKO HIGH work with my existing website or software?",
@@ -311,35 +311,13 @@ export const faqs: Faq[] = [
       "Possibly. Compatibility depends on the actual systems, platforms, and permissions involved, so it is checked when your project is scoped rather than assumed. For a website, the first question is whether your current platform can support what you need; if it can, a redesign may be enough.",
   },
   {
-    question: "How much do OKIKO HIGH's services cost?",
-    answer:
-      "OKIKO HIGH does not publish prices for these services on this site. Cost depends on scope, such as the number of pages, locations, and platforms involved, which integrations are needed, and who approves and publishes content. Request a scoped quote through the contact page.",
-  },
-  {
-    question: "Can OKIKO HIGH guarantee rankings, leads, or review removal?",
-    answer:
-      "No. Google and other platforms control search results and decide whether a review is removed, and outcomes also depend on demand, competition, your offer, and how quickly inquiries are answered. No provider can responsibly guarantee them. Each service page states what it does and does not include.",
-  },
-  {
     question: "What information or account access will OKIKO HIGH need?",
     answer:
       "It depends on the service, and your scope lists the specifics. Examples from the service pages include access to your current website and analytics for a website project, authorized access to your Google Business Profile, and approved information, messages, and settings for chatbot, call, and follow-up workflows.",
   },
   {
-    question: "Does OKIKO HIGH work with businesses outside one city or country?",
+    question: "Are all six services available outside one city or country?",
     answer:
-      "OKIKO HIGH states that it serves clients worldwide. How a service works can still depend on your region, for example which platform features are available and which consent rules apply to calls and texts, so those points are checked when your project is scoped.",
-  },
-  {
-    question: "What kinds of businesses are these services for?",
-    answer:
-      "The service pages are written for local and service-based businesses. OKIKO HIGH currently serves four kinds of business, each with its own industry page: home services, professional services, property management and real estate, and healthcare, dental and med spa.",
-    links: [{ phrase: "four kinds of business", href: "/industries" }],
-  },
-  {
-    question: "How do I get started?",
-    answer:
-      "Use the contact page to describe your business, how customers reach you today, and what you want to improve. We use that to look at which service, if any, fits and to define the scope before any work begins.",
-    links: [{ phrase: "contact page", href: "/contact" }],
+      "OKIKO HIGH states that it serves clients worldwide. Whether a particular service fits your project, including which platform features are available in your region, is confirmed when your project is scoped.",
   },
 ];

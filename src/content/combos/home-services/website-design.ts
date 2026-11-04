@@ -10,8 +10,7 @@
 // - The owner's thesis that most home-service sites are under-built for SEO, AEO, and
 //   conversion is a hypothesis. The page uses only the sourced content-gap figures,
 //   each with its source and year, and never says "most home-service sites fail".
-// - Jobber figures are vendor-sourced. The ADA lawsuit count comes from an event
-//   listing, so confirm it in the UsableNet report before launch.
+// - Jobber figures are vendor-sourced.
 // - Google's FAQ rich result removal was read through a page summary; confirm it on
 //   Google's FAQPage documentation before launch.
 //
@@ -45,14 +44,6 @@ const sources = {
   webVitals: {
     label: "web.dev, Core Web Vitals",
     href: "https://web.dev/articles/vitals",
-  },
-  wcag: {
-    label: "W3C, Web Content Accessibility Guidelines 2.2",
-    href: "https://www.w3.org/TR/WCAG22/",
-  },
-  adaListing: {
-    label: "Fox Rothschild, ADA website lawsuit trends (event listing citing UsableNet)",
-    href: "https://www.foxrothschild.com/events/ada-website-lawsuit-trends-what-2025-filings-mean-for-2026",
   },
 } satisfies Record<string, SourceLink>;
 
@@ -285,14 +276,13 @@ export const combo: ComboContent = {
       sources: [sources.jobber],
     },
     {
-      kind: "cards",
-      id: "speed-and-accessibility",
-      heading: "Fast, Stable, and Usable by Everyone",
+      kind: "prose",
+      id: "speed-and-stability",
+      heading: "Fast and Stable Pages",
       muted: true,
       intro: [
-        "Speed and accessibility are part of whether a visitor can use the site at all, and both have published targets you can test against.",
+        "Speed is part of whether a visitor can use the site at all, and it has published targets you can test against.",
       ],
-      columns: 2,
       table: {
         caption: "Core Web Vitals: Google's good targets",
         columns: ["Metric", "What it measures", "Good"],
@@ -303,19 +293,7 @@ export const combo: ComboContent = {
         ],
         note: "Measured at the 75th percentile of page loads.",
       },
-      items: [
-        {
-          icon: "accessibility",
-          title: "WCAG 2.2",
-          body: "WCAG 2.2 is the current W3C Recommendation, published 12 December 2024. Its new Level AA criteria include Focus Not Obscured (Minimum), Dragging Movements, Target Size (Minimum), and Accessible Authentication (Minimum).",
-        },
-        {
-          icon: "shield",
-          title: "Legal exposure varies",
-          body: "Web accessibility lawsuits are filed regularly in the US, and one event listing citing UsableNet reports more than 5,000 ADA website lawsuits filed in 2025. Legal obligations vary, so ask a lawyer what applies to your business. This page does not describe any site as ADA compliant.",
-        },
-      ],
-      sources: [sources.webVitals, sources.wcag, sources.adaListing],
+      sources: [sources.webVitals],
     },
     {
       kind: "prose",
@@ -429,11 +407,6 @@ export const combo: ComboContent = {
       question: "What are good Core Web Vitals scores?",
       answer:
         "Google's 'good' targets are Largest Contentful Paint of 2.5 seconds or less, Interaction to Next Paint of 200 milliseconds or less, and Cumulative Layout Shift of 0.1 or less, measured at the 75th percentile of page loads.",
-    },
-    {
-      question: "Does my website need to follow accessibility standards?",
-      answer:
-        "WCAG 2.2 is the current W3C Recommendation, and web accessibility lawsuits are filed regularly in the US. Legal obligations vary, so ask a lawyer what applies to your business.",
     },
     {
       question: "Who owns my website when I use an agency?",

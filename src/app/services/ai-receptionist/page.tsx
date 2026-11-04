@@ -15,11 +15,9 @@ import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { ContactActions } from "@/components/ui/ContactActions";
 import { NamedIcon } from "@/components/ui/icons";
-import { QuickAnswer } from "@/components/ui/QuickAnswer";
 import { SourceLinks } from "@/components/ui/SourceLinks";
 import {
   aiReceptionistPage as page,
-  aiVoiceRuleNote,
   bookingChecks,
   bookingOutcomes,
   boundaryColumns,
@@ -497,15 +495,11 @@ export default function Page() {
           intro={
             <>
               <p>
-                Callers should be told they are speaking with AI. Recording and
-                transcription are a separate matter with their own consent
-                requirements, and an AI disclosure does not replace recording
-                consent.
+                Callers should be told they are speaking with AI.
               </p>
               <p>
-                This page does not claim that any workflow is HIPAA compliant. Health
-                information needs a separate review of the whole processing chain
-                before it is handled.
+                Health information needs a separate review of the whole processing
+                chain before it is handled.
               </p>
             </>
           }
@@ -523,16 +517,6 @@ export default function Page() {
               </div>
             ))}
           </div>
-          <p className="mt-8 max-w-3xl text-neutral-700">
-            Recording rules vary by jurisdiction and by the circumstances of the call.
-          </p>
-          <SourceLinks sources={[sources.euAiTransparency, sources.rcfp]} />
-          <QuickAnswer
-            icon="shield"
-            lead={aiVoiceRuleNote.lead}
-            detail={aiVoiceRuleNote.detail}
-            sources={aiVoiceRuleNote.sources}
-          />
         </PageSection>
 
         {/* 9. Measurement and proof */}
@@ -629,7 +613,7 @@ export default function Page() {
               >
                 website design and booking journeys
               </Link>
-              . Any text follow-up after a call needs the caller&apos;s consent.
+              .
             </p>
           }
         >

@@ -310,7 +310,7 @@ export const faqs: Faq[] = [
   {
     question: "Does the OKIKO HIGH website use cookies or tracking tools?",
     answer:
-      "At the time of this update, the OKIKO HIGH website does not use analytics tools, advertising pixels, or advertising cookies. Our hosting provider may still process standard technical information, such as an IP address, to deliver the site and keep it secure. If we add analytics or advertising tools, we will update this policy and, where the law requires it, ask for your consent first.",
+      "At the time of this update, the OKIKO HIGH website does not use analytics tools, advertising pixels, or advertising cookies. Our hosting provider may still process standard technical information, such as an IP address, to deliver the site and keep it secure. If we add analytics or advertising tools, we will update this policy.",
   },
   {
     question: "What information does OKIKO HIGH collect when I call, email, or use the contact form?",

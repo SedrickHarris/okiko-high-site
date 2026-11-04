@@ -26,7 +26,6 @@ import {
   failedTransfer,
   faqs,
   gapNotes,
-  handoffNote,
   inquiryMatrix,
   inquiryPrompts,
   introNote,
@@ -34,10 +33,8 @@ import {
   measureGroups,
   measurementNote,
   mustEscalate,
-  noticesNote,
   problems,
   problemsNote,
-  processNote,
   processSteps,
   propertyRealEstatePage as page,
   scenarioNote,
@@ -563,8 +560,6 @@ export default function Page() {
               <p className="mt-2 text-neutral-700">{failedTransfer.body}</p>
             </div>
           </div>
-          <QuickAnswer lead={handoffNote.lead} detail={handoffNote.detail} source={handoffNote.source} />
-          <QuickAnswer lead={noticesNote.lead} detail={noticesNote.detail} source={noticesNote.source} icon="file" />
         </PageSection>
 
         {/* 8. Fit and measurement */}
@@ -627,7 +622,6 @@ export default function Page() {
               ))}
             </ul>
           </div>
-          <p className="mt-6 max-w-3xl text-neutral-700">{processNote}</p>
         </PageSection>
 
         {/* 9. FAQ (two-column layout from FaqSection) */}

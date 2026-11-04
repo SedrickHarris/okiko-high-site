@@ -60,7 +60,8 @@ export const faqGroups: ReadonlyArray<FaqGroup> = [
       {
         question: "Do we need a new website, or can we improve the one we have?",
         answer:
-          "Start with an audit of your existing website and requirements. A redesign makes sense when the current platform can meet your goals. Rebuilding may be more practical when its structure or capabilities cannot. A rebuild also needs care, because a poorly managed one can disrupt search visibility.",
+          "Start with an audit of your existing website and requirements. Whether to improve the current site or rebuild it depends on what the platform can do. The website design page explains how to decide.",
+        links: [{ phrase: "website design page", href: "/services/website-design" }],
       },
       {
         question: "What should our website help visitors do?",
@@ -70,7 +71,8 @@ export const faqGroups: ReadonlyArray<FaqGroup> = [
       {
         question: "What does Google Business Profile optimization include?",
         answer:
-          "It commonly includes maintaining business information, optimizing categories and services, publishing approved content, monitoring the profile, and reporting customer actions. Website work, citations, review-request campaigns, call tracking, and suspension assistance may be separate, so the agreed scope should list them explicitly.",
+          "It commonly includes maintaining business information, categories and services, approved posts, monitoring, and reporting. The Google Business Profile management page lists what is included and what may be separate.",
+        links: [{ phrase: "Google Business Profile management page", href: "/services/google-business-profile-optimization" }],
       },
       {
         question: "Does our business qualify for a Google Business Profile?",
@@ -186,11 +188,6 @@ export const faqGroups: ReadonlyArray<FaqGroup> = [
         answer:
           "Yes, a workflow can branch by the customer's stage, such as a new inquiry, a sent estimate, or a booked appointment. Which branches are used depends on the systems connected and the rules approved for your project.",
       },
-      {
-        question: "How are permission, communication preferences, and opt-outs handled?",
-        answer:
-          "Consent rules depend on the message purpose, the technology, and the jurisdiction. A responsible setup looks for documented permission, honors opt-outs across workflows, and does not treat a phone number or an inbound call as blanket permission for marketing texts. Commercial email has its own sender and opt-out requirements. Your counsel should review the consent language.",
-      },
     ],
   },
   {
@@ -207,7 +204,8 @@ export const faqGroups: ReadonlyArray<FaqGroup> = [
       {
         question: "How can we request honest customer feedback and reviews?",
         answer:
-          "Ask eligible customers for honest feedback after an agreed completion event, without rewards, pressure, or prescribed wording. Follow each platform's rules, because they differ: Google permits neutral requests, while Yelp says not to ask. Incentives for reviews are not allowed.",
+          "Ask eligible customers for honest feedback after an agreed completion event, without rewards, pressure, or prescribed wording. The review management page explains how to do it and where each platform's rules differ.",
+        links: [{ phrase: "review management page", href: "/services/reputation-management" }],
       },
       {
         question: "Which customers receive review requests?",
@@ -223,11 +221,6 @@ export const faqGroups: ReadonlyArray<FaqGroup> = [
         question: "How are complaints or sensitive feedback routed to a person?",
         answer:
           "The workflow routes them to a named person who is responsible for reviewing and responding. Automation can organize the handoff, but it should not stand in for a thoughtful response to a disputed job, a safety concern, or a private customer issue. Private details should not be disclosed in a public reply.",
-      },
-      {
-        question: "Can we stay in touch with past customers when appropriate and permitted?",
-        answer:
-          "Potentially, after checking permissions, suppression records, data quality, and the relevance of the message. An old customer record is not automatic permission for every promotional text or email.",
       },
     ],
   },
@@ -246,24 +239,14 @@ export const faqGroups: ReadonlyArray<FaqGroup> = [
       {
         question: "What does OKIKO HIGH do?",
         answer:
-          "OKIKO HIGH combines digital marketing strategy with automation to help businesses connect with customers and simplify marketing and customer-management tasks.",
+          "OKIKO HIGH is a digital marketing agency with six services, described on the services page. The About page explains the agency's approach and mission.",
+        links: [{ phrase: "services page", href: "/services" }, { phrase: "About page", href: "/about" }],
       },
       {
         question: "What types of businesses does OKIKO HIGH work with?",
         answer:
-          "OKIKO HIGH currently serves four kinds of business: home-service businesses, such as HVAC, plumbing, landscaping, general contracting, and cleaning companies; professional services firms; property management and real estate businesses; and healthcare, dental, and med spa practices. Each has its own industry page, and those pages describe a proposed approach, not client work or results. Other industries are evaluated separately.",
-        links: [{ phrase: "four kinds of business", href: "/industries" }],
-      },
-      {
-        question: "Which service should I start with, and do I need all six?",
-        answer:
-          "You do not need all six. Start where customers drop off today: Google Business Profile management if they cannot find you, website design if they do not contact you, the AI receptionist if calls are missed, text and email automation if inquiries go quiet, and review management if reviews are thin. One clearly defined workflow is a sound starting point.",
-        links: [{ phrase: "all six", href: "/services" }],
-      },
-      {
-        question: "Does OKIKO HIGH work with businesses outside one city or country?",
-        answer:
-          "OKIKO HIGH states that it serves clients worldwide. Availability for a particular project depends on the systems, communication channels, languages, and legal requirements involved, such as which consent rules apply to calls and texts.",
+          "OKIKO HIGH currently serves four kinds of business. The industries page describes each one and how the services apply, as a proposed approach and not client work or results.",
+        links: [{ phrase: "industries page", href: "/industries" }],
       },
       {
         question: "How much do OKIKO HIGH services cost?",
@@ -273,7 +256,7 @@ export const faqGroups: ReadonlyArray<FaqGroup> = [
       {
         question: "How long does setup take?",
         answer:
-          "A timeline is set after the scope, system access, integrations, content approvals, and testing needs are understood. No standard setup time has been confirmed, so none is published.",
+          "A timeline is set after the scope, system access, integrations, content approvals, and testing needs are understood. OKIKO HIGH does not publish a standard setup time.",
       },
       {
         question: "How does getting started work, and what information is needed?",
@@ -284,12 +267,12 @@ export const faqGroups: ReadonlyArray<FaqGroup> = [
       {
         question: "What support does OKIKO HIGH provide after launch?",
         answer:
-          "Ongoing support is defined in your written scope. Support hours and response commitments have not been confirmed or published, so confirm them in the scope before you agree to work.",
+          "Ongoing support is defined in your written scope. OKIKO HIGH does not publish support hours or response commitments on this site, so confirm them in the scope before you agree to work.",
       },
       {
         question: "Who owns our websites, accounts, phone numbers, and data?",
         answer:
-          "Ownership depends on the agreement and the platform. OKIKO HIGH's ownership terms have not been finalized or published yet, so confirm domain and account control, content and code rights, phone number ownership, and data export before you agree to a project.",
+          "OKIKO HIGH has not published ownership or exit terms on this site. Who owns your website, accounts, content, phone numbers, and data, and what can be exported if you leave, are settled in writing when the project is scoped. Ask before you agree to a project.",
       },
       {
         question: "How is customer and business information handled?",
@@ -300,7 +283,7 @@ export const faqGroups: ReadonlyArray<FaqGroup> = [
       {
         question: "What happens if I stop working with OKIKO HIGH?",
         answer:
-          "Exit terms have not been finalized or published yet. Before agreeing to work, confirm what happens to your website, accounts, and phone numbers, who keeps access to each, and what data can be exported.",
+          "Cancellation and exit terms are not stated on this website. They are confirmed in writing when your project is scoped, so ask what happens to your website, accounts, phone numbers, and data if you stop.",
       },
       {
         question: "Can OKIKO HIGH guarantee rankings, leads, or review removal?",

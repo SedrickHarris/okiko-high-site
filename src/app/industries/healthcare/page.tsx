@@ -23,7 +23,6 @@ import {
   faqs,
   gapNotes,
   healthcarePage as page,
-  highLevelNote,
   inquiryMatrix,
   inquiryPrompts,
   insuranceExample,
@@ -33,18 +32,14 @@ import {
   mustEscalate,
   practiceTypes,
   practiceTypesNote,
-  privacyNote,
   privacyRules,
   problems,
   problemsNote,
   processSteps,
   proposedInclusions,
   reminderNote,
-  remindersLawNote,
-  reviewReplyNote,
   scenarios,
   scopeAndLimits,
-  scopeWorldwideNote,
   serviceCards,
   serviceLayers,
   softwareNote,
@@ -223,7 +218,6 @@ export default function Page() {
                 </li>
               ))}
             </ul>
-            <p className="mt-4 text-neutral-700">{scopeWorldwideNote}</p>
           </div>
         </PageSection>
 
@@ -481,7 +475,6 @@ export default function Page() {
               <p className="mt-2 text-neutral-700">{insuranceExample.body}</p>
             </div>
           </div>
-          <QuickAnswer lead={privacyNote.lead} detail={privacyNote.detail} source={privacyNote.source} />
         </PageSection>
 
         {/* 6. Existing software */}
@@ -609,12 +602,6 @@ export default function Page() {
             ))}
           </ol>
           <p className="mt-6 max-w-3xl text-neutral-700">{proposedInclusions}</p>
-          <QuickAnswer
-            lead={highLevelNote.lead}
-            detail={highLevelNote.detail}
-            sources={highLevelNote.sources}
-            icon="shield"
-          />
 
           <h3 className="mt-12 text-xl font-bold tracking-tight">Measure what changes for your practice</h3>
           <p className="mt-2 max-w-3xl text-neutral-700">
@@ -667,9 +654,7 @@ export default function Page() {
           intro={
             <p>
               Reviews, messages, and calls can all involve sensitive information.
-              These are the rules a workflow is designed around. They are draft
-              requirements, not a substitute for a legal review of your actual
-              practice, vendors, and the places you operate.
+              These are the rules a workflow is designed around.
             </p>
           }
         >
@@ -685,13 +670,6 @@ export default function Page() {
               </li>
             ))}
           </ul>
-          <QuickAnswer lead={reviewReplyNote.lead} detail={reviewReplyNote.detail} source={reviewReplyNote.source} />
-          <QuickAnswer
-            lead={remindersLawNote.lead}
-            detail={remindersLawNote.detail}
-            sources={remindersLawNote.sources}
-            icon="file"
-          />
           <p className="mt-6 max-w-3xl text-neutral-700">
             For the service behind these rules, see{" "}
             <Link href="/services/reputation-management" className={linkClass}>

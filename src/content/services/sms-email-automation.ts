@@ -50,26 +50,6 @@ export const sources = {
     label: "Cochrane review of mobile phone text message reminders for attendance, 2013",
     href: "https://pubmed.ncbi.nlm.nih.gov/24310741/",
   },
-  twilio: {
-    label: "Twilio A2P 10DLC guidance",
-    href: "https://www.twilio.com/docs/messaging/compliance/a2p-10dlc",
-  },
-  ctia: {
-    label: "CTIA Messaging Principles and Best Practices, 2023",
-    href: "https://api.ctia.org/wp-content/uploads/2023/05/230523-CTIA-Messaging-Principles-and-Best-Practices-FINAL.pdf",
-  },
-  canSpam: {
-    label: "FTC CAN-SPAM guide",
-    href: "https://www.ftc.gov/business-guidance/resources/can-spam-act-compliance-guide-business",
-  },
-  googleSender: {
-    label: "Google email sender guidelines",
-    href: "https://support.google.com/mail/answer/81126?hl=en",
-  },
-  cfr: {
-    label: "47 CFR 64.1200",
-    href: "https://www.ecfr.gov/current/title-47/chapter-I/subchapter-B/part-64/subpart-L/section-64.1200",
-  },
 } satisfies Record<string, SourceLink>;
 
 export const journeySteps = [
@@ -341,100 +321,20 @@ export const compatibilityChecklist = [
 
 export const needsConfirming = [
   "Which platforms and integrations apply to your setup",
-  "Who handles registration, consent wording, and legal review",
   "Who owns accounts, numbers, domains, and exported data if you leave",
   "What maintenance and reporting are included",
   "Which countries a workflow can run in",
 ] as const;
 
-export const permissionSteps = [
-  {
-    icon: "key",
-    tone: "default",
-    title: "Consent",
-    items: [
-      "Match permission to the purpose of each message",
-      "Keep an inquiry to us separate from enrolling in ongoing promotions",
-      "Check where historical contacts came from",
-    ],
-  },
-  {
-    icon: "clock",
-    tone: "included",
-    title: "Timing",
-    items: [
-      "Use the recipient's local time for quiet hours",
-      "Register the sending brand and campaign where required",
-      "Registration is not consent",
-    ],
-  },
-  {
-    icon: "message",
-    tone: "optional",
-    title: "Message",
-    items: [
-      "Say who is sending and why",
-      "Keep promotional and operational messages distinct",
-      "Set up email authentication and unsubscribe handling",
-    ],
-  },
-  {
-    icon: "exit",
-    tone: "default",
-    title: "Reply and opt-out",
-    items: [
-      "Honor STOP and HELP requests",
-      "Suppress opted-out contacts across every workflow",
-      "Route replies to a person",
-    ],
-  },
-] as const;
-
-export const permissionNotes = [
-  {
-    icon: "star",
-    tone: "included",
-    title: "Review requests",
-    body: "We ask for honest feedback after real, completed work. No incentives, and no filtering out unhappy customers.",
-  },
-  {
-    icon: "repeat",
-    tone: "optional",
-    title: "Reactivation",
-    body: "An old customer record is not automatic permission for promotional texts. We check permissions and suppression records first, and we do not use purchased or shared lists.",
-  },
-  {
-    icon: "mail",
-    tone: "default",
-    title: "Email",
-    body: "We configure sender authentication (SPF, DKIM, DMARC) and unsubscribe handling. Authentication reduces spoofing risk but does not guarantee inbox placement.",
-  },
-  {
-    icon: "shield",
-    tone: "default",
-    title: "Regulated sectors",
-    body: "Healthcare privacy rules and housing advertising rules add requirements. We validate them separately before making any sector-specific promise.",
-  },
-  {
-    icon: "bell",
-    tone: "default",
-    title: "Rules are changing",
-    body: "Federal consent and opt-out rules have changed recently and may change again. We keep broad, customer-friendly opt-out handling and avoid relying on newly announced permissions until they have been reviewed.",
-  },
-] as const;
-
 // Single source for the visible FAQ section and the FAQPage JSON-LD.
 export const faqs: ReadonlyArray<Faq> = [
   { question: "What is text and email automation?", answer: "Text and email automation sends approved messages after a defined action or customer-stage change, such as an inquiry, quote, or appointment booking. The workflow also needs rules for replies, timing, and when messages stop." },
-  { question: "Is texting customers legal?", answer: "Businesses can text customers when the program meets applicable consent, opt-out, timing, and other requirements. Rules vary by message purpose, technology, and jurisdiction, and carrier policies apply separately from the law." },
   { question: "Will automated messages annoy my customers?", answer: "They can if they are unwanted, repetitive, poorly timed, or continue after someone responds. A responsible workflow uses appropriate permissions, useful content, frequency limits, and a clear way to stop." },
   { question: "How fast should I follow up with a new lead?", answer: "A practical target is prompt acknowledgment and a substantive human response within five minutes during staffed hours, where feasible. That is an operating recommendation, not a guaranteed conversion result or an OKIKO HIGH service commitment." },
   { question: "How many follow-up messages should I send?", answer: "There is no universal number that fits every service or customer. Start with a short, useful sequence, monitor replies and opt-outs, and stop or change the sequence when the customer's status changes." },
-  { question: "What do I need to register to send texts?", answer: "For application-based messaging through US 10-digit local numbers, register the sending brand and messaging campaign, then associate the phone numbers. Registration typically requires business details, message examples, opt-in information, opt-out instructions, and relevant website policies. Other number types use different processes." },
   { question: "Should I use text messages or email?", answer: "Text messages suit brief, time-sensitive interactions, while email provides room for estimates, instructions, and longer explanations. When both are used, coordinate them so a customer's reply or booking prevents unnecessary follow-ups." },
   { question: "What happens when a customer replies?", answer: "A well-designed workflow pauses or branches and routes the reply to the appropriate person. Staff ownership, response expectations, and escalation responsibilities should be agreed before launch." },
   { question: "Can I use my existing CRM and scheduling software?", answer: "Possibly, but compatibility should be checked against the actual systems, permissions, and integration requirements. Existing reminders should also be reviewed so a new workflow does not duplicate messages." },
-  { question: "Can I send reactivation messages to former customers?", answer: "Potentially, after checking permissions, suppression records, data quality, and the purpose of the message. An old customer record is not automatic permission for every promotional text." },
 ];
 
 // Quick fact beside the channel notes (replaces the former "98% open rate" card).

@@ -49,7 +49,7 @@ export const heroWorkflow: ReadonlyArray<{ icon: IconName; stage: string; body: 
   {
     icon: "mail",
     stage: "Approved follow-up",
-    body: "Approved messages go out where consent allows.",
+    body: "Approved messages go out.",
   },
   {
     icon: "check",
@@ -73,7 +73,7 @@ export const faqs: Faq[] = [
   {
     question: "What does OKIKO HIGH Digital Marketing Agency do?",
     answer:
-      "OKIKO HIGH provides digital marketing, marketing automation, and software-as-a-service solutions for local and service-based businesses. The work is organized into six services: website design, Google Business Profile management, review management, AI website chatbots, an AI receptionist for inbound calls, and text and email automation. Each has its own page explaining scope and limits.",
+      "OKIKO HIGH provides digital marketing, marketing automation, and software-as-a-service solutions. The work is organized into six services: website design, Google Business Profile management, review management, AI website chatbots, an AI receptionist for inbound calls, and text and email automation. Each has its own page explaining scope and limits.",
     links: [{ phrase: "six services", href: "/services" }],
   },
   {
@@ -85,7 +85,7 @@ export const faqs: Faq[] = [
   {
     question: "Does OKIKO HIGH work with businesses outside the United States?",
     answer:
-      "OKIKO HIGH states that it serves clients worldwide. How a service works can still depend on your region, such as which platform features are available and which consent rules apply to calls and texts, so those points are checked when your project is scoped.",
+      "OKIKO HIGH states that it serves clients worldwide. How a service works can depend on which platform features are available in your region, so that is checked when your project is scoped.",
   },
   {
     question: "Do I need all six services?",
@@ -101,16 +101,6 @@ export const faqs: Faq[] = [
       { phrase: "AI receptionist", href: "/services/ai-receptionist" },
       { phrase: "text and email workflows", href: "/services/sms-email-automation" },
     ],
-  },
-  {
-    question: "Does OKIKO HIGH publish prices?",
-    answer:
-      "No. Prices are not published on this site because cost depends on scope, such as the pages, platforms, and integrations involved and who approves content. Request a scoped quote through the contact page.",
-  },
-  {
-    question: "Does OKIKO HIGH guarantee rankings or leads?",
-    answer:
-      "No. Google and other platforms control search results and reviews, and outcomes also depend on demand, competition, your offer, and how quickly inquiries are answered. Each service page states what it does and does not include.",
   },
   {
     question: "How do I get started with OKIKO HIGH?",

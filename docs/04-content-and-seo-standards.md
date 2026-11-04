@@ -49,6 +49,9 @@ FAQs should answer real questions that a prospective customer might ask before c
 - State limitations, eligibility, or availability when relevant.
 - Link to a related service or contact page when it helps the reader take the next step.
 - Do not invent answers to fill a section. If the business cannot verify an answer, leave that FAQ out or flag it for owner confirmation.
+- Do not publish FAQ answers that state or interpret a law, regulation, or compliance standard (for example HIPAA, TCPA, CAN-SPAM, ADA, call-recording or AI-disclosure rules) without owner-approved legal review (owner decision, 2026-11-03).
+- Keep internal status wording such as "TBD" or "our research" out of FAQ answers. If an answer cannot be written from `docs/01` or approved site copy, leave the question out.
+- Each question appears on the page where it is most relevant. Do not repeat the same question or answer across pages with swapped keywords; link to the page that holds the full answer instead.
 
 ### FAQ coverage by page type
 

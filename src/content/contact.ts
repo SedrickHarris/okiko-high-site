@@ -90,11 +90,6 @@ export const faqs: Faq[] = [
     ],
   },
   {
-    question: "Does OKIKO HIGH work with clients outside the US?",
-    answer:
-      "Yes. OKIKO HIGH states that it serves clients worldwide. Call or email with your business details to talk through your situation.",
-  },
-  {
     question: "What should I include in my first message to OKIKO HIGH?",
     answer:
       "Include your type of business, the service you are considering, and the problem you want to fix. If you are not sure which service fits, describe what is not working and we can help you sort it out.",
@@ -110,11 +105,5 @@ export const faqs: Faq[] = [
     answer:
       "You can ask about website design, Google Business Profile management, review management, AI website chatbots, an AI receptionist for inbound calls, and text and email automation. Each has its own page with details.",
     links: [{ phrase: "Each has its own page", href: "/services" }],
-  },
-  {
-    question: "Which industries does OKIKO HIGH serve?",
-    answer:
-      "OKIKO HIGH serves home services, professional services, property management and real estate, and healthcare, dental and med spa businesses. Each industry has its own page that shows how the services apply.",
-    links: [{ phrase: "Each industry has its own page", href: "/industries" }],
   },
 ];

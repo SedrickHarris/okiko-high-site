@@ -23,7 +23,6 @@ import {
   homeServiceCases,
   likelyUseful,
   loopStages,
-  messagingNotes,
   metricRows,
   notPromised,
   ownerQuestions,
@@ -383,39 +382,6 @@ export default function Page() {
             label="Platform source"
             sources={[sources.googlePolicy, sources.yelp, sources.angiFaq]}
           />
-
-          <div className="mt-8 grid gap-6 md:grid-cols-2">
-            <div className="rounded-lg border border-neutral-200 p-5">
-              <h3 className="text-lg font-semibold">The FTC review rule</h3>
-              <p className="mt-3 text-neutral-800">
-                The FTC&apos;s Consumer Reviews and Testimonials Rule took effect on
-                October 21, 2024. It covers fake reviews, incentives tied to positive
-                or negative sentiment, and certain suppression practices. Agencies and
-                reputation-management firms can be liable alongside businesses.
-              </p>
-              <p className="mt-3 text-neutral-800">
-                Asking only satisfied customers is prohibited by Google and can raise
-                FTC Act concerns, which is why eligibility is based on a completed
-                job and not on a satisfaction score.
-              </p>
-              <p className="mt-3 text-sm text-neutral-600">
-                This is general information, not legal advice.
-              </p>
-              <SourceLinks sources={[sources.ftcRule]} />
-            </div>
-            <div className="rounded-lg border border-neutral-200 p-5">
-              <h3 className="text-lg font-semibold">Consent, privacy, and worldwide delivery</h3>
-              <div className="mt-3 space-y-4">
-                {messagingNotes.map((note) => (
-                  <div key={note.title}>
-                    <h4 className="text-base font-semibold">{note.title}</h4>
-                    <p className="mt-1 text-neutral-800">{note.body}</p>
-                  </div>
-                ))}
-              </div>
-              <SourceLinks sources={[sources.fcc, sources.canSpam]} />
-            </div>
-          </div>
         </PageSection>
 
         {/* 7. Human approval, escalation, and reporting */}
@@ -453,10 +419,7 @@ export default function Page() {
               <p className="mt-3 text-neutral-800">
                 If AI helps draft a reply, a person still checks accuracy, tone,
                 privacy, and any sensitive allegation before it is published.
-                Automated replies are especially risky where patient information or
-                legal-client confidentiality is involved.
               </p>
-              <SourceLinks sources={[sources.adaReviews]} />
             </div>
           </div>
 

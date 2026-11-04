@@ -3,7 +3,6 @@ import Link from "next/link";
 import type { CSSProperties } from "react";
 import { IconCardHeading } from "@/components/cards/IconCardHeading";
 import { FaqIntro } from "@/components/sections/FaqIntro";
-import { StepBadge } from "@/components/ui/StepBadge";
 import { FaqSection } from "@/components/sections/FaqSection";
 import { HomeServicesBranchingDiagram } from "@/components/illustrations/HomeServicesBranchingDiagram";
 import { HomeServicesHeroIllustration } from "@/components/illustrations/HomeServicesHeroIllustration";
@@ -28,9 +27,6 @@ import {
   journeyStages,
   limits,
   measurementNote,
-  permissionFact,
-  permissionPoints,
-  permissionSteps,
   problems,
   reportTiles,
   reviewFact,
@@ -95,7 +91,6 @@ const jumpItems = [
   { href: "#team-control", label: "Team control" },
   { href: "#existing-systems", label: "Existing systems" },
   { href: "#measurement", label: "Measurement" },
-  { href: "#customer-permission", label: "Permission" },
   { href: "#faq", label: "FAQs" },
 ] as const;
 
@@ -474,43 +469,6 @@ export default function Page() {
             ))}
           </ul>
           <p className="mt-6 max-w-3xl text-neutral-700">{measurementNote}</p>
-        </PageSection>
-
-        {/* I. Permission */}
-        <PageSection
-          id="customer-permission"
-          heading="Build Customer Permission Into the Process"
-          muted
-          className="xl:-mx-10"
-          intro={
-            <p>
-              Customer communication works better, and stays safer, when permission
-              is part of the design rather than an afterthought.
-            </p>
-          }
-        >
-          <ol className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {permissionSteps.map((step, index) => (
-              <li
-                key={step.title}
-                className={`rounded-lg border border-neutral-200 border-t-4 bg-white p-5 ${accents[index % accents.length]}`}
-              >
-                <StepBadge index={index} />
-                <IconCardHeading icon={step.icon} title={step.title} />
-                <p className="mt-3 text-neutral-700">{step.body}</p>
-              </li>
-            ))}
-          </ol>
-          <ul className="mt-8 max-w-3xl list-disc space-y-2 pl-5 text-neutral-800">
-            {permissionPoints.map((point) => (
-              <li key={point}>{point}</li>
-            ))}
-          </ul>
-          <QuickAnswer
-            lead={permissionFact.lead}
-            detail={permissionFact.detail}
-            sources={permissionFact.sources}
-          />
         </PageSection>
 
         {/* Scope and limits */}

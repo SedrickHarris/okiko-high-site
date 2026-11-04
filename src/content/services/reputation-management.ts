@@ -51,18 +51,6 @@ export const sources = {
     label: "Angi frequently asked questions",
     href: "https://www.angi.com/landing/faq",
   },
-  ftcRule: {
-    label: "FTC Consumer Reviews and Testimonials Rule: questions and answers",
-    href: "https://www.ftc.gov/business-guidance/resources/consumer-reviews-testimonials-rule-questions-answers",
-  },
-  fcc: {
-    label: "FCC guide: stop unwanted robocalls and texts",
-    href: "https://www.fcc.gov/consumers/guides/stop-unwanted-robocalls-and-texts",
-  },
-  canSpam: {
-    label: "FTC CAN-SPAM Act compliance guide for business",
-    href: "https://www.ftc.gov/business-guidance/resources/can-spam-act-compliance-guide-business",
-  },
   highLevelRequests: {
     label: "HighLevel documentation on multi-channel review requests",
     href: "https://help.gohighlevel.com/support/solutions/articles/155000004803-multi-channel-review-requests",
@@ -70,10 +58,6 @@ export const sources = {
   highLevelCustomize: {
     label: "HighLevel documentation on customizing review request messages",
     href: "https://help.gohighlevel.com/support/solutions/articles/48000980328-how-to-customize-the-review-request-messages-sms-email-",
-  },
-  adaReviews: {
-    label: "American Dental Association guidance on responding to online reviews",
-    href: "https://www.ada.org/resources/practice/legal-and-regulatory/managing-dental-practice-online-reviews",
   },
 } satisfies Record<string, SourceLink>;
 
@@ -134,7 +118,7 @@ export const loopStages = [
 export const workflowSteps = [
   {
     title: "Audit your profiles and data",
-    body: "Review your review profiles, permissions, existing reviews, customer data, and consent records.",
+    body: "Review your review profiles, permissions, existing reviews, and customer data.",
     clientInput: "Access to your review profiles and a view of how jobs are recorded.",
   },
   {
@@ -145,7 +129,7 @@ export const workflowSteps = [
   {
     title: "Send a neutral request",
     body: "Trigger one request through a permitted platform and an approved channel, with wording that leaves the rating and the words to the customer.",
-    clientInput: "Which channels you have consent to use.",
+    clientInput: "Which channels you use to reach customers.",
   },
   {
     title: "Monitor and route",
@@ -187,7 +171,6 @@ export const scopeColumns = [
     items: [
       "Access to your review profiles",
       "A way to tell when a job is complete",
-      "Documented consent for the channels used",
       "A named person for threats, safety concerns, legal allegations, and urgent complaints",
       "Rules for which replies need your approval",
     ],
@@ -265,21 +248,6 @@ export const platformRows = [
   },
 ] as const;
 
-export const messagingNotes = [
-  {
-    title: "Text messages (US)",
-    body: "Consent rules depend on the purpose of the message and the technology used. We look for documented consent, honor opt-outs, and do not treat a phone number on file as unlimited permission to send marketing messages. Your counsel should approve the exact workflow.",
-  },
-  {
-    title: "Email (US)",
-    body: "Commercial email needs truthful sender details, an opt-out, and a valid postal address. Whether a review request counts as commercial has to be assessed, so we do not assume it is exempt.",
-  },
-  {
-    title: "Worldwide does not mean everywhere",
-    body: "OKIKO HIGH serves clients worldwide, but messaging, privacy, and review rules differ by country. Each channel is checked per project before launch.",
-  },
-] as const;
-
 export const reportSteps = [
   "Save the review, its link, the date, and any relevant evidence.",
   "Identify the specific policy provision it breaks, not just why you disagree with it.",
@@ -303,7 +271,7 @@ export const replyPrinciples = [
   {
     icon: "shield",
     title: "Protect privacy",
-    body: "Do not disclose private details, even if the reviewer shared them first. Regulated sectors need a separate privacy review.",
+    body: "Do not disclose private details, even if the reviewer shared them first.",
   },
   {
     icon: "flag",
@@ -319,7 +287,6 @@ export const escalationList = [
   "Threats and safety concerns",
   "Legal allegations",
   "Urgent complaints",
-  "Anything involving private or regulated personal information",
 ] as const;
 
 export const homeServiceCases = [
@@ -343,7 +310,7 @@ export const homeServiceCases = [
 export const timingRules = [
   "One request and at most one restrained reminder",
   "Every eligible customer gets the same opportunity. Private support never decides who receives the link.",
-  "The customer's preferred channel, only where you have consent",
+  "The customer's preferred channel",
   "Timing is a starting recommendation, tested against your own results",
 ] as const;
 
@@ -435,7 +402,7 @@ export const alternativeRows = [
   {
     option: "Your CRM or field-service software",
     fits: "Job-completion data already lives in a usable system.",
-    limit: "Integrations, consent, and duplicate suppression still need to be confirmed.",
+    limit: "Integrations and duplicate suppression still need to be confirmed.",
   },
   {
     option: "Review software on its own",
@@ -486,13 +453,7 @@ export const faqs: Faq[] = [
   {
     question: "What should I say to an angry reviewer?",
     answer:
-      "For an ordinary service business, try something like: \"I'm sorry to hear you were disappointed. Please contact [name or contact] so we can understand your concerns and discuss next steps.\" Keep it calm, avoid public argument, and refer to what the reviewer actually said. Use a privacy-reviewed approach for healthcare or legal matters.",
-  },
-  {
-    question: "Can I offer a discount for a review?",
-    answer:
-      "Do not offer incentives for Google or Yelp reviews. The FTC also prohibits incentives conditioned on a particular sentiment, and even neutral incentives can raise disclosure and platform-policy issues.",
-    sources: [sources.googlePolicy, sources.ftcRule],
+      "For an ordinary service business, try something like: \"I'm sorry to hear you were disappointed. Please contact [name or contact] so we can understand your concerns and discuss next steps.\" Keep it calm, avoid public argument, and refer to what the reviewer actually said.",
   },
   {
     question: "What is review gating, and is it allowed?",
@@ -510,7 +471,7 @@ export const faqs: Faq[] = [
   {
     question: "Is SMS or email better for review requests?",
     answer:
-      "No universal published-review conversion advantage was verified in our research. Choose a legally appropriate channel based on customer preference, and track delivery, clicks, published reviews, and opt-outs separately. Review tools commonly support both channels.",
+      "Choose the channel based on customer preference, and track delivery, clicks, published reviews, and opt-outs separately. Review tools commonly support both channels.",
     sources: [sources.highLevelRequests],
   },
   {
@@ -522,7 +483,7 @@ export const faqs: Faq[] = [
   {
     question: "Should I respond to positive reviews?",
     answer:
-      "Yes, where an appropriate reply is possible: briefly thank the reviewer and acknowledge the feedback without repetitive sales language. Healthcare providers must avoid confirming patient status, even in positive replies.",
+      "Yes, where an appropriate reply is possible: briefly thank the reviewer and acknowledge the feedback without repetitive sales language.",
     sources: [sources.brightLocal],
   },
   {
@@ -534,8 +495,7 @@ export const faqs: Faq[] = [
   {
     question: "Can AI write our review responses?",
     answer:
-      "AI can produce a draft, but a person should check accuracy, tone, privacy, and sensitive allegations before it is published. Automated replies are particularly risky where patient information or legal-client confidentiality is involved.",
-    sources: [sources.adaReviews],
+      "AI can produce a draft, but a person should check accuracy, tone, privacy, and sensitive allegations before it is published.",
   },
   {
     question: "How much does review management cost?",
