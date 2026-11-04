@@ -82,7 +82,7 @@ public/images/brand/
 
 Use the primary logo on white or light surfaces. Use a reversed logo only where a dark background requires it and an approved variant exists. Use the standalone mark for small placements such as a favicon or social avatar, if supplied.
 
-Contents: `source/` holds editable SVGs (primary, horizontal, icon; on white, reversed, and dark variants) and the pack README; `web/` holds WebP exports and favicon files; `social/` holds icon images. The root layout and contact page use `web/okiko-high-primary-on-white.webp` as the Open Graph image, and `src/app/icon.svg` and `src/app/apple-icon.png` are the favicons.
+Contents: `source/` holds editable SVGs (primary, horizontal, icon; on white, reversed, and dark variants) and the pack README; `web/` holds WebP exports and favicon files; `social/` holds icon images. The root layout and contact page use `web/okiko-high-primary-on-white.webp` as the Open Graph image, and `web/okiko-high-digital-marketing-favicon-white-background.webp` is the favicon and Apple touch icon, set in the root layout metadata.
 
 Do not stretch, recolor, rearrange, or recreate the logo without approval. Preserve original source files.
 

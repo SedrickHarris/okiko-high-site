@@ -13,6 +13,16 @@ export const siteConfig = {
   logo: { path: "/images/brand/logos/web/okiko-high-primary-on-white.webp", width: 1600, height: 867 },
 } as const;
 
+// GoHighLevel (LeadConnector) chat widget embed, loaded once in the root layout. The
+// widget ID is a public embed value, not a secret. Override with
+// NEXT_PUBLIC_CHAT_WIDGET_ID at build time; set it to an empty string to turn the widget off.
+// Colors, name, avatar, and welcome message are configured in the GoHighLevel builder.
+export const chatWidget = {
+  id: process.env.NEXT_PUBLIC_CHAT_WIDGET_ID?.trim() ?? "6aea79d699b93387b97fad1f",
+  loaderSrc: "https://widgets.leadconnectorhq.com/loader.js",
+  resourcesUrl: "https://widgets.leadconnectorhq.com/chat-widget/loader.js",
+} as const;
+
 // Contact hrefs derive from the one phone and email above so formats never drift.
 // The tel: href is E.164 (+1 and ten digits); the display text stays as written.
 export const phoneHref = `tel:+1${siteConfig.phone.replace(/\D/g, "")}`;

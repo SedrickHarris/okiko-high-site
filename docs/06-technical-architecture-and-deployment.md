@@ -82,6 +82,17 @@ Structured data is a core project requirement. Keep JSON-LD generation maintaina
 - **Spam:** a hidden honeypot field; a filled honeypot shows the success message and sends nothing. There is no CAPTCHA and no added dependency.
 - **Not decided:** response-time promises (none are shown), confirmation emails, and analytics events.
 
+### Chat widget (third-party script)
+
+- **What:** the GoHighLevel (LeadConnector) chat widget, loaded from `widgets.leadconnectorhq.com` (`loader.js`, which in turn loads `chat-widget/loader.js` and the widget's own assets from the same host).
+- **Where it loads:** once, in the root layout (`src/app/layout.tsx`), as a `next/script` `Script` with `id="leadconnector-chat-widget"`. It is on every public page and does not reload on client navigation. Do not add it to individual pages.
+- **Loading strategy:** `lazyOnload` (browser idle time, after the page's resources), so it does not block rendering.
+- **Widget ID:** `chatWidget` in `src/data/site.ts`. The default is the owner's widget ID; `NEXT_PUBLIC_CHAT_WIDGET_ID` overrides it at build time, and an empty value turns the widget off. The ID is a public embed value, not a secret.
+- **Environments:** there is no dev/preview check, so the widget loads in every environment, including `next dev` and `*.pages.dev` previews. Test chats there land in the live GoHighLevel chat history. To avoid that, set `NEXT_PUBLIC_CHAT_WIDGET_ID` to an empty string in the Cloudflare preview environment.
+- **Styling:** colors, name, avatar, and welcome message are set in the GoHighLevel builder, not in code.
+- **Headers:** the site has no Content Security Policy or security-headers config (`public/_headers` only sends the `pages.dev` noindex rule), so nothing needed allowing. If a CSP is added later, it must allow the LeadConnector hosts the widget uses.
+- **Privacy:** the Privacy Policy says the site uses no third-party scripts or cookies; see the checklist item in `08-launch-checklist.md`.
+
 Keep credentials and private endpoints out of source files. Use environment variables for any secrets or environment-specific settings. Do not create nonfunctional form or booking links.
 
 ## GitHub workflow

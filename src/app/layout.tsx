@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { Inter, Manrope } from "next/font/google";
+import Script from "next/script";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
-import { siteConfig } from "@/data/site";
+import { chatWidget, siteConfig } from "@/data/site";
 import "./globals.css";
 
 // Manrope: headings, navigation, buttons, short callouts.
@@ -19,6 +20,9 @@ const inter = Inter({
   display: "swap",
 });
 
+const faviconPath =
+  "/images/brand/logos/web/okiko-high-digital-marketing-favicon-white-background.webp";
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
@@ -26,6 +30,10 @@ export const metadata: Metadata = {
     template: `%s | ${siteConfig.shortName}`,
   },
   description: siteConfig.description,
+  icons: {
+    icon: { url: faviconPath, type: "image/webp" },
+    apple: { url: faviconPath, type: "image/webp" },
+  },
   openGraph: {
     siteName: siteConfig.name,
     type: "website",
@@ -50,6 +58,15 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <SiteHeader />
         <main className="mx-auto w-full max-w-6xl flex-1 px-4 py-12">{children}</main>
         <SiteFooter />
+        {chatWidget.id && (
+          <Script
+            id="leadconnector-chat-widget"
+            src={chatWidget.loaderSrc}
+            data-resources-url={chatWidget.resourcesUrl}
+            data-widget-id={chatWidget.id}
+            strategy="lazyOnload"
+          />
+        )}
       </body>
     </html>
   );
